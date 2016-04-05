@@ -142,7 +142,7 @@ Select the Test Case you wish to clone in the navigation panel. Right click and 
 Once you press OK the cloned Test Case is ready and can be modified as required. 
 
 ## Help and Support
-soapUI is a powerful tool with many features beyond those described in this document or used in the Sabre APIs Workflows project. It is beyond the scope of this document to fully describe all of the features or provide documentation or training in their use. For more information please consult the Getting Started section at: www.soapUI.org.
+soapUI is a powerful tool with many features beyond those described in this document or used in the Sabre APIs Workflows project. It is beyond the scope of this document to fully describe all of the features or provide documentation or training in their use. For more information please consult the Getting Started section at: www.soapui.org.
 
 
 ## Appendix
