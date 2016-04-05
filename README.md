@@ -8,7 +8,7 @@ soapUI is a product of SmartBear Software (100 Cummings Center, Suite 234N, Beve
 ## Download and Setup
 To test *Sabre APIs* using soapUI you must first download a copy from www.soapui.org and install it on a computer attached to your production network. To execute *Sabre APIs*, soapUI must be able to access the Sabre APIs endpoints (URL) using the same network connection as your production systems. Follow the instructions on the www.soapui.org website to install the software. 
 
-Once soapUI is installed and configured for your environment (see the help section of www.soapUI.com for instructions) you may download and import the soapUI *Sabre APIs* Workflows project file from this repository (named Sabre-APIs-Workflows-soapui-project.xml). This file includes bindings for sample *Sabre APIs* and demonstration test cases. 
+Once soapUI is installed and configured for your environment (see the help section of www.soapui.com for instructions) you may download and import the soapUI *Sabre APIs* Workflows project file from this repository (named Sabre-APIs-Workflows-soapui-project.xml). This file includes bindings for sample *Sabre APIs* and demonstration test cases. 
 
 Save/clone this files to a folder and make a note of the location.
 
