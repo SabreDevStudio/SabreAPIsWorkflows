@@ -3,6 +3,7 @@ This document is a guide for using soapUI® with *Sabre APIs*. soapUI is an open
 
 soapUI is a product of SmartBear Software (100 Cummings Center, Suite 234N, Beverly, MA 01915, 978-236-7900, SmartBear.com) and is not endorsed or supported by Sabre Inc. For more information or for help learning soapUI or soapUI Pro please visit: www.soapui.org. 
 
+### Disclaimer of Warranty:
 *This document is not intended as a comprehensive tutorial on the soapUI test tool or Sabre APIs. The Sabre APIs Client Test Tool project file for soapUI is provided as-is with no warranties expressed or implied. It is offered without charge to assist customers new to Sabre APIs or who wish to create wire-frame models of business processes using Sabre APIs.*
 
 ## Download and Setup
