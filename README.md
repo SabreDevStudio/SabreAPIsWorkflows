@@ -118,7 +118,8 @@ In order to run a Test Case, do the following:
 
 3-	Click on the PLAY icon (‘green triangle’) to run.
 
-###### img here...
+![Running Test Cases/Workflows](/img/runningTestCases.png) 
+
 
 The Test Steps (and referenced Test Case/s) included in the selected Test Case will be executed in sequence, until completion.
 
@@ -133,13 +134,13 @@ For those workflows designed as ‘composite’ Test Cases (referencing other �
 
 As an example, the ‘Book Air Segment’ workflow is only composed of ‘Utility’ Test Cases, so in order to inspect the traffic for the ‘Booking’ (1) Test Case step, the ‘Utility: Booking’ Test Case needs to be expanded, and then double click on the appropriate Test Step inside it. 
 
-###### img here...
+![Test Cases results](/img/testCaseResults.png) 
 
 ## Reusing/Cloning Test Cases
 A quick way to create a new Test Case that has all of the basic operations pre-populated is to clone an existing one. You can add new service requests or modify the existing Test Steps in the clone without modifying the original Test Case. 
 Select the Test Case you wish to clone in the navigation panel. Right click and select Clone Test Case. Complete the fields for the new Test Case and click OK.
 
-###### img here...
+![Test Cases results](/img/cloningTestCases.png) 
 
 Once you press OK the cloned Test Case is ready and can be modified as required. 
 
@@ -149,8 +150,6 @@ soapUI is a powerful tool with many features beyond those described in this docu
 Need to report an issue/suggest improvements on the workflows? 
 
 Use the [built-in issues](https://github.com/SabreDevStudio/SabreAPIsWorkflows/issues) section
-
-
 
 
 ## Appendix
@@ -168,6 +167,6 @@ Value for printer line address should also be requested to Sabre, and it is comp
 
 Please contact your Sabre representative or fill the [contact form](https://developer.sabre.com/contact) in Sabre Dev Studio for help with printer parameters. 
 
-###### img here...
+![Test Cases results](/img/ticketPrinterParameters.png) 
 
 **NOTE:** parameters can be different depending on the Sabre API Endpoint (Certification vs. Production) being used – and please be aware that completing bookings and issuing tickets against the Production environment have impact on live inventory and have costs associated.
