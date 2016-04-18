@@ -72,7 +72,8 @@ These are the endpoints pre-configured in the *Sabre APIs* Workflows project:
 
 Endpoints are set at the Test Step level (each of the steps executed as part of a Test Case). 
 
-###### img here...
+![Test Step endpoint](/img/testStepEndpoint.png) 
+
 
 ## Sabre APIs Workflows
 
@@ -98,7 +99,7 @@ Workflows can have prerequisites, which are denoted by the prefix ‘Pre’ with
 
 Examples of prerequisites are the need for a booking completed, prior to reserving a seat from ‘Reserve Air Seat’ / issuing a ticket from ‘Issue Air Ticket’ / cancelling the itinerary from ‘Post Booking transaction’ workflows, or the need to complete ‘shopping’ (get flights and fares available) in order to create a booking from the ‘Book Air Segment’ workflow.
 
-Finally, each of the workflows included in the project, is designed to obtain and release a session token. This means that workflow Test Cases that depend on one or more workflows (as prerequisite) don’t make optimal use of sessions (since multiple are open, for each one), from an end to end transaction/performance perspective.
+Finally, each workflow included in the project, is designed to obtain and release a session token. This means that workflow Test Cases that depend on one or more workflows (as prerequisite) don’t make optimal use of sessions (since multiple are open, for each one), from an end to end transaction/performance perspective.
 
 For optimal use of Sabre SOAP APIs sessions, please refer to the Sabre Dev Studio best practices section: https://developer.sabre.com/resources/best_practices#sessions
 
