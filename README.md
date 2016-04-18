@@ -3,27 +3,28 @@ This document is a guide for using soapUI® with *Sabre APIs*. soapUI is an open
 
 soapUI is a product of SmartBear Software (100 Cummings Center, Suite 234N, Beverly, MA 01915, 978-236-7900, SmartBear.com) and is not endorsed or supported by Sabre Inc. For more information or for help learning soapUI or soapUI Pro please visit: www.soapui.org. 
 
-*This document is not intended as a comprehensive tutorial on the soapUI test tool or Sabre APIs. The Sabre APIs Client Test Tool project file for soapUI is provided as-is with no warranties expressed or implied. It is offered without charge to assist customers new to Sabre APIs or who wish to create wire-frame models of business processes using Sabre APIs.*
+### Disclaimer of Warranty:
+*This document is not intended as a comprehensive tutorial on the soapUI test tool or Sabre APIs. The *Sabre APIs* *Workflows project file for soapUI is provided as-is with no warranties expressed or implied. It is offered without charge to assist customers new to Sabre APIs or who wish to create wire-frame models of business processes using Sabre APIs.*
 
 ## Download and Setup
 To test *Sabre APIs* using soapUI you must first download a copy from www.soapui.org and install it on a computer attached to your production network. To execute *Sabre APIs*, soapUI must be able to access the Sabre APIs endpoints (URL) using the same network connection as your production systems. Follow the instructions on the www.soapui.org website to install the software. 
 
-Once soapUI is installed and configured for your environment (see the help section of www.soapui.com for instructions) you may download and import the soapUI *Sabre APIs* Workflows project file from this repository (named Sabre-APIs-Workflows-soapui-project.xml). This file includes bindings for sample *Sabre APIs* and demonstration test cases. 
+Once soapUI is installed and configured for your environment (see the help section of www.soapui.org for instructions) you may download and import the soapUI *Sabre APIs* Workflows project file from this repository (named Sabre-APIs-Workflows-soapui-project.xml). This file includes bindings for sample *Sabre APIs* and demonstration test cases. 
 
-Save/clone this files to a folder and make a note of the location.
+Save/clone this file to a folder and make a note of the location.
 
 ## Import and Configure Sabre APIs Workflows Project
 To import the project, launch soapUI and select File > Import Project. Navigate to the folder in which you stored the project file and select Sabre-APIs-Workflows-soapui-project.xml. 
 
 soapUI will display a new project named Sabre APIs - Workflows.
 
-###### img here...
+![Import Sabre APIs Workflows Project](/img/importsoapUIProjectFile.png)
 
 To run the sample tests you will first need to add your credentials to the project’s Custom Properties. Your credentials are the Sabre APIs artifacts such as user name (EPR), password, and Internet Pseudo-City Code (IPCC) assigned when Sabre APIs was provisioned. If you do not have this information please contact your Sabre Sales Representative. Support can also be requested via the [contact form](https://developer.sabre.com/contact) in Sabre Dev Studio.
 
 From the main screen select the Sabre APIs Workflows project and then click the Custom Properties tab at the bottom of the left-hand panel. Complete the fields in this table with your Sabre APIs credentials.
 
-###### img here...
+![Project Custom Properties - Credentials](/img/projectCustomProperties.png)
 
 Where:
 
@@ -39,18 +40,18 @@ Domain	| This designates the partition used. Leave this set to DEFAULT unless yo
 
 Your *Sabre APIs* credentials are stored as Custom Properties to the Project to make them available to all Test Cases and within the *Sabre APIs Workflows* project. 
 
-If you would like to use a different set of *Sabre APIs* credentials for an individual Test Suite or Test Case you may create Test Properties specific to the Test Suite/Case and modify the service requests to reference the new data source. See the soapUI documentation at http://www.soapui.org for instructions.
+If you would like to use a different set of *Sabre APIs* credentials for an individual Test Suite or Test Case you may create Test Properties specific to the Test Suite/Case and modify the service requests to reference the new data source. See the soapUI documentation at www.soapui.org for instructions.
 
 In addition, given that all workflows currently in the project require completing a booking, the city pair/route used for the booking can be set using Custom Properties at the same level the credentials are set up.
 
 These properties are named ‘ItineraryOrigin’ and ‘ItineraryDestination’.
 
-For convenience, sample values are provided, but depending on the point of sale associated to your ‘Internet Pseudo City Code’ (see table on previous page), flights may not be available to shop and book. 
+For convenience, sample values are provided, but depending on the point of sale associated to your ‘Internet Pseudo City Code’ (see table above), flights may not be available to shop and book. 
 In that case, a different pair of airport/city codes will need to be used.
 If you do not have this information please contact your Sabre Sales Representative.
 Support can also be requested via the [contact form](https://developer.sabre.com/contact) in Sabre Dev Studio.
 
-###### img here...
+![City/Airport code pair to be used for bookings](/img/cityAirportCodePair.png) 
 
 **NOTE:** *The Project includes other Custom Properties configured at different levels that are used internally by the different Test Cases to complete and parameterize execution (e.g.: Sabre APIs endpoint). Changes can be applied, but taking the risk of leaving Test Cases under inconsistent state/unable to execute successfully, if values provided are incorrect.*
 
@@ -71,7 +72,8 @@ These are the endpoints pre-configured in the *Sabre APIs* Workflows project:
 
 Endpoints are set at the Test Step level (each of the steps executed as part of a Test Case). 
 
-###### img here...
+![Test Step endpoint](/img/testStepEndpoint.png) 
+
 
 ## Sabre APIs Workflows
 
@@ -97,7 +99,7 @@ Workflows can have prerequisites, which are denoted by the prefix ‘Pre’ with
 
 Examples of prerequisites are the need for a booking completed, prior to reserving a seat from ‘Reserve Air Seat’ / issuing a ticket from ‘Issue Air Ticket’ / cancelling the itinerary from ‘Post Booking transaction’ workflows, or the need to complete ‘shopping’ (get flights and fares available) in order to create a booking from the ‘Book Air Segment’ workflow.
 
-Finally, each of the workflows included in the project, is designed to obtain and release a session token. This means that workflow Test Cases that depend on one or more workflows (as prerequisite) don’t make optimal use of sessions (since multiple are open, for each one), from an end to end transaction/performance perspective.
+Finally, each workflow included in the project, is designed to obtain and release a session token. This means that workflow Test Cases that depend on one or more workflows (as prerequisite) don’t make optimal use of sessions (since multiple are open, for each one), from an end to end transaction/performance perspective.
 
 For optimal use of Sabre SOAP APIs sessions, please refer to the Sabre Dev Studio best practices section: https://developer.sabre.com/resources/best_practices#sessions
 
@@ -143,6 +145,12 @@ Once you press OK the cloned Test Case is ready and can be modified as required.
 
 ## Help and Support
 soapUI is a powerful tool with many features beyond those described in this document or used in the Sabre APIs Workflows project. It is beyond the scope of this document to fully describe all of the features or provide documentation or training in their use. For more information please consult the Getting Started section at: www.soapui.org.
+
+Need to report an issue/suggest improvements on the workflows? 
+
+Use the [built-in issues](https://github.com/SabreDevStudio/SabreAPIsWorkflows/issues) section
+
+
 
 
 ## Appendix
