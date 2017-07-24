@@ -144,6 +144,23 @@ Select the Test Case you wish to clone in the navigation panel. Right click and 
 
 Once you press OK the cloned Test Case is ready and can be modified as required. 
 
+## UPDATE - JULY 2017: 
+The project file has been updated to use most recent API environment endpoints.
+For latest information on environment endpoints please refer to Dev Studio at:
+https://developer.sabre.com/docs/read/soap_basics/environments (SOAP APIs)
+https://developer.sabre.com/docs/read/rest_basics/environments (REST APIs)
+
+In addition, the new urls accept TLS protocol. 
+In order to enable TLS support in soapUI, please follow these steps:
+
+1.	Go to the bin folder of soapUI installation - normally under: C:\Program Files\SmartBear\SoapUI-x.x.x\bin\
+2.	Edit the file named SoapUI-x.x.x.vmoptions with any text editor (being x.x.x your soapUI installation version)
+3.	Add or upadte (if existing) the -Dsoapui.https.protocols line, as follows:
+-Dsoapui.https.protocols=TLSv1.2,TLSv1,SSLv3
+
+4.	Close and reopen SoapUI
+
+
 ## Help and Support
 soapUI is a powerful tool with many features beyond those described in this document or used in the Sabre APIs Workflows project. It is beyond the scope of this document to fully describe all of the features or provide documentation or training in their use. For more information please consult the Getting Started section at: www.soapui.org.
 
