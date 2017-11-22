@@ -51,7 +51,7 @@
 <eb:To>
 <eb:PartyId eb:type="URI"/>   
 </eb:To> 
-<eb:CPAId>CPAID</eb:CPAId>  
+<eb:CPAId>ENTER_YOUR_CPAID</eb:CPAId>  
 <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>  
 <eb:Service eb:type="sabreXML">Session</eb:Service>
 <eb:Action>SessionCreateRS</eb:Action>
