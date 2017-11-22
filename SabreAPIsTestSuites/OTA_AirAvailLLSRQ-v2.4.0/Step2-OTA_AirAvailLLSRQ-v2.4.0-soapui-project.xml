@@ -1,0 +1,494 @@
+<!--OTA_AirAvailLLSRQ  is used to ask for flights and the corresponding class availability information for a given origin, destination and travel date.-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header>
+      <eb:MessageHeader soapenv:mustUnderstand="0" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+         <eb:From>
+            <eb:PartyId/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId/>
+         </eb:To>
+         <eb:CPAId>ENTER_YOUR_CPAID</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>OTA_AirAvailLLSRQ</eb:Service>
+         <eb:Action>OTA_AirAvailLLSRQ</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
+            <eb:Timestamp>2017-11-22T13:48:23Z</eb:Timestamp>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <eb:Security soapenv:mustUnderstand="0" xmlns:eb="http://schemas.xmlsoap.org/ws/2002/12/secext">
+         <eb:BinarySecurityToken>Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/CERTG!ICESMSLB\/CRT.LB!-3208113043972502389!1089686!0</eb:BinarySecurityToken>
+      </eb:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <OTA_AirAvailRQ Version="2.4.0" xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <OriginDestinationInformation>
+            <FlightSegment DepartureDateTime="01-06">
+               <DestinationLocation LocationCode="CMH"/>
+               <OriginLocation LocationCode="DFW"/>
+            </FlightSegment>
+         </OriginDestinationInformation>
+      </OTA_AirAvailRQ>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+	<!--<OTA_AirAvailLLSRQ Response>-->
+
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap-env:Header>
+      <eb:MessageHeader eb:version="1.0" soap-env:mustUnderstand="1" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+         <eb:From>
+            <eb:PartyId eb:type="URI"/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId eb:type="URI"/>
+         </eb:To>
+         <eb:CPAId>CPAID</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>OTA_AirAvailLLSRQ</eb:Service>
+         <eb:Action>OTA_AirAvailLLSRS</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>3370636713041080151</eb:MessageId>
+            <eb:Timestamp>2017-11-22T19:48:24</eb:Timestamp>
+            <eb:RefToMessageId>mid:20001209-133003-2333@clientofsabre.com</eb:RefToMessageId>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+         <wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/CERTG!ICESMSLB\/CRT.LB!-3208113043972502389!1089686!0</wsse:BinarySecurityToken>
+      </wsse:Security>
+   </soap-env:Header>
+   <soap-env:Body>
+      <OTA_AirAvailRS Version="2.4.0" xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stl="http://services.sabre.com/STL/v01">
+         <stl:ApplicationResults status="Complete">
+            <stl:Success timeStamp="2017-11-22T13:48:24-06:00"/>
+         </stl:ApplicationResults>
+         <OriginDestinationOptions DestinationTimeZone="EST" OriginTimeZone="CST" TimeZoneDifference="?1">
+            <OriginDestinationOption RPH="1">
+               <FlightSegment ArrivalDateTime="01-06T10:36" DOT_Ind="N" DepartureDateTime="01-06T07:15" FlightNumber="2180" OnTimeInd="9" RPH="1" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="2" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="3" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="4" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="5" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="6" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="7" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="9" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="10" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="11" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="12" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="13" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="14" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="15" ResBookDesigCode="O"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <Equipment AirEquipType="S80"/>
+                  <FlightDetails Canceled="false" Charter="false" GroundTime="0" TotalTravelTime="141"/>
+                  <MarketingAirline Code="AA" FlightNumber="2180" ParticipationLevel="DCA"/>
+                  <Meal MealCode="B"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="2">
+               <FlightSegment ArrivalDateTime="01-06T14:26" DOT_Ind="N" DepartureDateTime="01-06T11:05" FlightNumber="909" OnTimeInd="8" RPH="2" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="2" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="3" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="4" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="5" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="6" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="7" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="9" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="10" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="11" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="12" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="13" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="14" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="15" ResBookDesigCode="O"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <Equipment AirEquipType="S80"/>
+                  <FlightDetails Canceled="false" Charter="false" GroundTime="0" TotalTravelTime="141"/>
+                  <MarketingAirline Code="AA" FlightNumber="909" ParticipationLevel="DCA"/>
+                  <Meal MealCode="L"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="3">
+               <FlightSegment ArrivalDateTime="01-06T14:26" DOT_Ind="Y" DepartureDateTime="01-06T11:05" FlightNumber="7338" RPH="3" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="X"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="O"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="G"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <DisclosureAirline Code="AA" CompanyShortName="AMERICAN AIRLINES INC.">
+                     <Text>OPERATED BY AMERICAN AIRLINES INC.</Text>
+                  </DisclosureAirline>
+                  <Equipment AirEquipType="M80"/>
+                  <FlightDetails Canceled="false" Charter="false" CodeshareBlockDisplay="*" GroundTime="0" TotalTravelTime="141" TrafficRestrictionCode="Q"/>
+                  <MarketingAirline Code="JL" FlightNumber="7338" ParticipationLevel="DCA"/>
+                  <Meal MealCode="L"/>
+                  <OperatingAirline Code="AA"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="4">
+               <FlightSegment ArrivalDateTime="01-06T18:07" DOT_Ind="N" DepartureDateTime="01-06T14:50" FlightNumber="2430" OnTimeInd="8" RPH="4" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="2" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="3" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="4" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="5" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="6" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="7" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="9" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="10" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="11" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="12" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="13" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="14" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="0" RPH="15" ResBookDesigCode="O"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <Equipment AirEquipType="319"/>
+                  <FlightDetails Canceled="false" Charter="false" GroundTime="0" TotalTravelTime="137"/>
+                  <MarketingAirline Code="AA" FlightNumber="2430" ParticipationLevel="DCA"/>
+                  <Meal MealCode="R"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="5">
+               <FlightSegment ArrivalDateTime="01-06T18:07" DOT_Ind="Y" DepartureDateTime="01-06T14:50" FlightNumber="4493" RPH="5" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="3" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="4" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="5" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="6" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="7" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="8" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="9" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="10" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="11" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="12" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="13" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="14" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="9" RPH="15" ResBookDesigCode="O"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <DisclosureAirline Code="AA" CompanyShortName="AMERICAN AIRLINES INC.">
+                     <Text>OPERATED BY AMERICAN AIRLINES INC.</Text>
+                  </DisclosureAirline>
+                  <Equipment AirEquipType="319"/>
+                  <FlightDetails Canceled="false" Charter="false" CodeshareBlockDisplay="*" GroundTime="0" TotalTravelTime="137" TrafficRestrictionCode="X"/>
+                  <MarketingAirline Code="QF" FlightNumber="4493" ParticipationLevel="DCA"/>
+                  <Meal MealCode="M"/>
+                  <OperatingAirline Code="AA"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="6">
+               <FlightSegment ArrivalDateTime="01-06T21:54" DOT_Ind="N" DepartureDateTime="01-06T18:34" FlightNumber="2239" OnTimeInd="6" RPH="6" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="1" ResBookDesigCode="J"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="2" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="3" ResBookDesigCode="I"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="4" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="5" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="6" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="7" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="9" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="10" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="11" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="12" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="13" ResBookDesigCode="N"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="14" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="7" RPH="15" ResBookDesigCode="O"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <Equipment AirEquipType="S80"/>
+                  <FlightDetails Canceled="false" Charter="false" GroundTime="0" TotalTravelTime="140"/>
+                  <MarketingAirline Code="AA" FlightNumber="2239" ParticipationLevel="DCA"/>
+                  <Meal MealCode="D"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="7">
+               <FlightSegment ArrivalDateTime="01-06T12:35" DOT_Ind="N" DepartureDateTime="01-06T09:30" FlightNumber="1243" OnTimeInd="9" RPH="7" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="X"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="E"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="ATL"/>
+                  <Equipment AirEquipType="M88"/>
+                  <FlightDetails Canceled="false" Charter="false"/>
+                  <MarketingAirline Code="DL" FlightNumber="1243" ParticipationLevel="DCA"/>
+                  <Meal MealCode="R"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+               <FlightSegment ArrivalDateTime="01-06T14:50" ConnectionInd="Y" DOT_Ind="N" DepartureDateTime="01-06T13:15" FlightNumber="1695" OnTimeInd="9" RPH="8" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="X"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="E"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <Equipment AirEquipType="M90"/>
+                  <FlightDetails Canceled="false" Charter="false" GroundTime="40" TotalTravelTime="260"/>
+                  <MarketingAirline Code="DL" FlightNumber="1695" ParticipationLevel="DCA"/>
+                  <OriginLocation LocationCode="ATL"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="8">
+               <FlightSegment ArrivalDateTime="01-06T20:15" DOT_Ind="N" DepartureDateTime="01-06T17:52" FlightNumber="1701" OnTimeInd="6" RPH="9" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="Z"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="E"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="18" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="19" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="20" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="21" ResBookDesigCode="N"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="ORD"/>
+                  <Equipment AirEquipType="320"/>
+                  <FlightDetails Canceled="false" Charter="false"/>
+                  <MarketingAirline Code="UA" FlightNumber="1701" ParticipationLevel="DCA"/>
+                  <Meal MealCode="D"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+               <FlightSegment ArrivalDateTime="01-06T23:14" ConnectionInd="Y" DOT_Ind="Y" DepartureDateTime="01-06T20:55" FlightNumber="3709" RPH="10" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="Z"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="E"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="18" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="19" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="20" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="21" ResBookDesigCode="N"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <DisclosureAirline Code="**">
+                     <Text>OPERATED BY /REPUBLIC AIRLINES DBA UNITED EXPRESS</Text>
+                  </DisclosureAirline>
+                  <Equipment AirEquipType="E70"/>
+                  <FlightDetails Canceled="false" Charter="false" CodeshareBlockDisplay="*" GroundTime="40" TotalTravelTime="262"/>
+                  <MarketingAirline Code="UA" FlightNumber="3709" ParticipationLevel="DCA"/>
+                  <Meal MealCode="R"/>
+                  <OperatingAirline Code="**"/>
+                  <OriginLocation LocationCode="ORD"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+            <OriginDestinationOption RPH="9">
+               <FlightSegment ArrivalDateTime="01-06T16:45" DOT_Ind="N" DepartureDateTime="01-06T14:18" FlightNumber="567" OnTimeInd="N" RPH="11" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="Z"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="E"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="18" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="19" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="20" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="21" ResBookDesigCode="N"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="false" Mon="false" Sat="true" Sun="false" Thur="false" Tue="false" Weds="false"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="ORD"/>
+                  <Equipment AirEquipType="739"/>
+                  <FlightDetails Canceled="false" Charter="false"/>
+                  <MarketingAirline Code="UA" FlightNumber="567" ParticipationLevel="DCA"/>
+                  <Meal MealCode="R"/>
+                  <OriginLocation LocationCode="DFW"/>
+               </FlightSegment>
+               <FlightSegment ArrivalDateTime="01-06T19:50" ConnectionInd="Y" DOT_Ind="Y" DepartureDateTime="01-06T17:30" FlightNumber="3613" RPH="12" SmokingAllowed="false" StopQuantity="0" eTicket="true">
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="1" ResBookDesigCode="F"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="2" ResBookDesigCode="C"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="3" ResBookDesigCode="A"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="4" ResBookDesigCode="D"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="5" ResBookDesigCode="Z"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="6" ResBookDesigCode="P"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="7" ResBookDesigCode="Y"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="8" ResBookDesigCode="B"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="9" ResBookDesigCode="M"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="10" ResBookDesigCode="E"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="11" ResBookDesigCode="U"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="12" ResBookDesigCode="H"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="13" ResBookDesigCode="Q"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="14" ResBookDesigCode="V"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="15" ResBookDesigCode="W"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="16" ResBookDesigCode="S"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="17" ResBookDesigCode="T"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="18" ResBookDesigCode="L"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="19" ResBookDesigCode="K"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="20" ResBookDesigCode="G"/>
+                  <BookingClassAvail AggregatedContent="false" Availability="4" RPH="21" ResBookDesigCode="N"/>
+                  <DaysOfOperation>
+                     <OperationSchedule>
+                        <OperationTimes>
+                           <OperationTime Fri="true" Mon="true" Sat="true" Sun="true" Thur="true" Tue="true" Weds="true"/>
+                        </OperationTimes>
+                     </OperationSchedule>
+                  </DaysOfOperation>
+                  <DestinationLocation LocationCode="CMH"/>
+                  <DisclosureAirline Code="**">
+                     <Text>OPERATED BY /REPUBLIC AIRLINES DBA UNITED EXPRESS</Text>
+                  </DisclosureAirline>
+                  <Equipment AirEquipType="E70"/>
+                  <FlightDetails Canceled="false" Charter="false" CodeshareBlockDisplay="*" GroundTime="45" TotalTravelTime="272"/>
+                  <MarketingAirline Code="UA" FlightNumber="3613" ParticipationLevel="DCA"/>
+                  <Meal MealCode="R"/>
+                  <OperatingAirline Code="**"/>
+                  <OriginLocation LocationCode="ORD"/>
+               </FlightSegment>
+            </OriginDestinationOption>
+         </OriginDestinationOptions>
+      </OTA_AirAvailRS>
+   </soap-env:Body>
+</soap-env:Envelope>
