@@ -1,0 +1,71 @@
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+   <soap-env:Header>
+      <eb:MessageHeader soap-env:mustUnderstand="1" eb:version="1.0">
+         <eb:From>
+            <eb:PartyId/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId/>
+         </eb:To>
+         <eb:CPAId/>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>SessionCreateRQ</eb:Service>
+         <eb:Action>SessionCreateRQ</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
+            <eb:Timestamp>2017-11-22T12:58:00Z</eb:Timestamp>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility">
+         <wsse:UsernameToken>
+            <wsse:Username>USERNAME</wsse:Username>
+            <wsse:Password>PASSWORD</wsse:Password>
+            <Organization>CPAID</Organization>
+            <Domain>AA</Domain>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soap-env:Header>
+   <soap-env:Body>
+      <eb:Manifest soap-env:mustUnderstand="1" eb:version="1.0">
+         <eb:Reference xlink:href="cid:rootelement" xlink:type="simple"/>
+      </eb:Manifest>
+      <SessionCreateRQ>
+         <POS>
+            <Source PseudoCityCode="CPAID"/>
+         </POS>
+      </SessionCreateRQ>
+      <ns:SessionCreateRQ xmlns:ns="http://www.opentravel.org/OTA/2002/11"/>
+   </soap-env:Body>
+</soap-env:Envelope>
+
+<!--<SessionCreateResponse>-->
+
+
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap-env:Header>
+      <eb:MessageHeader eb:version="1.0" soap-env:mustUnderstand="1" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+         <eb:From>
+            <eb:PartyId eb:type="URI"/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId eb:type="URI"/>
+         </eb:To>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service eb:type="sabreXML">Session</eb:Service>
+         <eb:Action>SessionCreateRS</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>3251819683543710150</eb:MessageId>
+            <eb:Timestamp>2017-11-22T18:59:14</eb:Timestamp>
+            <eb:RefToMessageId>mid:20001209-133003-2333@clientofsabre.com</eb:RefToMessageId>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+         <wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3208125124468866164!1633802!0</wsse:BinarySecurityToken>
+      </wsse:Security>
+   </soap-env:Header>
+   <soap-env:Body>
+      <SessionCreateRS version="1" status="Approved" xmlns="http://www.opentravel.org/OTA/2002/11">
+         <ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</ConversationId>
+      </SessionCreateRS>
+   </soap-env:Body>
+</soap-env:Envelope>
