@@ -1,0 +1,2297 @@
+<!--BargainFinderMaxRQ request is used to search for the lowest available priced itineraries based upon a specific date.-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header>
+      <eb:MessageHeader soapenv:mustUnderstand="0" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+         <eb:From>
+            <eb:PartyId/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId/>
+         </eb:To>
+         <eb:CPAId>ENTER_YOUR_CPAID</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>BargainFinderMaxRQ</eb:Service>
+         <eb:Action>BargainFinderMaxRQ</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
+            <eb:Timestamp>2017-11-22T13:37:28Z</eb:Timestamp>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <eb:Security soapenv:mustUnderstand="0" xmlns:eb="http://schemas.xmlsoap.org/ws/2002/12/secext">
+         <eb:BinarySecurityToken>Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTD!ICESMSLB\/CRT.LB!-3208115731201016184!1634067!0</eb:BinarySecurityToken>
+      </eb:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <OTA_AirLowFareSearchRQ Target="Production" Version="3.3.0" ResponseType="OTA" ResponseVersion="3.3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <POS>
+            <Source PseudoCityCode="ENTER_YOUR_CPAID">
+               <RequestorID ID="1" Type="1">
+                  <CompanyName Code="TN"/>
+               </RequestorID>
+            </Source>
+         </POS>
+         <OriginDestinationInformation RPH="1">
+            <DepartureDateTime>2018-01-10T16:22:20</DepartureDateTime>
+            <OriginLocation LocationCode="DFW"/>
+            <DestinationLocation LocationCode="CMH"/>
+            <TPA_Extensions>
+               <SegmentType Code="O"/>
+            </TPA_Extensions>
+         </OriginDestinationInformation>
+         <OriginDestinationInformation RPH="2">
+            <DepartureDateTime>2018-01-20T16:22:20</DepartureDateTime>
+            <OriginLocation LocationCode="CMH"/>
+            <DestinationLocation LocationCode="DFW"/>
+            <TPA_Extensions>
+               <SegmentType Code="O"/>
+            </TPA_Extensions>
+         </OriginDestinationInformation>
+         <TravelPreferences ValidInterlineTicket="true">
+            <CabinPref PreferLevel="Preferred" Cabin="Y"/>
+            <TPA_Extensions>
+               <TripType Value="Return"/>
+               <LongConnectTime Min="780" Max="1200" Enable="true"/>
+               <ExcludeCallDirectCarriers Enabled="true"/>
+            </TPA_Extensions>
+         </TravelPreferences>
+         <TravelerInfoSummary>
+            <SeatsRequested>1</SeatsRequested>
+            <AirTravelerAvail>
+               <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+            </AirTravelerAvail>
+         </TravelerInfoSummary>
+         <TPA_Extensions>
+            <IntelliSellTransaction>
+               <RequestType Name="50ITINS"/>
+            </IntelliSellTransaction>
+         </TPA_Extensions>
+      </OTA_AirLowFareSearchRQ>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<!--BargainFinderMaxResponse-->
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header>
+      <eb:MessageHeader SOAP-ENV:mustUnderstand="1" eb:version="2.0" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+         <eb:From>
+            <eb:PartyId/>
+         </eb:From>
+         <eb:To>
+            <eb:PartyId/>
+         </eb:To>
+         <eb:CPAId>ENTER_YOUR_CPAID</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>BargainFinderMaxRQ</eb:Service>
+         <eb:Action>BargainFinderMaxRS</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20171122-193728430-1110.BargainFinderMaxRS@webservices.sabre.com</eb:MessageId>
+            <eb:Timestamp>2017-11-22T19:37:28Z</eb:Timestamp>
+         </eb:MessageData>
+         <eb:RefToMessageId>mid:20001209-133003-2333@clientofsabre.com</eb:RefToMessageId>
+      </eb:MessageHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <OTA_AirLowFareSearchRS Version="3.3.0" PricedItinCount="50" BrandedOneWayItinCount="0" SimpleOneWayItinCount="0" DepartedItinCount="0" SoldOutItinCount="0" AvailableItinCount="0" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <Success/>
+         <Warnings>
+            <Warning Type="WORKERTHREAD" Code="TRANSACTIONID" MessageClass="I" ShortText="7294760945595567546"/>
+            <Warning Type="SERVER" Code="TTFHLC700" MessageClass="I" ShortText="27032"/>
+            <Warning Type="DEFAULT" Code="RULEID" MessageClass="I" ShortText="25238"/>
+            <Warning Type="DRE" Code="RULEID" MessageClass="I" ShortText="18411"/>
+         </Warnings>
+         <PricedItineraries>
+            <PricedItinerary SequenceNumber="1">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="311">
+                        <FlightSegment DepartureDateTime="2018-01-10T07:10:00" ArrivalDateTime="2018-01-10T10:42:00" StopQuantity="0" FlightNumber="1033" ResBookDesigCode="B" ElapsedTime="152">
+                           <DepartureAirport LocationCode="DFW" TerminalID="0"/>
+                           <ArrivalAirport LocationCode="CLT"/>
+                           <OperatingAirline Code="AA" FlightNumber="1033"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="937"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T11:45:00" ArrivalDateTime="2018-01-10T13:21:00" StopQuantity="0" FlightNumber="4410" ResBookDesigCode="B" ElapsedTime="96">
+                           <DepartureAirport LocationCode="CLT"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="AA" FlightNumber="4410" CompanyShortName="REPUBLIC AIRLINES AS AMERICAN EAGLE"/>
+                           <Equipment AirEquipType="E75"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="346"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="181">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:45:00" ArrivalDateTime="2018-01-20T09:46:00" StopQuantity="0" FlightNumber="1180" ResBookDesigCode="B" ElapsedTime="181">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="0"/>
+                           <OperatingAirline Code="AA" FlightNumber="1180"/>
+                           <Equipment AirEquipType="S80"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="926"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="49.87" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="241.49" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="B" DepartureAirportCode="DFW" ArrivalAirportCode="CLT" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CLT" ArrivalAirportCode="CMH" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CMH" ArrivalAirportCode="DFW" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="3.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="12.30" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="12.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="49.87" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="241.49" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="AA" Type="N" FailCode="0" Info="NONREF/NOCHG/NOCOBG/NOSEAT"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - AA"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="2"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW AA X/CLT AA CMH95.81AA DFW95.81USD191.62END ZPDFWCLTCMH XFDFW4.5CLT3CMH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="AA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="AA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="2">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="290">
+                        <FlightSegment DepartureDateTime="2018-01-10T17:30:00" ArrivalDateTime="2018-01-10T18:42:00" StopQuantity="0" FlightNumber="673" ResBookDesigCode="N" ElapsedTime="72">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="IAH" TerminalID="C"/>
+                           <OperatingAirline Code="UA" FlightNumber="673"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="224"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T19:45:00" ArrivalDateTime="2018-01-10T23:20:00" StopQuantity="0" FlightNumber="3435" ResBookDesigCode="N" ElapsedTime="155">
+                           <DepartureAirport LocationCode="IAH" TerminalID="B"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="UA" FlightNumber="3435" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="986"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="335">
+                        <FlightSegment DepartureDateTime="2018-01-20T14:50:00" ArrivalDateTime="2018-01-20T16:55:00" StopQuantity="0" FlightNumber="6056" ResBookDesigCode="N" ElapsedTime="185">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="IAH" TerminalID="B"/>
+                           <OperatingAirline Code="UA" FlightNumber="6056" CompanyShortName="/MESA AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E7W"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="986"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T18:10:00" ArrivalDateTime="2018-01-20T19:25:00" StopQuantity="0" FlightNumber="2107" ResBookDesigCode="N" ElapsedTime="75">
+                           <DepartureAirport LocationCode="IAH" TerminalID="C"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="UA" FlightNumber="2107"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="N"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="224"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="251.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="DFW" ArrivalAirportCode="IAH" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="IAH" ArrivalAirportCode="CMH" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="CMH" ArrivalAirportCode="IAH" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="IAH" ArrivalAirportCode="DFW" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="251.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="UA" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOCBBG/NOASR"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - UA"/>
+                                 <Message Type="W" FailCode="0" Info="CAT 15 SALES RESTRICTIONS FREE TEXT FOUND - VERIFY RULES"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW UA X/HOU UA CMH95.81UA X/HOU UA DFW95.81USD191.62END ZPDFWIAHCMHIAH XFDFW4.5IAH4.5CMH4.5IAH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="D"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="D"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="UA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="UA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="3">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="263">
+                        <FlightSegment DepartureDateTime="2018-01-10T17:39:00" ArrivalDateTime="2018-01-10T20:10:00" StopQuantity="0" FlightNumber="473" ResBookDesigCode="N" ElapsedTime="151">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="1"/>
+                           <OperatingAirline Code="UA" FlightNumber="473"/>
+                           <Equipment AirEquipType="319"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T20:55:00" ArrivalDateTime="2018-01-10T23:02:00" StopQuantity="0" FlightNumber="3709" ResBookDesigCode="N" ElapsedTime="67">
+                           <DepartureAirport LocationCode="ORD" TerminalID="2"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="UA" FlightNumber="3709" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="330">
+                        <FlightSegment DepartureDateTime="2018-01-20T06:45:00" ArrivalDateTime="2018-01-20T08:50:00" StopQuantity="0" FlightNumber="3404" ResBookDesigCode="N" ElapsedTime="185">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="IAH" TerminalID="A"/>
+                           <OperatingAirline Code="UA" FlightNumber="3404" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="986"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T10:00:00" ArrivalDateTime="2018-01-20T11:15:00" StopQuantity="0" FlightNumber="6100" ResBookDesigCode="N" ElapsedTime="75">
+                           <DepartureAirport LocationCode="IAH" TerminalID="B"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="UA" FlightNumber="6100" CompanyShortName="/MESA AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E7W"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="224"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="251.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="DFW" ArrivalAirportCode="ORD" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="CMH" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="CMH" ArrivalAirportCode="IAH" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="IAH" ArrivalAirportCode="DFW" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="251.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="UA" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOCBBG/NOASR"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - UA"/>
+                                 <Message Type="W" FailCode="0" Info="CAT 15 SALES RESTRICTIONS FREE TEXT FOUND - VERIFY RULES"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW UA X/CHI UA CMH95.81UA X/HOU UA DFW95.81USD191.62END ZPDFWORDCMHIAH XFDFW4.5ORD4.5CMH4.5IAH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="D"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="D"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="UA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="UA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="4">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="279">
+                        <FlightSegment DepartureDateTime="2018-01-10T12:20:00" ArrivalDateTime="2018-01-10T14:34:00" StopQuantity="0" FlightNumber="793" ResBookDesigCode="N" ElapsedTime="134">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="1"/>
+                           <OperatingAirline Code="UA" FlightNumber="793"/>
+                           <Equipment AirEquipType="319"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T15:50:00" ArrivalDateTime="2018-01-10T17:59:00" StopQuantity="0" FlightNumber="3613" ResBookDesigCode="N" ElapsedTime="69">
+                           <DepartureAirport LocationCode="ORD" TerminalID="2"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="UA" FlightNumber="3613" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="330">
+                        <FlightSegment DepartureDateTime="2018-01-20T06:45:00" ArrivalDateTime="2018-01-20T08:50:00" StopQuantity="0" FlightNumber="3404" ResBookDesigCode="N" ElapsedTime="185">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="IAH" TerminalID="A"/>
+                           <OperatingAirline Code="UA" FlightNumber="3404" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="986"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T10:00:00" ArrivalDateTime="2018-01-20T11:15:00" StopQuantity="0" FlightNumber="6100" ResBookDesigCode="N" ElapsedTime="75">
+                           <DepartureAirport LocationCode="IAH" TerminalID="B"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="UA" FlightNumber="6100" CompanyShortName="/MESA AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E7W"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="224"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="251.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="DFW" ArrivalAirportCode="ORD" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="CMH" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="CMH" ArrivalAirportCode="IAH" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="IAH" ArrivalAirportCode="DFW" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="251.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="UA" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOCBBG/NOASR"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - UA"/>
+                                 <Message Type="W" FailCode="0" Info="CAT 15 SALES RESTRICTIONS FREE TEXT FOUND - VERIFY RULES"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW UA X/CHI UA CMH95.81UA X/HOU UA DFW95.81USD191.62END ZPDFWORDCMHIAH XFDFW4.5ORD4.5CMH4.5IAH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="L"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="L"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="UA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="UA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="5">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="279">
+                        <FlightSegment DepartureDateTime="2018-01-10T12:20:00" ArrivalDateTime="2018-01-10T14:34:00" StopQuantity="0" FlightNumber="793" ResBookDesigCode="N" ElapsedTime="134">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="1"/>
+                           <OperatingAirline Code="UA" FlightNumber="793"/>
+                           <Equipment AirEquipType="319"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T15:50:00" ArrivalDateTime="2018-01-10T17:59:00" StopQuantity="0" FlightNumber="3613" ResBookDesigCode="N" ElapsedTime="69">
+                           <DepartureAirport LocationCode="ORD" TerminalID="2"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="UA" FlightNumber="3613" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="293">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:35:00" ArrivalDateTime="2018-01-20T07:55:00" StopQuantity="0" FlightNumber="3702" ResBookDesigCode="N" ElapsedTime="80">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="2"/>
+                           <OperatingAirline Code="UA" FlightNumber="3702" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E7W"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T09:05:00" ArrivalDateTime="2018-01-20T11:28:00" StopQuantity="0" FlightNumber="217" ResBookDesigCode="N" ElapsedTime="143">
+                           <DepartureAirport LocationCode="ORD" TerminalID="1"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="UA" FlightNumber="217"/>
+                           <Equipment AirEquipType="319"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="251.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="DFW" ArrivalAirportCode="ORD" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="CMH" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="CMH" ArrivalAirportCode="ORD" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="DFW" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="251.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="UA" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOCBBG/NOASR"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - UA"/>
+                                 <Message Type="W" FailCode="0" Info="CAT 15 SALES RESTRICTIONS FREE TEXT FOUND - VERIFY RULES"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW UA X/CHI UA CMH95.81UA X/CHI UA DFW95.81USD191.62END ZPDFWORDCMHORD XFDFW4.5ORD4.5CMH4.5ORD4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="L"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="L"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="UA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="UA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            
+			<!--Truncating PricedItineraries from SequenceNumber="6" till SequenceNumber="44" due to space issues
+			*****************************************************************************************************
+			*****************************************************************************************************-->
+			
+            <PricedItinerary SequenceNumber="45">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="290">
+                        <FlightSegment DepartureDateTime="2018-01-10T17:30:00" ArrivalDateTime="2018-01-10T18:42:00" StopQuantity="0" FlightNumber="673" ResBookDesigCode="N" ElapsedTime="72">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="IAH" TerminalID="C"/>
+                           <OperatingAirline Code="UA" FlightNumber="673"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="224"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T19:45:00" ArrivalDateTime="2018-01-10T23:20:00" StopQuantity="0" FlightNumber="3435" ResBookDesigCode="N" ElapsedTime="155">
+                           <DepartureAirport LocationCode="IAH" TerminalID="B"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="UA" FlightNumber="3435" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E70"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="986"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="293">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:35:00" ArrivalDateTime="2018-01-20T07:55:00" StopQuantity="0" FlightNumber="3702" ResBookDesigCode="N" ElapsedTime="80">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="2"/>
+                           <OperatingAirline Code="UA" FlightNumber="3702" CompanyShortName="/REPUBLIC AIRLINES DBA UNITED EXPRESS"/>
+                           <Equipment AirEquipType="E7W"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T09:05:00" ArrivalDateTime="2018-01-20T11:28:00" StopQuantity="0" FlightNumber="217" ResBookDesigCode="N" ElapsedTime="143">
+                           <DepartureAirport LocationCode="ORD" TerminalID="1"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="UA" FlightNumber="217"/>
+                           <Equipment AirEquipType="319"/>
+                           <MarketingAirline Code="UA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="251.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="DFW" ArrivalAirportCode="IAH" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="IAH" ArrivalAirportCode="CMH" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" DepartureAirportCode="CMH" ArrivalAirportCode="ORD" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="DFW" GovCarrier="UA">KAG4AKBS</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="191.62" CurrencyCode="USD"/>
+                           <FareConstruction Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="191.62" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="14.37" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="59.97" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="251.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="UA" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOCBBG/NOASR"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - UA"/>
+                                 <Message Type="W" FailCode="0" Info="CAT 15 SALES RESTRICTIONS FREE TEXT FOUND - VERIFY RULES"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="UA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW UA X/HOU UA CMH95.81UA X/CHI UA DFW95.81USD191.62END ZPDFWIAHCMHORD XFDFW4.5IAH4.5CMH4.5ORD4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="D"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="D"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="UA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="UA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="46">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="367">
+                        <FlightSegment DepartureDateTime="2018-01-10T10:30:00" ArrivalDateTime="2018-01-10T12:50:00" StopQuantity="0" FlightNumber="335" ResBookDesigCode="B" ElapsedTime="140">
+                           <DepartureAirport LocationCode="DFW" TerminalID="0"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="3"/>
+                           <OperatingAirline Code="AA" FlightNumber="335"/>
+                           <Equipment AirEquipType="32B"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T15:20:00" ArrivalDateTime="2018-01-10T17:37:00" StopQuantity="0" FlightNumber="3563" ResBookDesigCode="B" ElapsedTime="77">
+                           <DepartureAirport LocationCode="ORD" TerminalID="3"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="AA" FlightNumber="3563" CompanyShortName="ENVOY AIR AS AMERICAN EAGLE"/>
+                           <Equipment AirEquipType="CR7"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="7"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="181">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:45:00" ArrivalDateTime="2018-01-20T09:46:00" StopQuantity="0" FlightNumber="1180" ResBookDesigCode="B" ElapsedTime="181">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="0"/>
+                           <OperatingAirline Code="AA" FlightNumber="1180"/>
+                           <Equipment AirEquipType="S80"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="926"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="52.14" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="254.00" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="B" DepartureAirportCode="DFW" ArrivalAirportCode="ORD" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="CMH" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CMH" ArrivalAirportCode="DFW" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="201.86" CurrencyCode="USD"/>
+                           <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="12.30" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="13.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="52.14" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="254.00" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="AA" Type="N" FailCode="0" Info="NONREF/NOCHG/NOCOBG/NOSEAT"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - AA"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="2"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW AA X/CHI AA CMH106.05AA DFW95.81USD201.86END ZPDFWORDCMH XFDFW4.5ORD4.5CMH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="L"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="L"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="AA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="AA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="47">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="398">
+                        <FlightSegment DepartureDateTime="2018-01-10T07:00:00" ArrivalDateTime="2018-01-10T09:29:00" StopQuantity="0" FlightNumber="2332" ResBookDesigCode="B" ElapsedTime="149">
+                           <DepartureAirport LocationCode="DFW" TerminalID="0"/>
+                           <ArrivalAirport LocationCode="ORD" TerminalID="3"/>
+                           <OperatingAirline Code="AA" FlightNumber="2332"/>
+                           <Equipment AirEquipType="32B"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="802"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T12:15:00" ArrivalDateTime="2018-01-10T14:38:00" StopQuantity="0" FlightNumber="3470" ResBookDesigCode="B" ElapsedTime="83">
+                           <DepartureAirport LocationCode="ORD" TerminalID="3"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="AA" FlightNumber="3470" CompanyShortName="ENVOY AIR AS AMERICAN EAGLE"/>
+                           <Equipment AirEquipType="CR7"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="7"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="296"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="181">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:45:00" ArrivalDateTime="2018-01-20T09:46:00" StopQuantity="0" FlightNumber="1180" ResBookDesigCode="B" ElapsedTime="181">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="0"/>
+                           <OperatingAirline Code="AA" FlightNumber="1180"/>
+                           <Equipment AirEquipType="S80"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="926"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="52.14" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="254.00" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="B" DepartureAirportCode="DFW" ArrivalAirportCode="ORD" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="ORD" ArrivalAirportCode="CMH" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CMH" ArrivalAirportCode="DFW" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="201.86" CurrencyCode="USD"/>
+                           <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="12.30" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="13.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="52.14" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="254.00" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="AA" Type="N" FailCode="0" Info="NONREF/NOCHG/NOCOBG/NOSEAT"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - AA"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="2"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW AA X/CHI AA CMH106.05AA DFW95.81USD201.86END ZPDFWORDCMH XFDFW4.5ORD4.5CMH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="AA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="AA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="48">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="311">
+                        <FlightSegment DepartureDateTime="2018-01-10T07:10:00" ArrivalDateTime="2018-01-10T10:42:00" StopQuantity="0" FlightNumber="1033" ResBookDesigCode="B" ElapsedTime="152">
+                           <DepartureAirport LocationCode="DFW" TerminalID="0"/>
+                           <ArrivalAirport LocationCode="CLT"/>
+                           <OperatingAirline Code="AA" FlightNumber="1033"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="937"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T11:45:00" ArrivalDateTime="2018-01-10T13:21:00" StopQuantity="0" FlightNumber="4410" ResBookDesigCode="B" ElapsedTime="96">
+                           <DepartureAirport LocationCode="CLT"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="AA" FlightNumber="4410" CompanyShortName="REPUBLIC AIRLINES AS AMERICAN EAGLE"/>
+                           <Equipment AirEquipType="E75"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="9"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="346"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="303">
+                        <FlightSegment DepartureDateTime="2018-01-20T17:44:00" ArrivalDateTime="2018-01-20T19:19:00" StopQuantity="0" FlightNumber="4746" ResBookDesigCode="B" ElapsedTime="95">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="CLT"/>
+                           <OperatingAirline Code="AA" FlightNumber="4746" CompanyShortName="REPUBLIC AIRLINES AS AMERICAN EAGLE"/>
+                           <Equipment AirEquipType="E75"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="6"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="346"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T19:55:00" ArrivalDateTime="2018-01-20T21:47:00" StopQuantity="0" FlightNumber="1338" ResBookDesigCode="B" ElapsedTime="172">
+                           <DepartureAirport LocationCode="CLT"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="0"/>
+                           <OperatingAirline Code="AA" FlightNumber="1338"/>
+                           <Equipment AirEquipType="738"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="937"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="57.74" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="259.60" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="B" DepartureAirportCode="DFW" ArrivalAirportCode="CLT" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CLT" ArrivalAirportCode="CMH" GovCarrier="AA">OUAIXTB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" DepartureAirportCode="CMH" ArrivalAirportCode="CLT" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                           <FareBasisCode BookingCode="B" AvailabilityBreak="true" DepartureAirportCode="CLT" ArrivalAirportCode="DFW" GovCarrier="AA">QVAGZNB1</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="201.86" CurrencyCode="USD"/>
+                           <FareConstruction Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="201.86" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="3.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="3.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="15.14" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="15.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="57.74" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="259.60" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="AA" Type="N" FailCode="0" Info="NONREF/NOCHG/NOCOBG/NOSEAT"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - AA"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW AA X/CLT AA CMH95.81AA X/CLT AA DFW106.05USD201.86END ZPDFWCLTCMHCLT XFDFW4.5CLT3CMH4.5CLT3"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>B</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="D"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>B</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="D"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="AA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="AA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="49">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="309">
+                        <FlightSegment DepartureDateTime="2018-01-10T11:50:00" ArrivalDateTime="2018-01-10T14:20:00" StopQuantity="0" FlightNumber="5697" ResBookDesigCode="E" ElapsedTime="150">
+                           <DepartureAirport LocationCode="DFW" TerminalID="E"/>
+                           <ArrivalAirport LocationCode="MSP" TerminalID="1"/>
+                           <OperatingAirline Code="DL" FlightNumber="5697" CompanyShortName="COMPASS DBA DELTA CONNECTION"/>
+                           <Equipment AirEquipType="E75"/>
+                           <MarketingAirline Code="DL"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="7"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="852"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-10T15:00:00" ArrivalDateTime="2018-01-10T17:59:00" StopQuantity="0" FlightNumber="3503" ResBookDesigCode="E" ElapsedTime="119">
+                           <DepartureAirport LocationCode="MSP" TerminalID="1"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="DL" FlightNumber="3503" CompanyShortName="ENDEAVOR AIR DBA DELTA CONNECTION"/>
+                           <Equipment AirEquipType="CR9"/>
+                           <MarketingAirline Code="DL"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="626"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="307">
+                        <FlightSegment DepartureDateTime="2018-01-20T16:40:00" ArrivalDateTime="2018-01-20T18:23:00" StopQuantity="0" FlightNumber="1695" ResBookDesigCode="E" ElapsedTime="103">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="ATL" TerminalID="S"/>
+                           <OperatingAirline Code="DL" FlightNumber="1695"/>
+                           <Equipment AirEquipType="M88"/>
+                           <MarketingAirline Code="DL"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="446"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                        <FlightSegment DepartureDateTime="2018-01-20T19:15:00" ArrivalDateTime="2018-01-20T20:47:00" StopQuantity="0" FlightNumber="31" ResBookDesigCode="E" ElapsedTime="152">
+                           <DepartureAirport LocationCode="ATL" TerminalID="S"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="E"/>
+                           <OperatingAirline Code="DL" FlightNumber="31"/>
+                           <Equipment AirEquipType="M88"/>
+                           <MarketingAirline Code="DL"/>
+                           <MarriageGrp>I</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="5"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="732"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="229.76" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="229.76" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="229.76" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="62.83" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="292.59" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="E" DepartureAirportCode="DFW" ArrivalAirportCode="MSP" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="DL">XAVNA0BA</FareBasisCode>
+                           <FareBasisCode BookingCode="E" AvailabilityBreak="true" DepartureAirportCode="MSP" ArrivalAirportCode="CMH" GovCarrier="DL">XAVNA0BA</FareBasisCode>
+                           <FareBasisCode BookingCode="E" DepartureAirportCode="CMH" ArrivalAirportCode="ATL" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="DL">VAUSA5BA</FareBasisCode>
+                           <FareBasisCode BookingCode="E" AvailabilityBreak="true" DepartureAirportCode="ATL" ArrivalAirportCode="DFW" GovCarrier="DL">VAUSA5BA</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="229.76" CurrencyCode="USD"/>
+                           <FareConstruction Amount="229.76" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="229.76" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="17.23" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="16.40" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="17.23" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="18.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="62.83" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="292.59" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="DL" Type="N" FailCode="0" Info="NONREF/NOCHGS/NOPRE RSVDSEAT"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - DL"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="DL">
+                                    <Segment Id="0"/>
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="DL">
+                                    <Segment Id="2"/>
+                                    <Segment Id="3"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW DL X/MSP DL CMH133.95DL X/ATL DL DFW95.81USD229.76END ZPDFWMSPCMHATL XFDFW4.5MSP4.5CMH4.5ATL4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>E</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>E</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>E</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="N"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>E</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>E</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>E</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>E</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="N"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>E</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="DL"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="DL"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+            <PricedItinerary SequenceNumber="50">
+               <AirItinerary DirectionInd="Return">
+                  <OriginDestinationOptions>
+                     <OriginDestinationOption ElapsedTime="141">
+                        <FlightSegment DepartureDateTime="2018-01-10T14:45:00" ArrivalDateTime="2018-01-10T18:06:00" StopQuantity="0" FlightNumber="2430" ResBookDesigCode="N" ElapsedTime="141">
+                           <DepartureAirport LocationCode="DFW" TerminalID="0"/>
+                           <ArrivalAirport LocationCode="CMH"/>
+                           <OperatingAirline Code="AA" FlightNumber="2430"/>
+                           <Equipment AirEquipType="S80"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-6"/>
+                           <ArrivalTimeZone GMTOffset="-5"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="926"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                     <OriginDestinationOption ElapsedTime="181">
+                        <FlightSegment DepartureDateTime="2018-01-20T07:45:00" ArrivalDateTime="2018-01-20T09:46:00" StopQuantity="0" FlightNumber="1180" ResBookDesigCode="O" ElapsedTime="181">
+                           <DepartureAirport LocationCode="CMH"/>
+                           <ArrivalAirport LocationCode="DFW" TerminalID="0"/>
+                           <OperatingAirline Code="AA" FlightNumber="1180"/>
+                           <Equipment AirEquipType="S80"/>
+                           <MarketingAirline Code="AA"/>
+                           <MarriageGrp>O</MarriageGrp>
+                           <DepartureTimeZone GMTOffset="-5"/>
+                           <ArrivalTimeZone GMTOffset="-6"/>
+                           <OnTimePerformance Level="8"/>
+                           <TPA_Extensions>
+                              <eTicket Ind="true"/>
+                              <Mileage Amount="926"/>
+                           </TPA_Extensions>
+                        </FlightSegment>
+                     </OriginDestinationOption>
+                  </OriginDestinationOptions>
+               </AirItinerary>
+               <AirItineraryPricingInfo PricingSource="ADVJR1" PricingSubSource="MIP" FareReturned="true" LastTicketDate="2017-11-23">
+                  <ItinTotalFare>
+                     <BaseFare Amount="275.35" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <FareConstruction Amount="275.35" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <EquivFare Amount="275.35" CurrencyCode="USD" DecimalPlaces="2"/>
+                     <Taxes>
+                        <Tax TaxCode="TOTALTAX" Amount="49.05" CurrencyCode="USD" DecimalPlaces="2"/>
+                     </Taxes>
+                     <TotalFare Amount="324.40" CurrencyCode="USD" DecimalPlaces="2"/>
+                  </ItinTotalFare>
+                  <PTC_FareBreakdowns>
+                     <PTC_FareBreakdown>
+                        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+                        <FareBasisCodes>
+                           <FareBasisCode BookingCode="N" AvailabilityBreak="true" DepartureAirportCode="DFW" ArrivalAirportCode="CMH" FareComponentBeginAirport="DFW" FareComponentEndAirport="CMH" FareComponentDirectionality="FROM" FareComponentVendorCode="ATP" GovCarrier="AA">NVDWZNN1</FareBasisCode>
+                           <FareBasisCode BookingCode="O" AvailabilityBreak="true" DepartureAirportCode="CMH" ArrivalAirportCode="DFW" FareComponentBeginAirport="CMH" FareComponentEndAirport="DFW" FareComponentDirectionality="TO" FareComponentVendorCode="ATP" GovCarrier="AA">OUAIXTM1</FareBasisCode>
+                        </FareBasisCodes>
+                        <PassengerFare>
+                           <BaseFare Amount="275.35" CurrencyCode="USD"/>
+                           <FareConstruction Amount="275.35" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <EquivFare Amount="275.35" CurrencyCode="USD" DecimalPlaces="2"/>
+                           <Taxes>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="AY" Amount="5.60" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="US1" Amount="20.65" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="ZP" Amount="4.10" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <Tax TaxCode="XF" Amount="4.50" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="ZP" Amount="8.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="AY" Amount="11.20" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="US1" Amount="20.65" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TaxSummary TaxCode="XF" Amount="9.00" CurrencyCode="USD" DecimalPlaces="2" CountryCode="US"/>
+                              <TotalTax Amount="49.05" CurrencyCode="USD" DecimalPlaces="2"/>
+                           </Taxes>
+                           <TotalFare Amount="324.40" CurrencyCode="USD"/>
+                           <TPA_Extensions>
+                              <Messages>
+                                 <Message AirlineCode="AA" Type="N" FailCode="0" Info="NONREF/SVCCHGPLUSFAREDIF/CXL BY FLT TIME OR NOVALUE"/>
+                                 <Message Type="W" FailCode="0" Info="VALIDATING CARRIER - AA"/>
+                              </Messages>
+                              <BaggageInformationList>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="0"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                                 <BaggageInformation ProvisionType="A" AirlineCode="AA">
+                                    <Segment Id="1"/>
+                                    <Allowance Pieces="0"/>
+                                 </BaggageInformation>
+                              </BaggageInformationList>
+                           </TPA_Extensions>
+                        </PassengerFare>
+                        <Endorsements NonRefundableIndicator="true"/>
+                        <TPA_Extensions>
+                           <FareCalcLine Info="DFW AA CMH156.28AA DFW119.07USD275.35END ZPDFWCMH XFDFW4.5CMH4.5"/>
+                        </TPA_Extensions>
+                        <FareInfos>
+                           <FareInfo>
+                              <FareReference>N</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="R"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                           <FareInfo>
+                              <FareReference>O</FareReference>
+                              <TPA_Extensions>
+                                 <SeatsRemaining Number="9" BelowMin="false"/>
+                                 <Cabin Cabin="Y"/>
+                                 <Meal Code="B"/>
+                              </TPA_Extensions>
+                           </FareInfo>
+                        </FareInfos>
+                     </PTC_FareBreakdown>
+                  </PTC_FareBreakdowns>
+                  <FareInfos>
+                     <FareInfo>
+                        <FareReference>N</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="R"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                     <FareInfo>
+                        <FareReference>O</FareReference>
+                        <TPA_Extensions>
+                           <SeatsRemaining Number="9" BelowMin="false"/>
+                           <Cabin Cabin="Y"/>
+                           <Meal Code="B"/>
+                        </TPA_Extensions>
+                     </FareInfo>
+                  </FareInfos>
+                  <TPA_Extensions>
+                     <DivideInParty Indicator="false"/>
+                     <ValidatingCarrier SettlementMethod="ARC" NewVcxProcess="true">
+                        <Default Code="AA"/>
+                     </ValidatingCarrier>
+                  </TPA_Extensions>
+               </AirItineraryPricingInfo>
+               <TicketingInfo TicketType="eTicket" ValidInterline="Yes"/>
+               <TPA_Extensions>
+                  <ValidatingCarrier Code="AA"/>
+               </TPA_Extensions>
+            </PricedItinerary>
+         </PricedItineraries>
+      </OTA_AirLowFareSearchRS>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
