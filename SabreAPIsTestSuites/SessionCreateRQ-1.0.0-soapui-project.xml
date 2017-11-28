@@ -2674,7 +2674,9 @@ testRunner.testCase.setPropertyValue("Domain","AA")</script>
                   </con:settings>
                   <con:encoding>UTF-8</con:encoding>
                   <con:endpoint>https://sws3-crt.cert.sabre.com/</con:endpoint>
-                  <con:request><![CDATA[<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+                  <con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
+
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
    <soap-env:Header>
       <eb:MessageHeader soap-env:mustUnderstand="1" eb:version="1.0">
          <eb:From>
