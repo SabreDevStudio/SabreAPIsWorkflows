@@ -1929,7 +1929,9 @@ log.info(getLocalPropValue)</script></con:config>
                   </con:settings>
                   <con:encoding>UTF-8</con:encoding>
                   <con:endpoint>https://sws3-crt.cert.sabre.com/</con:endpoint>
-                  <con:request><![CDATA[<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+                  <con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
+
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
    <soap-env:Header>
       <eb:MessageHeader soap-env:mustUnderstand="1" eb:version="1.0">
          <eb:From>
@@ -1938,13 +1940,13 @@ log.info(getLocalPropValue)</script></con:config>
          <eb:To>
             <eb:PartyId />
          </eb:To>
-         <eb:CPAId>7TZA</eb:CPAId>
+         <eb:CPAId>${#TestCase#CPAId}</eb:CPAId>
          <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
          <eb:Service>SessionCreateRQ</eb:Service>
          <eb:Action>SessionCreateRQ</eb:Action>
          <eb:MessageData>
             <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
-            <eb:Timestamp>2017-11-28T09:11:16Z</eb:Timestamp>
+            <eb:Timestamp>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date())}</eb:Timestamp>
          </eb:MessageData>
       </eb:MessageHeader>
       <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility">
@@ -1962,7 +1964,7 @@ log.info(getLocalPropValue)</script></con:config>
       </eb:Manifest>
       <SessionCreateRQ>
          <POS>
-            <Source PseudoCityCode="7TZA" />
+            <Source PseudoCityCode="${#TestCase#CPAId}" />
          </POS>
       </SessionCreateRQ>
       <ns:SessionCreateRQ xmlns:ns="http://www.opentravel.org/OTA/2002/11" />
@@ -2004,7 +2006,9 @@ log.info(getLocalPropValue)</script>
                   </con:settings>
                   <con:encoding>UTF-8</con:encoding>
                   <con:endpoint>https://sws3-crt.cert.sabre.com/</con:endpoint>
-                  <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                  <con:request><![CDATA[<!--OTA_AirAvailLLSRQ  is used to ask for flights and the corresponding class availability information for a given origin, destination and travel date.-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header>
       <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" soapenv:mustUnderstand="0">
          <eb:From>
@@ -2013,13 +2017,13 @@ log.info(getLocalPropValue)</script>
          <eb:To>
             <eb:PartyId />
          </eb:To>
-         <eb:CPAId>7TZA</eb:CPAId>
+         <eb:CPAId>${#TestCase#CPAId}</eb:CPAId>
          <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
          <eb:Service>OTA_AirAvailLLSRQ</eb:Service>
          <eb:Action>OTA_AirAvailLLSRQ</eb:Action>
          <eb:MessageData>
             <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
-            <eb:Timestamp>2017-11-28T09:11:17Z</eb:Timestamp>
+            <eb:Timestamp>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date())}</eb:Timestamp>
          </eb:MessageData>
       </eb:MessageHeader>
       <eb:Security xmlns:eb="http://schemas.xmlsoap.org/ws/2002/12/secext" soapenv:mustUnderstand="0">
@@ -2029,7 +2033,7 @@ log.info(getLocalPropValue)</script>
    <soapenv:Body>
       <OTA_AirAvailRQ xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.4.0">
          <OriginDestinationInformation>
-            <FlightSegment DepartureDateTime="01-16">
+            <FlightSegment DepartureDateTime="${=new java.text.SimpleDateFormat("MM-dd").format(new Date()+39)}">
                <DestinationLocation LocationCode="CMH" />
                <OriginLocation LocationCode="DFW" />
             </FlightSegment>
@@ -2084,7 +2088,7 @@ declare namespace ns1='http://webservices.sabre.com/sabreXML/2011/10';
             </con:property>
             <con:property>
                <con:name>Response</con:name>
-               <con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTD!ICESMSLB\/CRT.LB!-3206057783767011446!1266131!0&lt;/wsse:BinarySecurityToken></con:value>
+               <con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3205972619648762490!1910002!0&lt;/wsse:BinarySecurityToken></con:value>
             </con:property>
          </con:properties>
       </con:testCase>
