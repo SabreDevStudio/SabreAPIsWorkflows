@@ -48,7 +48,7 @@ OTA\_AirAvailLLSRQ-2.4.0-SoapUI-project.xml)
 
 SoapUI will display a new project named OTA\_AirAvailLLSRQ-2.4.0.
 
-![Import Sabre APIs Project](/img/ImportSoapUIprojectFile.png)
+![Import Sabre APIs Project](/SabreAPIsTestSuites/img/ImportSoapUIprojectFile.png)
 
 ### Add your credentials in the properties file
 
@@ -68,7 +68,7 @@ From the main screen, select the project and then click on the Groovy
 Script step in test Suite (Test Case). Complete the fields in the Groovy
 Script with your Sabre APIs credentials.
 
-![Project Groovy Script - Credentials](/img/ChangetheCredentials.png)
+![Project Groovy Script - Credentials](/SabreAPIsTestSuites/img/ChangetheCredentials.png)
 
 Where:
 
@@ -95,7 +95,7 @@ airport/city codes should be used.
 Example:
 
 ![City/Airport code pair to be used for
-bookings](/img/CityAirportCodePairHardCoded.png)
+bookings](/SabreAPIsTestSuites/img/CityAirportCodePairHardCoded.png)
 
 Sabre APIs Endpoints
 --------------------
@@ -124,7 +124,7 @@ are genuine and all the standard rules apply.*
 *Standard Sabre scan charges apply to all Sabre APIs transactions
 executed with SoapUI.*
 
-![Test Step endpoint](/img/TestStepEndPoint.png)
+![Test Step endpoint](/SabreAPIsTestSuites/img/TestStepEndPoint.png)
 
 **Sabre APIs Test Suites**
 
@@ -157,7 +157,7 @@ To run a project, do the following:
 
 2.  Click on the PLAY icon (‘green triangle’) to run
 
-![Running Test Cases](/img/RunningTestCases.png)
+![Running Test Cases](/SabreAPIsTestSuites/img/RunningTestCases.png)
 
 The test suite steps will be executed in sequence, until completion.
 
@@ -172,7 +172,7 @@ endpoint selected (the certification endpoint is pre-configured) and
 displays the response. The editor displays the complete XML request (2)
 and response (3) so the contents of each are unambiguous.
 
-![Test Cases results](/img/TestCaseResults.png)
+![Test Cases results](/SabreAPIsTestSuites/img/TestCaseResults.png)
 
  Reusing/Cloning Test Suites
 ----------------------------
@@ -184,7 +184,7 @@ modifying the original Test Suite. Select the Test Suite you wish to
 clone in the navigation panel. Right click and select Clone Test Case.
 Complete the fields and click OK.
 
-![Test Cases results](/img/CloningTestCases.png)
+![Test Cases results](/SabreAPIsTestSuites/img/CloningTestCases.png)
 
 Once you press OK, the cloned Test Suite is ready and can be modified as
 required.
