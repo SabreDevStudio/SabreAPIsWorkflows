@@ -1,6 +1,6 @@
 **Download and Setup**
 
-Use the ![Readme.md](/SabreAPIsTestSuites/README.md}) instructions to download and
+Use the ![Readme.md](/SabreAPIsTestSuites/README.md) instructions to download and
 set-up SoapUI.
 
 **Test Suite**
