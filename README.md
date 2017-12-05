@@ -55,7 +55,7 @@ Running *Sabre APIs* calls via soapUI may be performed using standard *Sabre API
 
 These are the endpoints pre-configured in the *Sabre APIs* Workflows project: 
 
--	https://sws3-crt.cert.sabre.com (Sabre APIs Certification / Sabre Test Environment)
+-	https://sws-crt.cert.havail.sabre.com (Sabre APIs Certification / Sabre Test Environment)
 -	https://webservices.havail.sabre.com (Production Sabre APIs Environment) 
 
 **NOTE:** *The Sabre APIs Workflows soapUI project is capable of generating Sabre APIs service calls against the Sabre production environment which can book live inventory.*
