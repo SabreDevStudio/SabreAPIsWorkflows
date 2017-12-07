@@ -8,19 +8,6 @@ acts as a SOAP client, allowing you to invoke SOAP-based *Sabre APIs*.
 SoapUI is easy to learn and use and is available at no cost. At the time
 these test suites were produced, SoapUI 5.3.0 was the version.
 
-SoapUI is a product of SmartBear Software and is not endorsed or
-supported by Sabre. For more information or for help learning SoapUI or
-SoapUI Pro visit: [www.SoapUI.org](http://www.soapui.org/).
-
-**Disclaimer of Warranty:**
-
-\*This document is not intended as a comprehensive tutorial on the
-SoapUI test tool or Sabre APIs. The *Sabre APIs* *Test Suites project
-files for SoapUI is provided as-is with no warranties expressed or
-implied. It is offered without charge to assist customers new to Sabre
-APIs, or those who wish to create wire-frame models of business
-processes using Sabre APIs.*
-
 **Download and Setup**
 
 To test *Sabre APIs* using SoapUI you must first download a copy
@@ -200,3 +187,16 @@ Example:
 
 Once you press OK, the cloned Test Suite is ready and can be modified as
 required.
+
+**Disclaimer of Warranty:**
+
+This document is not intended as a comprehensive tutorial on the
+SoapUI test tool or Sabre APIs. The *Sabre APIs* Test Suites project
+files for SoapUI is provided as-is with no warranties expressed or
+implied. It is offered without charge to assist customers new to Sabre
+APIs, or those who wish to create wire-frame models of business
+processes using Sabre APIs.
+
+SoapUI is a product of SmartBear Software and is not endorsed or
+supported by Sabre. For more information or for help learning SoapUI or
+SoapUI Pro visit: [www.SoapUI.org](http://www.soapui.org/).
