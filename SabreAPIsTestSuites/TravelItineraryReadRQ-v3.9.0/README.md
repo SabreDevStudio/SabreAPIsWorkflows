@@ -9,10 +9,10 @@ The following are the steps included in this test suite:
 
 | **Step** | **Description**                                                                                             |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| Step 1   | SessionCreateRQ API is used to get a session token.                                                         |
-| Step 2   | OTA_AirAvailLLSRQ API is used to get flight availability.                                                   |
-| Step 3   | TravelItineraryAddInfoLLSRQ API is used to add traveler information.                                        |
-| Step 4   | OTA_AirBookLLSRQ API is used to book the flight segment.                                                    |
-| Step 5   | OTA_AirPriceLLSRQ API is used to get flight prices.                                                         |
-| Step 6   | EndTransactionLLSRQ API is used to complete the transaction.                                                |
-| Step 7   | TravelItineraryReadRQ API is used to search for and retrieve particular PNR data directly from AAA session. |
+| Step 1   | SessionCreateRQ - get a session token.                                                         |
+| Step 2   | OTA_AirAvailLLSRQ - get flight availability.                                                   |
+| Step 3   | TravelItineraryAddInfoLLSRQ - add traveler information.                                        |
+| Step 4   | OTA_AirBookLLSRQ - book the flight segment.                                                    |
+| Step 5   | OTA_AirPriceLLSRQ - get flight prices.                                                         |
+| Step 6   | EndTransactionLLSRQ - complete the transaction.                                                |
+| Step 7   | TravelItineraryReadRQ - search for and retrieve particular PNR data directly from AAA session. |
