@@ -10,5 +10,6 @@ The following are the steps included in this test suite:
 | **Step** | **Description**                                       |
 |----------|-------------------------------------------------------|
 | Step 1   | SessionCreateRQ - get a session token. |
+| Step 2   | SessionCloseRQ - close the session.    |
 
 
