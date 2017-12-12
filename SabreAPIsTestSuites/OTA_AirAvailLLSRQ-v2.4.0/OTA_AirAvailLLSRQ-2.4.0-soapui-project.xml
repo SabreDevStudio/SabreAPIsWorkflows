@@ -1902,7 +1902,961 @@
          </con:call>
       </con:operation>
    </con:interface>
-   <con:testSuite id="707982bd-5347-4e4c-931e-6e1b28b194ab" name="TestSuite 1">
+   <con:interface xsi:type="con:WsdlInterface" id="9aaf200c-4fdf-4817-9704-ef3c4c5f7124" wsaVersion="NONE" name="SessionCloseSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}SessionCloseSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl"><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2002/11" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.opentravel.org/OTA/2002/11" schemaLocation="SessionCloseRQRS.xsd"/>
+      <xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="SessionCloseInput">
+    <part name="header" element="eb:MessageHeader"/>
+    <part name="header2" element="wsse:Security"/>
+    <part name="body" element="xsd1:SessionCloseRQ"/>
+  </message>
+  <message name="SessionCloseOutput">
+    <part name="header" element="eb:MessageHeader"/>
+    <part name="header2" element="wsse:Security"/>
+    <part name="body" element="xsd1:SessionCloseRS"/>
+  </message>
+  <portType name="SessionClosePortType">
+    <operation name="SessionCloseRQ">
+      <input message="tns:SessionCloseInput"/>
+      <output message="tns:SessionCloseOutput"/>
+    </operation>
+  </portType>
+  <binding name="SessionCloseSoapBinding" type="tns:SessionClosePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SessionCloseRQ">
+      <soap:operation soapAction="OTA"/>
+      <input>
+        <soap:header message="tns:SessionCloseInput" part="header" use="literal"/>
+        <soap:header message="tns:SessionCloseInput" part="header2" use="literal"/>
+        <soap:body parts="body" use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tns:SessionCloseOutput" part="header" use="literal"/>
+        <soap:header message="tns:SessionCloseOutput" part="header2" use="literal"/>
+        <soap:body parts="body" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SessionCloseRQService">
+    <port name="SessionClosePortType" binding="tns:SessionCloseSoapBinding">
+      <soap:address location="https://webservices.sabre.com"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.opentravel.org/OTA/2002/11" xmlns="http://www.w3.org/2001/XMLSchema">
+  &lt;include schemaLocation="SessionCloseRQ.xsd"/>
+  &lt;include schemaLocation="SessionCloseRS.xsd"/>
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SessionCloseRQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="POS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Source">
+                <xs:complexType>
+                  <xs:attribute name="PseudoCityCode" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SessionCloseRS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Success" minOccurs="0">
+          <xs:complexType/>
+        </xs:element>
+        <xs:element name="Warnings" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Warning">
+                <xs:complexType>
+                  <xs:attribute name="Language" type="xs:string" use="optional"/>
+                  <xs:attribute name="ShortText" type="xs:string" use="optional"/>
+                  <xs:attribute name="Type" type="xs:string" use="optional"/>
+                  <xs:attribute name="Code" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this refers to a table of coded values exchanged between applications to identify errors or warnings.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Used for codes in the OTA code tables.</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9A-Z]{1,3}"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="DocURL" type="xs:anyURI" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this URL refers to an online description of the error that occurred.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Status" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, recommended values are those enumerated in the OTA_ErrorRS, (NotProcessed | Incomplete | Complete | Unknown) however, the data type is designated as string data, recognizing that trading partners may identify additional status conditions not included in the enumeration.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Tag" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this attribute may identify an unknown or misspelled tag that caused an error in processing. It is recommended that the Tag attribute use XPath notation to identify the location of a tag in the event that more than one tag of the same name is present in the document. Alternatively, the tag name alone can be used to identify missing data [Type=ReqFieldMissing].</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="RecordId" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this attribute allows for batch processing and the identification of the record that failed amongst a group of records.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConversationId" type="xs:string" minOccurs="0"/>
+        <xs:element name="Errors" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Error">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ErrorInfo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Message" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ErrorCode" type="xs:string" use="required"/>
+                  <xs:attribute name="Severity" type="xs:string" use="required"/>
+                  <xs:attribute name="ErrorMessage" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="EchoToken" use="optional">
+        <xs:annotation>
+          <xs:documentation>A sequence number for additional message identification, assigned by the requesting host system. When a request 										message includes an echo token the corresponding response message MUST include an echo token with an identical value.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Used for Character Strings, length 1 to 64</xs:documentation>
+          </xs:annotation>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="64"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="TimeStamp" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates the creation date and time of the message in UTC using the following format specified by ISO 8601; YYYY-	MM-					DDThh:mm:ssZ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38 pm UTC becomes 2003-11-	20T13:59:38Z).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Target" use="optional" default="Production">
+        <xs:annotation>
+          <xs:documentation>Used to indicate whether the request is for the Test or Production system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Test"/>
+            <xs:enumeration value="Production"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="version" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>For all OTA versioned messages, the version of the message is indicated by a decimal value.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="SequenceNmbr" type="xs:nonNegativeInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>Used to identify the sequence number of the transaction as assigned by the sending system; allows for an application 	to 					process messages in a certain order or to request a resynchronization of messages in the event that a system has been off-line and 	needs to 				retrieve messages that were missed.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PrimaryLangID" type="xs:language" use="optional">
+        <xs:annotation>
+          <xs:documentation>Identifes the primary language preference for the form of travel represented in a collection.
+					 The human language is identified by ISO 639 codes.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AltLangID" type="xs:language" use="optional">
+        <xs:annotation>
+          <xs:documentation>Identifes the primary language preference for the form of travel represented in a collection.
+					 The human language is identified by ISO 639 codes.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="status" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+     In that case, a copy of this schema augmented with the above declaration should be cached and used
+     for the purpose of schema validation on ebXML messages.-->
+<schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+  <import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+  <import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="envelope.xsd"/>
+  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <!--MANIFEST, for use in soap:Body element-->
+  <element name="Manifest">
+    <complexType>
+      <sequence>
+        <element ref="tns:Reference" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="Reference">
+    <complexType>
+      <sequence>
+        <element ref="tns:Schema" minOccurs="0" maxOccurs="unbounded"/>
+        <element ref="tns:Description" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute ref="tns:id"/>
+      <attribute ref="xlink:type" fixed="simple"/>
+      <attribute ref="xlink:href" use="required"/>
+      <attribute ref="xlink:role"/>
+      <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+  </element>
+  <element name="Schema">
+    <complexType>
+      <attribute name="location" type="anyURI" use="required"/>
+      <attribute name="version" type="tns:non-empty-string"/>
+    </complexType>
+  </element>
+  <!--MESSAGEHEADER, for use in soap:Header element-->
+  <element name="MessageHeader">
+    <complexType>
+      <sequence>
+        <element ref="tns:From"/>
+        <element ref="tns:To"/>
+        <element ref="tns:CPAId"/>
+        <element ref="tns:ConversationId"/>
+        <element ref="tns:Service"/>
+        <element ref="tns:Action"/>
+        <element ref="tns:MessageData"/>
+        <element ref="tns:DuplicateElimination" minOccurs="0"/>
+        <element ref="tns:Description" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="CPAId" type="tns:non-empty-string"/>
+  <element name="ConversationId" type="tns:non-empty-string"/>
+  <element name="Service">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="type" type="tns:non-empty-string"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="Action" type="tns:non-empty-string"/>
+  <element name="MessageData">
+    <complexType>
+      <sequence>
+        <element ref="tns:MessageId"/>
+        <element ref="tns:Timestamp"/>
+        <element ref="tns:RefToMessageId" minOccurs="0"/>
+        <element ref="tns:TimeToLive" minOccurs="0"/>
+        <element ref="tns:Timeout" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="MessageId" type="tns:non-empty-string"/>
+  <element name="Timeout" type="nonNegativeInteger"/>
+  <element name="TimeToLive" type="dateTime"/>
+  <element name="DuplicateElimination" type="anyType"/>
+  <!--SYNC REPLY, for use in soap:Header element-->
+  <element name="SyncReply">
+    <complexType>
+      <sequence>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor" use="required"/>
+    </complexType>
+  </element>
+  <!--MESSAGE ORDER, for use in soap:Header element-->
+  <element name="MessageOrder">
+    <complexType>
+      <sequence>
+        <element ref="tns:SequenceNumber"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="SequenceNumber" type="tns:sequenceNumber.type"/>
+  <!--ACK REQUESTED, for use in soap:Header element-->
+  <element name="AckRequested">
+    <complexType>
+      <sequence>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor"/>
+      <attribute name="signed" type="boolean" use="required"/>
+    </complexType>
+  </element>
+  <!--ACKNOWLEDGMENT, for use in soap:Header element-->
+  <element name="Acknowledgment">
+    <complexType>
+      <sequence>
+        <element ref="tns:Timestamp"/>
+        <element ref="tns:RefToMessageId"/>
+        <element ref="tns:From" minOccurs="0"/>
+        <element ref="tns:Reference" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor"/>
+    </complexType>
+  </element>
+  <!--ERROR LIST, for use in soap:Header element-->
+  <element name="ErrorList">
+    <complexType>
+      <sequence>
+        <element ref="tns:Error" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute name="highestSeverity" type="tns:severity.type" use="required"/>
+    </complexType>
+  </element>
+  <element name="Error">
+    <complexType>
+      <sequence>
+        <element ref="tns:Description" minOccurs="0"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute ref="tns:id"/>
+      <attribute name="codeContext" type="anyURI" default="urn:oasis:names:tc:ebxml-msg:service:errors"/>
+      <attribute name="errorCode" type="tns:non-empty-string" use="required"/>
+      <attribute name="severity" type="tns:severity.type" use="required"/>
+      <attribute name="location" type="tns:non-empty-string"/>
+      <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+  </element>
+  <!--STATUS RESPONSE, for use in soap:Body element-->
+  <element name="StatusResponse">
+    <complexType>
+      <sequence>
+        <element ref="tns:RefToMessageId"/>
+        <element ref="tns:Timestamp" minOccurs="0"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+      <attribute name="messageStatus" type="tns:messageStatus.type" use="required"/>
+    </complexType>
+  </element>
+  <!--STATUS REQUEST, for use in soap:Body element-->
+  <element name="StatusRequest">
+    <complexType>
+      <sequence>
+        <element ref="tns:RefToMessageId"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+    </complexType>
+  </element>
+  <!--COMMON TYPES-->
+  <complexType name="sequenceNumber.type">
+    <simpleContent>
+      <extension base="nonNegativeInteger">
+        <attribute name="status" type="tns:status.type" default="Continue"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <simpleType name="status.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="Reset"/>
+      <enumeration value="Continue"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="messageStatus.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="UnAuthorized"/>
+      <enumeration value="NotRecognized"/>
+      <enumeration value="Received"/>
+      <enumeration value="Processed"/>
+      <enumeration value="Forwarded"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="non-empty-string">
+    <restriction base="string">
+      <minLength value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="severity.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="Warning"/>
+      <enumeration value="Error"/>
+    </restriction>
+  </simpleType>
+  <!--COMMON ATTRIBUTES and ATTRIBUTE GROUPS-->
+  <attribute name="id" type="ID"/>
+  <attribute name="version" type="tns:non-empty-string"/>
+  <attributeGroup name="headerExtension.grp">
+    <attribute ref="tns:id"/>
+    <attribute ref="tns:version" use="required"/>
+    <anyAttribute namespace="##other" processContents="lax"/>
+    <!--attribute ref="soap:mustUnderstand" use="optional"/-->
+  </attributeGroup>
+  <attributeGroup name="bodyExtension.grp">
+    <attribute ref="tns:id"/>
+    <attribute ref="tns:version" use="required"/>
+    <anyAttribute namespace="##other" processContents="lax"/>
+  </attributeGroup>
+  <!--COMMON ELEMENTS-->
+  <element name="PartyId">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="type" type="tns:non-empty-string"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="To">
+    <complexType>
+      <sequence>
+        <element ref="tns:PartyId" maxOccurs="unbounded"/>
+        <element name="Role" type="tns:non-empty-string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="From">
+    <complexType>
+      <sequence>
+        <element ref="tns:PartyId" maxOccurs="unbounded"/>
+        <element name="Role" type="tns:non-empty-string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="Description">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute ref="xml:lang" use="required"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="RefToMessageId" type="tns:non-empty-string"/>
+  <element name="Timestamp" type="string"/>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+    http://www.w3.org/2000/09/xmldsig#
+    $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
+
+    Copyright 2001 The Internet Society and W3C (Massachusetts Institute
+    of Technology, Institut National de Recherche en Informatique et en
+    Automatique, Keio University). All Rights Reserved.
+    http://www.w3.org/Consortium/Legal/
+
+    This document is governed by the W3C Software License [1] as described
+    in the FAQ [2].
+
+    [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+    [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD-->
+<schema targetNamespace="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" version="0.1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <!--Basic Types Defined for Signatures-->
+  <simpleType name="CryptoBinary">
+    <restriction base="base64Binary"/>
+  </simpleType>
+  <!--Start Signature-->
+  <element name="Signature" type="ds:SignatureType"/>
+  <complexType name="SignatureType">
+    <sequence>
+      <element ref="ds:SignedInfo"/>
+      <element ref="ds:SignatureValue"/>
+      <element ref="ds:KeyInfo" minOccurs="0"/>
+      <element ref="ds:Object" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureValue" type="ds:SignatureValueType"/>
+  <complexType name="SignatureValueType">
+    <simpleContent>
+      <extension base="base64Binary">
+        <attribute name="Id" type="ID" use="optional"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <!--Start SignedInfo-->
+  <element name="SignedInfo" type="ds:SignedInfoType"/>
+  <complexType name="SignedInfoType">
+    <sequence>
+      <element ref="ds:CanonicalizationMethod"/>
+      <element ref="ds:SignatureMethod"/>
+      <element ref="ds:Reference" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="CanonicalizationMethod" type="ds:CanonicalizationMethodType"/>
+  <complexType name="CanonicalizationMethodType" mixed="true">
+    <sequence>
+      <any namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+      <!--(0,unbounded) elements from (1,1) namespace-->
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <element name="SignatureMethod" type="ds:SignatureMethodType"/>
+  <complexType name="SignatureMethodType" mixed="true">
+    <sequence>
+      <element name="HMACOutputLength" type="ds:HMACOutputLengthType" minOccurs="0"/>
+      <any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+      <!--(0,unbounded) elements from (1,1) external namespace-->
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <!--Start Reference-->
+  <element name="Reference" type="ds:ReferenceType"/>
+  <complexType name="ReferenceType">
+    <sequence>
+      <element ref="ds:Transforms" minOccurs="0"/>
+      <element ref="ds:DigestMethod"/>
+      <element ref="ds:DigestValue"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+    <attribute name="URI" type="anyURI" use="optional"/>
+    <attribute name="Type" type="anyURI" use="optional"/>
+  </complexType>
+  <element name="Transforms" type="ds:TransformsType"/>
+  <complexType name="TransformsType">
+    <sequence>
+      <element ref="ds:Transform" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element name="Transform" type="ds:TransformType"/>
+  <complexType name="TransformType" mixed="true">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <any namespace="##other" processContents="lax"/>
+      <element name="XPath" type="string"/>
+      <!--(1,1) elements from (0,unbounded) namespaces-->
+    </choice>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <!--End Reference-->
+  <element name="DigestMethod" type="ds:DigestMethodType"/>
+  <complexType name="DigestMethodType" mixed="true">
+    <sequence>
+      <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <element name="DigestValue" type="ds:DigestValueType"/>
+  <simpleType name="DigestValueType">
+    <restriction base="base64Binary"/>
+  </simpleType>
+  <!--End SignedInfo-->
+  <!--Start KeyInfo-->
+  <element name="KeyInfo" type="ds:KeyInfoType"/>
+  <complexType name="KeyInfoType" mixed="true">
+    <choice maxOccurs="unbounded">
+      <element ref="ds:KeyName"/>
+      <element ref="ds:KeyValue"/>
+      <element ref="ds:RetrievalMethod"/>
+      <element ref="ds:X509Data"/>
+      <element ref="ds:PGPData"/>
+      <element ref="ds:SPKIData"/>
+      <element ref="ds:MgmtData"/>
+      <any namespace="##other" processContents="lax"/>
+      <!--(1,1) elements from (0,unbounded) namespaces-->
+    </choice>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="KeyName" type="string"/>
+  <element name="MgmtData" type="string"/>
+  <element name="KeyValue" type="ds:KeyValueType"/>
+  <complexType name="KeyValueType" mixed="true">
+    <choice>
+      <element ref="ds:DSAKeyValue"/>
+      <element ref="ds:RSAKeyValue"/>
+      <any namespace="##other" processContents="lax"/>
+    </choice>
+  </complexType>
+  <element name="RetrievalMethod" type="ds:RetrievalMethodType"/>
+  <complexType name="RetrievalMethodType">
+    <sequence>
+      <element ref="ds:Transforms" minOccurs="0"/>
+    </sequence>
+    <attribute name="URI" type="anyURI"/>
+    <attribute name="Type" type="anyURI" use="optional"/>
+  </complexType>
+  <!--Start X509Data-->
+  <element name="X509Data" type="ds:X509DataType"/>
+  <complexType name="X509DataType">
+    <sequence maxOccurs="unbounded">
+      <choice>
+        <element name="X509IssuerSerial" type="ds:X509IssuerSerialType"/>
+        <element name="X509SKI" type="base64Binary"/>
+        <element name="X509SubjectName" type="string"/>
+        <element name="X509Certificate" type="base64Binary"/>
+        <element name="X509CRL" type="base64Binary"/>
+        <any namespace="##other" processContents="lax"/>
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="X509IssuerSerialType">
+    <sequence>
+      <element name="X509IssuerName" type="string"/>
+      <element name="X509SerialNumber" type="integer"/>
+    </sequence>
+  </complexType>
+  <!--End X509Data-->
+  <!--Begin PGPData-->
+  <element name="PGPData" type="ds:PGPDataType"/>
+  <complexType name="PGPDataType">
+    <sequence>
+      <element name="PGPKeyID" type="base64Binary"/>
+      <element name="PGPKeyPacket" type="base64Binary" minOccurs="0"/>
+      <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <!--End PGPData-->
+  <!--Begin SPKIData-->
+  <element name="SPKIData" type="ds:SPKIDataType"/>
+  <complexType name="SPKIDataType">
+    <sequence maxOccurs="unbounded">
+      <element name="SPKISexp" type="base64Binary"/>
+      <any namespace="##other" processContents="lax" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <!--End SPKIData-->
+  <!--End KeyInfo-->
+  <!--Start Object (Manifest, SignatureProperty)-->
+  <element name="Object" type="ds:ObjectType"/>
+  <complexType name="ObjectType" mixed="true">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+      <any namespace="##any" processContents="lax"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+    <attribute name="MimeType" type="string" use="optional"/>
+    <attribute name="Encoding" type="anyURI" use="optional"/>
+    <!--add a grep facet-->
+  </complexType>
+  <element name="Manifest" type="ds:ManifestType"/>
+  <complexType name="ManifestType">
+    <sequence>
+      <element ref="ds:Reference" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureProperties" type="ds:SignaturePropertiesType"/>
+  <complexType name="SignaturePropertiesType">
+    <sequence>
+      <element ref="ds:SignatureProperty" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureProperty" type="ds:SignaturePropertyType"/>
+  <complexType name="SignaturePropertyType" mixed="true">
+    <choice maxOccurs="unbounded">
+      <any namespace="##other" processContents="lax"/>
+      <!--(1,1) elements from (1,unbounded) namespaces-->
+    </choice>
+    <attribute name="Target" type="anyURI" use="required"/>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <!--End Object (Manifest, SignatureProperty)-->
+  <!--Start Algorithm Parameters-->
+  <simpleType name="HMACOutputLengthType">
+    <restriction base="integer"/>
+  </simpleType>
+  <!--Start KeyValue Element-types-->
+  <element name="DSAKeyValue" type="ds:DSAKeyValueType"/>
+  <complexType name="DSAKeyValueType">
+    <sequence>
+      <sequence minOccurs="0">
+        <element name="P" type="ds:CryptoBinary"/>
+        <element name="Q" type="ds:CryptoBinary"/>
+      </sequence>
+      <element name="G" type="ds:CryptoBinary" minOccurs="0"/>
+      <element name="Y" type="ds:CryptoBinary"/>
+      <element name="J" type="ds:CryptoBinary" minOccurs="0"/>
+      <sequence minOccurs="0">
+        <element name="Seed" type="ds:CryptoBinary"/>
+        <element name="PgenCounter" type="ds:CryptoBinary"/>
+      </sequence>
+    </sequence>
+  </complexType>
+  <element name="RSAKeyValue" type="ds:RSAKeyValueType"/>
+  <complexType name="RSAKeyValueType">
+    <sequence>
+      <element name="Modulus" type="ds:CryptoBinary"/>
+      <element name="Exponent" type="ds:CryptoBinary"/>
+    </sequence>
+  </complexType>
+  <!--End KeyValue Element-types-->
+  <!--End Signature-->
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <xsd:attribute name="type">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:NMTOKEN">
+        <xsd:enumeration value="simple"/>
+        <xsd:enumeration value="extended"/>
+        <xsd:enumeration value="locator"/>
+        <xsd:enumeration value="arc"/>
+        <xsd:enumeration value="resource"/>
+        <xsd:enumeration value="title"/>
+        <xsd:enumeration value="none"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:attribute name="href" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="role" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="arcrole" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="title" type="xsd:string"></xsd:attribute>
+  <xsd:attribute name="label" type="xsd:NMTOKEN"></xsd:attribute>
+  <xsd:attribute name="show">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:NMTOKEN">
+        <xsd:enumeration value="new"/>
+        <xsd:enumeration value="replace"/>
+        <xsd:enumeration value="embed"/>
+        <xsd:enumeration value="other"/>
+        <xsd:enumeration value="none"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Envelope, header and body-->
+  <xs:element name="Envelope" type="tns:Envelope"/>
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element ref="tns:Header" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="tns:Body"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Header" type="tns:Header"/>
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Body" type="tns:Body"/>
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax">
+      <xs:annotation>
+        <xs:documentation>Prose in the spec does not specify that attributes are allowed on the Body element</xs:documentation>
+      </xs:annotation>
+    </xs:anyAttribute>
+  </xs:complexType>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <xs:attribute name="mustUnderstand">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="actor" type="xs:anyURI"/>
+  <xs:simpleType name="encodingStyle">
+    <xs:annotation>
+      <xs:documentation>'encodingStyle' indicates any canonicalization conventions followed in the contents of the containing element.  For example, the value 'http://schemas.xmlsoap.org/soap/encoding/' indicates the pattern described in SOAP specification</xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:attribute name="encodingStyle" type="tns:encodingStyle"/>
+  <xs:attributeGroup name="encodingStyle">
+    <xs:attribute ref="tns:encodingStyle"/>
+  </xs:attributeGroup>
+  <xs:element name="Fault" type="tns:Fault"/>
+  <xs:complexType name="Fault" final="extension">
+    <xs:annotation>
+      <xs:documentation>Fault reporting structure</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="faultcode" type="xs:QName"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="detail" type="tns:detail" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detail">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
+   http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:documentation>This schema defines attributes and an attribute group
+        suitable for use by
+        schemas wishing to allow xml:base, xml:lang or xml:space attributes
+        on elements they define.
+
+        To enable this, such a schema must import this schema
+        for the XML namespace, e.g. as follows:
+        &lt;schema . . .>
+         . . .
+         &lt;import namespace="http://www.w3.org/XML/1998/namespace"
+                    schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+        Subsequently, qualified reference to any of the attributes
+        or the group defined below will have the desired effect, e.g.
+
+        &lt;type . . .>
+         . . .
+         &lt;attributeGroup ref="xml:specialAttrs"/>
+ 
+         will define a type which will schema-validate an instance
+         element with any of those attributes</xs:documentation>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:documentation>In keeping with the XML Schema WG's standard versioning
+   policy, this schema document will persist at
+   http://www.w3.org/2001/03/xml.xsd.
+   At the date of issue it can also be found at
+   http://www.w3.org/2001/xml.xsd.
+   The schema document at that URI may however change in the future,
+   in order to remain compatible with the latest version of XML Schema
+   itself.  In other words, if the XML Schema namespace changes, the version
+   of this document at
+   http://www.w3.org/2001/xml.xsd will change
+   accordingly; the version at
+   http://www.w3.org/2001/03/xml.xsd will not change.</xs:documentation>
+  </xs:annotation>
+  <xs:attribute name="lang" type="xs:language">
+    <xs:annotation>
+      <xs:documentation>In due course, we should install the relevant ISO 2- and 3-letter
+         codes as the enumerated possible values . . .</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attribute name="space" default="preserve">
+    <xs:simpleType>
+      <xs:restriction base="xs:NCName">
+        <xs:enumeration value="default"/>
+        <xs:enumeration value="preserve"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="base" type="xs:anyURI">
+    <xs:annotation>
+      <xs:documentation>See http://www.w3.org/TR/xmlbase/ for
+                     information about this attribute.</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attributeGroup name="specialAttrs">
+    <xs:attribute ref="xml:base"/>
+    <xs:attribute ref="xml:lang"/>
+    <xs:attribute ref="xml:space"/>
+  </xs:attributeGroup>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+  <xs:element name="Security" msdata:Prefix="wsse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UsernameToken" msdata:Prefix="wsse" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Username" type="xs:string" minOccurs="0" msdata:Prefix="wsse"/>
+              <xs:element name="Password" type="xs:string" minOccurs="0" msdata:Prefix="wsse"/>
+              <xs:element name="NewPassword" type="xs:string" minOccurs="0" maxOccurs="2" msdata:Prefix="wsse"/>
+              <xs:element name="Organization" type="xs:string" form="unqualified" minOccurs="0"/>
+              <xs:element name="Domain" type="xs:string" form="unqualified" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SabreAth" msdata:Prefix="wsse" minOccurs="0" type="xs:string"/>
+        <element name="BinarySecurityToken" type="xs:string" minOccurs="0" msdata:Prefix="wsse">
+          <!--xs:complexType>
+						<xs:attribute name="EncodingType" type="xs:string" use="optional"/>
+						<xs:attribute name="valueType" type="xs:string" use="optional"/>						
+					</xs:complexType-->
+        </element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="bfa5dc1d-a1b8-4268-a07e-9819306ea75c" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c3b1211-7921-404c-9e7a-bb6aa12674f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
+   <soapenv:Header>\r
+      <sec:Security>\r
+         <!--Optional:-->\r
+         <sec:UsernameToken>\r
+            <!--Optional:-->\r
+            <sec:Username>?</sec:Username>\r
+            <!--Optional:-->\r
+            <sec:Password>?</sec:Password>\r
+            <!--0 to 2 repetitions:-->\r
+            <sec:NewPassword>?</sec:NewPassword>\r
+            <!--Optional:-->\r
+            <Organization>?</Organization>\r
+            <!--Optional:-->\r
+            <Domain>?</Domain>\r
+         </sec:UsernameToken>\r
+         <!--Optional:-->\r
+         <sec:SabreAth>?</sec:SabreAth>\r
+         <!--Optional:-->\r
+         <sec:BinarySecurityToken>?</sec:BinarySecurityToken>\r
+      </sec:Security>\r
+      <mes:MessageHeader mes:id="?" mes:version="?">\r
+         <mes:From>\r
+            <!--1 or more repetitions:-->\r
+            <mes:PartyId mes:type="?">?</mes:PartyId>\r
+            <!--Optional:-->\r
+            <mes:Role>?</mes:Role>\r
+         </mes:From>\r
+         <mes:To>\r
+            <!--1 or more repetitions:-->\r
+            <mes:PartyId mes:type="?">?</mes:PartyId>\r
+            <!--Optional:-->\r
+            <mes:Role>?</mes:Role>\r
+         </mes:To>\r
+         <mes:CPAId>?</mes:CPAId>\r
+         <mes:ConversationId>?</mes:ConversationId>\r
+         <mes:Service mes:type="?">?</mes:Service>\r
+         <mes:Action>?</mes:Action>\r
+         <mes:MessageData>\r
+            <mes:MessageId>?</mes:MessageId>\r
+            <mes:Timestamp>?</mes:Timestamp>\r
+            <!--Optional:-->\r
+            <mes:RefToMessageId>?</mes:RefToMessageId>\r
+            <!--Optional:-->\r
+            <mes:TimeToLive>?</mes:TimeToLive>\r
+            <!--Optional:-->\r
+            <mes:Timeout>?</mes:Timeout>\r
+         </mes:MessageData>\r
+         <!--Optional:-->\r
+         <mes:DuplicateElimination>?</mes:DuplicateElimination>\r
+         <!--Zero or more repetitions:-->\r
+         <mes:Description xml:lang="?">?</mes:Description>\r
+         <!--You may enter ANY elements at this point-->\r
+      </mes:MessageHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <ns:SessionCloseRQ>\r
+         <ns:POS>\r
+            <ns:Source PseudoCityCode="?"/>\r
+         </ns:POS>\r
+      </ns:SessionCloseRQ>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="OTA"/></con:call></con:operation></con:interface><con:testSuite id="707982bd-5347-4e4c-931e-6e1b28b194ab" name="TestSuite 1">
       <con:settings/>
       <con:runType>SEQUENTIAL</con:runType>
       <con:testCase id="a7a6d736-1c45-4fc0-af57-490f38f02b33" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true">
@@ -1915,12 +2869,12 @@ testRunner.testCase.setPropertyValue("CPAId","7TZA")
 testRunner.testCase.setPropertyValue("Domain","AA")
 </script></con:config>
          </con:testStep>
-         <con:testStep type="request" name="Step1-SessionCreate-1.0.0" id="13e0f7ad-1515-4d43-a13a-f8d55379d99c">
+         <con:testStep type="request" name="Step 0-SessionCreateRQ-1.0.0" id="13e0f7ad-1515-4d43-a13a-f8d55379d99c">
             <con:settings/>
             <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <con:interface>OTA_AirAvailSoapBinding</con:interface>
                <con:operation>OTA_AirAvailRQ</con:operation>
-               <con:request name="Step1-SessionCreate-1.0.0" id="ed0f3c9d-3d63-40eb-aec4-6ee3836f08d5">
+               <con:request name="Step 0-SessionCreateRQ-1.0.0" id="ed0f3c9d-3d63-40eb-aec4-6ee3836f08d5">
                   <con:settings>
                      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                   </con:settings>
@@ -1985,19 +2939,17 @@ testRunner.testCase.setPropertyValue("Domain","AA")
          </con:testStep>
          <con:testStep type="groovy" name="Groovy Script-binarysecuritytoken" id="cea64c52-e406-488a-b509-782ceecc8725">
             <con:settings/>
-            <con:config>
-               <script>def response=context.expand('${Step1-SessionCreate-1.0.0#Response#//wsse:BinarySecurityToken}')
+            <con:config><script>def response=context.expand('${Step 0-SessionCreateRQ-1.0.0#Response#//wsse:BinarySecurityToken}')
 testRunner.testCase.setPropertyValue("Response",response)
 def getLocalPropValue=testRunner.testCase.getPropertyValue("Response")
-log.info(getLocalPropValue)</script>
-            </con:config>
+log.info(getLocalPropValue)</script></con:config>
          </con:testStep>
-         <con:testStep type="request" id="b9cd82d6-862d-46ac-bc46-2e696f733f4e" name="Step2-OTA_AirAvailLLSRQ-2.4.0">
+         <con:testStep type="request" id="b9cd82d6-862d-46ac-bc46-2e696f733f4e" name="Step 1-OTA_AirAvailLLSRQ-2.4.0">
             <con:settings/>
             <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                <con:interface>OTA_AirAvailSoapBinding</con:interface>
                <con:operation>OTA_AirAvailRQ</con:operation>
-               <con:request name="Step2-OTA_AirAvailLLSRQ-2.4.0" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="1a7d5f35-b8e5-406e-8e52-5b6e802c5c2a">
+               <con:request name="Step 1-OTA_AirAvailLLSRQ-2.4.0" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="1a7d5f35-b8e5-406e-8e52-5b6e802c5c2a">
                   <con:settings>
                      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                   </con:settings>
@@ -2066,7 +3018,43 @@ declare namespace ns1='http://webservices.sabre.com/sabreXML/2011/10';
                </con:request>
             </con:config>
          </con:testStep>
-         <con:properties>
+         <con:testStep type="request" name="Step 2-SessionCloseRQ-1.0.1" id="d8857094-1843-4a2e-8d89-f4d742566036"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 2-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2002/11">
+   <soapenv:Header>
+      <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" soapenv:mustUnderstand="0">
+         <eb:From>
+            <eb:PartyId />
+         </eb:From>
+         <eb:To>
+            <eb:PartyId />
+         </eb:To>
+         <eb:CPAId>${Properties#CPAId}</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>SessionCloseRQ</eb:Service>
+         <eb:Action>SessionCloseRQ</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
+            <eb:Timestamp>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date())}</eb:Timestamp>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <eb:Security xmlns:eb="http://schemas.xmlsoap.org/ws/2002/12/secext" soapenv:mustUnderstand="0">
+         <eb:BinarySecurityToken>${#TestCase#Response#//wsse:BinarySecurityToken/text()}</eb:BinarySecurityToken>
+      </eb:Security>
+   </soapenv:Header>
+   <soapenv:Body xmlns:eb="http://www.opentravel.org/OTA/2002/11">
+      <eb:SessionCloseRQ>
+         <eb:POS>
+            <eb:Source PseudoCityCode="7TZA" />
+         </eb:POS>
+      </eb:SessionCloseRQ>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="722ae3e5-a4c8-4ec5-a992-312a1199afc2"/><con:assertion type="XPath Match" id="613b7c9f-805d-4607-a4e8-3b15482f4b18" name="XPath Match"><con:configuration><path>declare namespace eb='http://www.ebxml.org/namespaces/messageHeader';
+declare namespace wsse='http://schemas.xmlsoap.org/ws/2002/12/secext';
+declare namespace soap-env='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.opentravel.org/OTA/2002/11';
+//ns1:SessionCloseRS/@status</path><content>Approved</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties>
             <con:property>
                <con:name>Username</con:name>
                <con:value>773400</con:value>
@@ -2085,7 +3073,7 @@ declare namespace ns1='http://webservices.sabre.com/sabreXML/2011/10';
             </con:property>
             <con:property>
                <con:name>Response</con:name>
-               <con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3205972619648762490!1910002!0&lt;/wsse:BinarySecurityToken></con:value>
+               <con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/CERTG!ICESMSLB\/CRT.LB!-3202778647734316917!1453590!0&lt;/wsse:BinarySecurityToken></con:value>
             </con:property>
          </con:properties>
       </con:testCase>
