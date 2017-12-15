@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="478f54f4-9681-43ba-8083-aafde1ec63e3" activeEnvironment="Default" name="LowFareSearchAndBook" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="75f9533a-ca52-402a-ab3f-d32c07f803a7" wsaVersion="NONE" name="CreatePassengerNameRecordSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}CreatePassengerNameRecordSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RQ.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:res="http://services.sabre.com/sp/reservation/v1" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+<con:soapui-project id="ac2839a2-786a-4349-9731-1ecac7ce5ded" activeEnvironment="Default" name="LowFareSearchAndBook" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="08b95c15-137b-4540-adda-78b9fbfa1002" wsaVersion="NONE" name="CreatePassengerNameRecordSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}CreatePassengerNameRecordSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:res="http://services.sabre.com/sp/reservation/v2" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <wsdl:types>
     <xsd:schema>
-      <xsd:import namespace="http://services.sabre.com/sp/reservation/v1" schemaLocation="CreatePassengerNameRecord1.0.0RQRS.xsd"/>
+      <xsd:import namespace="http://services.sabre.com/sp/reservation/v2" schemaLocation="CreatePassengerNameRecord2.0.0RQRS.xsd"/>
       <xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="built-ins/msg-header-2_0.xsd"/>
       <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="built-ins/wsse.xsd"/>
     </xsd:schema>
@@ -44,11 +44,10 @@
       <soap:address location="https://webservices.sabre.com"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RQRS.xsd</con:url><con:content>&lt;!--edited with XMLSpy v2015 rel. 4 sp1 (http://www.altova.com) by SG0950032 (SABRE GLBL INC)-->
-&lt;schema targetNamespace="http://services.sabre.com/sp/reservation/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
-  &lt;include schemaLocation="CreatePassengerNameRecord1.0.0RQ.xsd"/>
-  &lt;include schemaLocation="CreatePassengerNameRecord1.0.0RS.xsd"/>
-&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RQ.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://services.sabre.com/sp/reservation/v1" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.sabre.com/sp/reservation/v1" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1" xmlns:xsd="http://services.sabre.com/STL_MessageCommon/v02_01">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
+  &lt;include schemaLocation="CreatePassengerNameRecord2.0.0RQ.xsd"/>
+  &lt;include schemaLocation="CreatePassengerNameRecord2.0.0RS.xsd"/>
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.sabre.com/sp/reservation/v2" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1" xmlns:xsd="http://services.sabre.com/STL_MessageCommon/v02_01">
   <import namespace="http://services.sabre.com/STL_MessageCommon/v02_01" schemaLocation="built-ins/STL2_MsgCommon_v02_01.xsd"/>
   <import namespace="http://services.sabre.com/STL_Payload/v02_01" schemaLocation="built-ins/STL2_Payload_v02_01.xsd"/>
   <import namespace="http://services.sabre.com/sp/common/simple/v3" schemaLocation="built-ins/SpCommonSimpleTypes_v3.xsd"/>
@@ -2192,7 +2191,7 @@
       <xs:minExclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord1.0.0RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/reservation/v1" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://services.sabre.com/sp/reservation/v1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://services.sabre.com/sp/reservation/v2">
   <xs:import namespace="http://services.sabre.com/STL_Payload/v02_01" schemaLocation="built-ins/STL2_Payload_v02_01.xsd"/>
   <xs:import namespace="http://services.sabre.com/sp/common/simple/v3" schemaLocation="built-ins/SpCommonSimpleTypes_v3.xsd"/>
   <xs:element name="CreatePassengerNameRecordRS">
@@ -10608,7 +10607,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="f8f2138d-2b53-42c3-b45e-d325f14a7e03" isOneWay="false" action="CreatePassengerNameRecordRQ" name="CreatePassengerNameRecordRQ" bindingOperationName="CreatePassengerNameRecordRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1238be10-0dff-4dc4-82fe-57c7e389415c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:v1="http://services.sabre.com/sp/reservation/v1">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="9c4b93a8-73ef-4947-9740-e5e0fdaa0029" isOneWay="false" action="CreatePassengerNameRecordRQ" name="CreatePassengerNameRecordRQ" bindingOperationName="CreatePassengerNameRecordRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5bb31b94-bfea-456b-8b11-6e508a1b2175" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:v2="http://services.sabre.com/sp/reservation/v2">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -10664,646 +10663,646 @@
       </mes:MessageHeader>\r
    </soapenv:Header>\r
    <soapenv:Body>\r
-      <v1:CreatePassengerNameRecordRQ version="?" targetCity="?" haltOnAirPriceError="?">\r
+      <v2:CreatePassengerNameRecordRQ version="?" targetCity="?" haltOnAirPriceError="?">\r
          <!--Optional:-->\r
-         <v1:Profile>\r
-            <v1:UniqueID ID="?"/>\r
-         </v1:Profile>\r
+         <v2:Profile>\r
+            <v2:UniqueID ID="?"/>\r
+         </v2:Profile>\r
          <!--Optional:-->\r
-         <v1:TravelItineraryAddInfo>\r
+         <v2:TravelItineraryAddInfo>\r
             <!--Optional:-->\r
-            <v1:AgencyInfo>\r
+            <v2:AgencyInfo>\r
                <!--Optional:-->\r
-               <v1:Address>\r
+               <v2:Address>\r
                   <!--Optional:-->\r
-                  <v1:AddressLine>?</v1:AddressLine>\r
-                  <v1:CityName>?</v1:CityName>\r
+                  <v2:AddressLine>?</v2:AddressLine>\r
+                  <v2:CityName>?</v2:CityName>\r
                   <!--Optional:-->\r
-                  <v1:CountryCode>?</v1:CountryCode>\r
+                  <v2:CountryCode>?</v2:CountryCode>\r
                   <!--Optional:-->\r
-                  <v1:PostalCode>?</v1:PostalCode>\r
+                  <v2:PostalCode>?</v2:PostalCode>\r
                   <!--Optional:-->\r
-                  <v1:StateCountyProv StateCode="?"/>\r
+                  <v2:StateCountyProv StateCode="?"/>\r
                   <!--Optional:-->\r
-                  <v1:StreetNmbr>?</v1:StreetNmbr>\r
+                  <v2:StreetNmbr>?</v2:StreetNmbr>\r
                   <!--Optional:-->\r
-                  <v1:VendorPrefs>\r
-                     <v1:Airline Hosted="?"/>\r
-                  </v1:VendorPrefs>\r
-               </v1:Address>\r
+                  <v2:VendorPrefs>\r
+                     <v2:Airline Hosted="?"/>\r
+                  </v2:VendorPrefs>\r
+               </v2:Address>\r
                <!--Optional:-->\r
-               <v1:Ticketing PseudoCityCode="?" QueueNumber="?" QueueName="?" ShortText="?" TicketTimeLimit="?" TicketType="?"/>\r
-            </v1:AgencyInfo>\r
+               <v2:Ticketing PseudoCityCode="?" QueueNumber="?" QueueName="?" ShortText="?" TicketTimeLimit="?" TicketType="?"/>\r
+            </v2:AgencyInfo>\r
             <!--Optional:-->\r
-            <v1:CustomerInfo>\r
+            <v2:CustomerInfo>\r
                <!--Optional:-->\r
-               <v1:ContactNumbers>\r
+               <v2:ContactNumbers>\r
                   <!--1 or more repetitions:-->\r
-                  <v1:ContactNumber InsertAfter="?" LocationCode="?" NameNumber="?" Phone="?" PhoneUseType="?"/>\r
-               </v1:ContactNumbers>\r
+                  <v2:ContactNumber InsertAfter="?" LocationCode="?" NameNumber="?" Phone="?" PhoneUseType="?"/>\r
+               </v2:ContactNumbers>\r
                <!--Optional:-->\r
-               <v1:Corporate>\r
-                  <v1:ID>?</v1:ID>\r
-               </v1:Corporate>\r
+               <v2:Corporate>\r
+                  <v2:ID>?</v2:ID>\r
+               </v2:Corporate>\r
                <!--Zero or more repetitions:-->\r
-               <v1:CustLoyalty MembershipID="?" NameNumber="?" ProgramID="?" SegmentNumber="?" TravelingCarrierCode="?"/>\r
+               <v2:CustLoyalty MembershipID="?" NameNumber="?" ProgramID="?" SegmentNumber="?" TravelingCarrierCode="?"/>\r
                <!--Optional:-->\r
-               <v1:CustomerIdentifier>?</v1:CustomerIdentifier>\r
+               <v2:CustomerIdentifier>?</v2:CustomerIdentifier>\r
                <!--Zero or more repetitions:-->\r
-               <v1:Email Address="?" NameNumber="?" ShortText="?" Type="?"/>\r
+               <v2:Email Address="?" NameNumber="?" ShortText="?" Type="?"/>\r
                <!--Zero or more repetitions:-->\r
-               <v1:PersonName Infant="?" NameNumber="?" NameReference="?" PassengerType="?">\r
+               <v2:PersonName Infant="?" NameNumber="?" NameReference="?" PassengerType="?">\r
                   <!--Optional:-->\r
-                  <v1:GivenName>?</v1:GivenName>\r
+                  <v2:GivenName>?</v2:GivenName>\r
                   <!--Optional:-->\r
-                  <v1:GroupInfo Name="?" NumSeatsRemaining="?">\r
+                  <v2:GroupInfo Name="?" NumSeatsRemaining="?">\r
                      <!--Optional:-->\r
-                     <v1:VendorPrefs>\r
-                        <v1:Airline Code="?"/>\r
-                     </v1:VendorPrefs>\r
-                  </v1:GroupInfo>\r
+                     <v2:VendorPrefs>\r
+                        <v2:Airline Code="?"/>\r
+                     </v2:VendorPrefs>\r
+                  </v2:GroupInfo>\r
                   <!--Optional:-->\r
-                  <v1:Surname>?</v1:Surname>\r
-               </v1:PersonName>\r
-            </v1:CustomerInfo>\r
-         </v1:TravelItineraryAddInfo>\r
-         <v1:AirBook>\r
+                  <v2:Surname>?</v2:Surname>\r
+               </v2:PersonName>\r
+            </v2:CustomerInfo>\r
+         </v2:TravelItineraryAddInfo>\r
+         <v2:AirBook>\r
             <!--Optional:-->\r
-            <v1:RetryRebook Option="?"/>\r
+            <v2:RetryRebook Option="?"/>\r
             <!--Zero or more repetitions:-->\r
-            <v1:HaltOnStatus Code="?"/>\r
-            <v1:OriginDestinationInformation>\r
+            <v2:HaltOnStatus Code="?"/>\r
+            <v2:OriginDestinationInformation>\r
                <!--1 to 10 repetitions:-->\r
-               <v1:FlightSegment ArrivalDateTime="?" BrandID="?" DepartureDateTime="?" FlightNumber="?" NumberInParty="?" ResBookDesigCode="?" Status="?">\r
-                  <v1:DestinationLocation LocationCode="?"/>\r
+               <v2:FlightSegment ArrivalDateTime="?" BrandID="?" DepartureDateTime="?" FlightNumber="?" NumberInParty="?" ResBookDesigCode="?" Status="?">\r
+                  <v2:DestinationLocation LocationCode="?"/>\r
                   <!--Optional:-->\r
-                  <v1:Equipment AirEquipType="?"/>\r
-                  <v1:MarketingAirline Code="?" FlightNumber="?"/>\r
+                  <v2:Equipment AirEquipType="?"/>\r
+                  <v2:MarketingAirline Code="?" FlightNumber="?"/>\r
                   <!--Optional:-->\r
-                  <v1:MarriageGrp>?</v1:MarriageGrp>\r
+                  <v2:MarriageGrp>?</v2:MarriageGrp>\r
                   <!--Optional:-->\r
-                  <v1:OperatingAirline Code="?"/>\r
-                  <v1:OriginLocation LocationCode="?"/>\r
-               </v1:FlightSegment>\r
-            </v1:OriginDestinationInformation>\r
+                  <v2:OperatingAirline Code="?"/>\r
+                  <v2:OriginLocation LocationCode="?"/>\r
+               </v2:FlightSegment>\r
+            </v2:OriginDestinationInformation>\r
             <!--Optional:-->\r
-            <v1:RedisplayReservation NumAttempts="?" WaitInterval="?"/>\r
-         </v1:AirBook>\r
+            <v2:RedisplayReservation NumAttempts="?" WaitInterval="?"/>\r
+         </v2:AirBook>\r
          <!--Optional:-->\r
-         <v1:AirPrice>\r
+         <v2:AirPrice>\r
             <!--Optional:-->\r
-            <v1:PriceComparison AmountSpecified="?">\r
+            <v2:PriceComparison AmountSpecified="?">\r
                <!--Optional:-->\r
-               <v1:AcceptablePriceIncrease HaltOnNonAcceptablePrice="false">\r
+               <v2:AcceptablePriceIncrease HaltOnNonAcceptablePrice="false">\r
                   <!--You have a CHOICE of the next 2 items at this level-->\r
-                  <v1:Amount>?</v1:Amount>\r
-                  <v1:Percent>?</v1:Percent>\r
-               </v1:AcceptablePriceIncrease>\r
-            </v1:PriceComparison>\r
-            <v1:PriceRequestInformation AlternativePricing="?" FutureTicket="?" Manual="?" Retain="?">\r
-               <v1:OptionalQualifiers>\r
+                  <v2:Amount>?</v2:Amount>\r
+                  <v2:Percent>?</v2:Percent>\r
+               </v2:AcceptablePriceIncrease>\r
+            </v2:PriceComparison>\r
+            <v2:PriceRequestInformation AlternativePricing="?" FutureTicket="?" Manual="?" Retain="?">\r
+               <v2:OptionalQualifiers>\r
                   <!--Optional:-->\r
-                  <v1:FlightQualifiers>\r
+                  <v2:FlightQualifiers>\r
                      <!--Optional:-->\r
-                     <v1:VendorPrefs>\r
-                        <v1:Airline Code="?"/>\r
-                     </v1:VendorPrefs>\r
-                  </v1:FlightQualifiers>\r
+                     <v2:VendorPrefs>\r
+                        <v2:Airline Code="?"/>\r
+                     </v2:VendorPrefs>\r
+                  </v2:FlightQualifiers>\r
                   <!--Optional:-->\r
-                  <v1:FOP_Qualifiers IgnoreStoredFOP="?">\r
+                  <v2:FOP_Qualifiers IgnoreStoredFOP="?">\r
                      <!--Optional:-->\r
-                     <v1:BasicFOP Type="?">\r
+                     <v2:BasicFOP Type="?">\r
                         <!--Optional:-->\r
-                        <v1:CC_Info Suppress="?">\r
-                           <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                        </v1:CC_Info>\r
-                     </v1:BasicFOP>\r
+                        <v2:CC_Info Suppress="?">\r
+                           <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                        </v2:CC_Info>\r
+                     </v2:BasicFOP>\r
                      <!--Optional:-->\r
-                     <v1:BSP_Ticketing>\r
+                     <v2:BSP_Ticketing>\r
                         <!--Optional:-->\r
-                        <v1:MultipleFOP>\r
-                           <v1:Fare Amount="?"/>\r
-                           <v1:FOP_One Type="?">\r
+                        <v2:MultipleFOP>\r
+                           <v2:Fare Amount="?"/>\r
+                           <v2:FOP_One Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info Suppress="?">\r
-                                 <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_One>\r
-                           <v1:FOP_Two Type="?">\r
+                              <v2:CC_Info Suppress="?">\r
+                                 <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_One>\r
+                           <v2:FOP_Two Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info Suppress="?">\r
-                                 <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_Two>\r
-                        </v1:MultipleFOP>\r
+                              <v2:CC_Info Suppress="?">\r
+                                 <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_Two>\r
+                        </v2:MultipleFOP>\r
                         <!--Optional:-->\r
-                        <v1:MultipleMiscFOP>\r
-                           <v1:Fare Amount="?"/>\r
-                           <v1:FOP_One Type="?">\r
+                        <v2:MultipleMiscFOP>\r
+                           <v2:Fare Amount="?"/>\r
+                           <v2:FOP_One Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info Suppress="?">\r
-                                 <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_One>\r
-                           <v1:FOP_Two Type="?">\r
+                              <v2:CC_Info Suppress="?">\r
+                                 <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_One>\r
+                           <v2:FOP_Two Type="?">\r
                               <!--Optional:-->\r
-                              <v1:ExtendedPayment NumMonths="?"/>\r
-                           </v1:FOP_Two>\r
+                              <v2:ExtendedPayment NumMonths="?"/>\r
+                           </v2:FOP_Two>\r
                            <!--Optional:-->\r
-                           <v1:Taxes>\r
+                           <v2:Taxes>\r
                               <!--1 to 2 repetitions:-->\r
-                              <v1:Tax Amount="?" TaxCode="?"/>\r
-                           </v1:Taxes>\r
-                        </v1:MultipleMiscFOP>\r
+                              <v2:Tax Amount="?" TaxCode="?"/>\r
+                           </v2:Taxes>\r
+                        </v2:MultipleMiscFOP>\r
                         <!--Optional:-->\r
-                        <v1:PayLaterPlan>\r
-                           <v1:Fare Amount="?"/>\r
-                           <v1:FOP Type="?">\r
+                        <v2:PayLaterPlan>\r
+                           <v2:Fare Amount="?"/>\r
+                           <v2:FOP Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info>\r
-                                 <v1:PaymentCard Code="?" ExpireDate="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP>\r
-                           <v1:Installment Count="?" PayLaterReferenceNumber="?" Value="?"/>\r
-                        </v1:PayLaterPlan>\r
-                     </v1:BSP_Ticketing>\r
+                              <v2:CC_Info>\r
+                                 <v2:PaymentCard Code="?" ExpireDate="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP>\r
+                           <v2:Installment Count="?" PayLaterReferenceNumber="?" Value="?"/>\r
+                        </v2:PayLaterPlan>\r
+                     </v2:BSP_Ticketing>\r
                      <!--Optional:-->\r
-                     <v1:MultipleCC_FOP>\r
-                        <v1:Fare Amount="?"/>\r
-                        <v1:CC_One>\r
+                     <v2:MultipleCC_FOP>\r
+                        <v2:Fare Amount="?"/>\r
+                        <v2:CC_One>\r
                            <!--Optional:-->\r
-                           <v1:CC_Info Suppress="?">\r
-                              <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                           </v1:CC_Info>\r
-                        </v1:CC_One>\r
-                        <v1:CC_Two>\r
+                           <v2:CC_Info Suppress="?">\r
+                              <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                           </v2:CC_Info>\r
+                        </v2:CC_One>\r
+                        <v2:CC_Two>\r
                            <!--Optional:-->\r
-                           <v1:CC_Info Suppress="?">\r
-                              <v1:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                           </v1:CC_Info>\r
-                        </v1:CC_Two>\r
-                     </v1:MultipleCC_FOP>\r
+                           <v2:CC_Info Suppress="?">\r
+                              <v2:PaymentCard Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                           </v2:CC_Info>\r
+                        </v2:CC_Two>\r
+                     </v2:MultipleCC_FOP>\r
                      <!--Optional:-->\r
-                     <v1:SabreSonicTicketing>\r
+                     <v2:SabreSonicTicketing>\r
                         <!--Optional:-->\r
-                        <v1:BasicFOP ManualApprovalCode="?" Type="?">\r
+                        <v2:BasicFOP ManualApprovalCode="?" Type="?">\r
                            <!--Optional:-->\r
-                           <v1:CC_Info Suppress="?">\r
-                              <v1:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                           </v1:CC_Info>\r
-                        </v1:BasicFOP>\r
+                           <v2:CC_Info Suppress="?">\r
+                              <v2:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                           </v2:CC_Info>\r
+                        </v2:BasicFOP>\r
                         <!--Optional:-->\r
-                        <v1:EnhancedMultipleFOP>\r
-                           <v1:Fare Amount="?"/>\r
-                           <v1:FOP_One Type="?">\r
+                        <v2:EnhancedMultipleFOP>\r
+                           <v2:Fare Amount="?"/>\r
+                           <v2:FOP_One Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info>\r
-                                 <v1:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_One>\r
-                           <v1:FOP_Two Type="?">\r
+                              <v2:CC_Info>\r
+                                 <v2:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_One>\r
+                           <v2:FOP_Two Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info>\r
-                                 <v1:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_Two>\r
-                           <v1:Taxes>\r
-                              <v1:Tax Amount="?" TaxCode="?"/>\r
-                           </v1:Taxes>\r
-                        </v1:EnhancedMultipleFOP>\r
+                              <v2:CC_Info>\r
+                                 <v2:PaymentCard CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_Two>\r
+                           <v2:Taxes>\r
+                              <v2:Tax Amount="?" TaxCode="?"/>\r
+                           </v2:Taxes>\r
+                        </v2:EnhancedMultipleFOP>\r
                         <!--Optional:-->\r
-                        <v1:MultipleFOP>\r
-                           <v1:Fare Amount="?"/>\r
-                           <v1:FOP_One Type="?">\r
+                        <v2:MultipleFOP>\r
+                           <v2:Fare Amount="?"/>\r
+                           <v2:FOP_One Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info>\r
-                                 <v1:PaymentCard Code="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_One>\r
-                           <v1:FOP_Two Type="?">\r
+                              <v2:CC_Info>\r
+                                 <v2:PaymentCard Code="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_One>\r
+                           <v2:FOP_Two Type="?">\r
                               <!--Optional:-->\r
-                              <v1:CC_Info>\r
-                                 <v1:PaymentCard Code="?" ManualApprovalCode="?" Number="?"/>\r
-                              </v1:CC_Info>\r
-                           </v1:FOP_Two>\r
+                              <v2:CC_Info>\r
+                                 <v2:PaymentCard Code="?" ManualApprovalCode="?" Number="?"/>\r
+                              </v2:CC_Info>\r
+                           </v2:FOP_Two>\r
                            <!--Optional:-->\r
-                           <v1:Taxes>\r
-                              <v1:Tax Amount="?" TaxCode="?"/>\r
-                           </v1:Taxes>\r
-                        </v1:MultipleFOP>\r
-                     </v1:SabreSonicTicketing>\r
-                  </v1:FOP_Qualifiers>\r
+                           <v2:Taxes>\r
+                              <v2:Tax Amount="?" TaxCode="?"/>\r
+                           </v2:Taxes>\r
+                        </v2:MultipleFOP>\r
+                     </v2:SabreSonicTicketing>\r
+                  </v2:FOP_Qualifiers>\r
                   <!--Optional:-->\r
-                  <v1:MiscQualifiers>\r
+                  <v2:MiscQualifiers>\r
                      <!--Optional:-->\r
-                     <v1:AirExtras Ind="?" Summary="?">\r
+                     <v2:AirExtras Ind="?" Summary="?">\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:CustLoyalty ProgramID="?" TierLevel="?"/>\r
+                        <v2:CustLoyalty ProgramID="?" TierLevel="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:Qualifier>?</v1:Qualifier>\r
+                        <v2:Qualifier>?</v2:Qualifier>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:Ticketing EndNumber="?" eTicketNumber="?" Number="?"/>\r
-                     </v1:AirExtras>\r
+                        <v2:Ticketing EndNumber="?" eTicketNumber="?" Number="?"/>\r
+                     </v2:AirExtras>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:BaggageAllowance Number="?" Weight="?">\r
+                     <v2:BaggageAllowance Number="?" Weight="?">\r
                         <!--Optional:-->\r
-                        <v1:Segment Number="?" EndNumber="?"/>\r
-                     </v1:BaggageAllowance>\r
+                        <v2:Segment Number="?" EndNumber="?"/>\r
+                     </v2:BaggageAllowance>\r
                      <!--Optional:-->\r
-                     <v1:Commission Amount="?" Percent="?"/>\r
+                     <v2:Commission Amount="?" Percent="?"/>\r
                      <!--Optional:-->\r
-                     <v1:Customer Number="?"/>\r
+                     <v2:Customer Number="?"/>\r
                      <!--Optional:-->\r
-                     <v1:Endorsements Override="?">\r
-                        <v1:Text>?</v1:Text>\r
-                     </v1:Endorsements>\r
+                     <v2:Endorsements Override="?">\r
+                        <v2:Text>?</v2:Text>\r
+                     </v2:Endorsements>\r
                      <!--Optional:-->\r
-                     <v1:HemisphereCode>?</v1:HemisphereCode>\r
+                     <v2:HemisphereCode>?</v2:HemisphereCode>\r
                      <!--Optional:-->\r
-                     <v1:JourneyCode>?</v1:JourneyCode>\r
+                     <v2:JourneyCode>?</v2:JourneyCode>\r
                      <!--Optional:-->\r
-                     <v1:MultiTicket Ind="?"/>\r
+                     <v2:MultiTicket Ind="?"/>\r
                      <!--Optional:-->\r
-                     <v1:TourCode>\r
+                     <v2:TourCode>\r
                         <!--Optional:-->\r
-                        <v1:SuppressFareReplaceWithBT Ind="?"/>\r
+                        <v2:SuppressFareReplaceWithBT Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:SuppressFareReplaceWithIT Ind="?"/>\r
+                        <v2:SuppressFareReplaceWithIT Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:SuppressIT Ind="?"/>\r
+                        <v2:SuppressIT Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:SuppressITSupressFare Ind="?"/>\r
+                        <v2:SuppressITSupressFare Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Text>?</v1:Text>\r
-                     </v1:TourCode>\r
+                        <v2:Text>?</v2:Text>\r
+                     </v2:TourCode>\r
                      <!--Optional:-->\r
-                     <v1:ValidationMethod>?</v1:ValidationMethod>\r
-                  </v1:MiscQualifiers>\r
+                     <v2:ValidationMethod>?</v2:ValidationMethod>\r
+                  </v2:MiscQualifiers>\r
                   <!--Optional:-->\r
-                  <v1:PricingQualifiers AlternateCurrencyCode="?" CurrencyCode="?" FareFocusExclude="?" NoDate="?" RoundTheWorld="?" Source="?">\r
+                  <v2:PricingQualifiers AlternateCurrencyCode="?" CurrencyCode="?" FareFocusExclude="?" NoDate="?" RoundTheWorld="?" Source="?">\r
                      <!--Optional:-->\r
-                     <v1:Account Force="?">\r
+                     <v2:Account Force="?">\r
                         <!--1 to 4 repetitions:-->\r
-                        <v1:Code>?</v1:Code>\r
-                     </v1:Account>\r
+                        <v2:Code>?</v2:Code>\r
+                     </v2:Account>\r
                      <!--Optional:-->\r
-                     <v1:AlternativePricing NoAvailCheck="?">\r
+                     <v2:AlternativePricing NoAvailCheck="?">\r
                         <!--Optional:-->\r
-                        <v1:Overrides>\r
+                        <v2:Overrides>\r
                            <!--Optional:-->\r
-                           <v1:MatchNoMatch Ind="?"/>\r
+                           <v2:MatchNoMatch Ind="?"/>\r
                            <!--Optional:-->\r
-                           <v1:NoMatch Ind="?"/>\r
-                        </v1:Overrides>\r
-                     </v1:AlternativePricing>\r
+                           <v2:NoMatch Ind="?"/>\r
+                        </v2:Overrides>\r
+                     </v2:AlternativePricing>\r
                      <!--Optional:-->\r
-                     <v1:BankersSellingRate>?</v1:BankersSellingRate>\r
+                     <v2:BankersSellingRate>?</v2:BankersSellingRate>\r
                      <!--Optional:-->\r
-                     <v1:BargainFinder Historical="?" Rebook="?"/>\r
+                     <v2:BargainFinder Historical="?" Rebook="?"/>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:Brand RPH="?">?</v1:Brand>\r
+                     <v2:Brand RPH="?">?</v2:Brand>\r
                      <!--Optional:-->\r
-                     <v1:BuyingDate>?</v1:BuyingDate>\r
+                     <v2:BuyingDate>?</v2:BuyingDate>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:CommandPricing RPH="?">\r
+                     <v2:CommandPricing RPH="?">\r
                         <!--Optional:-->\r
-                        <v1:Discount Amount="?" AuthCode="?" Percent="?"/>\r
+                        <v2:Discount Amount="?" AuthCode="?" Percent="?"/>\r
                         <!--Optional:-->\r
-                        <v1:FareBasis Code="?" TicketDesignator="?"/>\r
-                     </v1:CommandPricing>\r
+                        <v2:FareBasis Code="?" TicketDesignator="?"/>\r
+                     </v2:CommandPricing>\r
                      <!--Optional:-->\r
-                     <v1:Corporate Force="?">\r
+                     <v2:Corporate Force="?">\r
                         <!--1 to 4 repetitions:-->\r
-                        <v1:ID>?</v1:ID>\r
-                     </v1:Corporate>\r
+                        <v2:ID>?</v2:ID>\r
+                     </v2:Corporate>\r
                      <!--Optional:-->\r
-                     <v1:Fare Type="?"/>\r
+                     <v2:Fare Type="?"/>\r
                      <!--Optional:-->\r
-                     <v1:FareOptions Excursion="?" Net="?" Public="?" Private="?"/>\r
+                     <v2:FareOptions Excursion="?" Net="?" Public="?" Private="?"/>\r
                      <!--Optional:-->\r
-                     <v1:ItineraryOptions>\r
+                     <v2:ItineraryOptions>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:BreakFare Number="?"/>\r
+                        <v2:BreakFare Number="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:ForceConnection Number="?"/>\r
+                        <v2:ForceConnection Number="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:ForceStopOver Number="?"/>\r
+                        <v2:ForceStopOver Number="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:OverrideBreak Number="?"/>\r
+                        <v2:OverrideBreak Number="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:SegmentSelect Number="?" EndNumber="?" RPH="?"/>\r
+                        <v2:SegmentSelect Number="?" EndNumber="?" RPH="?"/>\r
                         <!--Optional:-->\r
-                        <v1:SideTrip Number="?" EndNumber="?"/>\r
-                     </v1:ItineraryOptions>\r
+                        <v2:SideTrip Number="?" EndNumber="?"/>\r
+                     </v2:ItineraryOptions>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:NameSelect NameNumber="?" EndNameNumber="?"/>\r
+                     <v2:NameSelect NameNumber="?" EndNameNumber="?"/>\r
                      <!--Optional:-->\r
-                     <v1:NetRemit Code="?">\r
+                     <v2:NetRemit Code="?">\r
                         <!--Optional:-->\r
-                        <v1:CAR Code="?"/>\r
+                        <v2:CAR Code="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Cash CurrencyCode="?" Amount="?"/>\r
+                        <v2:Cash CurrencyCode="?" Amount="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Credit Amount="?"/>\r
-                     </v1:NetRemit>\r
+                        <v2:Credit Amount="?"/>\r
+                     </v2:NetRemit>\r
                      <!--Optional:-->\r
-                     <v1:Overrides>\r
+                     <v2:Overrides>\r
                         <!--Optional:-->\r
-                        <v1:FuelSurchargeOverride Ind="?"/>\r
+                        <v2:FuelSurchargeOverride Ind="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:GoverningCarrierOverride RPH="?">\r
-                           <v1:Airline Code="?"/>\r
-                        </v1:GoverningCarrierOverride>\r
+                        <v2:GoverningCarrierOverride RPH="?">\r
+                           <v2:Airline Code="?"/>\r
+                        </v2:GoverningCarrierOverride>\r
                         <!--Optional:-->\r
-                        <v1:NoAdvancePurchase Ind="?"/>\r
+                        <v2:NoAdvancePurchase Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:NoFareRestrictions Ind="?"/>\r
+                        <v2:NoFareRestrictions Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:NoMinMaxStay Ind="?"/>\r
+                        <v2:NoMinMaxStay Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:NoPenalty Ind="?"/>\r
+                        <v2:NoPenalty Ind="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Purchase LocationCode="?"/>\r
+                        <v2:Purchase LocationCode="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Ticketing LocationCode="?"/>\r
-                     </v1:Overrides>\r
+                        <v2:Ticketing LocationCode="?"/>\r
+                     </v2:Overrides>\r
                      <!--Optional:-->\r
-                     <v1:PassengerStatus>?</v1:PassengerStatus>\r
+                     <v2:PassengerStatus>?</v2:PassengerStatus>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:PassengerType Code="?" Force="?" Quantity="?"/>\r
+                     <v2:PassengerType Code="?" Force="?" Quantity="?"/>\r
                      <!--Optional:-->\r
-                     <v1:PlusUp Amount="?">\r
+                     <v2:PlusUp Amount="?">\r
                         <!--Optional:-->\r
-                        <v1:TicketDesignator>?</v1:TicketDesignator>\r
-                     </v1:PlusUp>\r
+                        <v2:TicketDesignator>?</v2:TicketDesignator>\r
+                     </v2:PlusUp>\r
                      <!--Optional:-->\r
-                     <v1:ShipsRegistry>?</v1:ShipsRegistry>\r
+                     <v2:ShipsRegistry>?</v2:ShipsRegistry>\r
                      <!--Optional:-->\r
-                     <v1:SpanishLargeFamilyDiscountLevel>?</v1:SpanishLargeFamilyDiscountLevel>\r
+                     <v2:SpanishLargeFamilyDiscountLevel>?</v2:SpanishLargeFamilyDiscountLevel>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:SpecificFare RPH="?">\r
+                     <v2:SpecificFare RPH="?">\r
                         <!--Optional:-->\r
-                        <v1:FareBasis>?</v1:FareBasis>\r
-                     </v1:SpecificFare>\r
+                        <v2:FareBasis>?</v2:FareBasis>\r
+                     </v2:SpecificFare>\r
                      <!--Optional:-->\r
-                     <v1:SpecificPenalty AdditionalInfo="?">\r
+                     <v2:SpecificPenalty AdditionalInfo="?">\r
                         <!--Optional:-->\r
-                        <v1:Changeable Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
+                        <v2:Changeable Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
                         <!--Optional:-->\r
-                        <v1:EitherOr Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
+                        <v2:EitherOr Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Refundable Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
-                     </v1:SpecificPenalty>\r
+                        <v2:Refundable Any="?" CurrencyCode="?" MaxPenalty="?"/>\r
+                     </v2:SpecificPenalty>\r
                      <!--Optional:-->\r
-                     <v1:Taxes>\r
+                     <v2:Taxes>\r
                         <!--Optional:-->\r
-                        <v1:NoTax Ind="?"/>\r
+                        <v2:NoTax Ind="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:TaxExempt Code="?"/>\r
+                        <v2:TaxExempt Code="?"/>\r
                         <!--Zero or more repetitions:-->\r
-                        <v1:TaxOverride Amount="?" Code="?"/>\r
-                     </v1:Taxes>\r
+                        <v2:TaxOverride Amount="?" Code="?"/>\r
+                     </v2:Taxes>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:ValidityDates>\r
+                     <v2:ValidityDates>\r
                         <!--Optional:-->\r
-                        <v1:NotValidAfter>?</v1:NotValidAfter>\r
+                        <v2:NotValidAfter>?</v2:NotValidAfter>\r
                         <!--Optional:-->\r
-                        <v1:NotValidBefore>?</v1:NotValidBefore>\r
-                        <v1:Segment Number="?" EndNumber="?"/>\r
-                     </v1:ValidityDates>\r
-                  </v1:PricingQualifiers>\r
-               </v1:OptionalQualifiers>\r
-            </v1:PriceRequestInformation>\r
-         </v1:AirPrice>\r
+                        <v2:NotValidBefore>?</v2:NotValidBefore>\r
+                        <v2:Segment Number="?" EndNumber="?"/>\r
+                     </v2:ValidityDates>\r
+                  </v2:PricingQualifiers>\r
+               </v2:OptionalQualifiers>\r
+            </v2:PriceRequestInformation>\r
+         </v2:AirPrice>\r
          <!--Optional:-->\r
-         <v1:AirTax>\r
-            <v1:ItineraryInfos>\r
+         <v2:AirTax>\r
+            <v2:ItineraryInfos>\r
                <!--1 to 50 repetitions:-->\r
-               <v1:ItineraryInfo>\r
-                  <v1:ReservationItems>\r
-                     <v1:Item RPH="?" TicketingCarrier="?" ValidatingCarrier="?" SalePseudoCityCode="?">\r
-                        <v1:AirFareInfo>\r
-                           <v1:PTC_FareBreakdown>\r
+               <v2:ItineraryInfo>\r
+                  <v2:ReservationItems>\r
+                     <v2:Item RPH="?" TicketingCarrier="?" ValidatingCarrier="?" SalePseudoCityCode="?">\r
+                        <v2:AirFareInfo>\r
+                           <v2:PTC_FareBreakdown>\r
                               <!--Optional:-->\r
-                              <v1:FareBasisCode>?</v1:FareBasisCode>\r
-                              <v1:PassengerFare AncillaryServiceCode="?">\r
-                                 <v1:BaseFare Amount="?" CurrencyCode="?"/>\r
+                              <v2:FareBasisCode>?</v2:FareBasisCode>\r
+                              <v2:PassengerFare AncillaryServiceCode="?">\r
+                                 <v2:BaseFare Amount="?" CurrencyCode="?"/>\r
                                  <!--Optional:-->\r
-                                 <v1:EquivFare Amount="?" CurrencyCode="?"/>\r
-                              </v1:PassengerFare>\r
-                              <v1:PassengerType Quantity="?" Code="?" Age="?"/>\r
-                           </v1:PTC_FareBreakdown>\r
-                        </v1:AirFareInfo>\r
+                                 <v2:EquivFare Amount="?" CurrencyCode="?"/>\r
+                              </v2:PassengerFare>\r
+                              <v2:PassengerType Quantity="?" Code="?" Age="?"/>\r
+                           </v2:PTC_FareBreakdown>\r
+                        </v2:AirFareInfo>\r
                         <!--1 or more repetitions:-->\r
-                        <v1:FlightSegment DepartureDateTime="?" ArrivalDateTime="?" FlightNumber="?" ResBookDesigCode="?" ForceConnectionInd="?" ForceStopOverInd="?">\r
-                           <v1:ArrivalAirport LocationCode="?" CodeContext="?"/>\r
-                           <v1:DepartureAirport LocationCode="?" CodeContext="?"/>\r
-                           <v1:Equipment AirEquipType="?"/>\r
+                        <v2:FlightSegment DepartureDateTime="?" ArrivalDateTime="?" FlightNumber="?" ResBookDesigCode="?" ForceConnectionInd="?" ForceStopOverInd="?">\r
+                           <v2:ArrivalAirport LocationCode="?" CodeContext="?"/>\r
+                           <v2:DepartureAirport LocationCode="?" CodeContext="?"/>\r
+                           <v2:Equipment AirEquipType="?"/>\r
                            <!--Optional:-->\r
-                           <v1:FareBreakInfo SideTripStartInd="?" SideTripEndInd="?" SideTripNumber="?" FareComponentNumber="?">\r
+                           <v2:FareBreakInfo SideTripStartInd="?" SideTripEndInd="?" SideTripNumber="?" FareComponentNumber="?">\r
                               <!--Optional:-->\r
-                              <v1:BaseFare Amount="?" CurrencyCode="?"/>\r
+                              <v2:BaseFare Amount="?" CurrencyCode="?"/>\r
                               <!--Optional:-->\r
-                              <v1:EquivFare Amount="?" CurrencyCode="?"/>\r
+                              <v2:EquivFare Amount="?" CurrencyCode="?"/>\r
                               <!--Optional:-->\r
-                              <v1:FareBasisCode>?</v1:FareBasisCode>\r
-                           </v1:FareBreakInfo>\r
+                              <v2:FareBasisCode>?</v2:FareBasisCode>\r
+                           </v2:FareBreakInfo>\r
                            <!--Optional:-->\r
-                           <v1:HiddenStops>\r
+                           <v2:HiddenStops>\r
                               <!--1 or more repetitions:-->\r
-                              <v1:HiddenStop LocationCode="?"/>\r
-                           </v1:HiddenStops>\r
-                           <v1:MarketingAirline Code="?"/>\r
+                              <v2:HiddenStop LocationCode="?"/>\r
+                           </v2:HiddenStops>\r
+                           <v2:MarketingAirline Code="?"/>\r
                            <!--Optional:-->\r
-                           <v1:OperatingAirline Code="?"/>\r
-                        </v1:FlightSegment>\r
-                     </v1:Item>\r
-                  </v1:ReservationItems>\r
-               </v1:ItineraryInfo>\r
-            </v1:ItineraryInfos>\r
+                           <v2:OperatingAirline Code="?"/>\r
+                        </v2:FlightSegment>\r
+                     </v2:Item>\r
+                  </v2:ReservationItems>\r
+               </v2:ItineraryInfo>\r
+            </v2:ItineraryInfos>\r
             <!--Optional:-->\r
-            <v1:POS>\r
+            <v2:POS>\r
                <!--Optional:-->\r
-               <v1:Source PseudoCityCode="?">\r
+               <v2:Source PseudoCityCode="?">\r
                   <!--Optional:-->\r
-                  <v1:TPA_Extensions>\r
-                     <v1:UserInfo>\r
-                        <v1:AAACity Code="?"/>\r
+                  <v2:TPA_Extensions>\r
+                     <v2:UserInfo>\r
+                        <v2:AAACity Code="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Action Code="?"/>\r
-                        <v1:AgentSine Code="?"/>\r
+                        <v2:Action Code="?"/>\r
+                        <v2:AgentSine Code="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Branch Code="?"/>\r
-                        <v1:Partition ID="?"/>\r
-                        <v1:Service Name="?"/>\r
+                        <v2:Branch Code="?"/>\r
+                        <v2:Partition ID="?"/>\r
+                        <v2:Service Name="?"/>\r
                         <!--Optional:-->\r
-                        <v1:SetAddress>?</v1:SetAddress>\r
+                        <v2:SetAddress>?</v2:SetAddress>\r
                         <!--Optional:-->\r
-                        <v1:Station Code="?"/>\r
+                        <v2:Station Code="?"/>\r
                         <!--Optional:-->\r
-                        <v1:Transaction ID="?"/>\r
-                     </v1:UserInfo>\r
-                  </v1:TPA_Extensions>\r
-               </v1:Source>\r
-            </v1:POS>\r
-         </v1:AirTax>\r
+                        <v2:Transaction ID="?"/>\r
+                     </v2:UserInfo>\r
+                  </v2:TPA_Extensions>\r
+               </v2:Source>\r
+            </v2:POS>\r
+         </v2:AirTax>\r
          <!--Optional:-->\r
-         <v1:MiscSegment DepartureDateTime="?" InsertAfter="?" NumberInParty="?" Status="?" Type="?">\r
-            <v1:OriginLocation LocationCode="?"/>\r
-            <v1:Text>?</v1:Text>\r
-            <v1:VendorPrefs>\r
-               <v1:Airline Code="?"/>\r
-            </v1:VendorPrefs>\r
-         </v1:MiscSegment>\r
+         <v2:MiscSegment DepartureDateTime="?" InsertAfter="?" NumberInParty="?" Status="?" Type="?">\r
+            <v2:OriginLocation LocationCode="?"/>\r
+            <v2:Text>?</v2:Text>\r
+            <v2:VendorPrefs>\r
+               <v2:Airline Code="?"/>\r
+            </v2:VendorPrefs>\r
+         </v2:MiscSegment>\r
          <!--Optional:-->\r
-         <v1:SpecialReqDetails>\r
+         <v2:SpecialReqDetails>\r
             <!--Optional:-->\r
-            <v1:AddRemark>\r
-               <v1:RemarkInfo>\r
+            <v2:AddRemark>\r
+               <v2:RemarkInfo>\r
                   <!--Optional:-->\r
-                  <v1:FOP_Remark Type="?">\r
+                  <v2:FOP_Remark Type="?">\r
                      <!--Optional:-->\r
-                     <v1:CC_Info Suppress="?">\r
-                        <v1:PaymentCard AirlineCode="?" CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?" SuppressApprovalCode="?"/>\r
-                     </v1:CC_Info>\r
-                  </v1:FOP_Remark>\r
+                     <v2:CC_Info Suppress="?">\r
+                        <v2:PaymentCard AirlineCode="?" CardSecurityCode="?" Code="?" ExpireDate="?" ExtendedPayment="?" ManualApprovalCode="?" Number="?" SuppressApprovalCode="?"/>\r
+                     </v2:CC_Info>\r
+                  </v2:FOP_Remark>\r
                   <!--Optional:-->\r
-                  <v1:FutureQueuePlaceRemark Date="?" PrefatoryInstructionCode="?" PseudoCityCode="?" QueueIdentifier="?" Time="?"/>\r
+                  <v2:FutureQueuePlaceRemark Date="?" PrefatoryInstructionCode="?" PseudoCityCode="?" QueueIdentifier="?" Time="?"/>\r
                   <!--0 to 98 repetitions:-->\r
-                  <v1:Remark Code="?" SegmentNumber="?" Type="?">\r
-                     <v1:Text>?</v1:Text>\r
-                  </v1:Remark>\r
-               </v1:RemarkInfo>\r
-            </v1:AddRemark>\r
+                  <v2:Remark Code="?" SegmentNumber="?" Type="?">\r
+                     <v2:Text>?</v2:Text>\r
+                  </v2:Remark>\r
+               </v2:RemarkInfo>\r
+            </v2:AddRemark>\r
             <!--Optional:-->\r
-            <v1:AirSeat>\r
-               <v1:Seats>\r
+            <v2:AirSeat>\r
+               <v2:Seats>\r
                   <!--1 to 98 repetitions:-->\r
-                  <v1:Seat BoardingPass="?" ChangeOfGauge="?" NameNumber="?" Number="?" Preference="?" SegmentNumber="?"/>\r
-               </v1:Seats>\r
-            </v1:AirSeat>\r
+                  <v2:Seat BoardingPass="?" ChangeOfGauge="?" NameNumber="?" Number="?" Preference="?" SegmentNumber="?"/>\r
+               </v2:Seats>\r
+            </v2:AirSeat>\r
             <!--Optional:-->\r
-            <v1:SpecialService>\r
-               <v1:SpecialServiceInfo>\r
+            <v2:SpecialService>\r
+               <v2:SpecialServiceInfo>\r
                   <!--Zero or more repetitions:-->\r
-                  <v1:AdvancePassenger SegmentNumber="?">\r
+                  <v2:AdvancePassenger SegmentNumber="?">\r
                      <!--Optional:-->\r
-                     <v1:Document ExpirationDate="?" Number="?" Type="?">\r
+                     <v2:Document ExpirationDate="?" Number="?" Type="?">\r
                         <!--Optional:-->\r
-                        <v1:IssueCountry>?</v1:IssueCountry>\r
+                        <v2:IssueCountry>?</v2:IssueCountry>\r
                         <!--Optional:-->\r
-                        <v1:NationalityCountry>?</v1:NationalityCountry>\r
+                        <v2:NationalityCountry>?</v2:NationalityCountry>\r
                         <!--Optional:-->\r
-                        <v1:Visa IssueDate="?">\r
-                           <v1:ApplicableCountry>?</v1:ApplicableCountry>\r
+                        <v2:Visa IssueDate="?">\r
+                           <v2:ApplicableCountry>?</v2:ApplicableCountry>\r
                            <!--Optional:-->\r
-                           <v1:PlaceOfBirth>?</v1:PlaceOfBirth>\r
-                           <v1:PlaceOfIssue>?</v1:PlaceOfIssue>\r
-                        </v1:Visa>\r
-                     </v1:Document>\r
+                           <v2:PlaceOfBirth>?</v2:PlaceOfBirth>\r
+                           <v2:PlaceOfIssue>?</v2:PlaceOfIssue>\r
+                        </v2:Visa>\r
+                     </v2:Document>\r
                      <!--Optional:-->\r
-                     <v1:PersonName DateOfBirth="?" DocumentHolder="?" Gender="?" NameNumber="?">\r
+                     <v2:PersonName DateOfBirth="?" DocumentHolder="?" Gender="?" NameNumber="?">\r
                         <!--Optional:-->\r
-                        <v1:GivenName>?</v1:GivenName>\r
+                        <v2:GivenName>?</v2:GivenName>\r
                         <!--Optional:-->\r
-                        <v1:MiddleName>?</v1:MiddleName>\r
+                        <v2:MiddleName>?</v2:MiddleName>\r
                         <!--Optional:-->\r
-                        <v1:Surname>?</v1:Surname>\r
-                     </v1:PersonName>\r
+                        <v2:Surname>?</v2:Surname>\r
+                     </v2:PersonName>\r
                      <!--Optional:-->\r
-                     <v1:ResidentDestinationAddress Type="?">\r
+                     <v2:ResidentDestinationAddress Type="?">\r
                         <!--Optional:-->\r
-                        <v1:City>?</v1:City>\r
-                        <v1:Country>?</v1:Country>\r
+                        <v2:City>?</v2:City>\r
+                        <v2:Country>?</v2:Country>\r
                         <!--Optional:-->\r
-                        <v1:Street>?</v1:Street>\r
+                        <v2:Street>?</v2:Street>\r
                         <!--Optional:-->\r
-                        <v1:State>?</v1:State>\r
+                        <v2:State>?</v2:State>\r
                         <!--Optional:-->\r
-                        <v1:Zip>?</v1:Zip>\r
-                     </v1:ResidentDestinationAddress>\r
+                        <v2:Zip>?</v2:Zip>\r
+                     </v2:ResidentDestinationAddress>\r
                      <!--Optional:-->\r
-                     <v1:VendorPrefs>\r
-                        <v1:Airline Hosted="?"/>\r
-                     </v1:VendorPrefs>\r
-                  </v1:AdvancePassenger>\r
+                     <v2:VendorPrefs>\r
+                        <v2:Airline Hosted="?"/>\r
+                     </v2:VendorPrefs>\r
+                  </v2:AdvancePassenger>\r
                   <!--Zero or more repetitions:-->\r
-                  <v1:SecureFlight SegmentNumber="?">\r
+                  <v2:SecureFlight SegmentNumber="?">\r
                      <!--Optional:-->\r
-                     <v1:KnownTravelerNumber>?</v1:KnownTravelerNumber>\r
+                     <v2:KnownTravelerNumber>?</v2:KnownTravelerNumber>\r
                      <!--Optional:-->\r
-                     <v1:PersonName DateOfBirth="?" Gender="?" NameNumber="?">\r
+                     <v2:PersonName DateOfBirth="?" Gender="?" NameNumber="?">\r
                         <!--Optional:-->\r
-                        <v1:GivenName>?</v1:GivenName>\r
+                        <v2:GivenName>?</v2:GivenName>\r
                         <!--Optional:-->\r
-                        <v1:Surname>?</v1:Surname>\r
-                     </v1:PersonName>\r
+                        <v2:Surname>?</v2:Surname>\r
+                     </v2:PersonName>\r
                      <!--Optional:-->\r
-                     <v1:RedressNumber>?</v1:RedressNumber>\r
+                     <v2:RedressNumber>?</v2:RedressNumber>\r
                      <!--Optional:-->\r
-                     <v1:VendorPrefs>\r
-                        <v1:Airline Hosted="?"/>\r
-                     </v1:VendorPrefs>\r
-                  </v1:SecureFlight>\r
+                     <v2:VendorPrefs>\r
+                        <v2:Airline Hosted="?"/>\r
+                     </v2:VendorPrefs>\r
+                  </v2:SecureFlight>\r
                   <!--Zero or more repetitions:-->\r
-                  <v1:Service SegmentNumber="?" SSR_Code="?">\r
+                  <v2:Service SegmentNumber="?" SSR_Code="?">\r
                      <!--Optional:-->\r
-                     <v1:PersonName NameNumber="?"/>\r
+                     <v2:PersonName NameNumber="?"/>\r
                      <!--Optional:-->\r
-                     <v1:Text>?</v1:Text>\r
+                     <v2:Text>?</v2:Text>\r
                      <!--Optional:-->\r
-                     <v1:VendorPrefs>\r
-                        <v1:Airline Code="?" Hosted="?"/>\r
-                     </v1:VendorPrefs>\r
-                  </v1:Service>\r
-               </v1:SpecialServiceInfo>\r
-            </v1:SpecialService>\r
-         </v1:SpecialReqDetails>\r
-         <v1:PostProcessing RedisplayReservation="?" UnmaskCreditCard="false">\r
+                     <v2:VendorPrefs>\r
+                        <v2:Airline Code="?" Hosted="?"/>\r
+                     </v2:VendorPrefs>\r
+                  </v2:Service>\r
+               </v2:SpecialServiceInfo>\r
+            </v2:SpecialService>\r
+         </v2:SpecialReqDetails>\r
+         <v2:PostProcessing RedisplayReservation="?" UnmaskCreditCard="false">\r
             <!--Optional:-->\r
-            <v1:ARUNK>?</v1:ARUNK>\r
+            <v2:ARUNK>?</v2:ARUNK>\r
             <!--Optional:-->\r
-            <v1:QueuePlace>\r
+            <v2:QueuePlace>\r
                <!--Optional:-->\r
-               <v1:MultiQueuePlace>\r
+               <v2:MultiQueuePlace>\r
                   <!--1 to 20 repetitions:-->\r
-                  <v1:QueueIdentifier Number="?" PrefatoryInstructionCode="?" PseudoCityCode="?"/>\r
-               </v1:MultiQueuePlace>\r
+                  <v2:QueueIdentifier Number="?" PrefatoryInstructionCode="?" PseudoCityCode="?"/>\r
+               </v2:MultiQueuePlace>\r
                <!--Optional:-->\r
-               <v1:QueueInfo>\r
+               <v2:QueueInfo>\r
                   <!--1 to 3 repetitions:-->\r
-                  <v1:QueueIdentifier Name="?" Number="?" PrefatoryInstructionCode="?" PseudoCityCode="?"/>\r
+                  <v2:QueueIdentifier Name="?" Number="?" PrefatoryInstructionCode="?" PseudoCityCode="?"/>\r
                   <!--0 to 6 repetitions:-->\r
-                  <v1:UniqueID ID="?"/>\r
-               </v1:QueueInfo>\r
-            </v1:QueuePlace>\r
+                  <v2:UniqueID ID="?"/>\r
+               </v2:QueueInfo>\r
+            </v2:QueuePlace>\r
             <!--Optional:-->\r
-            <v1:EndTransaction>\r
-               <v1:Source ReceivedFrom="?"/>\r
+            <v2:EndTransaction>\r
+               <v2:Source ReceivedFrom="?"/>\r
                <!--Optional:-->\r
-               <v1:Email Ind="?">\r
+               <v2:Email Ind="?">\r
                   <!--Optional:-->\r
-                  <v1:eTicket Ind="?">\r
+                  <v2:eTicket Ind="?">\r
                      <!--Optional:-->\r
-                     <v1:PDF Ind="?"/>\r
-                  </v1:eTicket>\r
+                     <v2:PDF Ind="?"/>\r
+                  </v2:eTicket>\r
                   <!--Optional:-->\r
-                  <v1:Invoice Ind="?"/>\r
+                  <v2:Invoice Ind="?"/>\r
                   <!--Optional:-->\r
-                  <v1:Itinerary Ind="?">\r
+                  <v2:Itinerary Ind="?">\r
                      <!--Optional:-->\r
-                     <v1:PDF Ind="?"/>\r
+                     <v2:PDF Ind="?"/>\r
                      <!--Zero or more repetitions:-->\r
-                     <v1:Segment EndNumber="?" Number="?"/>\r
-                  </v1:Itinerary>\r
+                     <v2:Segment EndNumber="?" Number="?"/>\r
+                  </v2:Itinerary>\r
                   <!--Optional:-->\r
-                  <v1:PersonName NameNumber="?"/>\r
-               </v1:Email>\r
-            </v1:EndTransaction>\r
-         </v1:PostProcessing>\r
-      </v1:CreatePassengerNameRecordRQ>\r
+                  <v2:PersonName NameNumber="?"/>\r
+               </v2:Email>\r
+            </v2:EndTransaction>\r
+         </v2:PostProcessing>\r
+      </v2:CreatePassengerNameRecordRQ>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="CreatePassengerNameRecordRQ"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="2ded51a4-e42c-49d1-8db4-060aeba8d725" wsaVersion="NONE" name="BargainFinderMaxBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}BargainFinderMaxBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl</con:url><con:content><![CDATA[<!--edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by XMLSPY 2004 Enterprise Ed. Release 3, Installed Multi for 5 users (EDS/SABLE ACCT)-->
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="CreatePassengerNameRecordRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="d5bdda05-7889-4233-b6dd-37e2a4ec50e2" wsaVersion="NONE" name="BargainFinderMaxBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}BargainFinderMaxBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl</con:url><con:content><![CDATA[<!--edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by XMLSPY 2004 Enterprise Ed. Release 3, Installed Multi for 5 users (EDS/SABLE ACCT)-->
 <wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2003/05" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <wsdl:types>
     <xs:schema>
@@ -21738,7 +21737,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="2cb016cf-28db-48f5-b94d-41572bda614a" isOneWay="false" action="BargainFinderMaxRQ" name="BargainFinderMaxRQ" bindingOperationName="BargainFinderMaxRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f4371834-1791-4361-988d-1d63a7d0cd1f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2003/05">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="988fcfe0-ab4f-472c-a223-9fc0c261027d" isOneWay="false" action="BargainFinderMaxRQ" name="BargainFinderMaxRQ" bindingOperationName="BargainFinderMaxRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9536a897-d717-476f-b4af-170a7fad1ff2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2003/05">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -23063,11 +23062,965 @@
          </ns:TPA_Extensions>\r
       </ns:OTA_AirLowFareSearchRQ>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="BargainFinderMaxRQ"/></con:call></con:operation></con:interface><con:testSuite id="f2bc1380-3632-45b2-9afa-cafc5b56fe0e" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="160d6446-35b9-4df4-be04-cc07111c01cf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" id="4d57d11d-a575-4a31-b7f5-f34129d13dda"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("Username","773400")
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="BargainFinderMaxRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bf50c9bb-67b1-4872-afe4-90e865b2395b" wsaVersion="NONE" name="SessionCloseSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}SessionCloseSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl"><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2002/11" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.opentravel.org/OTA/2002/11" schemaLocation="SessionCloseRQRS.xsd"/>
+      <xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="SessionCloseInput">
+    <part name="header" element="eb:MessageHeader"/>
+    <part name="header2" element="wsse:Security"/>
+    <part name="body" element="xsd1:SessionCloseRQ"/>
+  </message>
+  <message name="SessionCloseOutput">
+    <part name="header" element="eb:MessageHeader"/>
+    <part name="header2" element="wsse:Security"/>
+    <part name="body" element="xsd1:SessionCloseRS"/>
+  </message>
+  <portType name="SessionClosePortType">
+    <operation name="SessionCloseRQ">
+      <input message="tns:SessionCloseInput"/>
+      <output message="tns:SessionCloseOutput"/>
+    </operation>
+  </portType>
+  <binding name="SessionCloseSoapBinding" type="tns:SessionClosePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SessionCloseRQ">
+      <soap:operation soapAction="OTA"/>
+      <input>
+        <soap:header message="tns:SessionCloseInput" part="header" use="literal"/>
+        <soap:header message="tns:SessionCloseInput" part="header2" use="literal"/>
+        <soap:body parts="body" use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tns:SessionCloseOutput" part="header" use="literal"/>
+        <soap:header message="tns:SessionCloseOutput" part="header2" use="literal"/>
+        <soap:body parts="body" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SessionCloseRQService">
+    <port name="SessionClosePortType" binding="tns:SessionCloseSoapBinding">
+      <soap:address location="https://webservices.sabre.com"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.opentravel.org/OTA/2002/11" xmlns="http://www.w3.org/2001/XMLSchema">
+  &lt;include schemaLocation="SessionCloseRQ.xsd"/>
+  &lt;include schemaLocation="SessionCloseRS.xsd"/>
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SessionCloseRQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="POS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Source">
+                <xs:complexType>
+                  <xs:attribute name="PseudoCityCode" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SessionCloseRS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Success" minOccurs="0">
+          <xs:complexType/>
+        </xs:element>
+        <xs:element name="Warnings" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Warning">
+                <xs:complexType>
+                  <xs:attribute name="Language" type="xs:string" use="optional"/>
+                  <xs:attribute name="ShortText" type="xs:string" use="optional"/>
+                  <xs:attribute name="Type" type="xs:string" use="optional"/>
+                  <xs:attribute name="Code" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this refers to a table of coded values exchanged between applications to identify errors or warnings.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Used for codes in the OTA code tables.</xs:documentation>
+                      </xs:annotation>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9A-Z]{1,3}"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="DocURL" type="xs:anyURI" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this URL refers to an online description of the error that occurred.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Status" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, recommended values are those enumerated in the OTA_ErrorRS, (NotProcessed | Incomplete | Complete | Unknown) however, the data type is designated as string data, recognizing that trading partners may identify additional status conditions not included in the enumeration.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Tag" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this attribute may identify an unknown or misspelled tag that caused an error in processing. It is recommended that the Tag attribute use XPath notation to identify the location of a tag in the event that more than one tag of the same name is present in the document. Alternatively, the tag name alone can be used to identify missing data [Type=ReqFieldMissing].</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="RecordId" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation xml:lang="en">If present, this attribute allows for batch processing and the identification of the record that failed amongst a group of records.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConversationId" type="xs:string" minOccurs="0"/>
+        <xs:element name="Errors" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Error">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ErrorInfo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Message" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ErrorCode" type="xs:string" use="required"/>
+                  <xs:attribute name="Severity" type="xs:string" use="required"/>
+                  <xs:attribute name="ErrorMessage" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="EchoToken" use="optional">
+        <xs:annotation>
+          <xs:documentation>A sequence number for additional message identification, assigned by the requesting host system. When a request 										message includes an echo token the corresponding response message MUST include an echo token with an identical value.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Used for Character Strings, length 1 to 64</xs:documentation>
+          </xs:annotation>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="64"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="TimeStamp" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates the creation date and time of the message in UTC using the following format specified by ISO 8601; YYYY-	MM-					DDThh:mm:ssZ with time values using the 24 hour clock (e.g. 20 November 2003, 1:59:38 pm UTC becomes 2003-11-	20T13:59:38Z).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Target" use="optional" default="Production">
+        <xs:annotation>
+          <xs:documentation>Used to indicate whether the request is for the Test or Production system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Test"/>
+            <xs:enumeration value="Production"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="version" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>For all OTA versioned messages, the version of the message is indicated by a decimal value.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="SequenceNmbr" type="xs:nonNegativeInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>Used to identify the sequence number of the transaction as assigned by the sending system; allows for an application 	to 					process messages in a certain order or to request a resynchronization of messages in the event that a system has been off-line and 	needs to 				retrieve messages that were missed.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PrimaryLangID" type="xs:language" use="optional">
+        <xs:annotation>
+          <xs:documentation>Identifes the primary language preference for the form of travel represented in a collection.
+					 The human language is identified by ISO 639 codes.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AltLangID" type="xs:language" use="optional">
+        <xs:annotation>
+          <xs:documentation>Identifes the primary language preference for the form of travel represented in a collection.
+					 The human language is identified by ISO 639 codes.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="status" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+     In that case, a copy of this schema augmented with the above declaration should be cached and used
+     for the purpose of schema validation on ebXML messages.-->
+<schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+  <import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+  <import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="envelope.xsd"/>
+  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <!--MANIFEST, for use in soap:Body element-->
+  <element name="Manifest">
+    <complexType>
+      <sequence>
+        <element ref="tns:Reference" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="Reference">
+    <complexType>
+      <sequence>
+        <element ref="tns:Schema" minOccurs="0" maxOccurs="unbounded"/>
+        <element ref="tns:Description" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute ref="tns:id"/>
+      <attribute ref="xlink:type" fixed="simple"/>
+      <attribute ref="xlink:href" use="required"/>
+      <attribute ref="xlink:role"/>
+      <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+  </element>
+  <element name="Schema">
+    <complexType>
+      <attribute name="location" type="anyURI" use="required"/>
+      <attribute name="version" type="tns:non-empty-string"/>
+    </complexType>
+  </element>
+  <!--MESSAGEHEADER, for use in soap:Header element-->
+  <element name="MessageHeader">
+    <complexType>
+      <sequence>
+        <element ref="tns:From"/>
+        <element ref="tns:To"/>
+        <element ref="tns:CPAId"/>
+        <element ref="tns:ConversationId"/>
+        <element ref="tns:Service"/>
+        <element ref="tns:Action"/>
+        <element ref="tns:MessageData"/>
+        <element ref="tns:DuplicateElimination" minOccurs="0"/>
+        <element ref="tns:Description" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="CPAId" type="tns:non-empty-string"/>
+  <element name="ConversationId" type="tns:non-empty-string"/>
+  <element name="Service">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="type" type="tns:non-empty-string"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="Action" type="tns:non-empty-string"/>
+  <element name="MessageData">
+    <complexType>
+      <sequence>
+        <element ref="tns:MessageId"/>
+        <element ref="tns:Timestamp"/>
+        <element ref="tns:RefToMessageId" minOccurs="0"/>
+        <element ref="tns:TimeToLive" minOccurs="0"/>
+        <element ref="tns:Timeout" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="MessageId" type="tns:non-empty-string"/>
+  <element name="Timeout" type="nonNegativeInteger"/>
+  <element name="TimeToLive" type="dateTime"/>
+  <element name="DuplicateElimination" type="anyType"/>
+  <!--SYNC REPLY, for use in soap:Header element-->
+  <element name="SyncReply">
+    <complexType>
+      <sequence>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor" use="required"/>
+    </complexType>
+  </element>
+  <!--MESSAGE ORDER, for use in soap:Header element-->
+  <element name="MessageOrder">
+    <complexType>
+      <sequence>
+        <element ref="tns:SequenceNumber"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+    </complexType>
+  </element>
+  <element name="SequenceNumber" type="tns:sequenceNumber.type"/>
+  <!--ACK REQUESTED, for use in soap:Header element-->
+  <element name="AckRequested">
+    <complexType>
+      <sequence>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor"/>
+      <attribute name="signed" type="boolean" use="required"/>
+    </complexType>
+  </element>
+  <!--ACKNOWLEDGMENT, for use in soap:Header element-->
+  <element name="Acknowledgment">
+    <complexType>
+      <sequence>
+        <element ref="tns:Timestamp"/>
+        <element ref="tns:RefToMessageId"/>
+        <element ref="tns:From" minOccurs="0"/>
+        <element ref="tns:Reference" minOccurs="0" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute ref="soap:actor"/>
+    </complexType>
+  </element>
+  <!--ERROR LIST, for use in soap:Header element-->
+  <element name="ErrorList">
+    <complexType>
+      <sequence>
+        <element ref="tns:Error" maxOccurs="unbounded"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:headerExtension.grp"/>
+      <attribute name="highestSeverity" type="tns:severity.type" use="required"/>
+    </complexType>
+  </element>
+  <element name="Error">
+    <complexType>
+      <sequence>
+        <element ref="tns:Description" minOccurs="0"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute ref="tns:id"/>
+      <attribute name="codeContext" type="anyURI" default="urn:oasis:names:tc:ebxml-msg:service:errors"/>
+      <attribute name="errorCode" type="tns:non-empty-string" use="required"/>
+      <attribute name="severity" type="tns:severity.type" use="required"/>
+      <attribute name="location" type="tns:non-empty-string"/>
+      <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+  </element>
+  <!--STATUS RESPONSE, for use in soap:Body element-->
+  <element name="StatusResponse">
+    <complexType>
+      <sequence>
+        <element ref="tns:RefToMessageId"/>
+        <element ref="tns:Timestamp" minOccurs="0"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+      <attribute name="messageStatus" type="tns:messageStatus.type" use="required"/>
+    </complexType>
+  </element>
+  <!--STATUS REQUEST, for use in soap:Body element-->
+  <element name="StatusRequest">
+    <complexType>
+      <sequence>
+        <element ref="tns:RefToMessageId"/>
+        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="tns:bodyExtension.grp"/>
+    </complexType>
+  </element>
+  <!--COMMON TYPES-->
+  <complexType name="sequenceNumber.type">
+    <simpleContent>
+      <extension base="nonNegativeInteger">
+        <attribute name="status" type="tns:status.type" default="Continue"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <simpleType name="status.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="Reset"/>
+      <enumeration value="Continue"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="messageStatus.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="UnAuthorized"/>
+      <enumeration value="NotRecognized"/>
+      <enumeration value="Received"/>
+      <enumeration value="Processed"/>
+      <enumeration value="Forwarded"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="non-empty-string">
+    <restriction base="string">
+      <minLength value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="severity.type">
+    <restriction base="NMTOKEN">
+      <enumeration value="Warning"/>
+      <enumeration value="Error"/>
+    </restriction>
+  </simpleType>
+  <!--COMMON ATTRIBUTES and ATTRIBUTE GROUPS-->
+  <attribute name="id" type="ID"/>
+  <attribute name="version" type="tns:non-empty-string"/>
+  <attributeGroup name="headerExtension.grp">
+    <attribute ref="tns:id"/>
+    <attribute ref="tns:version" use="required"/>
+    <anyAttribute namespace="##other" processContents="lax"/>
+    <!--attribute ref="soap:mustUnderstand" use="optional"/-->
+  </attributeGroup>
+  <attributeGroup name="bodyExtension.grp">
+    <attribute ref="tns:id"/>
+    <attribute ref="tns:version" use="required"/>
+    <anyAttribute namespace="##other" processContents="lax"/>
+  </attributeGroup>
+  <!--COMMON ELEMENTS-->
+  <element name="PartyId">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="type" type="tns:non-empty-string"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="To">
+    <complexType>
+      <sequence>
+        <element ref="tns:PartyId" maxOccurs="unbounded"/>
+        <element name="Role" type="tns:non-empty-string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="From">
+    <complexType>
+      <sequence>
+        <element ref="tns:PartyId" maxOccurs="unbounded"/>
+        <element name="Role" type="tns:non-empty-string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="Description">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute ref="xml:lang" use="required"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="RefToMessageId" type="tns:non-empty-string"/>
+  <element name="Timestamp" type="string"/>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+    http://www.w3.org/2000/09/xmldsig#
+    $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
+
+    Copyright 2001 The Internet Society and W3C (Massachusetts Institute
+    of Technology, Institut National de Recherche en Informatique et en
+    Automatique, Keio University). All Rights Reserved.
+    http://www.w3.org/Consortium/Legal/
+
+    This document is governed by the W3C Software License [1] as described
+    in the FAQ [2].
+
+    [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+    [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD-->
+<schema targetNamespace="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" version="0.1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <!--Basic Types Defined for Signatures-->
+  <simpleType name="CryptoBinary">
+    <restriction base="base64Binary"/>
+  </simpleType>
+  <!--Start Signature-->
+  <element name="Signature" type="ds:SignatureType"/>
+  <complexType name="SignatureType">
+    <sequence>
+      <element ref="ds:SignedInfo"/>
+      <element ref="ds:SignatureValue"/>
+      <element ref="ds:KeyInfo" minOccurs="0"/>
+      <element ref="ds:Object" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureValue" type="ds:SignatureValueType"/>
+  <complexType name="SignatureValueType">
+    <simpleContent>
+      <extension base="base64Binary">
+        <attribute name="Id" type="ID" use="optional"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <!--Start SignedInfo-->
+  <element name="SignedInfo" type="ds:SignedInfoType"/>
+  <complexType name="SignedInfoType">
+    <sequence>
+      <element ref="ds:CanonicalizationMethod"/>
+      <element ref="ds:SignatureMethod"/>
+      <element ref="ds:Reference" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="CanonicalizationMethod" type="ds:CanonicalizationMethodType"/>
+  <complexType name="CanonicalizationMethodType" mixed="true">
+    <sequence>
+      <any namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+      <!--(0,unbounded) elements from (1,1) namespace-->
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <element name="SignatureMethod" type="ds:SignatureMethodType"/>
+  <complexType name="SignatureMethodType" mixed="true">
+    <sequence>
+      <element name="HMACOutputLength" type="ds:HMACOutputLengthType" minOccurs="0"/>
+      <any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+      <!--(0,unbounded) elements from (1,1) external namespace-->
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <!--Start Reference-->
+  <element name="Reference" type="ds:ReferenceType"/>
+  <complexType name="ReferenceType">
+    <sequence>
+      <element ref="ds:Transforms" minOccurs="0"/>
+      <element ref="ds:DigestMethod"/>
+      <element ref="ds:DigestValue"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+    <attribute name="URI" type="anyURI" use="optional"/>
+    <attribute name="Type" type="anyURI" use="optional"/>
+  </complexType>
+  <element name="Transforms" type="ds:TransformsType"/>
+  <complexType name="TransformsType">
+    <sequence>
+      <element ref="ds:Transform" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element name="Transform" type="ds:TransformType"/>
+  <complexType name="TransformType" mixed="true">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <any namespace="##other" processContents="lax"/>
+      <element name="XPath" type="string"/>
+      <!--(1,1) elements from (0,unbounded) namespaces-->
+    </choice>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <!--End Reference-->
+  <element name="DigestMethod" type="ds:DigestMethodType"/>
+  <complexType name="DigestMethodType" mixed="true">
+    <sequence>
+      <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/>
+  </complexType>
+  <element name="DigestValue" type="ds:DigestValueType"/>
+  <simpleType name="DigestValueType">
+    <restriction base="base64Binary"/>
+  </simpleType>
+  <!--End SignedInfo-->
+  <!--Start KeyInfo-->
+  <element name="KeyInfo" type="ds:KeyInfoType"/>
+  <complexType name="KeyInfoType" mixed="true">
+    <choice maxOccurs="unbounded">
+      <element ref="ds:KeyName"/>
+      <element ref="ds:KeyValue"/>
+      <element ref="ds:RetrievalMethod"/>
+      <element ref="ds:X509Data"/>
+      <element ref="ds:PGPData"/>
+      <element ref="ds:SPKIData"/>
+      <element ref="ds:MgmtData"/>
+      <any namespace="##other" processContents="lax"/>
+      <!--(1,1) elements from (0,unbounded) namespaces-->
+    </choice>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="KeyName" type="string"/>
+  <element name="MgmtData" type="string"/>
+  <element name="KeyValue" type="ds:KeyValueType"/>
+  <complexType name="KeyValueType" mixed="true">
+    <choice>
+      <element ref="ds:DSAKeyValue"/>
+      <element ref="ds:RSAKeyValue"/>
+      <any namespace="##other" processContents="lax"/>
+    </choice>
+  </complexType>
+  <element name="RetrievalMethod" type="ds:RetrievalMethodType"/>
+  <complexType name="RetrievalMethodType">
+    <sequence>
+      <element ref="ds:Transforms" minOccurs="0"/>
+    </sequence>
+    <attribute name="URI" type="anyURI"/>
+    <attribute name="Type" type="anyURI" use="optional"/>
+  </complexType>
+  <!--Start X509Data-->
+  <element name="X509Data" type="ds:X509DataType"/>
+  <complexType name="X509DataType">
+    <sequence maxOccurs="unbounded">
+      <choice>
+        <element name="X509IssuerSerial" type="ds:X509IssuerSerialType"/>
+        <element name="X509SKI" type="base64Binary"/>
+        <element name="X509SubjectName" type="string"/>
+        <element name="X509Certificate" type="base64Binary"/>
+        <element name="X509CRL" type="base64Binary"/>
+        <any namespace="##other" processContents="lax"/>
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="X509IssuerSerialType">
+    <sequence>
+      <element name="X509IssuerName" type="string"/>
+      <element name="X509SerialNumber" type="integer"/>
+    </sequence>
+  </complexType>
+  <!--End X509Data-->
+  <!--Begin PGPData-->
+  <element name="PGPData" type="ds:PGPDataType"/>
+  <complexType name="PGPDataType">
+    <sequence>
+      <element name="PGPKeyID" type="base64Binary"/>
+      <element name="PGPKeyPacket" type="base64Binary" minOccurs="0"/>
+      <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <!--End PGPData-->
+  <!--Begin SPKIData-->
+  <element name="SPKIData" type="ds:SPKIDataType"/>
+  <complexType name="SPKIDataType">
+    <sequence maxOccurs="unbounded">
+      <element name="SPKISexp" type="base64Binary"/>
+      <any namespace="##other" processContents="lax" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <!--End SPKIData-->
+  <!--End KeyInfo-->
+  <!--Start Object (Manifest, SignatureProperty)-->
+  <element name="Object" type="ds:ObjectType"/>
+  <complexType name="ObjectType" mixed="true">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+      <any namespace="##any" processContents="lax"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+    <attribute name="MimeType" type="string" use="optional"/>
+    <attribute name="Encoding" type="anyURI" use="optional"/>
+    <!--add a grep facet-->
+  </complexType>
+  <element name="Manifest" type="ds:ManifestType"/>
+  <complexType name="ManifestType">
+    <sequence>
+      <element ref="ds:Reference" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureProperties" type="ds:SignaturePropertiesType"/>
+  <complexType name="SignaturePropertiesType">
+    <sequence>
+      <element ref="ds:SignatureProperty" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <element name="SignatureProperty" type="ds:SignaturePropertyType"/>
+  <complexType name="SignaturePropertyType" mixed="true">
+    <choice maxOccurs="unbounded">
+      <any namespace="##other" processContents="lax"/>
+      <!--(1,1) elements from (1,unbounded) namespaces-->
+    </choice>
+    <attribute name="Target" type="anyURI" use="required"/>
+    <attribute name="Id" type="ID" use="optional"/>
+  </complexType>
+  <!--End Object (Manifest, SignatureProperty)-->
+  <!--Start Algorithm Parameters-->
+  <simpleType name="HMACOutputLengthType">
+    <restriction base="integer"/>
+  </simpleType>
+  <!--Start KeyValue Element-types-->
+  <element name="DSAKeyValue" type="ds:DSAKeyValueType"/>
+  <complexType name="DSAKeyValueType">
+    <sequence>
+      <sequence minOccurs="0">
+        <element name="P" type="ds:CryptoBinary"/>
+        <element name="Q" type="ds:CryptoBinary"/>
+      </sequence>
+      <element name="G" type="ds:CryptoBinary" minOccurs="0"/>
+      <element name="Y" type="ds:CryptoBinary"/>
+      <element name="J" type="ds:CryptoBinary" minOccurs="0"/>
+      <sequence minOccurs="0">
+        <element name="Seed" type="ds:CryptoBinary"/>
+        <element name="PgenCounter" type="ds:CryptoBinary"/>
+      </sequence>
+    </sequence>
+  </complexType>
+  <element name="RSAKeyValue" type="ds:RSAKeyValueType"/>
+  <complexType name="RSAKeyValueType">
+    <sequence>
+      <element name="Modulus" type="ds:CryptoBinary"/>
+      <element name="Exponent" type="ds:CryptoBinary"/>
+    </sequence>
+  </complexType>
+  <!--End KeyValue Element-types-->
+  <!--End Signature-->
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <xsd:attribute name="type">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:NMTOKEN">
+        <xsd:enumeration value="simple"/>
+        <xsd:enumeration value="extended"/>
+        <xsd:enumeration value="locator"/>
+        <xsd:enumeration value="arc"/>
+        <xsd:enumeration value="resource"/>
+        <xsd:enumeration value="title"/>
+        <xsd:enumeration value="none"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:attribute name="href" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="role" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="arcrole" type="xsd:anyURI"></xsd:attribute>
+  <xsd:attribute name="title" type="xsd:string"></xsd:attribute>
+  <xsd:attribute name="label" type="xsd:NMTOKEN"></xsd:attribute>
+  <xsd:attribute name="show">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:NMTOKEN">
+        <xsd:enumeration value="new"/>
+        <xsd:enumeration value="replace"/>
+        <xsd:enumeration value="embed"/>
+        <xsd:enumeration value="other"/>
+        <xsd:enumeration value="none"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--Envelope, header and body-->
+  <xs:element name="Envelope" type="tns:Envelope"/>
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element ref="tns:Header" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="tns:Body"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Header" type="tns:Header"/>
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Body" type="tns:Body"/>
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax">
+      <xs:annotation>
+        <xs:documentation>Prose in the spec does not specify that attributes are allowed on the Body element</xs:documentation>
+      </xs:annotation>
+    </xs:anyAttribute>
+  </xs:complexType>
+  <!--Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.-->
+  <xs:attribute name="mustUnderstand">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+        <xs:pattern value="0|1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="actor" type="xs:anyURI"/>
+  <xs:simpleType name="encodingStyle">
+    <xs:annotation>
+      <xs:documentation>'encodingStyle' indicates any canonicalization conventions followed in the contents of the containing element.  For example, the value 'http://schemas.xmlsoap.org/soap/encoding/' indicates the pattern described in SOAP specification</xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:attribute name="encodingStyle" type="tns:encodingStyle"/>
+  <xs:attributeGroup name="encodingStyle">
+    <xs:attribute ref="tns:encodingStyle"/>
+  </xs:attributeGroup>
+  <xs:element name="Fault" type="tns:Fault"/>
+  <xs:complexType name="Fault" final="extension">
+    <xs:annotation>
+      <xs:documentation>Fault reporting structure</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="faultcode" type="xs:QName"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="detail" type="tns:detail" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detail">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##any" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
+   http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:documentation>This schema defines attributes and an attribute group
+        suitable for use by
+        schemas wishing to allow xml:base, xml:lang or xml:space attributes
+        on elements they define.
+
+        To enable this, such a schema must import this schema
+        for the XML namespace, e.g. as follows:
+        &lt;schema . . .>
+         . . .
+         &lt;import namespace="http://www.w3.org/XML/1998/namespace"
+                    schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+        Subsequently, qualified reference to any of the attributes
+        or the group defined below will have the desired effect, e.g.
+
+        &lt;type . . .>
+         . . .
+         &lt;attributeGroup ref="xml:specialAttrs"/>
+ 
+         will define a type which will schema-validate an instance
+         element with any of those attributes</xs:documentation>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:documentation>In keeping with the XML Schema WG's standard versioning
+   policy, this schema document will persist at
+   http://www.w3.org/2001/03/xml.xsd.
+   At the date of issue it can also be found at
+   http://www.w3.org/2001/xml.xsd.
+   The schema document at that URI may however change in the future,
+   in order to remain compatible with the latest version of XML Schema
+   itself.  In other words, if the XML Schema namespace changes, the version
+   of this document at
+   http://www.w3.org/2001/xml.xsd will change
+   accordingly; the version at
+   http://www.w3.org/2001/03/xml.xsd will not change.</xs:documentation>
+  </xs:annotation>
+  <xs:attribute name="lang" type="xs:language">
+    <xs:annotation>
+      <xs:documentation>In due course, we should install the relevant ISO 2- and 3-letter
+         codes as the enumerated possible values . . .</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attribute name="space" default="preserve">
+    <xs:simpleType>
+      <xs:restriction base="xs:NCName">
+        <xs:enumeration value="default"/>
+        <xs:enumeration value="preserve"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="base" type="xs:anyURI">
+    <xs:annotation>
+      <xs:documentation>See http://www.w3.org/TR/xmlbase/ for
+                     information about this attribute.</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+  <xs:attributeGroup name="specialAttrs">
+    <xs:attribute ref="xml:base"/>
+    <xs:attribute ref="xml:lang"/>
+    <xs:attribute ref="xml:space"/>
+  </xs:attributeGroup>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+  <xs:element name="Security" msdata:Prefix="wsse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UsernameToken" msdata:Prefix="wsse" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Username" type="xs:string" minOccurs="0" msdata:Prefix="wsse"/>
+              <xs:element name="Password" type="xs:string" minOccurs="0" msdata:Prefix="wsse"/>
+              <xs:element name="NewPassword" type="xs:string" minOccurs="0" maxOccurs="2" msdata:Prefix="wsse"/>
+              <xs:element name="Organization" type="xs:string" form="unqualified" minOccurs="0"/>
+              <xs:element name="Domain" type="xs:string" form="unqualified" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SabreAth" msdata:Prefix="wsse" minOccurs="0" type="xs:string"/>
+        <element name="BinarySecurityToken" type="xs:string" minOccurs="0" msdata:Prefix="wsse">
+          <!--xs:complexType>
+						<xs:attribute name="EncodingType" type="xs:string" use="optional"/>
+						<xs:attribute name="valueType" type="xs:string" use="optional"/>						
+					</xs:complexType-->
+        </element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="987fd0db-5bcd-4952-8b71-e7ee9f4c081a" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2335d10a-59e0-4dd1-aa60-bf03d61bab90" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
+   <soapenv:Header>\r
+      <sec:Security>\r
+         <!--Optional:-->\r
+         <sec:UsernameToken>\r
+            <!--Optional:-->\r
+            <sec:Username>?</sec:Username>\r
+            <!--Optional:-->\r
+            <sec:Password>?</sec:Password>\r
+            <!--0 to 2 repetitions:-->\r
+            <sec:NewPassword>?</sec:NewPassword>\r
+            <!--Optional:-->\r
+            <Organization>?</Organization>\r
+            <!--Optional:-->\r
+            <Domain>?</Domain>\r
+         </sec:UsernameToken>\r
+         <!--Optional:-->\r
+         <sec:SabreAth>?</sec:SabreAth>\r
+         <!--Optional:-->\r
+         <sec:BinarySecurityToken>?</sec:BinarySecurityToken>\r
+      </sec:Security>\r
+      <mes:MessageHeader mes:id="?" mes:version="?">\r
+         <mes:From>\r
+            <!--1 or more repetitions:-->\r
+            <mes:PartyId mes:type="?">?</mes:PartyId>\r
+            <!--Optional:-->\r
+            <mes:Role>?</mes:Role>\r
+         </mes:From>\r
+         <mes:To>\r
+            <!--1 or more repetitions:-->\r
+            <mes:PartyId mes:type="?">?</mes:PartyId>\r
+            <!--Optional:-->\r
+            <mes:Role>?</mes:Role>\r
+         </mes:To>\r
+         <mes:CPAId>?</mes:CPAId>\r
+         <mes:ConversationId>?</mes:ConversationId>\r
+         <mes:Service mes:type="?">?</mes:Service>\r
+         <mes:Action>?</mes:Action>\r
+         <mes:MessageData>\r
+            <mes:MessageId>?</mes:MessageId>\r
+            <mes:Timestamp>?</mes:Timestamp>\r
+            <!--Optional:-->\r
+            <mes:RefToMessageId>?</mes:RefToMessageId>\r
+            <!--Optional:-->\r
+            <mes:TimeToLive>?</mes:TimeToLive>\r
+            <!--Optional:-->\r
+            <mes:Timeout>?</mes:Timeout>\r
+         </mes:MessageData>\r
+         <!--Optional:-->\r
+         <mes:DuplicateElimination>?</mes:DuplicateElimination>\r
+         <!--Zero or more repetitions:-->\r
+         <mes:Description xml:lang="?">?</mes:Description>\r
+         <!--You may enter ANY elements at this point-->\r
+      </mes:MessageHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <ns:SessionCloseRQ>\r
+         <ns:POS>\r
+            <ns:Source PseudoCityCode="?"/>\r
+         </ns:POS>\r
+      </ns:SessionCloseRQ>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="OTA"/></con:call></con:operation></con:interface><con:testSuite id="72f61ed1-6ac6-4c27-8f4b-33338215dcb2" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0667ba51-7ead-4170-bea1-13a5dc77eb34" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" id="8753da9f-d180-465b-9323-fe0d74543ab7"><con:settings/><con:config><script>testRunner.testCase.setPropertyValue("Username","773400")
 testRunner.testCase.setPropertyValue("Password","PASSWORD_GOES_HERE")
 testRunner.testCase.setPropertyValue("CPAId","7TZA")
 testRunner.testCase.setPropertyValue("Domain","AA")
-</script></con:config></con:testStep><con:testStep type="request" name="Step 0-SessionCreate" id="f4c8e5c2-be3e-4777-a671-75b2f9d45694"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 0-SessionCreate" id="ede985da-89b5-4a1b-9332-3befae6eb50e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
+</script></con:config></con:testStep><con:testStep type="request" name="Step 0-SessionCreate" id="551f8874-e28e-47dd-adea-868e59389c89"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 0-SessionCreate" id="ede985da-89b5-4a1b-9332-3befae6eb50e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
 
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
    <soap-env:Header>
@@ -23109,38 +24062,31 @@ testRunner.testCase.setPropertyValue("Domain","AA")
    </soap-env:Body>
 </soap-env:Envelope>
 
-]]></con:request><con:assertion type="SOAP Response" id="00833a61-aa9a-4335-a258-b454f27f130f"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script -BinarySecurityToken" id="3c339d28-153b-4776-95ad-419b52e53b8c"><con:settings/><con:config><script>def response=context.expand('${Step 0-SessionCreate#Response#//wsse:BinarySecurityToken}')
+]]></con:request><con:assertion type="SOAP Response" id="00833a61-aa9a-4335-a258-b454f27f130f"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script -BinarySecurityToken" id="37f94c23-2228-44f2-96d3-8c0dabdc6ece"><con:settings/><con:config><script>def response=context.expand('${Step 0-SessionCreate#Response#//wsse:BinarySecurityToken}')
 testRunner.testCase.setPropertyValue("Response",response)
 def getLocalPropValue=testRunner.testCase.getPropertyValue("Response")
-log.info(getLocalPropValue)</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script-Time" id="f516c6ee-86e8-4f34-abf7-168be91531c4"><con:settings/><con:config><script>def startDate = new Date()
-def Date=new Date()+60
+log.info(getLocalPropValue)
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script-time" id="5b96fb69-dd45-4526-8e53-9aca9a91b8d4"><con:settings/><con:config><script>def startDate = new Date()
 def NxtDay= startDate+1
 def departureDay=startDate+60
-def departDay=startDate+60
-def arrivalDay=startDate+60
-//log.info (startDate.format("yyyy-MM-dd'T'HH:mm:ss'z'"))
-def val=Date.format("yyyy-MM-dd")
+//def miscday=startDate+60
 def val1=NxtDay.format("yyyy-MM-dd'T'23:00")
-def val2=departureDay.format("yyyy-MM-dd'T'HH:mm")
-def val3=arrivalDay.format("yyyy-MM-dd'T'HH:mm")
-def val4=departDay.format("MM-dd")
+def val2=departureDay.format("yyyy-MM-dd'T'HH:mm:ss")
+def val3=departureDay.format("yyyy-MM-dd")
 testRunner.testCase.setPropertyValue( "TicketTimeLimit", val1 )
-//DepartureDateTime
 testRunner.testCase.setPropertyValue( "DeptDate", val2 )
-//ArrivalDateTime
-testRunner.testCase.setPropertyValue( "ArrivalDate", val3 )
-testRunner.testCase.setPropertyValue( "Departuredate", val )
-testRunner.testCase.setPropertyValue( "Departdate", val4 )</script></con:config></con:testStep><con:testStep type="request" name="Step 1-BargainFinderMaxRQ-3.3.0" id="cc9361bb-4b5f-421c-b0d1-0d801affe1f9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BargainFinderMaxBinding</con:interface><con:operation>BargainFinderMaxRQ</con:operation><con:request name="Step 1-BargainFinderMaxRQ-3.3.0" id="b928ad0c-d653-4b4f-87ff-ae2f5023f0fe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--BargainFinderMaxRQ request is used to search for the lowest available priced itineraries based upon a specific date.
+testRunner.testCase.setPropertyValue( "MiscDay", val3 )
+</script></con:config></con:testStep><con:testStep type="request" name="Step 1-BargainFinderMaxRQ-3.4.0" id="d7f8abac-2917-46be-b3a9-7fdaba8455bd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BargainFinderMaxBinding</con:interface><con:operation>BargainFinderMaxRQ</con:operation><con:request name="Step 1-BargainFinderMaxRQ-3.4.0" id="b928ad0c-d653-4b4f-87ff-ae2f5023f0fe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--BargainFinderMaxRQ request is used to search for the lowest available priced itineraries based upon a specific date.
 -->
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header>
-      <eb:MessageHeader soapenv:mustUnderstand="0" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
-          <eb:From>
-            <eb:PartyId></eb:PartyId>
+      <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" soapenv:mustUnderstand="0">
+         <eb:From>
+            <eb:PartyId />
          </eb:From>
          <eb:To>
-            <eb:PartyId></eb:PartyId>
+            <eb:PartyId />
          </eb:To>
          <eb:CPAId>${#TestCase#CPAId}</eb:CPAId>
          <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
@@ -23156,72 +24102,164 @@ testRunner.testCase.setPropertyValue( "Departdate", val4 )</script></con:config>
       </eb:Security>
    </soapenv:Header>
    <soapenv:Body>
-    <OTA_AirLowFareSearchRQ xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Target="Production" Version="3.3.0" ResponseType="OTA" ResponseVersion="3.3.0">
-    <POS>
-        <Source PseudoCityCode="${#TestCase#CPAId}">
-        <RequestorID ID="1" Type="1">
-            <CompanyName Code="TN" />
-        </RequestorID>
-        </Source>
-    </POS>
-    <OriginDestinationInformation RPH="1">
-        <DepartureDateTime>2018-01-28T08:45:00</DepartureDateTime>
-        <OriginLocation LocationCode="DFW" />
-        <DestinationLocation LocationCode="AEX" />
-        <TPA_Extensions>
-            <SegmentType Code="O" />
-        </TPA_Extensions>
-    </OriginDestinationInformation>
-    <TravelPreferences ValidInterlineTicket="true">
-        <CabinPref PreferLevel="Preferred" Cabin="Y" />
-        <TPA_Extensions>
-            <TripType Value="Return" />
-            <LongConnectTime Min="780" Max="1200" Enable="true" />
-            <ExcludeCallDirectCarriers Enabled="true" />
-        </TPA_Extensions>
-    </TravelPreferences>
-    <TravelerInfoSummary>
-        <SeatsRequested>1</SeatsRequested>
-        <AirTravelerAvail>
-            <PassengerTypeQuantity Code="ADT" Quantity="1" />
-        </AirTravelerAvail>
-    </TravelerInfoSummary>
-    <TPA_Extensions>
-        <IntelliSellTransaction>
-            <RequestType Name="50ITINS" />
-        </IntelliSellTransaction>
-    </TPA_Extensions>
-</OTA_AirLowFareSearchRQ>
-  </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cf1a322f-2079-4c48-b38b-82718078ecf3"/><con:assertion type="Valid HTTP Status Codes" id="f94dd11a-d25b-4883-8c53-01e7149cb7d4" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="68dfcbb3-7810-421b-a215-8c736be4b2fc" name="Contains"><con:configuration><token>Success</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="7b161068-1204-4af0-9152-5e9b05280e58" name="Not Contains"><con:configuration><token>Error</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="8b3811af-ffbd-4f6c-8529-2307471f8bf1"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>FlightNumber</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+      <OTA_AirLowFareSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="3.4.0" AvailableFlightsOnly="true">
+         <POS>
+            <Source PseudoCityCode="${#TestCase#CPAId}">
+               <RequestorID Type="1" ID="1">
+                  <CompanyName Code="TN">TN</CompanyName>
+               </RequestorID>
+            </Source>
+         </POS>
+         <OriginDestinationInformation RPH="1">
+            <DepartureDateTime>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date()+30)}</DepartureDateTime>
+            <OriginLocation LocationCode="TPE"/>
+            <DestinationLocation LocationCode="HKG"/>
+            <TPA_Extensions>
+               <SegmentType Code="X"/>
+               <IncludeVendorPref Code="CX"/>
+               <Baggage FreePieceRequired="true"/>
+            </TPA_Extensions>
+         </OriginDestinationInformation>
+         <OriginDestinationInformation RPH="2">
+            <DepartureDateTime>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date()+30)}</DepartureDateTime>
+            <OriginLocation LocationCode="HKG"/>
+            <DestinationLocation LocationCode="EWR"/>
+            <TPA_Extensions>
+               <SegmentType Code="O"/>
+               <IncludeVendorPref Code="CX"/>
+               <Baggage FreePieceRequired="true"/>
+            </TPA_Extensions>
+         </OriginDestinationInformation>
+        <TravelPreferences ValidInterlineTicket="false" SmokingAllowed="false" ETicketDesired="false">
+            <CabinPref PreferLevel="Only" Cabin="Y"/>
+            <TPA_Extensions>
+               <XOFares Value="true"/>
+            </TPA_Extensions>
+         </TravelPreferences>
+         <TravelerInfoSummary SpecificPTC_Indicator="true">
+            <SeatsRequested>2</SeatsRequested>
+            <AirTravelerAvail>
+               <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+               <PassengerTypeQuantity Code="CNN" Quantity="1"/>
+               <PassengerTypeQuantity Code="INF" Quantity="1"/>
+            </AirTravelerAvail>
+            <PriceRequestInformation>
+               <TPA_Extensions>
+                  <PointOfSaleOverride Code="TPE"/>
+               </TPA_Extensions>
+            </PriceRequestInformation>
+         </TravelerInfoSummary>
+         <TPA_Extensions>
+            <IntelliSellTransaction>
+               <RequestType Name="50ITINS"/>
+               <CompressResponse Value="false"/>
+            </IntelliSellTransaction>
+         </TPA_Extensions>
+      </OTA_AirLowFareSearchRQ>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cf1a322f-2079-4c48-b38b-82718078ecf3"/><con:assertion type="Valid HTTP Status Codes" id="f94dd11a-d25b-4883-8c53-01e7149cb7d4" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="68dfcbb3-7810-421b-a215-8c736be4b2fc" name="Contains"><con:configuration><token>Success</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="7b161068-1204-4af0-9152-5e9b05280e58" name="Not Contains"><con:configuration><token>Error</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Trim Departure/Arrival Date from Step1" id="c8be6718-04e5-44ab-97e6-5c78bdced5b1"><con:settings/><con:config><script>//Using xpath get the value of DepartureDateTime from Step 1-BargainFinderMaxRQ-3.4.0 response and store the value in sourceDateString
+def sourceDateString = context.expand('${Step 1-BargainFinderMaxRQ-3.4.0#Response#//ns1:OTA_AirLowFareSearchRS/ns1:PricedItineraries/ns1:PricedItinerary/ns1:AirItinerary/ns1:OriginDestinationOptions/ns1:OriginDestinationOption/ns1:FlightSegment[1]/@DepartureDateTime}')
+//Formatting the value of sourceDateString by parsing the date format from sourceFormat
+def sourceFormat = "yyyy-MM-dd'T'HH:mm:ss"
+def sourceDate = new Date().parse(sourceFormat, sourceDateString)
+//set date format to targetFormat by trimming seconds 
+def targetFormat = "yyyy-MM-dd'T'HH:mm"
+//Formatting the value of sourceDate by parsing the date format from targetFormat 
+def targettedDateString = sourceDate.format(targetFormat)
+//Set the value of targettedDateString to the parameter "Date" in Test-case level properities and print the value
+testRunner.testCase.setPropertyValue( "Date", targettedDateString )
+log.info targettedDateString
+//Using xpath get the value of ArrivalDateTime from Step 1-BargainFinderMaxRQ-3.4.0 response and store the value in DateString
+def DateString = context.expand('${Step 1-BargainFinderMaxRQ-3.4.0#Response#//ns1:OTA_AirLowFareSearchRS/ns1:PricedItineraries/ns1:PricedItinerary/ns1:AirItinerary/ns1:OriginDestinationOptions/ns1:OriginDestinationOption/ns1:FlightSegment[1]/@ArrivalDateTime}')
+//Formatting the value of DateString by parsing the date format from SourceFormat
+def SourceFormat = "yyyy-MM-dd'T'HH:mm:ss"
+def SourceDate = new Date().parse(SourceFormat, DateString)
+//set date format to TargetFormat by trimming seconds 
+def TargetFormat = "yyyy-MM-dd'T'HH:mm"
+//Formatting the value of SourceDate by parsing the date format from TargetFormat 
+def TargettedDateString = SourceDate.format(TargetFormat)
+//Set the value of TargettedDateString to the parameter "ArrDate" in Test-case level properities and print the value
+testRunner.testCase.setPropertyValue( "ArrDate", TargettedDateString )
+log.info TargettedDateString
+//Using xpath get the value of DepartureDateTime from Step 1-BargainFinderMaxRQ-3.4.0 response and store the value in sourceDateString1
+def sourceDateString1 = context.expand('${Step 1-BargainFinderMaxRQ-3.4.0#Response#//ns1:OTA_AirLowFareSearchRS/ns1:PricedItineraries/ns1:PricedItinerary/ns1:AirItinerary/ns1:OriginDestinationOptions/ns1:OriginDestinationOption/ns1:FlightSegment[2]/@DepartureDateTime}')
+//Formatting the value of sourceDateString1 by parsing the date format from sourceFormat1
+def sourceFormat1 = "yyyy-MM-dd'T'HH:mm:ss"
+def sourceDate1 = new Date().parse(sourceFormat1, sourceDateString1)
+//set date format to targetFormat1 by trimming seconds 
+def targetFormat1 = "yyyy-MM-dd'T'HH:mm"
+def targettedDateString1 = sourceDate1.format(targetFormat1)
+//Set the value of targettedDateString1 to the parameter "Date1" in Test-case level properities and print the value
+testRunner.testCase.setPropertyValue( "Date1", targettedDateString1 )
+log.info targettedDateString1
+//Using xpath get the value of DepartureDateTime from Step 1-BargainFinderMaxRQ-3.4.0 response and store the value in DateString1
+def DateString1 = context.expand('${Step 1-BargainFinderMaxRQ-3.4.0#Response#//ns1:OTA_AirLowFareSearchRS/ns1:PricedItineraries/ns1:PricedItinerary/ns1:AirItinerary/ns1:OriginDestinationOptions/ns1:OriginDestinationOption/ns1:FlightSegment[2]/@ArrivalDateTime}')
+//Formatting the value of DateString1 by parsing the date format from SourceFormat1
+def SourceFormat1 = "yyyy-MM-dd'T'HH:mm:ss"
+def SourceDate1 = new Date().parse(SourceFormat1, DateString1)
+//set date format to TargetFormat1 by trimming seconds 
+def TargetFormat1 = "yyyy-MM-dd'T'HH:mm"
+//Formatting the value of SourceDate1 by parsing the date format from TargetFormat1 
+def TargettedDateString1 = SourceDate1.format(TargetFormat1)
+//Set the value of TargettedDateString1 to the parameter "ArrDate1" in Test-case level properities and print the value
+testRunner.testCase.setPropertyValue( "ArrDate1", TargettedDateString1 )
+log.info TargettedDateString1</script></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="3d172c12-5a1f-4c57-9b22-dfe263c3811f"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>FlightNumber</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
 declare namespace ns3='http://www.w3.org/2000/09/xmldsig#';
 declare namespace ns4='http://www.ebxml.org/namespaces/messageHeader';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/@FlightNumber</con:sourcePath><con:targetType>FlightNumber</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>DepartureAirport</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/@FlightNumber</con:sourcePath><con:targetType>FlightNumber</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>DepartureAirport</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/ns2:DepartureAirport/@LocationCode
-</con:sourcePath><con:targetType>DepartureAirportCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ArrivalAirport</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/ns2:DepartureAirport/@LocationCode
+</con:sourcePath><con:targetType>DepartureAirportCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ArrivalAirport</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/ns2:ArrivalAirport/@LocationCode
-</con:sourcePath><con:targetType>ArrivalAirportCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>OperatingAirline</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/ns2:ArrivalAirport/@LocationCode
+</con:sourcePath><con:targetType>ArrivalAirportCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>OperatingAirline</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/ns2:OperatingAirline/@Code
-</con:sourcePath><con:targetType>OperatingAirlineCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AirEquipType</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/ns2:OperatingAirline/@Code
+</con:sourcePath><con:targetType>OperatingAirlineCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AirEquipType</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/ns2:Equipment/@AirEquipType
-</con:sourcePath><con:targetType>AirEquipType</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>MarketingAirline</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/ns2:Equipment/@AirEquipType
+</con:sourcePath><con:targetType>AirEquipType</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>MarketingAirline</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment/ns2:MarketingAirline/@Code
-</con:sourcePath><con:targetType>MarketingAirline</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>TotalAmount</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.3.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/ns2:MarketingAirline/@Code
+</con:sourcePath><con:targetType>MarketingAirline</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>TotalAmount</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItineraryPricingInfo/ns2:ItinTotalFare/ns2:TotalFare/@Amount</con:sourcePath><con:targetType>TotalAmount</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="6ff9c722-cff0-488e-9fd6-d9700ab54074"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="16720c52-1b1f-440f-87de-30230373dba2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItineraryPricingInfo/ns2:ItinTotalFare/ns2:TotalFare/@Amount</con:sourcePath><con:targetType>TotalAmount</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ReDesignBookingCode</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[1]/@ResBookDesigCode</con:sourcePath><con:targetType>ResDesignBookingCode</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>FlightNumber2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/@FlightNumber</con:sourcePath><con:targetType>FlightNumber2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>DepartureAirport2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:DepartureAirport/@LocationCode
+</con:sourcePath><con:targetType>DepartureAirportCode2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ArrivalAirport2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:ArrivalAirport/@LocationCode</con:sourcePath><con:targetType>ArrivalAirportCode2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>OperatingAirline2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:OperatingAirline/@Code</con:sourcePath><con:targetType>OperatingAirlineCode2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>MarketingAirlne2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:MarketingAirline/@Code</con:sourcePath><con:targetType>MarketingAirline2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ReDesignBookingCode2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/@ResBookDesigCode</con:sourcePath><con:targetType>ResDesignBookingCode2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AirEquipType2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='https://webservices.sabre.com/websvc';
+declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:Equipment/@AirEquipType</con:sourcePath><con:targetType>AirEquipType2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="2f9b4d82-a037-4e6a-b6ef-695dadcc6ea5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="16720c52-1b1f-440f-87de-30230373dba2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<CreatePassengerNameRecordRQ is used to bundle several functions and operations into a single API call.>-->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header>
       <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" soapenv:mustUnderstand="0">
          <eb:From>
@@ -23269,11 +24307,17 @@ declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
          </TravelItineraryAddInfo>
          <AirBook>
 	       <OriginDestinationInformation>
-               <FlightSegment ArrivalDateTime="2018-01-28T09:54" DepartureDateTime="2018-01-28T08:45" FlightNumber="3504" NumberInParty="1" ResBookDesigCode="G" Status="NN">
-			   <DestinationLocation LocationCode="AEX"/>
-			   <MarketingAirline Code="AA" FlightNumber="3504"/>
+               <FlightSegment ArrivalDateTime="${#TestCase#ArrDate}" DepartureDateTime="${#TestCase#Date}" FlightNumber="${#TestCase#FlightNumber}" NumberInParty="1" ResBookDesigCode="${#TestCase#ResDesignBookingCode}" Status="NN">
+			   <DestinationLocation LocationCode="${#TestCase#ArrivalAirportCode}"/>
+			   <MarketingAirline Code="${#TestCase#MarketingAirline}" FlightNumber="${#TestCase#FlightNumber}"/>
 			   <MarriageGrp>O</MarriageGrp>
-                  <OriginLocation LocationCode="DFW"/>
+                  <OriginLocation LocationCode="${#TestCase#DepartureAirportCode}"/>
+               </FlightSegment>
+                <FlightSegment ArrivalDateTime="${#TestCase#ArrDate}" DepartureDateTime="${#TestCase#Date}" FlightNumber="${#TestCase#FlightNumber2}" NumberInParty="1" ResBookDesigCode="${#TestCase#ResDesignBookingCode2}" Status="NN">
+			   <DestinationLocation LocationCode="${#TestCase#ArrivalAirportCode2}"/>
+			   <MarketingAirline Code="${#TestCase#MarketingAirline2}" FlightNumber="${#TestCase#FlightNumber2}"/>
+			   <MarriageGrp>O</MarriageGrp>
+                  <OriginLocation LocationCode="${#TestCase#DepartureAirportCode2}"/>
                </FlightSegment>
             </OriginDestinationInformation>
          </AirBook>
@@ -23286,8 +24330,8 @@ declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
                </OptionalQualifiers>
             </PriceRequestInformation>
          </AirPrice>
-         <MiscSegment DepartureDateTime="2018-01-28" NumberInParty="1" Status="NN" Type="INS">
-            <OriginLocation LocationCode="DFW" />
+         <MiscSegment DepartureDateTime="${#TestCase#MiscDay}" NumberInParty="1" Status="NN" Type="INS">
+            <OriginLocation LocationCode="${#TestCase#DepartureAirportCode}" />
             <Text>TEST</Text>
             <VendorPrefs>
                <Airline Code="AA" />
@@ -23333,7 +24377,7 @@ declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
 -->
          <PostProcessing RedisplayReservation="true">
             <!-- ARUNK/ -->
-            <EndTransaction>
+            <EndTransaction >
                <Source ReceivedFrom="SWS TEST" />
             </EndTransaction>
          </PostProcessing>
@@ -23344,4 +24388,40 @@ declare namespace ns1='http://services.sabre.com/STL_Payload/v02_01';
 declare namespace ns2='http://services.sabre.com/sp/reservation/v2';
 declare namespace wsse='http://schemas.xmlsoap.org/ws/2002/12/secext';
 declare namespace soap-env='http://schemas.xmlsoap.org/soap/envelope/';
-//ns2:CreatePassengerNameRecordRS/ns1:ApplicationResults/@status</path><content>Complete</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Username</con:name><con:value>773400</con:value></con:property><con:property><con:name>Password</con:name><con:value>PASSWORD_GOES_HERE</con:value></con:property><con:property><con:name>CPAId</con:name><con:value>7TZA</con:value></con:property><con:property><con:name>Response</con:name><con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/CERTG!ICESMSLB\/CRT.LB!-3205672227995960442!284886!0&lt;/wsse:BinarySecurityToken></con:value></con:property><con:property><con:name>Domain</con:name><con:value>AA</con:value></con:property><con:property><con:name>TicketTimeLimit</con:name><con:value>2017-11-30T23:00</con:value></con:property><con:property><con:name>DeptDate</con:name><con:value>2018-01-28T11:20</con:value></con:property><con:property><con:name>DepartureDateTime</con:name><con:value>2017-10-03</con:value></con:property><con:property><con:name>FlightNumber</con:name><con:value>3504</con:value></con:property><con:property><con:name>DepartureAirportCode</con:name><con:value>DFW</con:value></con:property><con:property><con:name>ArrivalAirportCode</con:name><con:value>AEX</con:value></con:property><con:property><con:name>OperatingAirlineCode</con:name><con:value>AA</con:value></con:property><con:property><con:name>AirEquipType</con:name><con:value>ER4</con:value></con:property><con:property><con:name>MarketingAirline</con:name><con:value>AA</con:value></con:property><con:property><con:name>TotalAmount</con:name><con:value>196.20</con:value></con:property><con:property><con:name>ArrivalDate</con:name><con:value>2018-01-28T11:20</con:value></con:property><con:property><con:name>Departuredate</con:name><con:value>2018-01-28</con:value></con:property><con:property><con:name>Departdate</con:name><con:value>01-28</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+//ns2:CreatePassengerNameRecordRS/ns1:ApplicationResults/@status</path><content>Complete</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Step 3-SessionCloseRQ-1.0.1" id="4b7da1db-ee5b-4405-b77a-f5a4fb3f61d8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 3-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2002/11">
+   <soapenv:Header>
+      <eb:MessageHeader xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" soapenv:mustUnderstand="0">
+         <eb:From>
+            <eb:PartyId />
+         </eb:From>
+         <eb:To>
+            <eb:PartyId />
+         </eb:To>
+         <eb:CPAId>${Properties#CPAId}</eb:CPAId>
+         <eb:ConversationId>V1@280b16ec-5eac-46c0-893f-c88f8e8cb632@310b16ec-5dad-46c0-893f-c88f8e8cb643@780b16ec-5eac-46c0-893f-c88f8e8cb699</eb:ConversationId>
+         <eb:Service>SessionCloseRQ</eb:Service>
+         <eb:Action>SessionCloseRQ</eb:Action>
+         <eb:MessageData>
+            <eb:MessageId>mid:20001209-133003-2333@clientofsabre.com</eb:MessageId>
+            <eb:Timestamp>${=new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date())}</eb:Timestamp>
+         </eb:MessageData>
+      </eb:MessageHeader>
+      <eb:Security xmlns:eb="http://schemas.xmlsoap.org/ws/2002/12/secext" soapenv:mustUnderstand="0">
+         <eb:BinarySecurityToken>${#TestCase#Response#//wsse:BinarySecurityToken/text()}</eb:BinarySecurityToken>
+      </eb:Security>
+   </soapenv:Header>
+   <soapenv:Body xmlns:eb="http://www.opentravel.org/OTA/2002/11">
+      <eb:SessionCloseRQ>
+         <eb:POS>
+            <eb:Source PseudoCityCode="7TZA" />
+         </eb:POS>
+      </eb:SessionCloseRQ>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="722ae3e5-a4c8-4ec5-a992-312a1199afc2"/><con:assertion type="XPath Match" id="613b7c9f-805d-4607-a4e8-3b15482f4b18" name="XPath Match"><con:configuration><path>declare namespace eb='http://www.ebxml.org/namespaces/messageHeader';
+declare namespace wsse='http://schemas.xmlsoap.org/ws/2002/12/secext';
+declare namespace soap-env='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.opentravel.org/OTA/2002/11';
+//ns1:SessionCloseRS/@status</path><content>Approved</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>Username</con:name><con:value>773400</con:value></con:property><con:property><con:name>Password</con:name><con:value>PASSWORD_GOES_HERE</con:value></con:property><con:property><con:name>CPAId</con:name><con:value>7TZA</con:value></con:property><con:property><con:name>Domain</con:name><con:value>AA</con:value></con:property><con:property><con:name>Response</con:name><con:value>&lt;wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">Shared/IDL:IceSess\/SessMgr:1\.0.IDL/Common/!ICESMS\/ACPCRTC!ICESMSLB\/CRT.LB!-3199960257864382326!343202!0&lt;/wsse:BinarySecurityToken></con:value></con:property><con:property><con:name>TicketTimeLimit</con:name><con:value>2017-12-16T23:00</con:value></con:property><con:property><con:name>DeptDate</con:name><con:value>2018-02-13T14:42:10</con:value></con:property><con:property><con:name>Date</con:name><con:value>2018-01-14T09:10</con:value></con:property><con:property><con:name>ArrDate</con:name><con:value>2018-01-14T11:10</con:value></con:property><con:property><con:name>FlightNumber</con:name><con:value>403</con:value></con:property><con:property><con:name>DepartureAirportCode</con:name><con:value>TPE</con:value></con:property><con:property><con:name>ArrivalAirportCode</con:name><con:value>HKG</con:value></con:property><con:property><con:name>OperatingAirlineCode</con:name><con:value>CX</con:value></con:property><con:property><con:name>AirEquipType</con:name><con:value>772</con:value></con:property><con:property><con:name>MarketingAirline</con:name><con:value>CX</con:value></con:property><con:property><con:name>TotalAmount</con:name><con:value>153376</con:value></con:property><con:property><con:name>ResDesignBookingCode</con:name><con:value>Y</con:value></con:property><con:property><con:name>MiscDay</con:name><con:value>2018-02-13</con:value></con:property><con:property><con:name>Date1</con:name><con:value>2018-01-14T18:20</con:value></con:property><con:property><con:name>ArrDate1</con:name><con:value>2018-01-14T21:00</con:value></con:property><con:property><con:name>FlightNumber2</con:name><con:value>890</con:value></con:property><con:property><con:name>DepartureAirportCode2</con:name><con:value>HKG</con:value></con:property><con:property><con:name>ArrivalAirportCode2</con:name><con:value>EWR</con:value></con:property><con:property><con:name>OperatingAirlineCode2</con:name><con:value>CX</con:value></con:property><con:property><con:name>AirEquipType2</con:name><con:value>359</con:value></con:property><con:property><con:name>MarketingAirline2</con:name><con:value>CX</con:value></con:property><con:property><con:name>ResDesignBookingCode2</con:name><con:value>H</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
