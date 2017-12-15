@@ -10,7 +10,7 @@ The following are the steps included in this test suite:
 | **Step** | **Description**                                               |
 |----------|---------------------------------------------------------------|
 | Step 1   | SessionCreateRQ - get a session token.         |
-| Step 2   | PassengerDetailsRQ - get traveler information. |
+| Step 2   | PassengerDetailsRQ - update traveler information. |
 | Step 3   | SessionCloseRQ - close the session.            |
 
 
