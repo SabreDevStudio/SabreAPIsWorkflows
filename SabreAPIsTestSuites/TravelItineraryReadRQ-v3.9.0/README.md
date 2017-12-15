@@ -15,4 +15,4 @@ The following are the steps included in this test suite:
 | Step 4   | OTA_AirBookLLSRQ - book the flight segment.                                                    |
 | Step 5   | OTA_AirPriceLLSRQ - get flight prices.                                                         |
 | Step 6   | EndTransactionLLSRQ - complete the transaction.                                                |
-| Step 7   | TravelItineraryReadRQ - retrieve PNR. |
+| Step 7   | TravelItineraryReadRQ - retrieve the passenger name record. |
