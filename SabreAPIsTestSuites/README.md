@@ -127,12 +127,12 @@ The following are the test suites currently included in the project:
 
 | **API Name**             | **Service Action Code** | **Objective**                                                                                                                 |
 |--------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Air Availability         | OTA\_AirAvailLLSRQ      | Searches for flights and the corresponding class availability information.                                                    |
-| Create Session           | SessionCreateRQ         | Utilized to initiate a Soap API Session.                                                                                      |
-| Passenger Details        | PassengerDetailsRQ      | Provides traveler information plus agency and ticketing information.                                                          |
-| Get Itinerary            | TravelItineraryReadRQ   | Offers functionality to allow the Airline or Agency to search for and retrieve particular PNR data directly from AAA session. |
-| Bargain Finder Max       | BargainFinderMaxRQ      | Searches for the lowest available priced itineraries based upon a specific date.                                              |
-| Low Fare Search and Book | -                       | Allows you to search and book flights.                                                                                        |
+| Air Availability         | OTA\_AirAvailLLSRQ      | Search for flights and the corresponding class availability information.                                                    |
+| Create Session           | SessionCreateRQ         | Create a session.                                                                                      |
+| Passenger Details        | PassengerDetailsRQ      | Update traveler information plus agency and ticketing information.                                                          |
+| Get Itinerary            | TravelItineraryReadRQ   | Retrieve a PNR. |
+| Bargain Finder Max       | BargainFinderMaxRQ      | Search for the lowest available priced itineraries based upon a specific date.                                              |
+| Low Fare Search and Book | -                       | Search and book flights.                                                                                        |
 
 Each test suite included in the project, is designed to obtain a session
 token. This means that test suites that depend on one or more workflows
