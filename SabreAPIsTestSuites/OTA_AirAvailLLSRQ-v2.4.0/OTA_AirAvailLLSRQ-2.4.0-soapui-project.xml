@@ -49,7 +49,7 @@
   </wsdl:binding>
   <wsdl:service name="OTA_AirAvailService">
     <wsdl:port name="OTA_AirAvailPortType" binding="sws:OTA_AirAvailSoapBinding">
-      <soap:address location="https://webservices.sabre.com/websvc"/>
+      <soap:address location="https://webservices.platform.sabre.com/websvc"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>]]></con:content>
@@ -1758,14 +1758,14 @@
          </con:part>
       </con:definitionCache>
       <con:endpoints>
-         <con:endpoint>https://webservices.sabre.com/websvc</con:endpoint>
+         <con:endpoint>https://webservices.platform.sabre.com/websvc</con:endpoint>
       </con:endpoints>
       <con:operation id="3252da80-05a1-4ef5-89ee-273ad49d1d91" isOneWay="false" action="OTA_AirAvailLLSRQ" name="OTA_AirAvailRQ" bindingOperationName="OTA_AirAvailRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
          <con:settings/>
          <con:call id="7ece7903-0ba0-46b6-a6ef-1b05d887d541" name="Request 1">
             <con:settings/>
             <con:encoding>UTF-8</con:encoding>
-            <con:endpoint>https://webservices.sabre.com/websvc</con:endpoint>
+            <con:endpoint>https://webservices.platform.sabre.com/websvc</con:endpoint>
             <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://webservices.sabre.com/sabreXML/2011/10">\r
    <soapenv:Header>\r
       <sec:Security>\r
@@ -1944,7 +1944,7 @@
   </binding>
   <service name="SessionCloseRQService">
     <port name="SessionClosePortType" binding="tns:SessionCloseSoapBinding">
-      <soap:address location="https://webservices.sabre.com"/>
+      <soap:address location="https://webservices.platform.sabre.com"/>
     </port>
   </service>
 </definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.opentravel.org/OTA/2002/11" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -2794,7 +2794,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="bfa5dc1d-a1b8-4268-a07e-9819306ea75c" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c3b1211-7921-404c-9e7a-bb6aa12674f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.platform.sabre.com</con:endpoint></con:endpoints><con:operation id="bfa5dc1d-a1b8-4268-a07e-9819306ea75c" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c3b1211-7921-404c-9e7a-bb6aa12674f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.platform.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -2879,7 +2879,7 @@ testRunner.testCase.setPropertyValue("Domain","AA")
                      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                   </con:settings>
                   <con:encoding>UTF-8</con:encoding>
-                  <con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint>
+                  <con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint>
                   <con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
 
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
@@ -2954,7 +2954,7 @@ log.info(getLocalPropValue)</script></con:config>
                      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                   </con:settings>
                   <con:encoding>UTF-8</con:encoding>
-                  <con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint>
+                  <con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint>
                   <con:request><![CDATA[<!--OTA_AirAvailLLSRQ  is used to ask for flights and the corresponding class availability information for a given origin, destination and travel date.-->
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -3018,7 +3018,7 @@ declare namespace ns1='http://webservices.sabre.com/sabreXML/2011/10';
                </con:request>
             </con:config>
          </con:testStep>
-         <con:testStep type="request" name="Step 2-SessionCloseRQ-1.0.1" id="d8857094-1843-4a2e-8d89-f4d742566036"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 2-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
+         <con:testStep type="request" name="Step 2-SessionCloseRQ-1.0.1" id="d8857094-1843-4a2e-8d89-f4d742566036"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 2-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
 
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2002/11">
