@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="ac2839a2-786a-4349-9731-1ecac7ce5ded" activeEnvironment="Default" name="LowFareSearchAndBook" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="08b95c15-137b-4540-adda-78b9fbfa1002" wsaVersion="NONE" name="CreatePassengerNameRecordSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}CreatePassengerNameRecordSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:res="http://services.sabre.com/sp/reservation/v2" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+<con:soapui-project id="ac2839a2-786a-4349-9731-1ecac7ce5ded" activeEnvironment="Default" name="LowFareSearchAndBook" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="08b95c15-137b-4540-adda-78b9fbfa1002" wsaVersion="NONE" name="CreatePassengerNameRecordSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}CreatePassengerNameRecordSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl"><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:res="http://services.sabre.com/sp/reservation/v2" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <wsdl:types>
     <xsd:schema>
       <xsd:import namespace="http://services.sabre.com/sp/reservation/v2" schemaLocation="CreatePassengerNameRecord2.0.0RQRS.xsd"/>
@@ -41,13 +41,13 @@
   </wsdl:binding>
   <wsdl:service name="CreatePassengerNameRecordService">
     <wsdl:port name="CreatePassengerNameRecordPortType" binding="sws:CreatePassengerNameRecordSoapBinding">
-      <soap:address location="https://webservices.sabre.com"/>
+      <soap:address location="https://webservices.platform.sabre.com"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
   &lt;include schemaLocation="CreatePassengerNameRecord2.0.0RQ.xsd"/>
   &lt;include schemaLocation="CreatePassengerNameRecord2.0.0RS.xsd"/>
-&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.sabre.com/sp/reservation/v2" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1" xmlns:xsd="http://services.sabre.com/STL_MessageCommon/v02_01">
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RQ.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.sabre.com/sp/reservation/v2" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1" xmlns:xsd="http://services.sabre.com/STL_MessageCommon/v02_01">
   <import namespace="http://services.sabre.com/STL_MessageCommon/v02_01" schemaLocation="built-ins/STL2_MsgCommon_v02_01.xsd"/>
   <import namespace="http://services.sabre.com/STL_Payload/v02_01" schemaLocation="built-ins/STL2_Payload_v02_01.xsd"/>
   <import namespace="http://services.sabre.com/sp/common/simple/v3" schemaLocation="built-ins/SpCommonSimpleTypes_v3.xsd"/>
@@ -1837,7 +1837,7 @@
       </complexContent>
     </complexType>
   </element>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/STL2_MsgCommon_v02_01.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_MessageCommon/v02_01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.sabre.com/STL_MessageCommon/v02_01">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/STL2_MsgCommon_v02_01.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_MessageCommon/v02_01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.sabre.com/STL_MessageCommon/v02_01">
   <xsd:annotation>
     <xsd:documentation>Common types used in the headers and payload sections of message envelopes.</xsd:documentation>
   </xsd:annotation>
@@ -1935,7 +1935,7 @@
       <xsd:maxLength value="128"/>
     </xsd:restriction>
   </xsd:simpleType>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/STL2_Payload_v02_01.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_Payload/v02_01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0" xmlns="http://services.sabre.com/STL_Payload/v02_01" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://services.sabre.com/STL_MessageCommon/v02_01">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/STL2_Payload_v02_01.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_Payload/v02_01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0" xmlns="http://services.sabre.com/STL_Payload/v02_01" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://services.sabre.com/STL_MessageCommon/v02_01">
   <xsd:import namespace="http://services.sabre.com/STL_MessageCommon/v02_01" schemaLocation="STL2_MsgCommon_v02_01.xsd"/>
   <xsd:annotation>
     <xsd:documentation>Types and element definitions used as the base constructs for all message payloads.</xsd:documentation>
@@ -2101,7 +2101,7 @@
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/SpCommonSimpleTypes_v3.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/common/simple/v3" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/SpCommonSimpleTypes_v3.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/common/simple/v3" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="dateOrTime">
     <xs:annotation>
       <xs:documentation>Allows all combinations of date and time</xs:documentation>
@@ -2174,7 +2174,7 @@
       <xs:pattern value="\d{2}:\d{2}:\d{2}"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CommonSimpleTypes_v1.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/cp/common/simple/v1" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CommonSimpleTypes_v1.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/cp/common/simple/v1" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1">
   <xs:simpleType name="amount">
     <xs:annotation>
       <xs:documentation>Determines a type for money amount, exchange rate, or percentage etc. Examples: 100.42, 3.9909, 10.1</xs:documentation>
@@ -2191,7 +2191,7 @@
       <xs:minExclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://services.sabre.com/sp/reservation/v2">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/CreatePassengerNameRecord2.0.0RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://services.sabre.com/sp/reservation/v2" elementFormDefault="qualified" xmlns:spct="http://services.sabre.com/sp/common/simple/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_01" xmlns="http://services.sabre.com/sp/reservation/v2">
   <xs:import namespace="http://services.sabre.com/STL_Payload/v02_01" schemaLocation="built-ins/STL2_Payload_v02_01.xsd"/>
   <xs:import namespace="http://services.sabre.com/sp/common/simple/v3" schemaLocation="built-ins/SpCommonSimpleTypes_v3.xsd"/>
   <xs:element name="CreatePassengerNameRecordRS">
@@ -9913,7 +9913,7 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
      In that case, a copy of this schema augmented with the above declaration should be cached and used
      for the purpose of schema validation on ebXML messages.-->
 <schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -10174,7 +10174,7 @@
   </element>
   <element name="RefToMessageId" type="tns:non-empty-string"/>
   <element name="Timestamp" type="string"/>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
     http://www.w3.org/2000/09/xmldsig#
     $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
 
@@ -10419,7 +10419,7 @@
   </complexType>
   <!--End KeyValue Element-types-->
   <!--End Signature-->
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
   <xsd:attribute name="type">
     <xsd:simpleType>
       <xsd:restriction base="xsd:NMTOKEN">
@@ -10449,7 +10449,7 @@
       </xsd:restriction>
     </xsd:simpleType>
   </xsd:attribute>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--Envelope, header and body-->
   <xs:element name="Envelope" type="tns:Envelope"/>
   <xs:complexType name="Envelope">
@@ -10515,7 +10515,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##any" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
    http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
@@ -10582,7 +10582,7 @@
     <xs:attribute ref="xml:lang"/>
     <xs:attribute ref="xml:space"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/ServicesPlatform/built-ins/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <xs:element name="Security" msdata:Prefix="wsse">
     <xs:complexType>
       <xs:sequence>
@@ -10607,7 +10607,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="9c4b93a8-73ef-4947-9740-e5e0fdaa0029" isOneWay="false" action="CreatePassengerNameRecordRQ" name="CreatePassengerNameRecordRQ" bindingOperationName="CreatePassengerNameRecordRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5bb31b94-bfea-456b-8b11-6e508a1b2175" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:v2="http://services.sabre.com/sp/reservation/v2">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.platform.sabre.com</con:endpoint></con:endpoints><con:operation id="9c4b93a8-73ef-4947-9740-e5e0fdaa0029" isOneWay="false" action="CreatePassengerNameRecordRQ" name="CreatePassengerNameRecordRQ" bindingOperationName="CreatePassengerNameRecordRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5bb31b94-bfea-456b-8b11-6e508a1b2175" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.platform.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:v2="http://services.sabre.com/sp/reservation/v2">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -11302,7 +11302,7 @@
          </v2:PostProcessing>\r
       </v2:CreatePassengerNameRecordRQ>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="CreatePassengerNameRecordRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="d5bdda05-7889-4233-b6dd-37e2a4ec50e2" wsaVersion="NONE" name="BargainFinderMaxBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}BargainFinderMaxBinding" soapVersion="1_1" anonymous="optional" definition="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl"><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl</con:url><con:content><![CDATA[<!--edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by XMLSPY 2004 Enterprise Ed. Release 3, Installed Multi for 5 users (EDS/SABLE ACCT)-->
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="CreatePassengerNameRecordRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="d5bdda05-7889-4233-b6dd-37e2a4ec50e2" wsaVersion="NONE" name="BargainFinderMaxBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}BargainFinderMaxBinding" soapVersion="1_1" anonymous="optional" definition="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl"><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.wsdl</con:url><con:content><![CDATA[<!--edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by XMLSPY 2004 Enterprise Ed. Release 3, Installed Multi for 5 users (EDS/SABLE ACCT)-->
 <wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2003/05" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <wsdl:types>
     <xs:schema>
@@ -11345,14 +11345,14 @@
   </wsdl:binding>
   <wsdl:service name="BargainFinderMaxService">
     <wsdl:port name="BargainFinderMaxPortType" binding="tns:BargainFinderMaxBinding">
-      <!--<soap:address location="https://sws-crt.cert.sabre.com"/>-->
-      <soap:address location="https://webservices.sabre.com"/>
+      <!--<soap:address location="https://webservices.cert.platform.sabre.com"/>-->
+      <soap:address location="https://webservices.platform.sabre.com"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQRS_v3-2-0.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQRS_v3-2-0.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
   &lt;include schemaLocation="BargainFinderMaxRQ_v3-2-0.xsd"/>
   &lt;include schemaLocation="BargainFinderMaxRS_v3-2-0.xsd"/>
-&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 (http://www.altova.com) by Piotr Bys (SABRE GLBL INC)-->
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRQ_v3-2-0.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 (http://www.altova.com) by Piotr Bys (SABRE GLBL INC)-->
 <xs:schema targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="2.000" id="OTA2003B" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="BargainFinderMax_CommonTypes_v3-2-0.xsd"/>
   <!--OTA_AirLowFareSearchRQ.xsd-->
@@ -16520,7 +16520,7 @@
       <xs:minLength value="2"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMax_CommonTypes_v3-2-0.xsd</con:url><con:content><![CDATA[<!--==================================================================
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMax_CommonTypes_v3-2-0.xsd</con:url><con:content><![CDATA[<!--==================================================================
 //
 //  Copyright Sabre 2004
 //
@@ -17528,7 +17528,7 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRS_v3-2-0.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (http://www.altova.com) by Artur de Sousa Rocha (SABRE GLBL INC)-->
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/BargainFinderMaxRS_v3-2-0.xsd</con:url><con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 4 sp1 (http://www.altova.com) by Artur de Sousa Rocha (SABRE GLBL INC)-->
 <!--edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Aaron Frydman (EDS/SABLE ACCT)-->
 <xs:schema targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="2.000" id="OTA2003B" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="BargainFinderMax_CommonTypes_v3-2-0.xsd"/>
@@ -21043,7 +21043,7 @@
       <xs:element name="BrandFeature" type="BrandFeatureType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
      In that case, a copy of this schema augmented with the above declaration should be cached and used
      for the purpose of schema validation on ebXML messages.-->
 <schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -21304,7 +21304,7 @@
   </element>
   <element name="RefToMessageId" type="tns:non-empty-string"/>
   <element name="Timestamp" type="string"/>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
     http://www.w3.org/2000/09/xmldsig#
     $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
 
@@ -21549,7 +21549,7 @@
   </complexType>
   <!--End KeyValue Element-types-->
   <!--End Signature-->
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
   <xsd:attribute name="type">
     <xsd:simpleType>
       <xsd:restriction base="xsd:NMTOKEN">
@@ -21579,7 +21579,7 @@
       </xsd:restriction>
     </xsd:simpleType>
   </xsd:attribute>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--Envelope, header and body-->
   <xs:element name="Envelope" type="tns:Envelope"/>
   <xs:complexType name="Envelope">
@@ -21645,7 +21645,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##any" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
    http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
@@ -21712,7 +21712,7 @@
     <xs:attribute ref="xml:lang"/>
     <xs:attribute ref="xml:space"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/shopping/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <xs:element name="Security" msdata:Prefix="wsse">
     <xs:complexType>
       <xs:sequence>
@@ -21737,7 +21737,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="988fcfe0-ab4f-472c-a223-9fc0c261027d" isOneWay="false" action="BargainFinderMaxRQ" name="BargainFinderMaxRQ" bindingOperationName="BargainFinderMaxRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9536a897-d717-476f-b4af-170a7fad1ff2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2003/05">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.platform.sabre.com</con:endpoint></con:endpoints><con:operation id="988fcfe0-ab4f-472c-a223-9fc0c261027d" isOneWay="false" action="BargainFinderMaxRQ" name="BargainFinderMaxRQ" bindingOperationName="BargainFinderMaxRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9536a897-d717-476f-b4af-170a7fad1ff2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.platform.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2003/05">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -23062,7 +23062,7 @@
          </ns:TPA_Extensions>\r
       </ns:OTA_AirLowFareSearchRQ>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="BargainFinderMaxRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bf50c9bb-67b1-4872-afe4-90e865b2395b" wsaVersion="NONE" name="SessionCloseSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}SessionCloseSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl"><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2002/11" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="BargainFinderMaxRQ"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bf50c9bb-67b1-4872-afe4-90e865b2395b" wsaVersion="NONE" name="SessionCloseSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}SessionCloseSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl"><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2002/11" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <types>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <xsd:import namespace="http://www.opentravel.org/OTA/2002/11" schemaLocation="SessionCloseRQRS.xsd"/>
@@ -23104,13 +23104,13 @@
   </binding>
   <service name="SessionCloseRQService">
     <port name="SessionClosePortType" binding="tns:SessionCloseSoapBinding">
-      <soap:address location="https://webservices.sabre.com"/>
+      <soap:address location="https://webservices.platform.sabre.com"/>
     </port>
   </service>
-</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.opentravel.org/OTA/2002/11" xmlns="http://www.w3.org/2001/XMLSchema">
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.opentravel.org/OTA/2002/11" xmlns="http://www.w3.org/2001/XMLSchema">
   &lt;include schemaLocation="SessionCloseRQ.xsd"/>
   &lt;include schemaLocation="SessionCloseRS.xsd"/>
-&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="SessionCloseRQ">
     <xs:complexType>
       <xs:sequence>
@@ -23128,7 +23128,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/SessionCloseRS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.opentravel.org/OTA/2002/11" elementFormDefault="qualified" xmlns="http://www.opentravel.org/OTA/2002/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="SessionCloseRS">
     <xs:complexType>
       <xs:sequence>
@@ -23260,7 +23260,7 @@
       <xs:attribute name="status" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
      In that case, a copy of this schema augmented with the above declaration should be cached and used
      for the purpose of schema validation on ebXML messages.-->
 <schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -23521,7 +23521,7 @@
   </element>
   <element name="RefToMessageId" type="tns:non-empty-string"/>
   <element name="Timestamp" type="string"/>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
     http://www.w3.org/2000/09/xmldsig#
     $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
 
@@ -23766,7 +23766,7 @@
   </complexType>
   <!--End KeyValue Element-types-->
   <!--End Signature-->
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
   <xsd:attribute name="type">
     <xsd:simpleType>
       <xsd:restriction base="xsd:NMTOKEN">
@@ -23796,7 +23796,7 @@
       </xsd:restriction>
     </xsd:simpleType>
   </xsd:attribute>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--Envelope, header and body-->
   <xs:element name="Envelope" type="tns:Envelope"/>
   <xs:complexType name="Envelope">
@@ -23862,7 +23862,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##any" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
    http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
@@ -23929,7 +23929,7 @@
     <xs:attribute ref="xml:lang"/>
     <xs:attribute ref="xml:space"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://webservices.sabre.com/wsdl/sabreXML1.0.00/usg/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/sabreXML1.0.00/usg/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <xs:element name="Security" msdata:Prefix="wsse">
     <xs:complexType>
       <xs:sequence>
@@ -23954,7 +23954,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.sabre.com</con:endpoint></con:endpoints><con:operation id="987fd0db-5bcd-4952-8b71-e7ee9f4c081a" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2335d10a-59e0-4dd1-aa60-bf03d61bab90" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webservices.platform.sabre.com</con:endpoint></con:endpoints><con:operation id="987fd0db-5bcd-4952-8b71-e7ee9f4c081a" isOneWay="false" action="OTA" name="SessionCloseRQ" bindingOperationName="SessionCloseRQ" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2335d10a-59e0-4dd1-aa60-bf03d61bab90" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.platform.sabre.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sec="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:mes="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns="http://www.opentravel.org/OTA/2002/11">\r
    <soapenv:Header>\r
       <sec:Security>\r
          <!--Optional:-->\r
@@ -24020,7 +24020,7 @@
 testRunner.testCase.setPropertyValue("Password","PASSWORD_GOES_HERE")
 testRunner.testCase.setPropertyValue("CPAId","7TZA")
 testRunner.testCase.setPropertyValue("Domain","AA")
-</script></con:config></con:testStep><con:testStep type="request" name="Step 0-SessionCreate" id="551f8874-e28e-47dd-adea-868e59389c89"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 0-SessionCreate" id="ede985da-89b5-4a1b-9332-3befae6eb50e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
+</script></con:config></con:testStep><con:testStep type="request" name="Step 0-SessionCreate" id="551f8874-e28e-47dd-adea-868e59389c89"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 0-SessionCreate" id="ede985da-89b5-4a1b-9332-3befae6eb50e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCreateRQ is utilized to initiate a SOAP API session. >-->
 
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
    <soap-env:Header>
@@ -24076,7 +24076,7 @@ def val3=departureDay.format("yyyy-MM-dd")
 testRunner.testCase.setPropertyValue( "TicketTimeLimit", val1 )
 testRunner.testCase.setPropertyValue( "DeptDate", val2 )
 testRunner.testCase.setPropertyValue( "MiscDay", val3 )
-</script></con:config></con:testStep><con:testStep type="request" name="Step 1-BargainFinderMaxRQ-3.4.0" id="d7f8abac-2917-46be-b3a9-7fdaba8455bd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BargainFinderMaxBinding</con:interface><con:operation>BargainFinderMaxRQ</con:operation><con:request name="Step 1-BargainFinderMaxRQ-3.4.0" id="b928ad0c-d653-4b4f-87ff-ae2f5023f0fe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--BargainFinderMaxRQ request is used to search for the lowest available priced itineraries based upon a specific date.
+</script></con:config></con:testStep><con:testStep type="request" name="Step 1-BargainFinderMaxRQ-3.4.0" id="d7f8abac-2917-46be-b3a9-7fdaba8455bd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BargainFinderMaxBinding</con:interface><con:operation>BargainFinderMaxRQ</con:operation><con:request name="Step 1-BargainFinderMaxRQ-3.4.0" id="b928ad0c-d653-4b4f-87ff-ae2f5023f0fe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint><con:request><![CDATA[<!--BargainFinderMaxRQ request is used to search for the lowest available priced itineraries based upon a specific date.
 -->
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -24256,7 +24256,7 @@ declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
 //ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/@ResBookDesigCode</con:sourcePath><con:targetType>ResDesignBookingCode2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AirEquipType2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Step 1-BargainFinderMaxRQ-3.4.0</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='https://webservices.sabre.com/websvc';
 declare namespace ns2='http://www.opentravel.org/OTA/2003/05';
-//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:Equipment/@AirEquipType</con:sourcePath><con:targetType>AirEquipType2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="2f9b4d82-a037-4e6a-b6ef-695dadcc6ea5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="16720c52-1b1f-440f-87de-30230373dba2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<CreatePassengerNameRecordRQ is used to bundle several functions and operations into a single API call.>-->
+//ns2:PricedItineraries/ns2:PricedItinerary[1]/ns2:AirItinerary/ns2:OriginDestinationOptions/ns2:OriginDestinationOption/ns2:FlightSegment[2]/ns2:Equipment/@AirEquipType</con:sourcePath><con:targetType>AirEquipType2</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="2f9b4d82-a037-4e6a-b6ef-695dadcc6ea5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CreatePassengerNameRecordSoapBinding</con:interface><con:operation>CreatePassengerNameRecordRQ</con:operation><con:request name="Step 2-CreatePassengerNameRecordRQ-2.0.0" id="16720c52-1b1f-440f-87de-30230373dba2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint><con:request><![CDATA[<!--<CreatePassengerNameRecordRQ is used to bundle several functions and operations into a single API call.>-->
 
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -24388,7 +24388,7 @@ declare namespace ns1='http://services.sabre.com/STL_Payload/v02_01';
 declare namespace ns2='http://services.sabre.com/sp/reservation/v2';
 declare namespace wsse='http://schemas.xmlsoap.org/ws/2002/12/secext';
 declare namespace soap-env='http://schemas.xmlsoap.org/soap/envelope/';
-//ns2:CreatePassengerNameRecordRS/ns1:ApplicationResults/@status</path><content>Complete</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Step 3-SessionCloseRQ-1.0.1" id="4b7da1db-ee5b-4405-b77a-f5a4fb3f61d8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 3-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sws-crt.cert.havail.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
+//ns2:CreatePassengerNameRecordRS/ns1:ApplicationResults/@status</path><content>Complete</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Step 3-SessionCloseRQ-1.0.1" id="4b7da1db-ee5b-4405-b77a-f5a4fb3f61d8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SessionCloseSoapBinding</con:interface><con:operation>SessionCloseRQ</con:operation><con:request name="Step 3-SessionCloseRQ-1.0.1" id="bb4c772d-494e-4542-a5bf-98907e9b95c2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webservices.cert.platform.sabre.com</con:endpoint><con:request><![CDATA[<!--<SessionCloseRQ is utilized to close a SOAP API session. >-->
 
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opentravel.org/OTA/2002/11">

@@ -97,16 +97,16 @@ standard *Sabre APIs* endpoints.
 These are the endpoints pre-configured in the *Sabre APIs* Workflows
 project:
 
--   https://sws-crt.cert.havail.sabre.com (Test)
+-   https://webservices.cert.platform.sabre.com (Test)
 
--   https://webservices.havail.sabre.com (Production)
+-   https://webservices.platform.sabre.com (Production)
 
 **NOTE:** *This project is capable of generating Sabre APIs service
 calls against the Sabre production environment which can book live
 inventory.*
 
 *For convenience, the project is pre-configured to use the*
-https://sws-crt.cert.havail.sabre.com *Test environment.* *If changes
+https://webservices.cert.platform.sabre.com *Test environment.* *If changes
 are made to the endpoint of one or more Test Suites, please be aware
 that segments booked in the production environment when using this tool
 are genuine and all the standard rules apply.*
