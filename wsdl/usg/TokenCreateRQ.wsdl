@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sws="http://webservices.sabre.com" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://webservices.sabre.com" schemaLocation="TokenCreateRQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="TokenCreateInput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<part name="body" element="sws:TokenCreateRQ"/>
+	</message>
+	<message name="TokenCreateOutput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<part name="body" element="sws:TokenCreateRS"/>
+	</message>
+	<portType name="TokenCreatePortType">
+		<operation name="TokenCreateRQ">
+			<input message="tns:TokenCreateInput"/>
+			<output message="tns:TokenCreateOutput"/>
+		</operation>
+	</portType>
+	<binding name="TokenCreateSoapBinding" type="tns:TokenCreatePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="TokenCreateRQ">
+			<soap:operation soapAction="OTA"/>
+			<input>
+				<soap:header message="tns:TokenCreateInput" part="header" use="literal"/>
+				<soap:header message="tns:TokenCreateInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:header message="tns:TokenCreateOutput" part="header" use="literal"/>
+				<soap:header message="tns:TokenCreateOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="TokenCreateRQService">
+		<port name="TokenCreatePortType" binding="tns:TokenCreateSoapBinding">
+			<soap:address location="https://webservices.sabre.com"/>
+		</port>
+	</service>
+</definitions>

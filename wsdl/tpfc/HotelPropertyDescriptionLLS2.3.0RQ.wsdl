@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://webservices.sabre.com/sabreXML/2011/10" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://webservices.sabre.com/sabreXML/2011/10" schemaLocation="HotelPropertyDescriptionLLS2.3.0RQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+			<xsd:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="HotelPropertyDescriptionInput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:HotelPropertyDescriptionRQ"/>
+	</wsdl:message>
+	<wsdl:message name="HotelPropertyDescriptionOutput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:HotelPropertyDescriptionRS"/>
+	</wsdl:message>
+	<wsdl:portType name="HotelPropertyDescriptionPortType">
+		<wsdl:operation name="HotelPropertyDescriptionRQ">
+			<wsdl:input message="sws:HotelPropertyDescriptionInput"/>
+			<wsdl:output message="sws:HotelPropertyDescriptionOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="HotelPropertyDescriptionSoapBinding" type="sws:HotelPropertyDescriptionPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="HotelPropertyDescriptionRQ">
+			<soap:operation soapAction="HotelPropertyDescriptionLLSRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:HotelPropertyDescriptionInput" part="header" use="literal"/>
+				<soap:header message="sws:HotelPropertyDescriptionInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:HotelPropertyDescriptionOutput" part="header" use="literal"/>
+				<soap:header message="sws:HotelPropertyDescriptionOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="HotelPropertyDescriptionService">
+		<wsdl:port name="HotelPropertyDescriptionPortType" binding="sws:HotelPropertyDescriptionSoapBinding">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

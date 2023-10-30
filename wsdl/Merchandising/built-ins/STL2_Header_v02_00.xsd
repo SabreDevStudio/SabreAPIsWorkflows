@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema targetNamespace="http://services.sabre.com/STL_Header/v02_00" xmlns="http://services.sabre.com/STL_Header/v02_00"
+	 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msg="http://services.sabre.com/STL_MessageCommon/v02_00"
+ 		elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xsd:import namespace="http://services.sabre.com/STL_MessageCommon/v02_00" schemaLocation="STL2_MsgCommon_v02_00.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>			
+			Copyright Sabre 2012
+			The copyright to the computer program(s) hereinis the property of Sabre. The program(s) may be used and/or copied only
+			with the written permission of Sabre or in accordance with the terms and conditions stipulated in
+			the agreement/contract under which the program(s) have been supplied.
+  	</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="Diagnostics" type="Diagnostics"/>
+	<xsd:element name="Identification" type="Identification"/>
+	<xsd:element name="ResultSummary" type="ResultSummary"/>
+	<xsd:element name="Security" type="Security">
+		<xsd:annotation>
+			<xsd:documentation>
+				Deprecated in favor of the WSSE message header part.  This element will be removed in a future
+				release of the STL2 header definition.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Service" type="Service"/>
+	<xsd:element name="Traces" type="Traces"/>
+	<xsd:element name="SabreHeader" type="SabreHeader"/>
+	<xsd:complexType name="SabreHeader">
+		<xsd:sequence>
+			<xsd:element ref="Service"/>
+			<xsd:element ref="Identification"/>
+			<xsd:element ref="ResultSummary" minOccurs="0"/>
+			<xsd:element ref="Security" minOccurs="0"/>
+			<xsd:element ref="Traces" minOccurs="0"/>
+			<xsd:element ref="Diagnostics" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:group name="SabreHeaderGroup">
+		<xsd:sequence>
+			<xsd:element ref="Service"/>
+			<xsd:element ref="Identification"/>
+			<xsd:element ref="ResultSummary" minOccurs="0"/>
+			<xsd:element ref="Security" minOccurs="0"/>
+			<xsd:element ref="Traces" minOccurs="0"/>
+			<xsd:element ref="Diagnostics" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="DiagnosticResults">
+		<xsd:sequence>
+			<xsd:any namespace="##other" processContents="lax" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Diagnostics">
+		<xsd:sequence>
+			<xsd:element name="Level" type="DiagnosticLevels" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Describes the level of diagnostic data requested or provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Data" type="msg:Text.Long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Block of diagnostic data included in request or returned in the response.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Diagnostic" type="DiagnosticResults" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Diagnostic data. Must be defined in a differrent namespace as the header.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Identification">
+		<xsd:annotation>
+			<xsd:documentation>The Identification metadata uniquely identify each message instance.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerID" type="PseudoCityCodeOrOAC"/>
+			<xsd:element name="CustomerAppID" type="msg:Text.Short" minOccurs="0"/>
+			<xsd:element name="ConversationID" type="TrackingID">
+				<xsd:annotation>
+					<xsd:documentation>
+						The ConversationId element is a string identifying the set of related messages that make up a
+						conversation between two or more Parties. The Party initiating a conversation determines the value of
+						the ConversationId element that shall be reflected in all messages pertaining to that
+						conversation. It remains constant for all messages within a conversation.
+						Service providers are expected to increment the optional TrackingID integer attribute when present.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MessageID" type="msg:Identifier"/>
+			<xsd:element name="TimeStamp" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Identifier.System">
+		<xsd:annotation>
+			<xsd:documentation>System identifier used to uniquily identify the specific system.
+ 	"Source" is used to return the application name responsible for fulfilling the particular request transaction.
+	"ApplicationInstance" is used to return the application instance responsible for fulfilling the particular request transaction.
+	"Cluster" is used to return the application cluster responsible for fulfilling the particular request transaction.
+	"HostName" is used to return the particular server name responsible for fulfilling the particular request transaction.
+	Example: Source ApplicationInstance="PROD1" Cluster="PROD TPF SCC" HostName="PSS" TPF Source
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="msg:Identifier">
+				<xsd:attribute name="instance" type="msg:Identifier"/>
+				<xsd:attribute name="cluster" type="msg:Identifier"/>
+				<xsd:attribute name="host" type="msg:Identifier"/>
+				<xsd:attribute name="uri" type="msg:Identifier">
+					<xsd:annotation>
+						<xsd:documentation>The uri representing the endpoint reference by which this system can be accessed.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="ProblemBase">
+		<xsd:sequence/>
+		<xsd:attribute name="type" type="msg:ErrorType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>An indication of the source of error when processing the request.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="status" type="msg:CompletionCodes" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Impact of the error on process completion.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="timeStamp" type="xsd:dateTime"/>
+	</xsd:complexType>
+	<xsd:complexType name="ProblemSummary">
+		<xsd:sequence>
+			<xsd:element name="Source" type="Identifier.System" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						The system that the reporting system deemed to be the cause of the problem. If omitted, the
+						reporting system is also the source of the problem. For application errors, the element may
+						identify a system the application is dependent upon that failed to respond. For validation
+						errors this may identify the service consumer.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReportingSystem" type="Identifier.System">
+				<xsd:annotation>
+					<xsd:documentation>
+						The system that created the results record. If the Source system identifier is omitted, the
+						system identified here both was the cause of the problem and created the result record.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Message" type="msg:Message.Condition" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						An informative code and message that describes the results. Note: the message code and text must
+						NOT be required to process to understand retry/compensate status.
+						This value should be the same as in the SystemSpecificResults in the body.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortText" type="msg:Text.Short" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						An abbreviated version of the error in textual format.
+						This value should be the same as in the SystemSpecificResults in the body.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="msg:ErrorType" use="required">
+			<xsd:annotation>
+				<xsd:documentation>An indication of the source of error when processing the request.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="status" type="msg:CompletionCodes" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Impact of the error on process completion.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="timeStamp" type="xsd:dateTime"/>
+	</xsd:complexType>
+	<xsd:complexType name="ResultSummary">
+		<xsd:choice>
+			<xsd:element name="Success" type="EmptyElement">
+				<xsd:annotation>
+					<xsd:documentation>Success indicates that the request was
+						processed successfully.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Error" type="ProblemSummary"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="Security">
+		<xsd:annotation>
+			<xsd:documentation>Header records no longer contain user credentials (username/password) as these are needed only for 
+     		 SessionCreateRQ in which the credentials should be in the payload.
+     		 </xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice>
+			<xsd:element name="SecurityToken" type="msg:Text.Long"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="Service">
+		<xsd:simpleContent>
+			<xsd:extension base="msg:Text.Short">
+				<xsd:attribute name="operation" type="msg:Text.Short"/>
+				<xsd:attribute name="version" type="msg:Text.Short"/>
+				<xsd:attribute name="ttl" type="xsd:nonNegativeInteger"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="Traces">
+		<xsd:sequence>
+			<xsd:element name="Trace" type="TraceRecord" minOccurs="0" maxOccurs="999"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TraceRecord">
+		<xsd:annotation>
+			<xsd:documentation>Record for all systems (consumer, proxies and gateways, providers) to use to trace the message. 
+			The value is the common system name. 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="msg:Identifier">
+				<xsd:attribute name="key" type="msg:Text.Long">
+					<xsd:annotation>
+						<xsd:documentation>
+							The key attribute is similar to ConversationID but is provided by the service requestor or entrypoint gateway and 
+							must be unique across all Sabre gateways. Each gateway instance must prepend the ID value with its unique system identifier. 
+							Internal service consumers must provide this value which may be their unique system identifier concantanated 
+							with the ConversationID.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="start" type="xsd:dateTime" use="required">
+					<xsd:annotation>
+						<xsd:documentation>When the system stated processing the message.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="end" type="xsd:dateTime">
+					<xsd:annotation>
+						<xsd:documentation>When the system completed processing the message. 
+						Example: 2002-10-10T12:00:00+05:00.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="appInstance" type="msg:Identifier">
+					<xsd:annotation>
+						<xsd:documentation>The application instance involved in the particular transaction. 
+						For example: PROD1
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="cluster" type="msg:Identifier">
+					<xsd:annotation>
+						<xsd:documentation>The application server cluster involved in the particular transaction. 
+						Example: PROD TPFC SCC
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="host" type="msg:Identifier">
+					<xsd:annotation>
+						<xsd:documentation>The server name involved in the particular transaction. 
+						Example: PSS
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="targetURI" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>The targetURI is the endpoint address this system sent the message to. 
+						For ServiceProviders it should be the abstract service address which is the address used by 
+						registries to look up the actual service endpoint URI. The endpoint address may be a queue
+						name (MOM service name).
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="role" type="TraceRole"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="TrackingID">
+		<xsd:annotation>
+			<xsd:documentation>Tracking Identifier is an identifier intended for use to a set of related items and provide an 
+			optional sequence number for the items.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="msg:Identifier">
+				<xsd:attribute name="seq" type="xsd:integer"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="DiagnosticLevels">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Mock">
+				<xsd:annotation>
+					<xsd:documentation>Return a sample message without invoking service logic.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Simulate">
+				<xsd:annotation>
+					<xsd:documentation>Compute response without making changes to service data, state or status.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmptyElement">
+		<xsd:annotation>
+			<xsd:documentation>Elements of this type are used for indicators whose presense denotes the 
+				condition described by their name. They  have no content nor any attributes. 
+				For example, an empty Success element denote that the process was successfully completed.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PseudoCityCodeOrOAC">
+		<xsd:annotation>
+			<xsd:documentation>Customer Identifier assigned to office or agency or location. Commonly use values are 
+			Psuedo City Code - 3 to 16 characters or the Sabre Office accounting code (OAC) which can be upto 25 characters.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TraceRole">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="consumer">
+				<xsd:annotation>
+					<xsd:documentation>the system that initiated the service request and will be the ultimate consumer 
+					of the service results.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="provider">
+				<xsd:annotation>
+					<xsd:documentation>System that performs the service operation defined in the service interface. 
+					For RQ/RS exchange patterns, the provider reads the request message, applies business logic and 
+					returns a response.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="gateway"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

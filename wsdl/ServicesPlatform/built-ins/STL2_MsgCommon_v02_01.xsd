@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://services.sabre.com/STL_MessageCommon/v02_01" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.sabre.com/STL_MessageCommon/v02_01"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			Common types used in the headers and payload sections of message envelopes.
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:complexType name="Message.Condition">
+		<xsd:annotation>
+			<xsd:documentation>Free text and code provided by the application or system that detected the condition. 
+			Contents may be anything the system detecting the error chooses to convey. Used by service consumers.  
+			Codes and/or messages should be agreed upon by service users. 
+			Do not use for structured data, use parameters instead.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="Text.Long">
+				<xsd:attribute name="code" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="CompletionCodes">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Complete"/>
+			<xsd:enumeration value="Incomplete"/>
+			<xsd:enumeration value="NotProcessed"/>
+			<xsd:enumeration value="Unknown"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ErrorType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="Transport">
+				<xsd:annotation>
+					<xsd:documentation>
+						Transport errors occur when the infrastructure systems are unable to deliver the request message
+						to the service provider or the service response is not delivered within the allotted time frame.
+						These errors are always detected by the transport infrastructure systems. The detecting system
+						should indicate the need for compensation in Severity and Status values. These errors may be
+						transient and consumers may choose to retry their request.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Validation">
+				<xsd:annotation>
+					<xsd:documentation>
+						Validation errors occur when the message is determined to not conform to the interface
+						specifications. For example, it is an validation error when the request violates security
+						requirements or the message is not schema valid according to the service interface schema. These
+						errors may be detected by either the transport or application systems. Applications must not
+						make changes that will require compensation when validation errors are detected. These errors
+						are caused by the structure or content of the request and consumers should not attempt to retry
+						their unmodified request.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Application">
+				<xsd:annotation>
+					<xsd:documentation>
+						Application errors occur when a valid message is delivered to the service provider yet the
+						request cannot be completely processed. This can occur when the provider has technical issues
+						such as internal exceptions, database locks, or connectivity failure to a system it is dependent
+						upon. These errors are always detected by the application system. The application should
+						indicate the need for compensation in Severity and Status values. These errors may be transient
+						and consumers may choose to retry their request.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BusinessLogic">
+				<xsd:annotation>
+					<xsd:documentation>
+						Business logic errors occur when a service provider is able to process the request message but
+						the request violates pre-condition or internal application business logic. Example business
+						logic errors are a request for flight information but the flight does not exist or a request to
+						reserve more seats than are on the aircraft. The response message will likely provide details
+						about the error condition and may or may not use a standard error response record. Business
+						logic errors are always detected by the application system. Applications must not make changes
+						that will require compensation when business logic errors are detected. These errors are caused
+						by content of the request; consumers should only attempt to retry their unmodified request if
+						the business condition described in the application specific response indicates the condition
+						may be transient. Service providers should use the ErrorMessage and code attribute to describe
+						the business condition and document those conditions in their service contract.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Identifier">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Text.Long">
+		<xsd:annotation>
+			<xsd:documentation>Same as STL Text.Long - A field text characters and no other constraints.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="4096"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Text.Short">
+		<xsd:annotation>
+			<xsd:documentation>Same as STL Text.Short - A field of text characters and no other constraints.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="128"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

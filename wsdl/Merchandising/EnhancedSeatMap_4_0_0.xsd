@@ -1,0 +1,3507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://stl.sabre.com/Merchandising/v4"
+    version="4.0.0"
+    xmlns:imap-0400="http://stl.sabre.com/Merchandising/v4"
+    xmlns:msg="http://services.sabre.com/STL_MessageCommon/v02_00"
+    xmlns:ota2="http://www.opentravel.org/OTM/Common/v0"
+    xmlns:ota2-dep="http://opentravel.org/common/v02"
+    xmlns:ota2msg="http://opentravel.org/common/message/v02"
+    xmlns:otm="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00"
+    xmlns:stl2="http://services.sabre.com/STL/v02"
+    xmlns:stlp="http://services.sabre.com/STL_Payload/v02_00" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+    <xsd:annotation>
+        <xsd:appinfo>
+            <otm:Library>
+                <otm:LibraryName>EnhancedSeatMap</otm:LibraryName>
+                <otm:LibraryVersion>4.0.0</otm:LibraryVersion>
+                <otm:SourceFile>/EnhancedSeatMap_4_0_0.otm</otm:SourceFile>
+                <otm:CompilerVersion>3.1-SNAPSHOT</otm:CompilerVersion>
+                <otm:CompileDate>2016-01-28T17:31:53.587-06:00</otm:CompileDate>
+            </otm:Library>
+        </xsd:appinfo>
+    </xsd:annotation>
+    
+    <xsd:import namespace="http://opentravel.org/common/message/v02" schemaLocation="built-ins/OTA2_Message_v2.0.0.xsd"/>
+    <xsd:import namespace="http://services.sabre.com/STL_Payload/v02_00" schemaLocation="built-ins/STL2_Payload_v02_00.xsd"/>
+    <xsd:import
+        namespace="http://services.sabre.com/STL_MessageCommon/v02_00" schemaLocation="built-ins/STL2_MsgCommon_v02_00.xsd"/>
+    <xsd:import namespace="http://www.opentravel.org/OTM/Common/v0" schemaLocation="built-ins/OTA_SimpleTypes.xsd"/>
+    <xsd:import namespace="http://opentravel.org/common/v02" schemaLocation="built-ins/OTA2_BuiltIns_v2.0.0.xsd"/>
+    <xsd:import namespace="http://services.sabre.com/STL/v02" schemaLocation="built-ins/STL2_BuiltIn_Model.xsd"/>
+    <xsd:import
+        namespace="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00" schemaLocation="built-ins/OTA2_AppInfo_v1.0.0.xsd"/>
+    
+    <xsd:simpleType name="SeatLetter">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Letter added to the row number that uniquely identifies each seat.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">SeatLetter</otm:OTA2Entity>
+                <otm:Example context="SeatMap">A</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="PNRLOC">
+        <xsd:annotation>
+            <xsd:documentation source="Description">PNR record locator</xsd:documentation>
+            <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}string</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">PNRLOC</otm:OTA2Entity>
+                <otm:Equivalent context="SeatMap">OTA_CodeType</otm:Equivalent>
+                <otm:Example context="SeatMap">ABCDEF</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z0-9]{6}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Enum_SeatOccupation">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_SeatOccupation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Available">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat is available maps to Padis 9865 F</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Protected">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat is protected  Padis 9865 P, U, V</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Occupied">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat is occupied</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Blocked">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat blocked  - Padis 9865 D, Z , Q</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat not fitted</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Enum_ColumnDescription">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Padis 9882</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_ColumnDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CenterSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Center Seat not window, not aisle Padis 9882 - 9</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Aisle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Aisle seat  - Padis 9882 - A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Window">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Window Seat  - Padis 9882 - W</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Chargeable">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Chargeable Row   Padis 9882 - CH</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Enum_CabinFacilitiesRowLocationtype">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_CabinFacilitiesRowLocationtype</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Front">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Front F precedes first row num ber within cabin class - Padis 9976</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Middle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Middle M between row numbers within a cabin class</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Rear">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Rear R follows last row number within a cabin class</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Enum_SeatOccupationCabinDefault">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_SeatOccupationCabinDefault</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Free">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">All seats Free - Padis 9883 - F</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="N">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">No seat occupation default is being used - Padis 9883 - N</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Occupied">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">All seats occupied unless otherwise specified - Padis 9883 - O</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="R">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">seat not designated for RBD specified in request - Padis 9883 -R</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Enum_CabinClassLocation">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_CabinClassLocation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Lowerdeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9863</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Maindeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9863</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Upperdeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9863</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Request">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Request</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Stateful"/>
+            <xsd:enumeration value="Stateless"/>
+            <xsd:enumeration value="Payload"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatOccupationType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatOccupationType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatOccupationType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatOccupationType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for seat availability, typically used by air and rail. Extends IATA seat occupation single letter code.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Seat Availability (SAV)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatOccupationType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AdvancedBoardingPassSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AdvancedSeatSelectionSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - Y</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Check-InReservedSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865  - C</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CourtesyReservedSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - H</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="DownlineProtectedSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - V</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExtraSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - E</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatHere">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - Q</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ProtectedSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - P</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ReservedSeatGeneric">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - R</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatBlockedForAirportUse">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - Z  refer seat blocked for other reasons</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatBlockedForOtherReason">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - Z</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatBlockedForThroughPassengerBoarded">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - T see TransitPassenger</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatBlockedFor/WithDeadload">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - D</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatForGroupPre-Allocation">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865- G</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatIsFree">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - F</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatIsNotAvailableForInterlineThroughCheck-In">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - I</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatIsNotAvailableForPartnerAirlinesUse">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - X</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatIsOccupied">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - O</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatOccupiedForMedicalReasons">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - M</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatProtectedForCodeSharing">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - S</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="TransitPassenger-SeatOccupiedByATransitPassengerOrLoad">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - T</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="UplineProtectedSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9865 - U</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatRowType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatRowType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatRowType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatRowType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for a type or category of a row of seats, typically on an airplane or train.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Air Row Type (ROW)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatRowType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BufferRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864  - B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitLeft">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - EL</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRight">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - ER</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - E</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRowWithCabinFacilitiesInADesignatedColumn">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - EC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRowWithCabinFacilitiesInAnUndesignatedColumn">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - XC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExtraLegRoom">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndifferentRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - I</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LowerdeckRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - L</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="MaindeckRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - M</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="No-SmokingRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - N</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotOverwingRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - X</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="OverwingRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - K</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PreferredRow/PreferentialRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">OTA coded</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RowDoesNotExist">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - Z</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RowWithCabinFacilitiesInADesignatedColumn">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - C</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RowWithCabinFacilitiesInAnUndesignatedColumn">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - CC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RowWithMovieScreen">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - MV</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatRestrictionsApplyInThisRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - D</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SmokingRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - S</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="UpperdeckRow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9864 - U</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatFacilitiesType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatFacilitiesType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatFacilitiesType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatFacilitiesType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for a type or category of a seat, typically on an airplane or train.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Air Seat Type (AST)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatFacilitiesType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BulkheadSeatWithMovieScreen">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825  - KA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ElectronicConnectionForLapTopOrFaxMachine">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - EC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="GeneralFacility">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - GF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="EconomyComfort">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - EK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndividualAirphone">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AS</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndividualMovieScreen-NoChoiceOfMovieSelection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AM</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndividualVideoScreenChoiceOfMovies,Games,InformationEtc.">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 3B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndividualVideoScreenNoChoice">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 3A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IndividualVideoScreen-ServicesUnspecified">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 700</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LegRestAvailable">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 2</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LegSpaceSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - L</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ChargeableSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis9825 - CH</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoFacilitySeat(IndifferentSeat)">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - X</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PetInCabin">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - PC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PreferredSeat/PreferentialSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - O</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatInQuietZone">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825  - Q</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatSuitableForAdultWithInfant">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - I</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatSuitableForUnaccompaniedMinors">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - U</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithBassinetFacility">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithFacilitiesForHandicapped/IncapacitatedPassenger">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">PAdis 9825 - H</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithMovieView">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1M</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SmokingSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - S</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonSmokingSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - N</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="FrontOfCabin">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - FC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LeftFacingFlatBed">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RightFacingFlatBed">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ForwardFacingFlatBed">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BackwardFacingFlatBed">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LeftFacingFlatBedLeftAngle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RightFacingFlatBedRightAngle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatLocationType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatLocationType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatLocationType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatLocationType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for a seat location Type</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Air Seat Type (AST)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatLocationType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AddedSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - F</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AisleSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BehindGalleySeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 6B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BehindToiletSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 7B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BulkheadSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - K</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CenterSectionSeat(S)">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - CC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="InFrontOfGalleySeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 6A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="InFrontOfToiletSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 7A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LeftSideOfAircraft">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - LS</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NearGalleySeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 -6</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NearToiletSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 7</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatAtThisLocation">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 8</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CenterSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 9</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeat-AccessToHandicappedLavatory">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 701</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="OverWingSeat(S)">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - OW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToBar">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AB</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToCloset">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToGalley">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AG</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToLavatory">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AL</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToStairsToUpperDeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AU</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatAdjacentToTable">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AT</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RightSideOf Aircraft">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - RS</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="UpperDeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - UP</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Window">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - W</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="WindowAndAisleTogether">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - WA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="TailSectionOfAircraft">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - T</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRowSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 E</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AdjacentAisleSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 AJ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AllAvailbaleAisleSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 AA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AllAvailableWindowSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 AW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonSmokingAisle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 NA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonSmokingWindow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 NW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonSmokingBulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 NK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AisleBulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 AK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="OnlyAvailableSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 AV</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Oxygen">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA-Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="UnaccompaniedMinor">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA-Bilateral  Padis 9825 U</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LapChild">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA-Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ServiceAnimal">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA-Bilateral</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PetInCabin">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 PC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ForwardEndOfCabin">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - G</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatLimitationsType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatLimitationsType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatLimitationsType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatLimitationsType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for a type or category of a seat, typically on an airplane or train.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Air Seat Type (AST)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatLimitationsType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CrewSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - C</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Deportee">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - DE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="GroupSeat-OfferedToTravelersBelongingToAGroup">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - GR</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="JumpSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - C  see crew seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LimitedComfort">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">OTA only</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotAllowedForInfants">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotAllowedForMedical">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotAllowedForUnaccompaniedMinors">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1C</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RearFacingSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - J</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RestrictedGeneral">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1 -</xsd:documentation>
+                    <xsd:documentation source="Implementer">UA sends this value</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RestrictedRecline">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1D</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RestrictedSeat-OfferedOnLong-HaulSegments">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - LH</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatNotSuitableForChild">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - IE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatToBeLeftVacant/OfferedLast">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - V</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithoutMovieView">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - M</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="WindowSeatWithoutWindow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1W</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotFitted">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 28</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatAirphone">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AR</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatBar">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - BA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatCloset">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - CL</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ConditionalSeatContactAirline">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - CS</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatExitDoor">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - D</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatEmergencyExit">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - EX</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeat Galley">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - GN</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BulkheadNoSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - KN</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatLavatory">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - LA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatLuggageStorage">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - LG</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatStorageSpace">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - SO</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatStairsToUpperDeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - ST</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NoSeatTable">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - TA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BufferZoneSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - Z</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_SeatReqType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatReqType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_SeatReqType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_SeatReqType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for a type or category of a seat, typically on an airplane or train.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is a string list of enumerations with an "Other_" literal to support an open enumeration list. Use the "Other_" value in combination with the @extension attribute to exchange a literal that is not in the list and is known to your trading partners.</xsd:documentation>
+            <xsd:documentation source="SeatMap">Table name(s): Air Seat Type (AST)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_SeatReqType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AdjacentAisleSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AJ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AisleSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AllAvailableAisleSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AllAvailableWindowSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - AW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="BulkheadSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - K</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CenterSectionSeat(s)">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - CC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ElectronicConnectionForLapTopOrFaxMachine">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - EC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitRowSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - E</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonsmokingSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - N</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotAllowedForInfants">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825  - 1A</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NotAllowedForMedical">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - 1B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="OnlyAvailableSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825  - AV</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PreferredSeat/PreferentialSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - O</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatSuitableForAdultWithInfant">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - I</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatSuitableForUnaccompaniedMinors">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - U</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithBassinetFacility">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - B</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SeatWithFacilitiesForHandicapped/IncapacitatedPassenger">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - H</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SmokingSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - S</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Window">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - W</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="WindowAndAisleTogether">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - WA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ChargeableSeat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9825 - CH</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonsmokingAisle">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">combination Padis 9825 - NA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonsmokingWindow">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">combination Padis 9825 - NW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NonSmokingBulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Combination Padis 9825 - NK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="WindowBulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Combination Padis 9825 -WK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="AisleBulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Combination Padis 9825 -AK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Oxygen">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA - Bilateral request qualifier</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="UnaccompaniedMinor">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA - Bilateral request qualifier</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LapChild">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA - Bilateral request qualifier</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ServiceAnimal">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">UA - Bilateral request qualifier</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PetInCabin"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_CabinFacilitiesLocation">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CabinFacilitiesLocation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_CabinFacilitiesLocation_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_CabinFacilitiesLocation_Base">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CabinFacilitiesLocation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CenterSection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Center Section Padis 3227 - C</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LeftSideSection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Left Side Section  - Padis 3227 -  L</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LeftCenterSection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Left Center Section - Padis 3227 -  LC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RightSideSection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Right Side Section  -  Padis 3227 - R</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="RightCenterSection">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Right Center Section - Padis 3227 - RC</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Enum_CabinFacilitiesType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CabinFacilitiesType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="imap-0400:Enum_CabinFacilitiesType_Base">
+                <xsd:attribute name="extension" type="ota2-dep:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Enum_CabinFacilitiesType_Base">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CabinFacilitiesType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Airphone">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Airphone -Padis 9978 - AR</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Bar">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Bar - Padis 9978 BA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Bulkhead">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Bulkhead   - Padis 9978 BK</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Closet">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Closet  - Padis 9978 CL</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ExitDoor">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Exit Door  - Padis 9978 D</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="EmergencyExit">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Emergency Exit - Padis 9978  E</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Galley">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Galley  - Padis 9978 G</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Lavatory">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Lavatory  - padis 9978 LA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LuggageStorage">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Luggage Storage  - Padis 9978 LG</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="MovieScreen">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Movie Screen  -  Padis 9978 MV</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="StorageSpace">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Storage Space  - Padis 9978  SO</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="StairstoUpperdeck">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Stairs to Upper Deck   - Padis 9978  ST</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Table">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Table  - Padis 9978  TA</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LavatoryWithHandicapppedFacilities">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9978  700</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="MoveableCompartmentDivider">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9978   701</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ConvertibleSeats">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 9978   702</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="CustomerLoyalty">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Travellers Loyalty Membership Number</xsd:documentation>
+            <xsd:documentation source="Implementer">Assigned XSD Type: {http://services.sabre.com/STL/v01}MembershipID</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">CustomerLoyalty</otm:OTA2Entity>
+                <otm:Equivalent context="SeatMap">CustomerLoyality.OTA</otm:Equivalent>
+                <otm:Example context="SeatMap">WWA345876</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="stl2:MembershipID">
+                <xsd:attribute name="carrier"
+                    type="ota2-dep:Code_IATA_AirlineID" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Loyalty program owning carrier</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">YY</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="program"
+                    type="ota2-dep:Name_Proper" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Primary Membership program</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type: {http://services.sabre.com/STL/v01}ProperName</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Equivalent context="SeatMap">program</otm:Equivalent>
+                            <otm:Example context="SeatMap">WWA-Loyality</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="partnerProgram"
+                    type="ota2-dep:Name_Proper" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Partner or Alliance</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type: {http://services.sabre.com/STL/v01}ProperName</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Equivalent context="SeatMap">partnerProgram</otm:Equivalent>
+                            <otm:Example context="SeatMap">AroundTheWorld</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="level" type="ota2-dep:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Frequent Flier Tier Number stored in PNR</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type: {http://services.sabre.com/STL/v01}StringLength1to64</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Equivalent context="SeatMap">level</otm:Equivalent>
+                            <otm:Example context="SeatMap">3</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="notes" type="ota2-dep:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Free text</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type: {http://services.sabre.com/STL/v01}Text</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Equivalent context="SeatMap">notes</otm:Equivalent>
+                            <otm:Example context="SeatMap">FreeText</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="tag" type="ota2-dep:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Frequent Flier Tag stored in PNR</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">GLD</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="profileTier"
+                    type="ota2-dep:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Frequent Flier Tier stored in Profiles</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">3</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Flight_Identifier">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Flight Number</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Flight_Identifier</otm:OTA2Entity>
+                <otm:Equivalent context="SeatMap">Flight.Identifier</otm:Equivalent>
+                <otm:Example context="SeatMap">234</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="stl2:FlightNumber">
+                <xsd:attribute name="carrier" type="stl2:Code_Airline" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">By default, the carrier is assumed from the transaction context</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Equivalent context="SeatMap">carrier</otm:Equivalent>
+                            <otm:Example context="SeatMap">WWA</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="suffix"
+                    type="stl2:FlightNumber_Suffix" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Flight Identifier Suffix is used by operations to differentiate flights with same flight number operating on the same date</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">A</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Code">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Code</otm:OTA2Entity>
+                <otm:Example context="SeatMap">ABC</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="stl2:String_AlphaNumeric">
+                <xsd:attribute name="URI" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">http://example.com</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="context"
+                    type="ota2-dep:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">OTA</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Amount">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A numeric monetary value.</xsd:documentation>
+            <xsd:documentation source="Implementer">Assigned XSD Type:
+				{http://services.sabre.com/STL/v01}_amount</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Amount</otm:OTA2Entity>
+                <otm:Example context="SeatMap">25.00</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="currencyCode"
+                    type="ota2-dep:Code_ISO_Currency" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">ISO Currency code</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type:
+					{http://services.sabre.com/STL/v01}CurrencyCodeList</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">USD</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="currency"
+                    type="ota2-dep:Name_Proper" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Currency name</xsd:documentation>
+                        <xsd:documentation source="Implementer">Assigned XSD Type:
+					{http://services.sabre.com/STL/v01}ProperName</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">Euro</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="decimalPlaces"
+                    type="xsd:positiveInteger" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Number of decimal places used with this currency.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">2</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="POS_Location">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A location for an airline or agency agent. Can be used
+				to describe the actual, pseudo or home location.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">POS_Location</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2-dep:Empty">
+                <xsd:attribute name="country" type="stl2:Code_Country" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">3 character country code agency is located in</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="province"
+                    type="stl2:Code_StateProv" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">State or province</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="city" type="stl2:Code_City" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">City</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="number"
+                    type="stl2:Number_AgencyOrStation" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">agent station number or agency iata number</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">1112223</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="country2"
+                    type="stl2:Code_CountryLegacy" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">2 character country code for agency</xsd:documentation>
+                        <xsd:documentation source="Implementer">It is preferred to use the 3 character country code. This is provided for those cases where the 3 character country code is not supported and the  2 character country code is required.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FlightDate">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Departure date this segment</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">FlightDate</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:date">
+                <xsd:attribute name="localTime" type="xsd:time" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Departure time this segment in local time</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ClientContext">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Client context details.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">ClientContext</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2-dep:Empty">
+                <xsd:attribute name="clientType"
+                    type="ota2-dep:String_Short" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Client context.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:element name="Flight_Segment" type="imap-0400:Flight_Segment"/>
+    <xsd:element name="Flight" type="imap-0400:Flight_Segment"/>
+    
+    <xsd:complexType name="Flight_Segment">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Flight_Segment</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="DepartureDate" type="imap-0400:FlightDate">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Departure date this segment</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Operating" type="imap-0400:Flight_Identifier">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Operating Airline</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="10" minOccurs="1" name="Marketing" type="imap-0400:Flight_Identifier">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Marketing Airline</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ArrivalDate" type="imap-0400:FlightDate">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Arrival date this segment</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AircraftConfigNumber" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">flight aircraft configuration</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Status" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">status of flight like open, close, boarding, etc.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="destination"
+            type="ota2-dep:Code_IATA_Airport" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">IATA airport code</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">CDG</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="origin" type="ota2-dep:Code_IATA_Airport" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">IATA airport code</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">DFW</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="Flight_Segment_Journey_data" type="imap-0400:Flight_Segment_Journey_data"/>
+    <xsd:element name="FlightJourneyData" type="imap-0400:Flight_Segment_Journey_data"/>
+    
+    <xsd:complexType name="Flight_Segment_Journey_data">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Flight_Segment_Journey_data</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="CnxxIndicator" type="imap-0400:ChoiceType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">If Y, there are one or more connections.</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">CnxxIndicator</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="ClassOfService" type="stl2:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Class of service.</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">ClassOfService</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ActionCode" type="stl2:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Reservation system action code.Example: HK
+                               ACCEPTED VALUES: 2 character reservation code.Sabre will only pass segments
+                                                                                                    with SS and HK status as journey control data</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">ActionCode</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin_WingRowDetails" type="imap-0400:Cabin_WingRowDetails"/>
+    <xsd:element name="Wing" type="imap-0400:Cabin_WingRowDetails"/>
+    
+    <xsd:complexType name="Cabin_WingRowDetails">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin_WingRowDetails</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="firstRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">firs trow overwing</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">16</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="lastRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">last row overwing</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">19</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin_FacilitiesDetails" type="imap-0400:Cabin_FacilitiesDetails"/>
+    <xsd:element name="Facility" type="imap-0400:Cabin_FacilitiesDetails"/>
+    
+    <xsd:complexType name="Cabin_FacilitiesDetails">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin_FacilitiesDetails</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Characteristics" type="imap-0400:Enum_CabinFacilitiesType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis  9976</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Location" type="imap-0400:Enum_CabinFacilitiesLocation">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Padis 3227</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Column" type="imap-0400:SeatLetter">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat Column A-Z</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="SeatMap_FareAvailabilityQualifiers" type="imap-0400:SeatMap_FareAvailabilityQualifiers"/>
+    <xsd:element name="FareAvailQualifiers" type="imap-0400:SeatMap_FareAvailabilityQualifiers"/>
+    
+    <xsd:complexType name="SeatMap_FareAvailabilityQualifiers">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">SeatMap_FareAvailabilityQualifiers</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="TravellerID" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Traveler Profile Identifier.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="GivenName" type="ota2-dep:Name_Proper">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Firt or Given Name</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Surname" type="ota2-dep:Name_Proper">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Last or Surname</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="9" minOccurs="0" name="Loyalty" type="imap-0400:CustomerLoyalty">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Loyalty program information in event it affects seatmap selection</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="9" minOccurs="0" name="SSR" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">SSR Details</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:SeatReq"/>
+            <xsd:element minOccurs="0" name="TravellerCharacteristics" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">TODO - Use Open Enumeration from OTA - Traveller Characteristics or restrictions, pet allergies so no near a pet etc</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TicketNumber" type="stl2:Ticket_Number"/>
+            <xsd:element minOccurs="0" ref="imap-0400:FareBreakCriteria">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Fare break criteria</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="quantity" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Specifies the number of travelers of a given passenger type (e.g., Adult, Child)</xsd:documentation>
+                <xsd:documentation source="Implementer">Assigned XSD Type: PassengerTypeQuantityType</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Equivalent context="SeatMap">PassengerTypeQuantity</otm:Equivalent>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="RBD" type="stl2:RBD" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Reservation Booking Designator - actual booking class code or F/J/Y for unbooked travelers.</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">Y</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="birthDate" type="xsd:date" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Traveler's date of birth. Can be used for minumum age requirements for certain seat selection</xsd:documentation>
+                <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}date</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Equivalent context="SeatMap">BirthDate</otm:Equivalent>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="PNR_Loc" type="imap-0400:PNRLOC" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">PNR record Locator of passenger or group</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">ABCDEF</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fareBasisCode" type="ota2-dep:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare Basis Code for the filed fare.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="tourCode" type="ota2-dep:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare tour code</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">TOUR123</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="passengerType" type="ota2-dep:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Pricing Passenger Type, for instance "GOV", "MIL", "ADT", "CNN"</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">ADT</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fareComponentID" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare component ID</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">1</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="accompaniedByInfantInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">If indicator is present and true the passenger is travelling with an infant that is not occupying a seat
+Restrictions as to where the passenger may sit on the aircraft may apply due to exit row restrictions or the availbility of oxygen masks.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="FareAvailabilityQualifiers_FareBreakCriteria" type="imap-0400:FareAvailabilityQualifiers_FareBreakCriteria"/>
+    <xsd:element name="FareBreakCriteria" type="imap-0400:FareAvailabilityQualifiers_FareBreakCriteria"/>
+    
+    <xsd:complexType name="FareAvailabilityQualifiers_FareBreakCriteria">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">FareAvailabilityQualifiers_FareBreakCriteria</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="fareComponentID" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare Component Identifier</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">1</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="governingCarrier" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Carrier code</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">EY</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fareAmount" type="xsd:decimal" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare amount with decimal points</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">160.11</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fareType" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Fare type string</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">XPF</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="atpcoFareTariff"
+            type="ota2-dep:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Aptco fare tariff</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">21</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="atpcoFareRule" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Atpco fare rule</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">4U0</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="FareIndicator" type="xsd:integer" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">fare indicator</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="fareTypeBitmap" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">fare type bitmap</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">00</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="vendorCode" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Vendor Code</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">ATP</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="PrivateTariffIndicatorInd"
+            type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">private tariff indicator</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="ColumnDetail" type="imap-0400:ColumnDetail"/>
+    <xsd:element name="Column" type="imap-0400:ColumnDetail"/>
+    
+    <xsd:complexType name="ColumnDetail">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">ColumnDetail</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Column" type="imap-0400:SeatLetter">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat Column A-Z</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="2" minOccurs="0"
+                name="Characteristics" type="imap-0400:Enum_ColumnDescription">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Column characteristcis applicable to whole column</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="9" minOccurs="0" ref="imap-0400:Price">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Price and taxes applicable to seats in this column</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Occupation" type="imap-0400:Seat_Occupation"/>
+    <xsd:element name="Occupation" type="imap-0400:Seat_Occupation"/>
+    
+    <xsd:simpleType name="Seat_Occupation_Simple">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Occupation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="imap-0400:Enum_SeatOccupation"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Seat_Occupation_Simple_List">
+        <xsd:list itemType="imap-0400:Seat_Occupation_Simple"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Seat_Occupation">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Occupation</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Detail" type="imap-0400:Enum_SeatOccupationType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Additional information about seat occupation</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Free text for additional information on the occupation type</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Facilities" type="imap-0400:Seat_Facilities"/>
+    <xsd:element name="Facilities" type="imap-0400:Seat_Facilities"/>
+    
+    <xsd:complexType name="Seat_Facilities">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Facilities</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Detail" type="imap-0400:Enum_SeatFacilitiesType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Additional information about seat occupation</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Free text additional information</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Location" type="imap-0400:Seat_Location"/>
+    <xsd:element name="Location" type="imap-0400:Seat_Location"/>
+    
+    <xsd:complexType name="Seat_Location">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Location</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Detail" type="imap-0400:Enum_SeatLocationType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Additional information about seat occupation</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Free text additional information</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Limitations" type="imap-0400:Seat_Limitations"/>
+    <xsd:element name="Limitations" type="imap-0400:Seat_Limitations"/>
+    
+    <xsd:complexType name="Seat_Limitations">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Limitations</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Detail" type="imap-0400:Enum_SeatLimitationsType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Additional information about seat occupation</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Free text additional information</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_ReqType" type="imap-0400:Seat_ReqType"/>
+    <xsd:element name="SeatReq" type="imap-0400:Seat_ReqType"/>
+    
+    <xsd:complexType name="Seat_ReqType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_ReqType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="ReqType" type="imap-0400:Enum_SeatReqType"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Price_Seat" type="imap-0400:Price_Seat"/>
+    <xsd:element name="Price" type="imap-0400:Price_Seat"/>
+    
+    <xsd:complexType name="Price_Seat">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_Seat</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="TotalAmount" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total price including taxes if any</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Source" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Source of pricing</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="15" minOccurs="0" ref="imap-0400:Taxes">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Tax applicable to this price</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PriceTypeRef" type="xsd:IDREFS">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <otm:OTA2EntityReference type="IDREFS">PriceType</otm:OTA2EntityReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Price_AndTaxDescriptionSubGrp" type="imap-0400:Price_AndTaxDescription">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Price_AndTaxDescription"
+        substitutionGroup="imap-0400:Price_AndTaxDescriptionSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="Price_AndTaxDescriptionSummary"
+        substitutionGroup="imap-0400:Price_AndTaxDescriptionSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="Price_AndTaxDescriptionDetail"
+        substitutionGroup="imap-0400:Price_AndTaxDescription" type="imap-0400:Price_AndTaxDescription_Detail"/>
+    
+    <xsd:element name="TaxTypeSubGrp" type="imap-0400:Price_AndTaxDescription">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="TaxType"
+        substitutionGroup="imap-0400:TaxTypeSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="TaxTypeSummary"
+        substitutionGroup="imap-0400:TaxTypeSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="TaxTypeDetail"
+        substitutionGroup="imap-0400:TaxType" type="imap-0400:Price_AndTaxDescription_Detail"/>
+    
+    <xsd:element name="PriceTypeSubGrp" type="imap-0400:Price_AndTaxDescription">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="PriceType"
+        substitutionGroup="imap-0400:PriceTypeSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="PriceTypeSummary"
+        substitutionGroup="imap-0400:PriceTypeSubGrp" type="imap-0400:Price_AndTaxDescription"/>
+    <xsd:element name="PriceTypeDetail"
+        substitutionGroup="imap-0400:PriceType" type="imap-0400:Price_AndTaxDescription_Detail"/>
+    
+    <xsd:simpleType name="Price_AndTaxDescription_Simple">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Price or tax type description</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+                <otm:Example context="SeatMap">PIL</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="stl2:String_AlphaNumeric"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Price_AndTaxDescription_Simple_List">
+        <xsd:list itemType="imap-0400:Price_AndTaxDescription_Simple"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Price_AndTaxDescription">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="Code" type="stl2:String_AlphaNumeric">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Price or Tax Type primary code</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Long">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <otm:Example context="SeatMap">Pillow</otm:Example>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">XML ID value used to reference this amenity.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Price_AndTaxDescription_Detail">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_AndTaxDescription</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="imap-0400:Price_AndTaxDescription">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="SecondaryCode" type="imap-0400:Code"/>
+                    <xsd:element minOccurs="0" name="SupplierCode" type="imap-0400:Code"/>
+                    <xsd:element minOccurs="0" name="URI" type="xsd:anyURI">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Link to description of the Amenity</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Detail"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="Price_Tax" type="imap-0400:Price_Tax"/>
+    <xsd:element name="Taxes" type="imap-0400:Price_Tax"/>
+    
+    <xsd:complexType name="Price_Tax">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_Tax</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Tax" type="imap-0400:Amount"/>
+            <xsd:element minOccurs="0" name="TaxTypeRef" type="xsd:IDREFS">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <otm:OTA2EntityReference type="IDREFS">TaxType</otm:OTA2EntityReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Air" type="imap-0400:Seat_Air"/>
+    <xsd:element name="Seat" type="imap-0400:Seat_Air"/>
+    
+    <xsd:complexType name="Seat_Air">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Air</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Number" type="imap-0400:SeatLetter">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Upper case letter which when added to the row number creates a "Seat Number"</xsd:documentation>
+                    <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}string</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">SeatNumber</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Occupation">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat Occupation type</xsd:documentation>
+                    <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}string</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">SeatAvailability</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Location">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Details pertinent to location of seat in aircraft</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Limitations">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">List of limitations associated with seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Facilities">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Facilities related to a specific seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="9" minOccurs="0" ref="imap-0400:Price">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Price of seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="9" minOccurs="0" ref="imap-0400:PassengerEntitlementAndPrice">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Passenger Specific Entitlement and Price.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:Bilateral">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Bilaterally agreed non standard seat characteristics</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AmenityRef" type="xsd:IDREFS">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">List of Amenities that apply to this seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="blockCode" type="ota2-dep:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Special block code, for instance VA's "FF", "GG" special blocks.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="occupiedInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Seat is available unless present and true. Actual availability is subject to occupation rule.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="inoperativeInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">If true, this seat is not operational.</xsd:documentation>
+                <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}boolean</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="premiumInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">If true, this seat is a premium seat that may be subjected to additional fees.</xsd:documentation>
+                <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}boolean</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="chargeableInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Padis 9825 - CH</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="exitRowInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">This seat is on an exit row</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="restrictedReclineInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Padis code 1D</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="noInfantInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Padis code - 1A</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin_Facilities" type="imap-0400:Cabin_Facilities"/>
+    <xsd:element name="RowFacility" type="imap-0400:Cabin_Facilities"/>
+    <xsd:element name="CabinFacility" type="imap-0400:Cabin_Facilities"/>
+    
+    <xsd:complexType name="Cabin_Facilities">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin_Facilities</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Location" type="imap-0400:Enum_CabinFacilitiesRowLocationtype">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">position on the aircraft</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Facility"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Row_Air" type="imap-0400:Row_Air"/>
+    <xsd:element name="Row" type="imap-0400:Row_Air"/>
+    
+    <xsd:complexType name="Row_Air">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Row_Air</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="RowNumber" type="xsd:positiveInteger">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Row Number on Aircraft 1-999</xsd:documentation>
+                    <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}string</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">RowNumber</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="100" minOccurs="0" name="Type" type="imap-0400:Enum_SeatRowType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Row Characteristics i.e E for EXIT</xsd:documentation>
+                    <xsd:documentation source="Implementer">Assigned XSD Type: {http://www.w3.org/2001/XMLSchema}string</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">RowCharacteristics</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="100" minOccurs="0" ref="imap-0400:Price">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat Price Applicable to this ROW overrides cabin level price.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="4999" minOccurs="0" ref="imap-0400:RowFacility">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Cabin facilities applicable to this ROW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Seat">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat Details in this ROW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AmenityRef" type="xsd:IDREFS">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">List of Amenities that apply to this Row</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="AmenitySubGrp" type="imap-0400:Amenity">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Amenity</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Amenity"
+        substitutionGroup="imap-0400:AmenitySubGrp" type="imap-0400:Amenity"/>
+    <xsd:element name="AmenitySummary"
+        substitutionGroup="imap-0400:AmenitySubGrp" type="imap-0400:Amenity"/>
+    <xsd:element name="AmenityDetail"
+        substitutionGroup="imap-0400:Amenity" type="imap-0400:Amenity_Detail"/>
+    
+    <xsd:simpleType name="Amenity_Simple">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Amenity</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Amenity</otm:OTA2Entity>
+                <otm:Example context="SeatMap">PIL</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="stl2:String_AlphaNumeric"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Amenity_Simple_List">
+        <xsd:list itemType="imap-0400:Amenity_Simple"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Amenity">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Amenity</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="Code" type="stl2:String_AlphaNumeric">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Product code.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Description" type="ota2-dep:String_Long">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Description of the amenity</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Fee" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total Fee if any applicable to the amenity</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">XML ID value used to reference this amenity.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Amenity_Detail">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Amenity</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="imap-0400:Amenity">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="SecondaryCode" type="imap-0400:Code">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">sub-code or additional code</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="SupplierCode" type="imap-0400:Code">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Supplier specific product code.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="15" minOccurs="0" ref="imap-0400:Taxes">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Tax applicable to this price</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="URI" type="xsd:anyURI">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Link to description of the Amenity</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PriceTypeRef" type="xsd:IDREF">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">List of price types applicable</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Detail"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="AmenityTable" type="imap-0400:AmenityTable"/>
+    
+    <xsd:complexType name="AmenityTable">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">AmenityTable</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="1000" minOccurs="0" ref="imap-0400:AmenitySubGrp">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Table of Amenities to be referenced from the seat map.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Price_Table" type="imap-0400:Price_Table"/>
+    <xsd:element name="PriceList" type="imap-0400:Price_Table"/>
+    
+    <xsd:complexType name="Price_Table">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_Table</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="1000" minOccurs="0" ref="imap-0400:PriceTypeSubGrp"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Price_TaxTable" type="imap-0400:Price_TaxTable"/>
+    <xsd:element name="TaxTable" type="imap-0400:Price_TaxTable"/>
+    
+    <xsd:complexType name="Price_TaxTable">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Price_TaxTable</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="1000" minOccurs="0" ref="imap-0400:TaxTypeSubGrp"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin" type="imap-0400:Cabin"/>
+    
+    <xsd:simpleType name="Cabin_Simple">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="imap-0400:Enum_CabinClassLocation"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="Cabin_Simple_List">
+        <xsd:list itemType="imap-0400:Cabin_Simple"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="Cabin">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" ref="imap-0400:CabinClass">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Cabin class/type/marketing name information</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="100" minOccurs="0" ref="imap-0400:Price">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Default cabin level seat price with qualifiers and rules.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="999" minOccurs="0" ref="imap-0400:Row">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Row and Seat Data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:Wing">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">overwing row definition</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Column">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Column descriptors</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="4999" minOccurs="0" ref="imap-0400:CabinFacility">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">cabin facilities relative to cabin and first and last row</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:Section">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Separation of sections in a single cabin</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AmenityRef" type="xsd:IDREFS">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <otm:OTA2EntityReference type="IDREFS">Amenity</otm:OTA2EntityReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+        <xsd:attribute name="capacity" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">The total quantity of  physical seats in the cabin.</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">246</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="firstRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">number of first row in this cabin</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">07</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="lastRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">number of last row in this cabin</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">36</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="classLocation"
+            type="imap-0400:Enum_CabinClassLocation" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Class location in cabin Lowerdeck,Maindeck or Upperdeck</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="seatOccupationDefault"
+            type="imap-0400:Enum_SeatOccupationCabinDefault" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">default occupation for all seats</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="rowQty" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Total number of Rows this cabin</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">25</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="POS" type="imap-0400:POS"/>
+    
+    <xsd:complexType name="POS">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">POS</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Actual" type="imap-0400:POS_Location">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Actual is where the transaction is initiated.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Home" type="imap-0400:POS_Location">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Home is assigned to the agent account.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PCC" type="stl2:Code_PseudoCity">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Psuedo is either Agency PCC or Agent AAA. Required for
+						most source code is provided.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ClientContext" type="imap-0400:ClientContext">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Client Context</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="duty" type="stl2:Enum_CodeDuty" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">An authority code assigned to a requestor.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="LNIATA" type="stl2:Lniata" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">LNIATA of the Console the agent signed into.</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">ABCD02</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="sine" type="stl2:AgentSine" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Identifies the agent or party within the requesting
+						entity.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="multiHost" type="stl2:Code_Airline" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Airline partition for multi-host source locations.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="company" type="stl2:Code_Agency" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">The IATA assigned code for the Agency or Airine or GDS</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="Seat_Bilateral" type="imap-0400:Seat_Bilateral"/>
+    <xsd:element name="Bilateral" type="imap-0400:Seat_Bilateral"/>
+    
+    <xsd:complexType name="Seat_Bilateral">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Seat_Bilateral</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="99" minOccurs="0"
+                name="Characteristic" type="stl2:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Non Padis or OTA standard seat characteristics bilaterally agreed to support with a partner airline. Airline partner specific</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin_Section" type="imap-0400:Cabin_Section"/>
+    <xsd:element name="Section" type="imap-0400:Cabin_Section"/>
+    
+    <xsd:complexType name="Cabin_Section">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin_Section</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:attribute name="section" type="stl2:String_Tiny" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Section defined within a Cabin</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">B</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="firstRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">first row of this section</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">16</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="lastRow" type="xsd:positiveInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">last row of this section</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">19</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="Cabin_Type" type="imap-0400:Cabin_Type"/>
+    <xsd:element name="CabinClass" type="imap-0400:Cabin_Type"/>
+    <xsd:element name="CabinDefinition" type="imap-0400:Cabin_Type"/>
+    
+    <xsd:complexType name="Cabin_Type">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Cabin_Type</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="CabinType" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Cabin Type for RQ/RS eq. First , Business, Economy</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="RBD" type="stl2:RBD">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Reservation Booking Designator to apply to seatmap cabin request</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="MarketingName" type="ota2-dep:String_Short">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Any Marketing Name to be displayed instead of just First or Economy</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0"
+                name="MarketingDescription" type="ota2-dep:String_Short">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Any free text description or banner applicable to the cabin</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="JourneyFlight" type="imap-0400:JourneyFlight"/>
+    
+    <xsd:complexType name="JourneyFlight">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">JourneyFlight</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" ref="imap-0400:Flight"/>
+            <xsd:element minOccurs="0" ref="imap-0400:FlightJourneyData"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="JourneyData" type="imap-0400:JourneyData"/>
+    
+    <xsd:complexType name="JourneyData">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">JourneyData</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="999" minOccurs="0" ref="imap-0400:JourneyFlight"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="TravelerFareInfo" type="imap-0400:TravelerFareInfo"/>
+    
+    <xsd:simpleType name="TravelerFareInfo_Simple">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TravelerFareInfo</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="ota2:Empty"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="TravelerFareInfo_Simple_List">
+        <xsd:list itemType="imap-0400:TravelerFareInfo_Simple"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="TravelerFareInfo">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TravelerFareInfo</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="TypeTotalPrice" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total price for all passengers of the same type</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">TypeTotalPrice</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="Base" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total base fare amount that includes surcharges (if applicable).
+                                           Example: 200000</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">BaseFare</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="Taxes" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total taxes amount.  Example: 50000</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">Taxes</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="Total" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total price: 50000</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">Total Price</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TicketByDate" type="stl2:String_Short">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Ticket by date/ time.Example: 2013-12-25.this is not the Booking Time Limit (BookByDate) that applies to offers in a shopping response. This is the date/ time when a ticket-associated offer must be purchased/ ticketed</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">TicketByDate</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="TypeRequested" type="ota2-dep:String_Short" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Passenger type being requested for pricing.  If the passenger type sent by the GDS is not in the below predefined list, then it is shown as is. Predefined values are:
+                                       ADT= Adult
+                                       CHD = Child
+                                       INF = Infant
+                                       GOV = Government
+                                       MIL = Military
+                                       SRC = Senior citizen
+                                       STD = Student
+                                       YTH = Youth
+                                       Example: CHD</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Equivalent context="SeatMap">TypeRequested</otm:Equivalent>
+                    <otm:Example context="SeatMap">ADT</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="TypePriced" type="ota2-dep:String_Short" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Passenger type being priced. This type can be different from the type requested if there is no available fare for the requested type.  For example the requested type is GOV and the priced type is ADT because there is no available fare for type GOV and there is an available fare for type ADT.  If the passenger type sent by the GDS is not the below predefined list, then it is shown as is.  Predefined values are:
+                                        ADT= Adult
+                                        CHD = Child
+                                        INF = Infant
+                                        GOV = Government
+                                        MIL = Military
+                                        SRC = Senior citizen
+                                        STD = Student
+                                        YTH = Youth
+                                        Example: ADT</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Equivalent context="SeatMap">TypePriced</otm:Equivalent>
+                    <otm:Example context="SeatMap">ADT</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="TypeCount" type="xsd:integer" use="required">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <otm:Equivalent context="SeatMap">TypeCount</otm:Equivalent>
+                    <otm:Example context="SeatMap">1</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="FareGroup" type="imap-0400:FareGroup"/>
+    
+    <xsd:complexType name="FareGroup">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">FareGroup</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="GroupTotalPrice" type="imap-0400:Amount">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Total price for the entire itinerary for all passengers of all types.  It is the sum of all TypeTotalPrice.  Example: 320000</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">TotalPrice</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="999" minOccurs="1" ref="imap-0400:TravelerFareInfo"/>
+            <xsd:element minOccurs="1" name="ValidatingCarrier" type="stl2:Code_Airline">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Validating carrier airline designator code..</xsd:documentation>
+                    <xsd:appinfo>
+                        <otm:Equivalent context="SeatMap">ValidatingCarrier</otm:Equivalent>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="SeatMapSubGrp" type="imap-0400:SeatMap_ID">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="BusinessObject">SeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="SeatMapID"
+        substitutionGroup="imap-0400:SeatMapSubGrp" type="imap-0400:SeatMap_ID"/>
+    <xsd:element name="SeatMapIdentifier"
+        substitutionGroup="imap-0400:SeatMapSubGrp" type="imap-0400:SeatMap_ID"/>
+    <xsd:element name="SeatMap" substitutionGroup="imap-0400:SeatMapID" type="imap-0400:SeatMap"/>
+    <xsd:element name="SeatMapSummary"
+        substitutionGroup="imap-0400:SeatMapSubGrp" type="imap-0400:SeatMap"/>
+    <xsd:element name="SeatMapQueryEnhanced" type="imap-0400:SeatMap_Query_Enhanced"/>
+    
+    <xsd:complexType name="SeatMap_ID">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="BusinessObject">SeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Equipment" type="ota2-dep:Code_IATA_AircraftType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">IATA aircraft type</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="mapID" type="stl2:Identifier_oid" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Unique ID that can be used to reference this seatmap</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">sm33493-dke3299</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="system" type="ota2-dep:String_Long" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">System that provided the mapID value.</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">Merch1</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SeatMap">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="BusinessObject">SeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="imap-0400:SeatMap_ID">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="RequestType" type="imap-0400:Request">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Stateful, Stateless, Payload</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="Currency" type="ota2-dep:Code_ISO_Currency">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Default Currency for the map</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="imap-0400:Flight">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Flight date and time</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:FareAvailQualifiers">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Seat map prices and availabity are based on traveller charactistics.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="9" minOccurs="1" ref="imap-0400:Cabin">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Seatmap details for cabin and Row and Seat</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="4999" minOccurs="0" ref="imap-0400:AmenityTable">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Amenities referenced by ID applicable to complete request</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="imap-0400:PriceList"/>
+                    <xsd:element maxOccurs="1000" minOccurs="0" ref="imap-0400:TaxTable">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">List of descriptions of taxes applied to seat prices.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="imap-0400:POS">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Booking agency POS information</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Summary"/>
+                </xsd:sequence>
+                <xsd:attribute name="correlationID"
+                    type="stl2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An ID for end-to-end correlation of log messages with the corresponding Web service message throughout the processing of the Web service message.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="SeatMap">12345678</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="changeOfGaugeInd"
+                    type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">if indicator is present the flight undergoes a change of guage on its path</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SeatMap_Query_Enhanced">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="BusinessObject">SeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="RequestType" type="imap-0400:Request">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Type of request Staeful, Stateless, Payload</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="imap-0400:Flight">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Flight number , date and time.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:CabinDefinition">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Class Cabin being requeste</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Currency" type="ota2-dep:Code_ISO_Currency">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">currency request for seatmap pricing</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AirlineRecordLocator" type="imap-0400:PNRLOC">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Airline Record Locator of passenger or group</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="99" minOccurs="0" ref="imap-0400:FareAvailQualifiers">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Seat map prices and availabity are based on traveller charactistics.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:POS">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Booking agency POS information</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:JourneyData">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Journey control information.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:FareGroup">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Fare group containing all information regarding the air fares.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="SeatMapSource" type="imap-0400:SeatMapSource"/>
+            <xsd:element minOccurs="0" name="Client" type="imap-0400:Client"/>
+            <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint_Query"/>
+        </xsd:sequence>
+        <xsd:attribute name="correlationID" type="stl2:String_Short" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">An ID for end-to-end correlation of log messages with the corresponding Web service message throughout the processing of the Web service message.</xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="SeatMap">123456ABC</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="Client">
+        <xsd:annotation>
+            <xsd:documentation source="Description">client issuing the request</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Client</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="KIOSK"/>
+            <xsd:enumeration value="MOBILE"/>
+            <xsd:enumeration value="WEB"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="SeatMapSource">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Seat Map type to retrieve: PRS (default) or ACS</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">SeatMapSource</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="PRS"/>
+            <xsd:enumeration value="ACS"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="ChoiceType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">ChoiceType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y"/>
+            <xsd:enumeration value="N"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="PassengerEntitlementAndPrice" type="imap-0400:PassengerEntitlementAndPrice"/>
+    
+    <xsd:complexType name="PassengerEntitlementAndPrice">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">PassengerEntitlementAndPrice</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="TravellerID" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Traveler Profile Identifier.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="imap-0400:Price">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Price of seat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="FeeWaiverRuleId" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Fee Waiver Rule ID.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="EntitlementRuleId" type="ota2-dep:String_Tiny">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Entitlement Rule ID.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="entitledInd" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+                <xsd:documentation source="Description">This seat is entitled</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="PriceQuoteCriteria" type="imap-0400:PriceQuoteCriteria"/>
+    
+    <xsd:complexType name="PriceQuoteCriteria">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">PriceQuoteCriteria</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="4" minOccurs="1" ref="imap-0400:PriceQuoteDesignator">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Price Quote Reference Data</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="PriceQuoteDesignator" type="imap-0400:PriceQuoteDesignator"/>
+    
+    <xsd:complexType name="PriceQuoteDesignator">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">PriceQuoteDesignator</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:attribute name="number" type="xsd:int" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">Price Quote Number</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:element name="EnhancedSeatMapRQ"
+        substitutionGroup="stlp:STL_Request_Payload" type="imap-0400:EnhancedSeatMap_RQ"/>
+    
+    <xsd:complexType name="EnhancedSeatMap_RQ">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Used to request a seatmap from another system</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Operation">EnhancedSeatMap_EnhancedSeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="stlp:STL_Request_Payload">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" ref="imap-0400:SeatMapQueryEnhanced"/>
+                    <xsd:element minOccurs="0" ref="imap-0400:PriceQuoteCriteria"/>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="EnhancedSeatMapRS"
+        substitutionGroup="stlp:STL_Response_Payload" type="imap-0400:EnhancedSeatMap_RS"/>
+    
+    <xsd:complexType name="EnhancedSeatMap_RS">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Operation">EnhancedSeatMap_EnhancedSeatMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="stlp:STL_Response_Payload">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="9" minOccurs="0" ref="imap-0400:SeatMapSubGrp"/>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="AddMapRQ"
+        substitutionGroup="stlp:STL_Request_Payload" type="imap-0400:AddMap_RQ"/>
+    
+    <xsd:complexType name="AddMap_RQ">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Operation">EnhancedSeatMap_AddMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="stlp:STL_Request_Payload">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" ref="imap-0400:SeatMapSubGrp"/>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="AddMapRS"
+        substitutionGroup="stlp:STL_Response_Payload" type="imap-0400:AddMap_RS"/>
+    
+    <xsd:complexType name="AddMap_RS">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Operation">EnhancedSeatMap_AddMap</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="stlp:STL_Response_Payload">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="Results" type="xsd:string"/>
+                    <xsd:element minOccurs="0" ref="ota2msg:ExtensionPoint"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+</xsd:schema>

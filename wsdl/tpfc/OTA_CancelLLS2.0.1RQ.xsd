@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="OTA_CancelRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Segment" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="EndNumber" type="xs:integer" use="optional"/>
+						<xs:attribute name="Number" type="xs:integer" use="optional"/>
+						<xs:attribute name="Type" use="optional">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="air"/>
+									<xs:enumeration value="vehicle"/>
+									<xs:enumeration value="entire"/>
+									<xs:enumeration value="hotel"/>
+									<xs:enumeration value="other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="NumResponses" type="xs:string" use="optional"/>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.0.1" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

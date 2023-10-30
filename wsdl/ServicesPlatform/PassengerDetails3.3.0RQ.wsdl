@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:pd="http://services.sabre.com/sp/pd/v3_3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://services.sabre.com/sp/pd/v3_3" schemaLocation="PassengerDetails3.3.0RQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="built-ins/msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="built-ins/wsse.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="PassengerDetailsInput">
+		<wsdl:part element="eb:MessageHeader" name="header"/>
+		<wsdl:part element="wsse:Security" name="header2"/>
+		<wsdl:part element="pd:PassengerDetailsRQ" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="PassengerDetailsOutput">
+		<wsdl:part element="eb:MessageHeader" name="header"/>
+		<wsdl:part element="wsse:Security" name="header2"/>
+		<wsdl:part element="pd:PassengerDetailsRS" name="body"/>
+	</wsdl:message>
+	<wsdl:portType name="PassengerDetailsPortType">
+		<wsdl:operation name="PassengerDetailsRQ">
+			<wsdl:input message="sws:PassengerDetailsInput"/>
+			<wsdl:output message="sws:PassengerDetailsOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PassengerDetailsSoapBinding" type="sws:PassengerDetailsPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="PassengerDetailsRQ">
+			<soap:operation soapAction="PassengerDetailsRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:PassengerDetailsInput" part="header" use="literal"/>
+				<soap:header message="sws:PassengerDetailsInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:PassengerDetailsOutput" part="header" use="literal"/>
+				<soap:header message="sws:PassengerDetailsOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PassengerDetailsService">
+		<wsdl:port binding="sws:PassengerDetailsSoapBinding" name="PassengerDetailsPortType">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

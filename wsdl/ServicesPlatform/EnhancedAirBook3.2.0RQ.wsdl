@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:eab="http://services.sabre.com/sp/eab/v3_2" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://services.sabre.com/sp/eab/v3_2" schemaLocation="EnhancedAirBook3.2.0RQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="built-ins/msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="built-ins/wsse.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="EnhancedAirBookInput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="eab:EnhancedAirBookRQ"/>
+	</wsdl:message>
+	<wsdl:message name="EnhancedAirBookOutput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="eab:EnhancedAirBookRS"/>
+	</wsdl:message>
+	<wsdl:portType name="EnhancedAirBookPortType">
+		<wsdl:operation name="EnhancedAirBookRQ">
+			<wsdl:input message="sws:EnhancedAirBookInput"/>
+			<wsdl:output message="sws:EnhancedAirBookOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EnhancedAirBookSoapBinding" type="sws:EnhancedAirBookPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="EnhancedAirBookRQ">
+			<soap:operation soapAction="EnhancedAirBookRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:EnhancedAirBookInput" part="header" use="literal"/>
+				<soap:header message="sws:EnhancedAirBookInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:EnhancedAirBookOutput" part="header" use="literal"/>
+				<soap:header message="sws:EnhancedAirBookOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EnhancedAirBookService">
+		<wsdl:port name="EnhancedAirBookPortType" binding="sws:EnhancedAirBookSoapBinding">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

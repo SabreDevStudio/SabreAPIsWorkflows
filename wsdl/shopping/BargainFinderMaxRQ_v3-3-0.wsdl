@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by XMLSPY 2004 Enterprise Ed. Release 3, Installed Multi for 5 users (EDS/SABLE ACCT) --><wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2003/05" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://www.opentravel.org/OTA/2003/05" schemaLocation="BargainFinderMaxRQRS_v3-3-0.xsd"/>
+			<xs:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xs:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="GetAirShoppingInput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="xsd1:OTA_AirLowFareSearchRQ"/>
+	</wsdl:message>
+	<wsdl:message name="GetAirShoppingOutput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="xsd1:OTA_AirLowFareSearchRS"/>
+	</wsdl:message>
+	<wsdl:portType name="BargainFinderMaxPortType">
+		<wsdl:operation name="BargainFinderMaxRQ">
+			<wsdl:input message="tns:GetAirShoppingInput"/>
+			<wsdl:output message="tns:GetAirShoppingOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BargainFinderMaxBinding" type="tns:BargainFinderMaxPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="BargainFinderMaxRQ">
+			<soap:operation soapAction="BargainFinderMaxRQ"/>
+			<wsdl:input>
+				<soap:header message="tns:GetAirShoppingInput" part="header" use="literal"/>
+				<soap:header message="tns:GetAirShoppingInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="tns:GetAirShoppingOutput" part="header" use="literal"/>
+				<soap:header message="tns:GetAirShoppingOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="BargainFinderMaxService">
+		<wsdl:port name="BargainFinderMaxPortType" binding="tns:BargainFinderMaxBinding">
+			<!-- <soap:address location="https://sws-crt.cert.sabre.com"/> -->
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
