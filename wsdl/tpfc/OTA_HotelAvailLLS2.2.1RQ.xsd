@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="OTA_HotelAvailRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AvailRequestSegment">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AdditionalAvail" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="Ind" type="xs:boolean" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Customer" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Corporate" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ID" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ID" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Number" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="GuestCounts" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="Count" type="xs:integer" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HotelSearchCriteria" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Criterion" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Address" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CityName" minOccurs="0" type="xs:string"/>
+																<xs:element name="CountryCode" minOccurs="0" type="xs:string"/>
+																<xs:element name="PostalCode" minOccurs="0" type="xs:string"/>
+																<xs:element name="StreetNmbr" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Award" minOccurs="0">
+														<xs:complexType>
+															<xs:attribute name="Provider" type="xs:string" use="optional"/>
+															<xs:attribute name="Rating" type="xs:integer" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ContactNumbers" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ContactNumber">
+																	<xs:complexType>
+																		<xs:attribute name="Phone" type="xs:string" use="required"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="CommissionProgram" minOccurs="0" maxOccurs="3" type="xs:string"/>
+													<xs:element name="HotelAmenity" minOccurs="0" maxOccurs="3" type="xs:string"/>
+													<xs:element name="HotelFeature" minOccurs="0">
+														<xs:complexType>
+															<xs:attribute name="FireSafetyApproved" type="xs:boolean" use="optional"/>
+															<xs:attribute name="AirportTransportation" type="xs:boolean" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="HotelRef" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="ChainCode" type="xs:string" use="optional"/>
+															<xs:attribute name="UnitOfMeasure" use="optional">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="KM"/>
+																		<xs:enumeration value="MI"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:attribute>
+															<xs:attribute name="HotelCityCode" type="xs:string" use="optional"/>
+															<xs:attribute name="HotelCode" type="xs:string" use="optional"/>
+															<xs:attribute name="HotelName" type="xs:string" use="optional"/>
+															<xs:attribute name="Latitude" type="xs:string" use="optional"/>
+															<xs:attribute name="Longitude" type="xs:string" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Package" minOccurs="0" maxOccurs="3" type="xs:string"/>
+													<xs:element name="PointOfInterest" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:string">
+																	<xs:attribute name="CountryStateCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="NonUS" type="xs:boolean" use="optional"/>
+																	<xs:attribute name="RPH" type="xs:integer" use="optional"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="PropertyType" minOccurs="0" maxOccurs="3" type="xs:string"/>
+													<xs:element name="RefPoint" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="DistanceDirection" type="xs:string" use="optional"/>
+															<xs:attribute name="GeoCode" type="xs:boolean" use="optional"/>
+															<xs:attribute name="HotelCode" type="xs:string" use="optional"/>
+															<xs:attribute name="Index" use="optional">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="A"/>
+																		<xs:enumeration value="C"/>
+																		<xs:enumeration value="R"/>
+																		<xs:enumeration value="S"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:attribute>
+															<xs:attribute name="Sort" type="xs:boolean" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="RoomAmenity" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumProperties" type="xs:integer" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="POS" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Source">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="BookingChannel">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CompanyName">
+																	<xs:complexType>
+																		<xs:attribute name="Division" type="xs:string" use="required"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RatePlanCandidates" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ContractNegotiatedRateCode" minOccurs="0" maxOccurs="8" type="xs:string"/>
+										<xs:element name="RateAccessCode" minOccurs="0" maxOccurs="3">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="Code" type="xs:string" use="required"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RatePlanCode" minOccurs="0" maxOccurs="3" type="xs:string"/>
+										<xs:element name="RateRange" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="CurrencyCode" type="xs:string" use="optional"/>
+												<xs:attribute name="Max" type="xs:string" use="optional"/>
+												<xs:attribute name="Min" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="PromotionalSpot" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="C"/>
+												<xs:enumeration value="L"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="RateAssured" type="xs:boolean" use="optional"/>
+									<xs:attribute name="SuppressRackRate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TimeSpan" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="End" type="sws:date" use="required"/>
+									<xs:attribute name="Start" type="sws:date" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.2.1" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imap-0400="http://stl.sabre.com/Merchandising/v4" xmlns:msg="http://services.sabre.com/STL_MessageCommon/v02_00" xmlns:oasis_sec="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:oasis_util="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:otm="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:stlh="http://services.sabre.com/STL_Header/v02_00" xmlns:stlp="http://services.sabre.com/STL_Payload/v02_00" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EnhancedSeatMap" targetNamespace="http://stl.sabre.com/Merchandising/v4">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://stl.sabre.com/Merchandising/v4">
+			<xsd:annotation>
+				<xsd:appinfo>
+					<otm:Library>
+						<otm:ProjectName>EnhancedSeatMap.otp</otm:ProjectName>
+						<otm:ServiceName>EnhancedSeatMap</otm:ServiceName>
+						<otm:LibraryName>EnhancedSeatMap</otm:LibraryName>
+						<otm:LibraryVersion>4.0.0</otm:LibraryVersion>
+						<otm:SourceFile>/EnhancedSeatMap_4_0_0.otm</otm:SourceFile>
+						<otm:CompilerVersion>3.1.rc3</otm:CompilerVersion>
+						<otm:CompileDate>2014-07-01T10:29:42.293+02:00</otm:CompileDate>
+					</otm:Library>
+				</xsd:appinfo>
+			</xsd:annotation>	
+			<xsd:include schemaLocation="EnhancedSeatMap_4_0_0.xsd"/>
+			<xsd:import namespace="http://services.sabre.com/STL_Header/v02_00" schemaLocation="built-ins/STL2_Header_v02_00.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="built-ins/wsse.xsd"/>
+			<xsd:import namespace="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00" schemaLocation="built-ins/OTA2_AppInfo_v1.0.0.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="built-ins/msg-header-2_0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="EnhancedSeatMapRQ">
+		<wsdl:documentation>Used to request a seatmap from another system</wsdl:documentation>
+		<wsdl:part element="eb:MessageHeader" name="header"/>
+		<wsdl:part element="wsse:Security" name="header2"/>
+		<wsdl:part element="imap-0400:EnhancedSeatMapRQ" name="body"/>
+	</wsdl:message>
+
+	<wsdl:message name="EnhancedSeatMapRS">
+		<wsdl:part element="eb:MessageHeader" name="header"/>
+		<wsdl:part element="wsse:Security" name="header2"/>
+		<wsdl:part element="imap-0400:EnhancedSeatMapRS" name="body"/>
+	</wsdl:message>
+
+	<wsdl:message name="EnhancedSeatMapFault">
+		<wsdl:part element="env:Fault" name="body"/>
+	</wsdl:message>
+
+	<wsdl:portType name="EnhancedSeatMapPortType">
+		<wsdl:operation name="EnhancedSeatMap">
+			<wsdl:input message="imap-0400:EnhancedSeatMapRQ"/>
+			<wsdl:output message="imap-0400:EnhancedSeatMapRS"/>
+			<wsdl:fault message="imap-0400:EnhancedSeatMapFault" name="EnhancedSeatMapFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="EnhancedSeatMapBinding" type="imap-0400:EnhancedSeatMapPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="EnhancedSeatMap">
+			<soap:operation soapAction="EnhancedSeatMap"/>
+			<wsdl:input>
+				<soap:header message="imap-0400:EnhancedSeatMapRQ" part="header" use="literal"/>
+				<soap:header message="imap-0400:EnhancedSeatMapRQ" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="imap-0400:EnhancedSeatMapRS" part="header" use="literal"/>
+				<soap:header message="imap-0400:EnhancedSeatMapRS" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="EnhancedSeatMapFault">
+				<soap:fault name="EnhancedSeatMapFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="EnhancedSeatMapService">
+		<wsdl:port binding="imap-0400:EnhancedSeatMapBinding" name="EnhancedSeatMapPort">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

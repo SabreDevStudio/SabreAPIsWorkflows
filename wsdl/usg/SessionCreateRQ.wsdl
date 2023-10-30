@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://www.opentravel.org/OTA/2002/11" xmlns:tns="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.opentravel.org/OTA/2002/11" schemaLocation="SessionCreateRQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="GetSessionCreateInput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<part name="body" element="xsd1:SessionCreateRQ"/>
+	</message>
+	<message name="GetSessionCreateOutput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<part name="body" element="xsd1:SessionCreateRS"/>
+	</message>
+	<portType name="SessionCreatePortType">
+		<operation name="SessionCreateRQ">
+			<input message="tns:GetSessionCreateInput"/>
+			<output message="tns:GetSessionCreateOutput"/>
+		</operation>
+	</portType>
+	<binding name="SessionCreateSoapBinding" type="tns:SessionCreatePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="SessionCreateRQ">
+			<soap:operation soapAction="OTA"/>
+			<input>
+				<soap:header message="tns:GetSessionCreateInput" part="header" use="literal"/>
+				<soap:header message="tns:GetSessionCreateInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:header message="tns:GetSessionCreateOutput" part="header" use="literal"/>
+				<soap:header message="tns:GetSessionCreateOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="SessionCreateRQService">
+		<port name="SessionCreatePortType" binding="tns:SessionCreateSoapBinding">
+			<soap:address location="https://webservices.sabre.com"/>
+		</port>
+	</service>
+</definitions>

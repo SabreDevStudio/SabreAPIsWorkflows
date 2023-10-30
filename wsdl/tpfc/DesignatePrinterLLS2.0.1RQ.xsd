@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="DesignatePrinterRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Printers" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BagTag" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BoardingPass" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="HostedCarrier" type="xs:boolean" use="optional"/>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Hardcopy" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Spacing" use="optional">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="1"/>
+												<xs:enumeration value="2"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InvoiceItinerary" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ListLabel" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MiniItinerary" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Report" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Ticket" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MiniItinerary" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Remote" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="CountryCode" type="xs:string" use="optional"/>
+									<xs:attribute name="LNIATA" type="xs:string" use="optional"/>
+									<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Profile" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="Number" type="xs:integer" use="optional"/>
+						<xs:attribute name="Undesignate" type="xs:boolean" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.0.1" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

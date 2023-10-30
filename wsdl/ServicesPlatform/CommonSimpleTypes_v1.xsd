@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cpst="http://services.sabre.com/cp/common/simple/v1" targetNamespace="http://services.sabre.com/cp/common/simple/v1" elementFormDefault="qualified">
+	<xs:simpleType name="amount">
+		<xs:annotation>
+			<xs:documentation>Determines a type for money amount, exchange rate, or percentage etc. Examples: 100.42, 3.9909, 10.1</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="positiveAmount">
+		<xs:annotation>
+			<xs:documentation>Determines positive only amount</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="cpst:amount">
+			<xs:minExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

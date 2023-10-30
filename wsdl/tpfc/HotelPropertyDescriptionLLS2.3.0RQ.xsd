@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="HotelPropertyDescriptionRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AvailRequestSegment">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Customer" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Corporate" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ID" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CustLoyalty" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="MembershipID" type="xs:string" use="required"/>
+												<xs:attribute name="ProgramID" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ID" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Number" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="GuestCounts" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="Count" type="xs:integer" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HotelSearchCriteria" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Criterion">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="HotelRef">
+														<xs:complexType>
+															<xs:attribute name="HotelCode" type="xs:string" use="required"/>
+															<xs:attribute name="UnitOfMeasure" use="optional">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="KM"/>
+																		<xs:enumeration value="MI"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:attribute>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="POS" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Source">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CompanyName">
+														<xs:complexType>
+															<xs:attribute name="Division" type="xs:string" use="required"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RatePlanCandidates" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ContractNegotiatedRateCode" minOccurs="0" maxOccurs="8" type="xs:string"/>
+										<xs:element name="RateAccessCode" minOccurs="0" maxOccurs="3">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="Code" type="xs:string" use="required"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RatePlanCode" minOccurs="0" maxOccurs="3" type="xs:string"/>
+										<xs:element name="RateRange" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="CurrencyCode" type="xs:string" use="optional"/>
+												<xs:attribute name="Max" type="xs:string" use="optional"/>
+												<xs:attribute name="Min" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="AdditionalRateInfo" type="xs:boolean" use="optional"/>
+									<xs:attribute name="NoRateList" type="xs:boolean" use="optional"/>
+									<xs:attribute name="RateList" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TimeSpan" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="End" type="sws:date" use="required"/>
+									<xs:attribute name="Start" type="sws:date" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.3.0" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

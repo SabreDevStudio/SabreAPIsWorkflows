@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://webservices.sabre.com/sabreXML/2011/10" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://webservices.sabre.com/sabreXML/2011/10" schemaLocation="AirTicketLLS2.7.0RQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+			<xsd:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="AirTicketInput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:AirTicketRQ"/>
+	</wsdl:message>
+	<wsdl:message name="AirTicketOutput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:AirTicketRS"/>
+	</wsdl:message>
+	<wsdl:portType name="AirTicketPortType">
+		<wsdl:operation name="AirTicketRQ">
+			<wsdl:input message="sws:AirTicketInput"/>
+			<wsdl:output message="sws:AirTicketOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="AirTicketSoapBinding" type="sws:AirTicketPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="AirTicketRQ">
+			<soap:operation soapAction="AirTicketLLSRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:AirTicketInput" part="header" use="literal"/>
+				<soap:header message="sws:AirTicketInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:AirTicketOutput" part="header" use="literal"/>
+				<soap:header message="sws:AirTicketOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AirTicketService">
+		<wsdl:port name="AirTicketPortType" binding="sws:AirTicketSoapBinding">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

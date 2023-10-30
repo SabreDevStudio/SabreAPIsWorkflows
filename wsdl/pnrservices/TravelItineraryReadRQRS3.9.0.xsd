@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://services.sabre.com/res/tir/v3_9" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://services.sabre.com/res/tir/v3_9" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:include schemaLocation="TravelItineraryReadRQ3.9.0.xsd"/>
+	<xs:include schemaLocation="TravelItineraryReadRS3.9.0.xsd"/>
+</xs:schema>

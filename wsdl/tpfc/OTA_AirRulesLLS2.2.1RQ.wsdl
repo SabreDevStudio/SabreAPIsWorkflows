@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://webservices.sabre.com/sabreXML/2011/10" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://webservices.sabre.com/sabreXML/2011/10" schemaLocation="OTA_AirRulesLLS2.2.1RQRS.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+			<xsd:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="OTA_AirRulesInput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:OTA_AirRulesRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_AirRulesOutput">
+		<wsdl:part name="header" element="eb:MessageHeader"/>
+		<wsdl:part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:OTA_AirRulesRS"/>
+	</wsdl:message>
+	<wsdl:portType name="OTA_AirRulesPortType">
+		<wsdl:operation name="OTA_AirRulesRQ">
+			<wsdl:input message="sws:OTA_AirRulesInput"/>
+			<wsdl:output message="sws:OTA_AirRulesOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="OTA_AirRulesSoapBinding" type="sws:OTA_AirRulesPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="OTA_AirRulesRQ">
+			<soap:operation soapAction="OTA_AirRulesLLSRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:OTA_AirRulesInput" part="header" use="literal"/>
+				<soap:header message="sws:OTA_AirRulesInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:OTA_AirRulesOutput" part="header" use="literal"/>
+				<soap:header message="sws:OTA_AirRulesOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="OTA_AirRulesService">
+		<wsdl:port name="OTA_AirRulesPortType" binding="sws:OTA_AirRulesSoapBinding">
+			<soap:address location="https://webservices.havail.sabre.com/websvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

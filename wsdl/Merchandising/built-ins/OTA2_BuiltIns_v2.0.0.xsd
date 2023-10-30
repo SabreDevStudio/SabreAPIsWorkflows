@@ -1,0 +1,2372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://opentravel.org/common/v02"
+            xmlns:ota2="http://opentravel.org/common/v02"
+            xmlns:otm="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:annotation>
+        <xsd:appinfo>
+            <otm:Library>
+                <otm:ProjectName>AirlineBranding.otp</otm:ProjectName>
+                <otm:LibraryName>OTA2_BuiltIns_v2.0.0</otm:LibraryName>
+                <otm:LibraryVersion>2.0.0</otm:LibraryVersion>
+                <otm:SourceFile>/OTA2_BuiltIns_v2.0.0.otm</otm:SourceFile>
+                <otm:CompilerVersion>3.0</otm:CompilerVersion>
+                <otm:CompileDate>2014-01-10T13:29:42.553+01:00</otm:CompileDate>
+            </otm:Library>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+    <xsd:import namespace="http://opentravel.org/common/message/v02" schemaLocation="OTA2_Message_v2.0.0.xsd"/>
+    <xsd:import
+            namespace="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00" schemaLocation="OTA2_AppInfo_v1.0.0.xsd"/>
+
+    <xsd:simpleType name="Empty">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An empty string used when the simple content of a complex type or attribute is to be
+                omitted.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Empty</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Alias">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A core 2.0 simpleType used to constrain the contents of an Alias string.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Alias</otm:OTA2Entity>
+                <otm:Example context="OTM2">Alias_Name</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Za-z0-9\.\-_]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_EnumExtension">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string used for an open enumeration literal value.</xsd:documentation>
+            <xsd:documentation source="Implementer">Place a literal in this attribute if you have selected the "other_" value in the
+                enumerated list. Note that this value should be known to your trading partners.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_EnumExtension</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="128"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Long">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string with a minimum length of 1 and a maximum length of 4096.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Long</otm:OTA2Entity>
+                <otm:Example context="OTM2">I am a long string.</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="4096"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Medium">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string with a minimum length of 1 and a maximum length of 512.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Medium</otm:OTA2Entity>
+                <otm:Example context="OTM2">I am a medium string.</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="512"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_PaymentCard">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string that represents a payment card number up to 19 numeric characters in length.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_PaymentCard</otm:OTA2Entity>
+                <otm:Example context="OTM2">1111222233334444</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4,19}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Phone">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string that represents a phone number with the phone number exchange and suffix.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Phone</otm:OTA2Entity>
+                <otm:Example context="OTM2">5551212</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{7}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Short">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string with a minimum length of 1 and a maximum length of 128.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Short</otm:OTA2Entity>
+                <otm:Example context="OTM2">I am a short string.</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="128"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Tiny">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string with a minimum length of 1 and a maximum length of 32.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Tiny</otm:OTA2Entity>
+                <otm:Example context="OTM2">I am a tiny string.</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="32"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Alpha2">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A 2 character alphanueric string.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Alpha2</otm:OTA2Entity>
+                <otm:Example context="OTM2">AB</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="String_Alpha3">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A 3 character alphanueric string.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">String_Alpha3</otm:OTA2Entity>
+                <otm:Example context="OTM2">ABC</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_AgentDuty">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Typically a two to five character code (alpha, numeric, or combination) that specifies a
+                travel agent duty code that is used for agency authentication.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_AgentDuty</otm:OTA2Entity>
+                <otm:Example context="OTM2">AG</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z0-9]{2,5}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_ATPCO_PassengerType">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An ATPCO passenger type code.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_ATPCO_PassengerType</otm:OTA2Entity>
+                <otm:Example context="OTM2">MIL</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="ota2:String_Tiny"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_DataUsePolicy">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A code that identifies a data use policy and/or restriction.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_DataUsePolicy</otm:OTA2Entity>
+                <otm:Example context="OTM2">Internal Use</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="128"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_DayOfWeek">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three or four character abbreviation for a day of the week.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_DayOfWeek</otm:OTA2Entity>
+                <otm:Example context="OTM2">WED</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z0-9]{3,4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_IATA_AircraftType">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three character IATA aircraft type designator.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.iata.org/ps/publications/pages/code-search.aspx</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_IATA_AircraftType</otm:OTA2Entity>
+                <otm:Example context="OTM2">310</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="3"/>
+            <xsd:maxLength value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_IATA_AirlineID">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A two character IATA assigned airline code.</xsd:documentation>
+            <xsd:documentation source="Reference">https://en.wikipedia.org/wiki/IATA_aircraft_type_designator</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_IATA_AirlineID</otm:OTA2Entity>
+                <otm:Example context="OTM2">UA</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_IATA_Airport">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three character code for an airport.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.iata.org/ps/publications/pages/code-search.aspx</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_IATA_Airport</otm:OTA2Entity>
+                <otm:Example context="OTM2">JFK</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_IATA_City">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three character code for a city.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.iata.org/ps/publications/pages/code-search.aspx</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_IATA_City</otm:OTA2Entity>
+                <otm:Example context="OTM2">NYC</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_IATA_ERSP">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A unique IATA (in cooperation with ATA and ARC) code used as a means of identification
+                when performing online bookings with airlines.
+            </xsd:documentation>
+            <xsd:documentation source="Reference">http://www.iata.org/ps/accreditation-travel/ersp/pages/index.aspx</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_IATA_ERSP</otm:OTA2Entity>
+                <otm:Example context="OTM2">123456789</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{1,16}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_ISO_Country">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three character country code defined in ISO 3166 format.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_ISO_Country</otm:OTA2Entity>
+                <otm:Example context="OTM2">USA</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_ISO_Currency">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three character currency code as defined in ISO 4217.</xsd:documentation>
+            <xsd:documentation source="Reference">http://bit.ly/OTA2_ISO4217</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_ISO_Currency</otm:OTA2Entity>
+                <otm:Example context="OTM2">USD</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_ISO_Language">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A code for a language in ISO 639-1 (2 alpha character) format.</xsd:documentation>
+            <xsd:documentation source="Reference">http://sharepoint.opentraveldevelopersnetwork.com/Lists/The OpenTravel
+                Glossary/AllItems.aspx
+            </xsd:documentation>
+            <xsd:documentation source="Implementer">Language codes are typically used to describe spoken languages and languages that
+                descriptive information is requested and/or provided in. An example is "en" which is English.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_ISO_Language</otm:OTA2Entity>
+                <otm:Example context="OTM2">en</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_ProcessingCondition">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a one to nine character length code that represents an abbreviated message
+                processing condition.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_ProcessingCondition</otm:OTA2Entity>
+                <otm:Example context="OTM2">NOAVAIL</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9a-zA-Z]{1,9}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_MoneyToPointsRatio">
+        <xsd:annotation>
+            <xsd:documentation source="Description">The ratio used to calculate the number of loyalty program points (or miles) required to
+                pay for a monetary amount.
+            </xsd:documentation>
+            <xsd:documentation source="Implementer">For example, a base air fare of $100 where MoneyToPointsRatio is 1000 requires 100,000
+                frequent flyer miles to pay for the full base fare (100 * 1000 = 100,000 miles.)
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_MoneyToPointsRatio</otm:OTA2Entity>
+                <otm:Example context="OTM2">1000</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_OpenTravel">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a one to three character length code that represents a value from an
+                OpenTravel Code List.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_OpenTravel</otm:OTA2Entity>
+                <otm:Example context="OTM2">123</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{1,3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_OSI">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies an other service request (OSI) code that may be associated with a passenger
+                name record (PNR).
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_OSI</otm:OTA2Entity>
+                <otm:Example context="OTM2">YY</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{2,4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_PaymentCardSeries">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Verification digits printed on a payment card that follow the embossed number.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_PaymentCardSeries</otm:OTA2Entity>
+                <otm:Example context="OTM2">123456789</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{2,9}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_PaymentCardType">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a 2 to 9 character alphanumeric code for a payment card.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_PaymentCardType</otm:OTA2Entity>
+                <otm:Example context="OTM2">MC</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]{2,9}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Phone_Area">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A code that represents the area code in a telephone number.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Phone_Area</otm:OTA2Entity>
+                <otm:Example context="OTM2">203</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Phone_Country">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A code that represents a country in a telephone number.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Phone_Country</otm:OTA2Entity>
+                <otm:Example context="OTM2">44</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{1,3}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Postal">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a postal code, known in various countries as a post code, postcode or ZIP
+                code.
+            </xsd:documentation>
+            <xsd:documentation source="Reference">http://en.wikipedia.org/wiki/List_of_postal_codes</xsd:documentation>
+            <xsd:documentation source="Implementer">A postal code contains a series of letters and/or digits appended to a postal address
+                for the purpose of sorting mail.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Postal</otm:OTA2Entity>
+                <otm:Example context="OTM2">33626</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="16"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Promotion">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a promotion code.</xsd:documentation>
+            <xsd:documentation source="Implementer">A promotion code is the identifier used by the host system to link directly with a
+                specific named advertising campaign. By including the required code, the client system is able to gain access to special
+                offers which may have been created for a specifically targeted group via a CRM system or for a wider advertising campaign
+                using television or press advertisements.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Promotion</otm:OTA2Entity>
+                <otm:Example context="OTM2">TWOFORONE</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="ota2:String_Tiny"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_PseudoCity">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A three to five character code (alpha, numeric or combination) that specifies a GDS code
+                used to identify a travel agency location.
+            </xsd:documentation>
+            <xsd:documentation source="Reference">http://sharepoint.opentraveldevelopersnetwork.com/Lists/The OpenTravel
+                Glossary/AllItems.aspx
+            </xsd:documentation>
+            <xsd:documentation source="Implementer">This code is typically required when using negotiated rates that are tied to an agency
+                through this code.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_PseudoCity</otm:OTA2Entity>
+                <otm:Example context="OTM2">DFW</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z0-9]{3,5}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_RatePlan">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A code that identifies a rate plan.</xsd:documentation>
+            <xsd:documentation source="Reference">http://sharepoint.opentraveldevelopersnetwork.com/Lists/The OpenTravel
+                Glossary/AllItems.aspx
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_RatePlan</otm:OTA2Entity>
+                <otm:Example context="OTM2">RoomAndMeal</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="64"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Region">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Up to a 16 character code for a geographic region.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Region</otm:OTA2Entity>
+                <otm:Example context="OTM2">Europe</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Za-z0-9]{1,16}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_SSR">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies a special request (SSR) code associated with a passenger name record (PNR).
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_SSR</otm:OTA2Entity>
+                <otm:Example context="OTM2">BLND</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_State">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A 2 character abbreviation for a state.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_State</otm:OTA2Entity>
+                <otm:Example context="OTM2">CA</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Za-z]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Tour">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Up to a 32 character numeric or alphanumeric tour code.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Tour</otm:OTA2Entity>
+                <otm:Example context="OTM2">GOGOEUROPE</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z0-9]{1,32}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Code_Tax">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Up to a 16 character numeric or alphanumeric tax code.</xsd:documentation>
+            <xsd:documentation source="Implementer">This is used to represent a type or category of tax applied to a price or fee.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Code_Tax</otm:OTA2Entity>
+                <otm:Example context="OTM2">XF</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z0-9]{1,16}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Name_Location">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A string for a named location.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Name_Location</otm:OTA2Entity>
+                <otm:Example context="OTM2">Paris</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="75"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Name_Proper">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A name used to describe a person, place or thing, such as a hotel, airport or company.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Name_Proper</otm:OTA2Entity>
+                <otm:Example context="OTM2">Joe Smith</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="128"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Money">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Specifies an amount with a maximum of 3 decimals.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Money</otm:OTA2Entity>
+                <otm:Example context="OTM2">1.25</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+            <xsd:fractionDigits value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Price">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Contains a basic price.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Price</otm:OTA2Entity>
+                <otm:Example context="OTM2">1.25</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+            <xsd:fractionDigits value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Percentage">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A percentage.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Percentage</otm:OTA2Entity>
+                <otm:Example context="OTM2">6.25</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="URL">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A URL in W3C recommended format.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.w3.org/Addressing/URL/url-spec.txt</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">URL</otm:OTA2Entity>
+                <otm:Example context="OTM2">http://www.opentravel.org</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:anyURI"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_Birth">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A persons full birthdate, including year, month and day.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_Birth</otm:OTA2Entity>
+                <otm:Example context="OTM2">1964-12-26</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_Date">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A W3C compliant date field.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.w3.org/TR/xmlschema-2/#date</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_Date</otm:OTA2Entity>
+                <otm:Example context="OTM2">2012-01-30</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_DateTime">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A W3C compliant date with an optional time.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.w3.org/TR/xmlschema-2/#dateTime</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_DateTime</otm:OTA2Entity>
+                <otm:Example context="OTM2">2012-12-17T09:30:47</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_MMYY">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A date represented as a two digit month and two digit year.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_MMYY</otm:OTA2Entity>
+                <otm:Example context="OTM2">1261</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(0[1-9]|1[0-2])[0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_Timestamp">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A timestamp with a date and time.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_Timestamp</otm:OTA2Entity>
+                <otm:Example context="OTM2">2012-12-17T09:30:47</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Date_YYYY">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A four digit year.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Date_YYYY</otm:OTA2Entity>
+                <otm:Example context="OTM2">2012</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Time_Duration">
+        <xsd:annotation>
+            <xsd:documentation source="Description">A W3C compliant time duration unit.</xsd:documentation>
+            <xsd:documentation source="Reference">http://www.w3.org/TR/xmlschema-2/#duration</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="Simple">Time_Duration</otm:OTA2Entity>
+                <otm:Example context="OTM2">P7D</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:duration"/>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_BookingChannel">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_BookingChannel</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_BookingChannel_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_BookingChannel_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of identifiers for a type or category of a booking channel.
+            </xsd:documentation>
+            <xsd:documentation source="OpenTravel Codelist">Booking Channel Type (BCT)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_BookingChannel</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Agent"/>
+            <xsd:enumeration value="Alternative Distribution System (ADS)"/>
+            <xsd:enumeration value="Central Reservation System (CRS)"/>
+            <xsd:enumeration value="Global Distribution System (GDS)"/>
+            <xsd:enumeration value="Internet"/>
+            <xsd:enumeration value="Kiosk"/>
+            <xsd:enumeration value="Property Management System (PMS)"/>
+            <xsd:enumeration value="Sales And Catering System (SCS)"/>
+            <xsd:enumeration value="Tour Operator System (TOS)"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_CodelistSource">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CodelistSource</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_CodelistSource_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_CodelistSource_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of codelist sources.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_CodelistSource</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="IATA"/>
+            <xsd:enumeration value="OpenTravel"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_DataPolicyType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_DataPolicyType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_DataPolicyType_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_DataPolicyType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of identifiers for a type of data usage policy and/or restriction.
+            </xsd:documentation>
+            <xsd:documentation source="Implementer">Note that any data use, sharing or retention policies MUST be agreed upon by trading
+                partners. Exchanging a warning and/or data restriction policy content in an electronic message does indicate policy
+                compliance awareness by the receiving party. This functionality is typically used for privacy compliance and log auditing
+                purposes only.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_DataPolicyType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Retention">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Indicates the encrypted information is subject to a data retention (data
+                        storage) policy established by the sending party and known to recipient parties.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Sharing">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Indicates the encrypted information is subject to a data sharing policy
+                        (internal and third party) established by the sending party and known to recipient parties.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Use">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Indicates the encrypted information is subject to a data use policy (internal
+                        and third party) established by the sending party and known to recipient parties.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Retention, Sharing and Use">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">Indicates the encrypted information is subject to a data retention, sharing and
+                        use policy established by the sending party and known to recipient parties.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_RecordActionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_RecordActionType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_RecordActionType_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_RecordActionType_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of actions performed on a record.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_RecordActionType</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Create"/>
+            <xsd:enumeration value="Delete"/>
+            <xsd:enumeration value="Merge"/>
+            <xsd:enumeration value="Read/Query"/>
+            <xsd:enumeration value="Update"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_TargetProcessingSystem">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_TargetProcessingSystem</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_TargetProcessingSystem_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_TargetProcessingSystem_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of target processing system types.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_TargetProcessingSystem</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Production"/>
+            <xsd:enumeration value="Staging"/>
+            <xsd:enumeration value="Test"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_TravelSector">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_TravelSector</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_TravelSector_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_TravelSector_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of travel industry sector types.</xsd:documentation>
+            <xsd:documentation source="OpenTravel Codelist">Travel Sector (TVS)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_TravelSector</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Activity/Attraction/Theme Park"/>
+            <xsd:enumeration value="Airline"/>
+            <xsd:enumeration value="Bed And Breakfast/Hostel"/>
+            <xsd:enumeration value="Car Rental"/>
+            <xsd:enumeration value="Casino"/>
+            <xsd:enumeration value="Convention/Visitor Bureau"/>
+            <xsd:enumeration value="Cruise Line"/>
+            <xsd:enumeration value="Ferry"/>
+            <xsd:enumeration value="Golf"/>
+            <xsd:enumeration value="Ground Transportation: Black Car/Limousine"/>
+            <xsd:enumeration value="Ground Transportation: Bus/Taxi"/>
+            <xsd:enumeration value="Hotel/Resort"/>
+            <xsd:enumeration value="Multi Modal Packages"/>
+            <xsd:enumeration value="Passenger Rail Line"/>
+            <xsd:enumeration value="Restaurant"/>
+            <xsd:enumeration value="Spa"/>
+            <xsd:enumeration value="Tour Operator: Day Tour"/>
+            <xsd:enumeration value="Tour Operator: Package Tour"/>
+            <xsd:enumeration value="Travel Agent"/>
+            <xsd:enumeration value="Travel Market Research Organization"/>
+            <xsd:enumeration value="Travel Insurance"/>
+            <xsd:enumeration value="Travel Media"/>
+            <xsd:enumeration value="Vacation Rental"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_UniqueID_Type">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_UniqueID_Type</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_UniqueID_Type_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_UniqueID_Type_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of unique identifier types.</xsd:documentation>
+            <xsd:documentation source="OpenTravel Codelist">Unique ID Type (UIT)</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_UniqueID_Type</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Acquirer"/>
+            <xsd:enumeration value="Airline"/>
+            <xsd:enumeration value="Alliance"/>
+            <xsd:enumeration value="Associated Itinerary Reservation"/>
+            <xsd:enumeration value="Associated Reservation"/>
+            <xsd:enumeration value="Associated Shared Reservation"/>
+            <xsd:enumeration value="Booking Agent"/>
+            <xsd:enumeration value="Cancellation"/>
+            <xsd:enumeration value="Car Rental"/>
+            <xsd:enumeration value="Child Reference"/>
+            <xsd:enumeration value="Company"/>
+            <xsd:enumeration value="Confirmation Number"/>
+            <xsd:enumeration value="Contract"/>
+            <xsd:enumeration value="Corporation Representative"/>
+            <xsd:enumeration value="CRO (Customer Reservations Office)"/>
+            <xsd:enumeration value="Cruise Line"/>
+            <xsd:enumeration value="Customer"/>
+            <xsd:enumeration value="Divided Reservation"/>
+            <xsd:enumeration value="Distributor"/>
+            <xsd:enumeration value="ERSP (Electronic Reservation Service Provider)"/>
+            <xsd:enumeration value="Fare Quote"/>
+            <xsd:enumeration value="Ground Transportation Supplier"/>
+            <xsd:enumeration value="Group"/>
+            <xsd:enumeration value="Hotel"/>
+            <xsd:enumeration value="Insurance Agency"/>
+            <xsd:enumeration value="Insurance Agent"/>
+            <xsd:enumeration value="Internet Broker"/>
+            <xsd:enumeration value="Linked Reference"/>
+            <xsd:enumeration value="Master Reference"/>
+            <xsd:enumeration value="Meeting Planning Agency"/>
+            <xsd:enumeration value="Merchant"/>
+            <xsd:enumeration value="Parent Reference"/>
+            <xsd:enumeration value="Profile"/>
+            <xsd:enumeration value="Provisional Reservation"/>
+            <xsd:enumeration value="Purged Master Reference"/>
+            <xsd:enumeration value="Reference"/>
+            <xsd:enumeration value="Reissue/Refund Quote"/>
+            <xsd:enumeration value="Reservation"/>
+            <xsd:enumeration value="Ticket"/>
+            <xsd:enumeration value="Tour Operator"/>
+            <xsd:enumeration value="Travel Agency"/>
+            <xsd:enumeration value="Travel Agent PNR"/>
+            <xsd:enumeration value="Wholesaler"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Enum_URL_Context">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_URL_Context</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="ota2:Enum_URL_Context_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="Enum_URL_Context_Base">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An extensible list of URL contexts.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationOpen">Enum_URL_Context</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Company Website"/>
+            <xsd:enumeration value="Descriptive Information"/>
+            <xsd:enumeration value="More Information"/>
+            <xsd:enumeration value="Reference Authority"/>
+            <xsd:enumeration value="Other_"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Enum_DayOfWeek">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Day of the Week types.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_DayOfWeek</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Monday"/>
+            <xsd:enumeration value="Tuesday"/>
+            <xsd:enumeration value="Wednesday"/>
+            <xsd:enumeration value="Thursday"/>
+            <xsd:enumeration value="Friday"/>
+            <xsd:enumeration value="Saturday"/>
+            <xsd:enumeration value="Sunday"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Enum_OpenTravelCodelist">
+        <xsd:annotation>
+            <xsd:documentation source="Description">OpenTravel codelist table names.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_OpenTravelCodelist</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ADT:Additional Detail Type"/>
+            <xsd:enumeration value="OPR:Additional Operation Info"/>
+            <xsd:enumeration value="AUT:Address Use Type"/>
+            <xsd:enumeration value="AQC:Age Qualifying Code"/>
+            <xsd:enumeration value="ROW:Air Row Type"/>
+            <xsd:enumeration value="AST:Air Seat Type"/>
+            <xsd:enumeration value="ARC:Architectural Style Code"/>
+            <xsd:enumeration value="ACC:Attraction Category Code"/>
+            <xsd:enumeration value="AMC:Available Meal Category Codes"/>
+            <xsd:enumeration value="BED:Bed Type"/>
+            <xsd:enumeration value="BEV:Beverage Code"/>
+            <xsd:enumeration value="BCT:Booking Channel Type"/>
+            <xsd:enumeration value="BIL:Booking Information List"/>
+            <xsd:enumeration value="BUS:Business Srvc Type"/>
+            <xsd:enumeration value="CBF:Cabin Filters"/>
+            <xsd:enumeration value="CDT:Card Type"/>
+            <xsd:enumeration value="CQC:Category Qualifier Code"/>
+            <xsd:enumeration value="CHG:Charge Type"/>
+            <xsd:enumeration value="CLT:Communication Location Type"/>
+            <xsd:enumeration value="CON:Contact Location"/>
+            <xsd:enumeration value="CSC:Contact Srvc Code"/>
+            <xsd:enumeration value="CTT:Content Code"/>
+            <xsd:enumeration value="CFC:Content Format Code"/>
+            <xsd:enumeration value="CNT:Count Category"/>
+            <xsd:enumeration value="COV:Coverage Type"/>
+            <xsd:enumeration value="CRD:Cruise Document Type"/>
+            <xsd:enumeration value="CPK:Cruise Package Code"/>
+            <xsd:enumeration value="CPT:Cruise Profile Type"/>
+            <xsd:enumeration value="DEC:Decline Reason"/>
+            <xsd:enumeration value="DSP:Destination Service Provider Type"/>
+            <xsd:enumeration value="DIS:Discounts Available"/>
+            <xsd:enumeration value="DTB:Distribution Type"/>
+            <xsd:enumeration value="DOC:Document Type"/>
+            <xsd:enumeration value="EAT:Email Address Type"/>
+            <xsd:enumeration value="EAC:EMD Application Code"/>
+            <xsd:enumeration value="ECF:EMD Carrier Fee Type"/>
+            <xsd:enumeration value="ECT:EMD Commission Type"/>
+            <xsd:enumeration value="ERI:EMD Reason For Issuance"/>
+            <xsd:enumeration value="ETM:EMD Ticketing Mode"/>
+            <xsd:enumeration value="EMP:Employee Status"/>
+            <xsd:enumeration value="ENR:Enrollment Method"/>
+            <xsd:enumeration value="EQP:Equipment Type"/>
+            <xsd:enumeration value="EWT:Error Warning Type"/>
+            <xsd:enumeration value="EVT:Event Charge"/>
+            <xsd:enumeration value="ETT:Event Type"/>
+            <xsd:enumeration value="EXH:Exhibit Type"/>
+            <xsd:enumeration value="FAQ:Fare Qualifier"/>
+            <xsd:enumeration value="FAR:Fare Restriction"/>
+            <xsd:enumeration value="FTT:Fee Tax Type"/>
+            <xsd:enumeration value="FDC:Flight Delay Code"/>
+            <xsd:enumeration value="FSC:Flight Service Code"/>
+            <xsd:enumeration value="FMT:Format Type"/>
+            <xsd:enumeration value="GRI:Guest Room Info"/>
+            <xsd:enumeration value="HAC:Hotel Amenity Code"/>
+            <xsd:enumeration value="GUE:Hotel Guest Type"/>
+            <xsd:enumeration value="HIC:Hotel Information Code"/>
+            <xsd:enumeration value="HST:Hotel Status Code"/>
+            <xsd:enumeration value="IPC:Index Point Code"/>
+            <xsd:enumeration value="ITR:Information To Return"/>
+            <xsd:enumeration value="INF:Information Type"/>
+            <xsd:enumeration value="IBT:Inventory Block Type"/>
+            <xsd:enumeration value="LOS:Level of Service"/>
+            <xsd:enumeration value="IBS:Inventory Block Status"/>
+            <xsd:enumeration value="INV:Inventory Count Type"/>
+            <xsd:enumeration value=":PAYMENT CARD ISSUER"/>
+            <xsd:enumeration value=":Credit Card Category"/>
+            <xsd:enumeration value="KDF:Key Decision Factors"/>
+            <xsd:enumeration value="LTC:Link Type Code"/>
+            <xsd:enumeration value="LOC:Location Category Codes"/>
+            <xsd:enumeration value="CUI:Main Cuisine Code"/>
+            <xsd:enumeration value="MPT:Meal Plan Type"/>
+            <xsd:enumeration value="MRC:Meeting Room Code"/>
+            <xsd:enumeration value="MRF:Meeting Room Format Code"/>
+            <xsd:enumeration value="MCC:Message Content Code"/>
+            <xsd:enumeration value="MTC:Misc Ticketing Code"/>
+            <xsd:enumeration value="MOD:Modification Type"/>
+            <xsd:enumeration value="NAM:Name Type"/>
+            <xsd:enumeration value="OTC:Option Type Code"/>
+            <xsd:enumeration value="OTT:Other Time Type"/>
+            <xsd:enumeration value="PKG:Package Type"/>
+            <xsd:enumeration value="PKO:Package Option Type"/>
+            <xsd:enumeration value="PLC:Participation Level"/>
+            <xsd:enumeration value="PMT:Payment Type"/>
+            <xsd:enumeration value="PET:Pets Policy Code"/>
+            <xsd:enumeration value="PLT:Phone Location Type"/>
+            <xsd:enumeration value="PTT:Phone Technology Type"/>
+            <xsd:enumeration value="PUT:Phone Use Type"/>
+            <xsd:enumeration value="PHY:Disability Feature Code"/>
+            <xsd:enumeration value="PIC:Picture Category Code"/>
+            <xsd:enumeration value="PAC:Position Accuracy"/>
+            <xsd:enumeration value="PPC:Pricing Processing Code"/>
+            <xsd:enumeration value="PQC:Pricing Qualifier Code"/>
+            <xsd:enumeration value="PRI:Price Type Code"/>
+            <xsd:enumeration value="PST:Profile Status"/>
+            <xsd:enumeration value="PRT:Profile Type"/>
+            <xsd:enumeration value="PCT:Property Class Type"/>
+            <xsd:enumeration value="PRX:Proximity"/>
+            <xsd:enumeration value="QCC:Question Category"/>
+            <xsd:enumeration value="QST:Question Type"/>
+            <xsd:enumeration value="RAT:Rail Amenity Type"/>
+            <xsd:enumeration value="RAN:Rail Ancillary Services"/>
+            <xsd:enumeration value="PXC:Rail Passenger Type Code"/>
+            <xsd:enumeration value="RTC:Rate Category"/>
+            <xsd:enumeration value="RMO:Rate Mode"/>
+            <xsd:enumeration value="RPT:Rate Plan Type"/>
+            <xsd:enumeration value="RST:Recreation Srvc Type"/>
+            <xsd:enumeration value="REC:Recreation Srvc Detail Code"/>
+            <xsd:enumeration value="REF:Reference Point Category Code"/>
+            <xsd:enumeration value="REL:Relationship"/>
+            <xsd:enumeration value="RAC:Rental Action Code"/>
+            <xsd:enumeration value="RQC:Requested Info Code"/>
+            <xsd:enumeration value="RBT:Reservation Billing Type"/>
+            <xsd:enumeration value="RBD:Res Book Designator Status Code"/>
+            <xsd:enumeration value="RMC:Reservation Method Code"/>
+            <xsd:enumeration value="RES:Restaurant Category Code"/>
+            <xsd:enumeration value="RPC:Restaurant Policy Code"/>
+            <xsd:enumeration value="RSI:Restaurant Srvc Info"/>
+            <xsd:enumeration value="RCC:Revenue Category Code"/>
+            <xsd:enumeration value="RMA:Room Amenity Type"/>
+            <xsd:enumeration value="RLT:Room Location Type"/>
+            <xsd:enumeration value="RVT:Room View Type"/>
+            <xsd:enumeration value="RUL:Rule Type"/>
+            <xsd:enumeration value="SAI:Sailing Description Code"/>
+            <xsd:enumeration value="SRF:Search Response Filter"/>
+            <xsd:enumeration value="SAV:Seat Availability"/>
+            <xsd:enumeration value="STP:Seat Preference"/>
+            <xsd:enumeration value="SEC:Security Feature Code"/>
+            <xsd:enumeration value="SEG:Segment Category Code"/>
+            <xsd:enumeration value="SIZ:Size"/>
+            <xsd:enumeration value="SOC:Sort Order Code"/>
+            <xsd:enumeration value="SRO:Special Remark Option Type"/>
+            <xsd:enumeration value="SCC:Stat Category Code"/>
+            <xsd:enumeration value="STS:Status"/>
+            <xsd:enumeration value="TRC:Traffic Restriction Code"/>
+            <xsd:enumeration value="TSC:Train Schedule Code"/>
+            <xsd:enumeration value="TTC:Train Type Code"/>
+            <xsd:enumeration value="TMT:Transport Mode Type"/>
+            <xsd:enumeration value="TRP:Transportation Code"/>
+            <xsd:enumeration value="TVP:Travel Purpose"/>
+            <xsd:enumeration value="TVS:Travel Sector"/>
+            <xsd:enumeration value="UIT:Unique Id Type"/>
+            <xsd:enumeration value="UOM:Unit of Measure Code"/>
+            <xsd:enumeration value="USC:Utility Service Code"/>
+            <xsd:enumeration value="VEC:Vehicle Category"/>
+            <xsd:enumeration value="VCP:Vehicle Charge Purpose Type"/>
+            <xsd:enumeration value="VCT:Vehicle Coverage Type"/>
+            <xsd:enumeration value="VLI:Vehicle Location Information Type"/>
+            <xsd:enumeration value="VWF:Vehicle Where At Facility"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="Enum_TransactionStatus">
+        <xsd:annotation>
+            <xsd:documentation source="Description">An identifier for where this message falls within a sequence of messages.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="EnumerationClosed">Enum_TransactionStatus</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Start"/>
+            <xsd:enumeration value="End"/>
+            <xsd:enumeration value="Rollback"/>
+            <xsd:enumeration value="InSeries"/>
+            <xsd:enumeration value="Continuation"/>
+            <xsd:enumeration value="Subsequent"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="CodeList">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a codelist.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">CodeList</otm:OTA2Entity>
+                <otm:Example context="OTM2">OpenTravel</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">The source of the codelist.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Enum_CodelistSource_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+                <xsd:attribute name="itemCode" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The numeric ID or code for the value from the code list.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">14</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="itemName" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The literal (textual) value from the code list.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Corporate Booking Information</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listNameCode"
+                               type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The acronym or code for the code list name.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ADT</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="openTravelListName"
+                               type="ota2:Enum_OpenTravelCodelist" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The OpenTravel code list name.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ADT:Additional Detail Type</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="otherListName"
+                               type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of a third party (non-OpenTravel) code list.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">IATA Country Codes</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContextualCode">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a contextual code.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">ContextualCode</otm:OTA2Entity>
+                <otm:Example context="OTM2">ABC123</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A code up to 32 characters in length.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Tiny">
+                <xsd:attribute name="context" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The named context of the code.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Owner</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="URL" type="ota2:URL" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A URL to the source owner of the code.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">http://www.ABCCompany.com/somesource</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContextualID">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a contextual identifier.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">ContextualID</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A unique ID up to 128 characters in length.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Short">
+                <xsd:attribute name="context" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The named context of the ID.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Owner</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="URL" type="ota2:URL" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A URL to the source owner of the ID.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">http://www.opentravel.org</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ExchangeRate">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes an exchange rate.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">ExchangeRate</otm:OTA2Entity>
+                <otm:Example context="OTM2">USD</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">An ISO 4217 currency code for the base currency that's being converted.
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Currency">
+                <xsd:attribute name="baseNUC" type="ota2:Money" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The base neutral unit of construction amount.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">100</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="exchangeDateTime"
+                               type="ota2:Date_DateTime" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The date and time of the conversion rate.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">2012-12-17T09:30:47</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="exchangeRate" type="xsd:decimal" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The rate used for conversion from the source currency to the target
+                            currency.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">1.32932</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="exchangeSourceName"
+                               type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the exchange rate source.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Exchange Rates.com</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="exchangeSourceURL" type="ota2:URL" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A URL for the source of the conversion rate.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">http://www.exchangerates.org.uk/US-Dollar-USD-currency-table.html</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="toCurrency"
+                               type="ota2:Code_ISO_Currency" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An ISO 4217 currency code for the final converted currency.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">EUR</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="InitiatorAirline">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes airline information for a message requestor or sender.
+            </xsd:documentation>
+            <xsd:documentation source="Reference">http://bit.ly/OTA2_IATA_AirlineCode</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">InitiatorAirline</otm:OTA2Entity>
+                <otm:Example context="OTM2">UA</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A two character IATA airline vendor ID.</xsd:documentation>
+                <xsd:documentation source="Reference">http://bit.ly/OTA2_IATA_AirlineCode</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_IATA_AirlineID">
+                <xsd:attribute name="airportCode"
+                               type="ota2:Code_IATA_Airport" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A three character IATA assigned airport code.</xsd:documentation>
+                        <xsd:documentation source="Reference">http://bit.ly/OTA2_IATA_AirportCodes</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">JFK</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="erspCode"
+                               type="ota2:Code_IATA_ERSP" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The IATA airline Electronic Reservation Services Provider (ERSP) code.
+                        </xsd:documentation>
+                        <xsd:documentation source="Reference">http://bit.ly/OTA2_ERSP</xsd:documentation>
+                        <xsd:documentation source="Implementer">An ERSP is a unique IATA (in cooperation with ATA and ARC) code used as a
+                            means of identification when performing online bookings with airlines.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">123456789</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="firstDeparturePoint"
+                               type="ota2:Code_IATA_City" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An IATA city code for the first departure point for a trip.
+                        </xsd:documentation>
+                        <xsd:documentation source="Reference">http://bit.ly/OTA2_IATA_AirportCodes</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">JFK</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="InitiatorBookingChannel">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a booking channel.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">InitiatorBookingChannel</otm:OTA2Entity>
+                <otm:Example context="OTM2">Agent</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">An extensible list of booking channel types.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Enum_BookingChannel_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+                <xsd:attribute name="code" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A code for the booking channel.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">12345</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="id" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A unique ID for the booking channel that is typically used for message
+                            authentication.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ABC1234567</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="name" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the booking channel.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">The Best Travel Company Public Website</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="primaryInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, the booking channel type is the primary means of connectivity used
+                            by the source.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="InitiatorID">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a unique ID and contextual information for the ID for a message
+                requestor or sender.
+            </xsd:documentation>
+            <xsd:documentation source="Implementer">The ID and associated information should be known between trading partners.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">InitiatorID</otm:OTA2Entity>
+                <otm:Example context="OTM2">vendor12345</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A unique identifier for the requestor or sender of the message.</xsd:documentation>
+                <xsd:documentation source="Implementer">This ID should be known between trading partners.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Short">
+                <xsd:attribute name="context" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The contextual source of the requestor ID, such as IATA, ARC, and ERSP.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">IATA</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="url" type="ota2:URL" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A URL that identifies the location associated with the @context.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">http://www.vendor12345.com</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="InitiatorTravelAgent">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Sine ID and other metadata about a travel agency.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">InitiatorTravelAgent</otm:OTA2Entity>
+                <otm:Example context="OTM2">7854JL</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">The travel agent sine identifier.</xsd:documentation>
+                <xsd:documentation source="Implementer">A code used to identify a user or a travel agency, typically used by GDS.
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Tiny">
+                <xsd:attribute name="companyName"
+                               type="ota2:Name_Proper" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the travel agency.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ABC Travel Company</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="dutyCode"
+                               type="ota2:Code_AgentDuty" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A two to five character code (alpha, numeric or combination) code that
+                            specifies a travel agents duty code used for agency authentication.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">GS</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="pseudoCityCode"
+                               type="ota2:Code_PseudoCity" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A three to five character code (alpha, numeric or combination) that
+                            specifies a GDS code used to identify a travel agency location.
+                        </xsd:documentation>
+                        <xsd:documentation source="Implementer">Note that this may be a required field when using negotiated rates to
+                            associate the rates to an agency.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ORD</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="terminalID"
+                               type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The electronic address of the device from which information is entered.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">01989</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Identifier_Country">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a country.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Identifier_Country</otm:OTA2Entity>
+                <otm:Example context="OTM2">USA</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A three character alpha country code defined in ISO 3166 format.</xsd:documentation>
+                <xsd:documentation source="Reference">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Country">
+                <xsd:attribute name="alpha2" type="ota2:String_Alpha2" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The two character alpha country code defined in ISO 3166 format.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">FR</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="fullName" type="ota2:Name_Proper" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the country.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">France</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Identifier_Currency">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a currency.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Identifier_Currency</otm:OTA2Entity>
+                <otm:Example context="OTM2">USD</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A three character ISO 4217 currency code with other related metadata.
+                </xsd:documentation>
+                <xsd:documentation source="Reference">http://bit.ly/OTA2_ISO4217</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Currency">
+                <xsd:attribute name="decimalPlaces"
+                               type="xsd:positiveInteger" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An ISO 4217 standard "minor unit" for the number of decimal places for the
+                            associated currency.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">2</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="pricingFilingInd"
+                               type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the pricing/filing currency.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Identifier_Language">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a language.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Identifier_Language</otm:OTA2Entity>
+                <otm:Example context="OTM2">en</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A code for a language in ISO 639-1 (2 alpha character) format.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Language">
+                <xsd:attribute name="alpha3" type="ota2:String_Alpha3" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The three character alpha language code.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ENG</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="name" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the language for display purposes.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ENGLISH</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="primaryInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the primary (or preferred) language within a set of
+                            specified languages.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="MessagePassword">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a message password.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">MessagePassword</otm:OTA2Entity>
+                <otm:Example context="OTM2">eK7@41!3aB</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">A password associated with a message request.</xsd:documentation>
+                <xsd:documentation source="Implementer">Note that it is an OpenTravel Best Practice to encrpt any user identifying,
+                    personally identify or account access data.
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Short">
+                <xsd:attribute name="domain" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The domain associated with the message password.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">CRS</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Processing_Currency">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes the currency used in a request message and the preferred
+                response currency.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Processing_Currency</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">Request and response currency information.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Currency">
+                <xsd:attribute name="decimalPlaces"
+                               type="xsd:positiveInteger" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An ISO 4217 standard "minor unit" for the number of decimal places for the
+                            associated currency.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">2</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="initiatorInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the currency that the initiating message is in.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="responseInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the requested currency for message responses.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="pricingFilingInd"
+                               type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the pricing/filing currency.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Processing_Language">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes the language used in a request message and the preferred
+                response language.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Processing_Language</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">Request and response language information.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Code_ISO_Language">
+                <xsd:attribute name="alpha3" type="ota2:String_Alpha3" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The three character alpha language code.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ENG</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="name" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the language for display purposes.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">ENGLISH</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="initiatorInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the language that the initiating message is in.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="responseInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the requested language for message responses.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="primaryInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, this is the primary (or preferred) language within a set of
+                            specified languages.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="TargetSystem">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a target (or receiving) processing system.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">TargetSystem</otm:OTA2Entity>
+                <otm:Example context="OTM2">Production</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">An extensible list of target message processing system types..</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Enum_TargetProcessingSystem_Base">
+                <xsd:attribute name="extension" type="ota2:String_EnumExtension"/>
+                <xsd:attribute name="systemName"
+                               type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The name of the target system that may be specified if there are more than
+                            one system for the specified system type.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Server3</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="TimeWindow">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a date and optional time with a time period that can be applied
+                before and/or after the date.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">TimeWindow</otm:OTA2Entity>
+                <otm:Example context="OTM2">2012-12-17T09:30:47</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">The date and optional time.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:Date_DateTime">
+                <xsd:attribute name="windowAfter"
+                               type="ota2:Time_Duration" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A period of time that can be applied to the base date/time resulting in a
+                            later range of time.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">P3D</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="windowBefore"
+                               type="ota2:Time_Duration" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A period of time that can be applied to the base date/time resulting in an
+                            earlier range of time.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">PT12H</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="crossDateInd" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, the requested period may extend over the previous or following day.
+                            If false, the search period is restricted to the date/time specified.
+                        </xsd:documentation>
+                        <xsd:documentation source="Implementer">Note that this indicator is typically used when the window duration is in
+                            hours.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="TimeZone">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a time zone.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">TimeZone</otm:OTA2Entity>
+                <otm:Example context="OTM2">ET</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">The time zone name or abbreviation.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Tiny">
+                <xsd:attribute name="utcOffset" type="ota2:String_Tiny" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The Coordinated Universal Time (UTC) time zone offset.</xsd:documentation>
+                        <xsd:documentation source="Implementer">A UTC offset is typically represented with a plus or minus sign, an hour
+                            increment and an hour designator, such as - 5h.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">- 5h</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="daylightSavingsInd"
+                               type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, daylight (or summer) savings time is used in the time zone.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Transaction">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Metadata that describes a message transaction.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="ValueWithAttributes">Transaction</otm:OTA2Entity>
+                <otm:Example context="OTM2">12345</otm:Example>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:annotation>
+                <xsd:documentation source="Description">The transaction ID.</xsd:documentation>
+                <xsd:documentation source="Implementer">Unique identifier to relate all messages within a transaction (e.g. this would be
+                    sent in all request and response messages that are part of an on-going transaction).
+                </xsd:documentation>
+                <xsd:documentation source="Implementer">This would be sent in all request and response messages that are part of an on-going
+                    transaction.
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:extension base="ota2:String_Short">
+                <xsd:attribute name="correlationID"
+                               type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">An ID for end-to-end correlation of log messages with the corresponding Web
+                            service message throughout the processing of the Web service message.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">6712</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="sequenceNumber"
+                               type="xsd:positiveInteger" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The sequence number of the transaction assigned by the sending system for
+                            ordered message processing or message resynchronization.
+                        </xsd:documentation>
+                        <xsd:documentation source="Implementer">Message resynchronization typically is required if a system has been
+                            off-line and needs to retrieve messages that were missed.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">6</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="status"
+                               type="ota2:Enum_TransactionStatus" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">Where this message falls within a sequence of messages.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Start</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="retransmissionInd"
+                               type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">If true, the message is being re-sent after a failure.</xsd:documentation>
+                        <xsd:documentation source="Implementer">It is recommended that this attribute is used (i.e., set to TRUE) only when
+                            a message is retransmitted.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="DataPolicySubGrp" type="ota2:DataPolicy">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Information about data policy(s) that may apply to all or a portion of the message
+                contents.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">DataPolicy</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="DataPolicy"
+                 substitutionGroup="ota2:DataPolicySubGrp" type="ota2:DataPolicy"/>
+    <xsd:element name="DataPolicySummary"
+                 substitutionGroup="ota2:DataPolicySubGrp" type="ota2:DataPolicy"/>
+    <xsd:element name="DataPolicyDetail"
+                 substitutionGroup="ota2:DataPolicy" type="ota2:DataPolicy_Detail"/>
+
+    <xsd:complexType name="DataPolicy">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Summary data policy information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">DataPolicy</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="type" type="ota2:Enum_DataPolicyType">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">An extensible list of data policy types.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="schemaFieldXPath" type="ota2:String_Medium" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">An xPath to the tag of the schema element or attribute (field) that the data
+                    policy(s) applies to.
+                </xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="OTM2">AirInventoryQueryRQ/Traveler/@birthDate</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="DataPolicy_Detail">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Detail data policy information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">DataPolicy</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="ota2:DataPolicy">
+                <xsd:attribute name="description"
+                               type="ota2:String_Medium" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A brief description of the data policy intended to be used for logging and
+                            compliance purposes.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Restricted to internal sharing as needed-no third party sharing.</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="url" type="ota2:URL" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">A URL to a source that describes the data policy.</xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">http://www.BTCCO.com/datapolicy.aspx</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="EncryptionSubGrp" type="ota2:Encryption">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Information about encrypted elements and attributes within the message.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Encryption</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Encryption"
+                 substitutionGroup="ota2:EncryptionSubGrp" type="ota2:Encryption"/>
+    <xsd:element name="EncryptionSummary"
+                 substitutionGroup="ota2:EncryptionSubGrp" type="ota2:Encryption"/>
+    <xsd:element name="EncryptionDetail"
+                 substitutionGroup="ota2:Encryption" type="ota2:Encryption_Detail"/>
+
+    <xsd:complexType name="Encryption">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Summary payload information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Encryption</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:attribute name="schemaFieldXPath" type="ota2:String_Medium" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">An xPath to the tag of the schema element or attribute (field) that is encrypted.
+                </xsd:documentation>
+                <xsd:appinfo>
+                    <otm:Example context="OTM2">AirInventoryQueryRQ/Traveler/@birthDate</otm:Example>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="value" type="xsd:string" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="Description">The encrypted value.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Encryption_Detail">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Detail encryption information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">Encryption</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="ota2:Encryption">
+                <xsd:attribute name="method" type="ota2:String_Short" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation source="Description">The encryption method being used.</xsd:documentation>
+                        <xsd:documentation source="Implementer">Note that if you do not specify the encryption method, it should be known to
+                            your trading partners.
+                        </xsd:documentation>
+                        <xsd:appinfo>
+                            <otm:Example context="OTM2">Triple DES</otm:Example>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="TransactionInitiatorSubGrp" type="ota2:TransactionInitiator">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Transaction initiator identification, authentication and other associated summary and
+                detail information.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TransactionInitiator</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="TransactionInitiator"
+                 substitutionGroup="ota2:TransactionInitiatorSubGrp" type="ota2:TransactionInitiator"/>
+    <xsd:element name="TransactionInitiatorSummary"
+                 substitutionGroup="ota2:TransactionInitiatorSubGrp" type="ota2:TransactionInitiator"/>
+    <xsd:element name="TransactionInitiatorDetail"
+                 substitutionGroup="ota2:TransactionInitiator" type="ota2:TransactionInitiator_Detail"/>
+
+    <xsd:element name="PointOfSaleSubGrp" type="ota2:TransactionInitiator">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Transaction initiator identification, authentication and other associated summary and
+                detail information.
+            </xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TransactionInitiator</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="PointOfSale"
+                 substitutionGroup="ota2:PointOfSaleSubGrp" type="ota2:TransactionInitiator"/>
+    <xsd:element name="PointOfSaleSummary"
+                 substitutionGroup="ota2:PointOfSaleSubGrp" type="ota2:TransactionInitiator"/>
+    <xsd:element name="PointOfSaleDetail"
+                 substitutionGroup="ota2:PointOfSale" type="ota2:TransactionInitiator_Detail"/>
+
+    <xsd:complexType name="TransactionInitiator">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Summary transaction initiator information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TransactionInitiator</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="1" name="ID" type="ota2:InitiatorID">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">A unique identifier for the requestor or sender of the message with other
+                        metadata related to the ID.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="Type" type="ota2:Enum_UniqueID_Type">
+                <xsd:annotation>
+                    <xsd:documentation source="Description">An extensible list of requestor or sender types.</xsd:documentation>
+                    <xsd:documentation source="Implementer">This type should be known between trading partners.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TransactionInitiator_Detail">
+        <xsd:annotation>
+            <xsd:documentation source="Description">Detail transaction initiator information.</xsd:documentation>
+            <xsd:appinfo>
+                <otm:OTA2Entity type="CoreObject">TransactionInitiator</otm:OTA2Entity>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="ota2:TransactionInitiator">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="Agent" type="ota2:InitiatorTravelAgent">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">The travel agent sine number and other identification and authentication
+                                information.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="Airline" type="ota2:InitiatorAirline">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">The two character airline IATA vendor ID and other identification and
+                                authentication information.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="BookingChannel" type="ota2:InitiatorBookingChannel">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">The type of the booking channel and other identification and
+                                authentication information for the requestor or sender.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="Company" type="ota2:String_Short">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">Company information for the requestor or sender.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="RelativeLocation" type="ota2:String_Short">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">The geographical location of the requestor.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="TimeZone" type="ota2:TimeZone">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">A time zone abbreviation with other related metadata for the requestor
+                                or sender.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="TravelSector" type="ota2:Enum_TravelSector">
+                        <xsd:annotation>
+                            <xsd:documentation source="Description">The travel sector associated with the requestor or sender.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>

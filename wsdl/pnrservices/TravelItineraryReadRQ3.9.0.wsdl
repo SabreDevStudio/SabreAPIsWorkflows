@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://services.sabre.com/res/tir/v3_9" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" targetNamespace="https://webservices.sabre.com/websvc">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://services.sabre.com/res/tir/v3_9" schemaLocation="TravelItineraryReadRQRS3.9.0.xsd"/>
+			<xsd:import namespace="http://www.ebxml.org/namespaces/messageHeader" schemaLocation="msg-header-2_0.xsd"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/12/secext" schemaLocation="wsse.xsd"/>
+			<xsd:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="TravelItineraryReadInput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:TravelItineraryReadRQ"/>
+	</wsdl:message>
+	<wsdl:message name="TravelItineraryReadOutput">
+		<part name="header" element="eb:MessageHeader"/>
+		<part name="header2" element="wsse:Security"/>
+		<wsdl:part name="body" element="sws_xsd:TravelItineraryReadRS"/>
+	</wsdl:message>
+	<wsdl:portType name="TravelItineraryReadPortType">
+		<wsdl:operation name="TravelItineraryReadRQ">
+			<wsdl:input message="sws:TravelItineraryReadInput"/>
+			<wsdl:output message="sws:TravelItineraryReadOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TravelItineraryReadSoapBinding" type="sws:TravelItineraryReadPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="TravelItineraryReadRQ">
+			<soap:operation soapAction="TravelItineraryReadRQ"/>
+			<wsdl:input>
+				<soap:header message="sws:TravelItineraryReadInput" part="header" use="literal"/>
+				<soap:header message="sws:TravelItineraryReadInput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="sws:TravelItineraryReadOutput" part="header" use="literal"/>
+				<soap:header message="sws:TravelItineraryReadOutput" part="header2" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="TravelItineraryReadService">
+		<wsdl:port name="TravelItineraryReadPortType" binding="sws:TravelItineraryReadSoapBinding">
+			<soap:address location="https://webservices.sabre.com"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

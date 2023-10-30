@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="ShortSellRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OriginDestinationInformation">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FlightSegment" maxOccurs="3">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DestinationLocation" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="LocationCode" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="FlightDetails" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Text" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="MarketingAirline" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="Code" type="xs:string" use="optional"/>
+												<xs:attribute name="FlightNumber" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="MarriageGrp" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="Ind" type="xs:boolean" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OriginLocation" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="LocationCode" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="DepartureDateTime" type="sws:date" use="optional"/>
+									<xs:attribute name="FlightNumber" type="xs:string" use="optional"/>
+									<xs:attribute name="ResBookDesigCode" type="xs:string" use="required"/>
+									<xs:attribute name="Status" type="xs:string" use="optional"/>
+									<xs:attribute name="NumberInParty" type="xs:integer" use="optional"/>
+									<xs:attribute name="RPH" type="xs:integer" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.1.0" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

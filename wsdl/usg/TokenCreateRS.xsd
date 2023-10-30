@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://webservices.sabre.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="TokenCreateRS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Success" minOccurs="0" maxOccurs="1">
+					<xs:complexType/>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Version" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

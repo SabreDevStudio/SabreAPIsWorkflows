@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="OTA_AirAvailRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OptionalQualifiers" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AdditionalAvailability" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="AirExtras" type="xs:string" use="optional"/>
+									<xs:attribute name="DirectAccess" type="xs:boolean" use="optional"/>
+									<xs:attribute name="Ind" type="xs:boolean" use="optional"/>
+									<xs:attribute name="MoveDown" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="FlightQualifiers" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AlliancePartner" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Group" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Cabin" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Designator" maxOccurs="unbounded" type="xs:string"/>
+												</xs:sequence>
+												<xs:attribute name="Exclude" type="xs:boolean" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="VendorPrefs" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Airline" minOccurs="0" maxOccurs="20">
+														<xs:complexType>
+															<xs:attribute name="Code" type="xs:string" use="required"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="DirectAccess" type="xs:boolean" use="optional"/>
+												<xs:attribute name="Exclude" type="xs:boolean" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Charters" type="xs:boolean" use="optional"/>
+									<xs:attribute name="DirectOnly" type="xs:boolean" use="optional"/>
+									<xs:attribute name="ExcludeCodeshares" type="xs:boolean" use="optional"/>
+									<xs:attribute name="OnlineOnly" type="xs:boolean" use="optional"/>
+									<xs:attribute name="Scan" type="xs:boolean" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TimeQualifiers" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ArrivalTime" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="WindowAfter" type="sws:time" use="required"/>
+												<xs:attribute name="WindowBefore" type="sws:time" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DepartureTime" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="WindowBefore" type="sws:time" use="required"/>
+												<xs:attribute name="WindowAfter" type="sws:time" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="OriginDestinationInformation" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FlightSegment">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ConnectionLocations" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CarrierSpecificDisplay" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="LegOne">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VendorPrefs">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Airline" minOccurs="0" maxOccurs="20">
+																							<xs:complexType>
+																								<xs:attribute name="Code" type="xs:string" use="required"/>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute name="Exclude" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="ExcludeCodeshares" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="Any" type="xs:boolean" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="LegThree" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VendorPrefs">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Airline" minOccurs="0" maxOccurs="20">
+																							<xs:complexType>
+																								<xs:attribute name="Code" type="xs:string" use="required"/>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute name="Exclude" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="ExcludeCodeshares" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="Any" type="xs:boolean" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="LegTwo">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VendorPrefs">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Airline" minOccurs="0" maxOccurs="20">
+																							<xs:complexType>
+																								<xs:attribute name="Code" type="xs:string" use="required"/>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute name="Exclude" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="ExcludeCodeshares" type="xs:boolean" use="optional"/>
+																					<xs:attribute name="Any" type="xs:boolean" use="optional"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ConnectionLocation" maxOccurs="2">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ConnectTimeOverrides" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="Max" type="xs:string" use="optional"/>
+																		<xs:attribute name="Min" type="xs:string" use="required"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="LocationCode" type="xs:string" use="required"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DestinationLocation">
+											<xs:complexType>
+												<xs:attribute name="LocationCode" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OriginLocation">
+											<xs:complexType>
+												<xs:attribute name="LocationCode" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="ArrivalDateTime" type="sws:dateOrTime" use="optional"/>
+									<xs:attribute name="DepartureDateTime" type="sws:dateOrTime" use="optional"/>
+									<xs:attribute name="FlightNumber" type="xs:string" use="optional"/>
+									<xs:attribute name="NumberInParty" type="xs:string" use="optional"/>
+									<xs:attribute name="ResBookDesigCode" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ReturnHostCommand" type="xs:boolean" use="optional"/>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" fixed="2.4.0" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://services.sabre.com/res/tir/v3_9" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.sabre.com/res/tir/v3_9" elementFormDefault="qualified">
+	<xs:element name="TravelItineraryReadRQ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessagingDetails">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SubjectAreas" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SubjectArea" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="UniqueID" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="ID" type="xs:string" use="required"/>
+						<xs:attribute name="SnapshotId" type="sws:UUID" use="optional"/>
+						<xs:attribute name="CreateDate" type="xs:date" use="optional">
+							<xs:annotation>
+								<xs:documentation>Pnr creation date used for retrieve inactive pnr</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EchoToken" type="xs:string" minOccurs="0"/>
+				<xs:element name="ReturnOptions" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="UnmaskCreditCard" type="xs:boolean" default="false"/>
+						<xs:attribute name="ShowTicketStatus" type="xs:boolean" default="false">	
+						  <xs:annotation>
+                           <xs:documentation>"ShowTicketStatus" is for specifying whether user wants status for each ticket or not.
+                           </xs:documentation>
+                          </xs:annotation>	
+						</xs:attribute>
+						<xs:attribute name="Language" type="xs:boolean"  use="optional">
+							<xs:annotation>
+								<xs:documentation>"Language" is used to translate attributes (like Cabin name).
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="TimeStamp" type="xs:dateTime" use="optional"/>
+			<xs:attribute name="Version" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="UUID">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

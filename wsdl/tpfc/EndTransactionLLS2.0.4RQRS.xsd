@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10"
+                    xmlns="http://www.w3.org/2001/XMLSchema"
+                    elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<include schemaLocation="EndTransactionLLS2.0.4RQ.xsd"/>
+	<include schemaLocation="EndTransactionLLS2.0.4RS.xsd"/>
+</schema>

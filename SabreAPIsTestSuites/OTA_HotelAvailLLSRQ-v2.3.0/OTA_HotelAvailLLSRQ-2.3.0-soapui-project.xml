@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="9cfff8b8-6743-413b-b465-1e791779be71" activeEnvironment="Default" name="OTA_HotelAvailLLSRQ-2.3.0" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c4b87559-0b1f-41b7-b1ca-aa8d86e6f92f" wsaVersion="NONE" name="OTA_HotelAvailSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}OTA_HotelAvailSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl"><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://webservices.sabre.com/sabreXML/2011/10" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+<con:soapui-project id="9cfff8b8-6743-413b-b465-1e791779be71" activeEnvironment="Default" name="OTA_HotelAvailLLSRQ-2.3.0" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c4b87559-0b1f-41b7-b1ca-aa8d86e6f92f" wsaVersion="NONE" name="OTA_HotelAvailSoapBinding" type="wsdl" bindingName="{https://webservices.sabre.com/websvc}OTA_HotelAvailSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl"><con:part><con:url>file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://webservices.sabre.com/websvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sws_xsd="http://webservices.sabre.com/sabreXML/2011/10" xmlns:sws="https://webservices.sabre.com/websvc" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <wsdl:types>
     <xsd:schema>
       <xsd:import namespace="http://webservices.sabre.com/sabreXML/2011/10" schemaLocation="OTA_HotelAvailLLS2.2.1RQRS.xsd"/>
@@ -45,10 +45,10 @@
       <soap:address location="https://webservices.platform.sabre.com/websvc"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQRS.xsd</con:url><con:content>&lt;schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema">
   &lt;include schemaLocation="OTA_HotelAvailLLS2.2.1RQ.xsd"/>
   &lt;include schemaLocation="OTA_HotelAvailLLS2.2.1RS.xsd"/>
-&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RQ.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="sws_common.xsd"/>
   <xs:element name="OTA_HotelAvailRQ">
     <xs:complexType>
@@ -256,7 +256,7 @@
       <xs:attribute name="Version" type="xs:string" fixed="2.2.1" use="required"/>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/sws_common.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/sws_common.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="dateTime">
     <xs:annotation>
       <xs:documentation>A date time type that forces both date and time to be specified. A year and seconds are allowed to be omitted. Example formats: "yyyy-mm-ddThh:mm:ss", "mm-ddThh:mm:ss", "mm-ddThh:mm", "yyyy-mm-ddThh:mm"</xs:documentation>
@@ -329,7 +329,7 @@
       <xs:pattern value="\d{2}:\d{2}:\d{2}"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/OTA_HotelAvailLLS2.2.1RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stl="http://services.sabre.com/STL/v01">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/OTA_HotelAvailLLS2.2.1RS.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified" xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stl="http://services.sabre.com/STL/v01">
   <xs:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
   <xs:include schemaLocation="sws_common.xsd"/>
   <xs:element name="OTA_HotelAvailRS">
@@ -765,7 +765,7 @@
       <xs:attribute name="Version" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/STL_For_SabreProtocol_v.1.2.0.xsd</con:url><con:content><![CDATA[<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://services.sabre.com/STL/v01" xmlns="http://services.sabre.com/STL/v01" xmlns:STL="http://services.sabre.com/STL/v01" xmlns:stlh="http://services.sabre.com/STL_Header/v120" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/STL_For_SabreProtocol_v.1.2.0.xsd</con:url><con:content><![CDATA[<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://services.sabre.com/STL/v01" xmlns="http://services.sabre.com/STL/v01" xmlns:STL="http://services.sabre.com/STL/v01" xmlns:stlh="http://services.sabre.com/STL_Header/v120" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:annotation>
     <xsd:documentation>October 11, 2011 - added ShortText to SystemSpecificResults.
   		
@@ -892,7 +892,7 @@
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/STL_Header_v.1.2.0.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_Header/v120" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stlh="http://services.sabre.com/STL_Header/v120" xmlns="http://services.sabre.com/STL_Header/v120">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/STL_Header_v.1.2.0.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://services.sabre.com/STL_Header/v120" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stlh="http://services.sabre.com/STL_Header/v120" xmlns="http://services.sabre.com/STL_Header/v120">
   <xsd:annotation>
     <xsd:documentation>October 11, 2011 - added key to trace attributes.
 			
@@ -1305,7 +1305,7 @@
       <xsd:enumeration value="gateway"/>
     </xsd:restriction>
   </xsd:simpleType>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/msg-header-2_0.xsd</con:url><con:content><![CDATA[<!--Some parsers may require explicit declaration of 'xmlns:xml="http://www.w3.org/XML/1998/namespace"'. 
      In that case, a copy of this schema augmented with the above declaration should be cached and used
      for the purpose of schema validation on ebXML messages.-->
 <schema targetNamespace="http://www.ebxml.org/namespaces/messageHeader" elementFormDefault="qualified" attributeFormDefault="qualified" version="2.0c" xmlns:tns="http://www.ebxml.org/namespaces/messageHeader" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -1566,7 +1566,7 @@
   </element>
   <element name="RefToMessageId" type="tns:non-empty-string"/>
   <element name="Timestamp" type="string"/>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/xmldsig-core-schema.xsd</con:url><con:content><![CDATA[<!--Schema for XML Signatures
     http://www.w3.org/2000/09/xmldsig#
     $Revision: 1.1 $ on $Date: 2002/02/08 20:32:26 $ by $Author: reagle $
 
@@ -1811,7 +1811,7 @@
   </complexType>
   <!--End KeyValue Element-types-->
   <!--End Signature-->
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/xlink.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
   <xsd:attribute name="type">
     <xsd:simpleType>
       <xsd:restriction base="xsd:NMTOKEN">
@@ -1841,7 +1841,7 @@
       </xsd:restriction>
     </xsd:simpleType>
   </xsd:attribute>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/envelope.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--Envelope, header and body-->
   <xs:element name="Envelope" type="tns:Envelope"/>
   <xs:complexType name="Envelope">
@@ -1907,7 +1907,7 @@
     </xs:sequence>
     <xs:anyAttribute namespace="##any" processContents="lax"/>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/xml.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" xml:lang="en" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>See http://www.w3.org/XML/1998/namespace.html and
    http://www.w3.org/TR/REC-xml for information about this namespace.</xs:documentation>
@@ -1974,7 +1974,7 @@
     <xs:attribute ref="xml:lang"/>
     <xs:attribute ref="xml:space"/>
   </xs:attributeGroup>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://files.developer.sabre.com/wsdl/tpfc/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:../../wsdl/tpfc/wsse.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/12/secext" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app2="http://schemas.xmlsoap.org/ws/2002/12/secext">
   <xs:element name="Security" msdata:Prefix="wsse">
     <xs:complexType>
       <xs:sequence>

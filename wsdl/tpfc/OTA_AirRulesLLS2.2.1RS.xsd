@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sws="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:stl="http://services.sabre.com/STL/v01" targetNamespace="http://webservices.sabre.com/sabreXML/2011/10" elementFormDefault="qualified">
+	<xs:import namespace="http://services.sabre.com/STL/v01" schemaLocation="STL_For_SabreProtocol_v.1.2.0.xsd"/>
+	<xs:include schemaLocation="sws_common.xsd"/>
+	<xs:element name="OTA_AirRulesRS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="stl:ApplicationResults"/>
+				<xs:element name="DuplicateFareInfo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Text" minOccurs="0" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="FareRuleInfo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Header" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Line" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Text" minOccurs="0" type="xs:string"/>
+												</xs:sequence>
+												<xs:attribute name="Type" use="optional">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Legend"/>
+															<xs:enumeration value="Fare"/>
+															<xs:enumeration value="Passenger Type"/>
+															<xs:enumeration value="Origin Destination"/>
+															<xs:enumeration value="Fare Basis"/>
+															<xs:enumeration value="Fare Type"/>
+															<xs:enumeration value="SITA"/>
+															<xs:enumeration value="Footnotes"/>
+															<xs:enumeration value="Currency"/>
+															<xs:enumeration value="System Dates"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ParsedData" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CurrencyLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Amount" minOccurs="0" type="xs:string"/>
+																<xs:element name="CurrencyCode" minOccurs="0" type="xs:string"/>
+																<xs:element name="Discontinue" minOccurs="0" type="xs:string"/>
+																<xs:element name="Effective" minOccurs="0" type="sws:date"/>
+																<xs:element name="FareClass" minOccurs="0" type="xs:string"/>
+																<xs:element name="RoutingNumberOrMPM" minOccurs="0" type="xs:string"/>
+																<xs:element name="TariffDescriptionNumber" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="FareBasisLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="DisplayType" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="Code" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="FareBasis" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="Code" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="FareVendor" minOccurs="0" type="xs:string"/>
+																<xs:element name="Text" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="FareTypeLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="FareDescription" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="Code" type="xs:string" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="FareType" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="FootnoteLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Footnotes" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="OriginDestinationLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Airline" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="Code" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DestinationLocation" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="LocationCode" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="OriginLocation" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="LocationCode" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Rule" minOccurs="0" type="xs:string"/>
+																<xs:element name="TariffDescriptionNumber" minOccurs="0" type="xs:string"/>
+																<xs:element name="TravelDate" minOccurs="0" type="sws:fullDate"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="PassengerTypeLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="AutoPrice" minOccurs="0" type="xs:string"/>
+																<xs:element name="PassengerType" minOccurs="0" maxOccurs="5">
+																	<xs:complexType>
+																		<xs:attribute name="Code" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="SITA_Line" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="DBE_Code" minOccurs="0" type="xs:string"/>
+																<xs:element name="FareQuality" minOccurs="0" type="xs:string"/>
+																<xs:element name="RouteCode" minOccurs="0" type="xs:string"/>
+																<xs:element name="TariffFamily" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="SystemDatesLine" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CreateDateTime" minOccurs="0" type="xs:string"/>
+																<xs:element name="ExpireDateTime" minOccurs="0" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Rules" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Paragraph" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Text" minOccurs="0" type="xs:string"/>
+												</xs:sequence>
+												<xs:attribute name="RPH" type="xs:string" use="optional"/>
+												<xs:attribute name="Title" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RoutingInfo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Text" minOccurs="0" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Version" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.OpenTravel.org/ns/OTA2/AppInfo_v01_00"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xsd:element name="Library" type="Library"/>
+    <xsd:complexType name="Library">
+        <xsd:annotation>
+            <xsd:documentation>
+                Used in the schema/wsdl-level Appinfo element to annotate the compiler version, source, and compilation date.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ProjectName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ServiceName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="LibraryName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="LibraryVersion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="SourceFile" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="CompilerVersion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="CompileDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="OTA2Entity" type="OTA2Entity"/>
+    <xsd:element name="OTA2EntityReference" type="OTA2Entity"/>
+    <xsd:complexType name="OTA2Entity">
+        <xsd:annotation>
+            <xsd:documentation>
+                Used in Appinfo elements to denote the model element from which a type or element was derived.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="type" type="xsd:string"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:element name="Equivalent" type="ContextualValue">
+        <xsd:annotation>
+            <xsd:documentation>
+                Used in Appinfo elements to describe the equivalence and equivalence context of the associated model element.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Example" type="ContextualValue">
+        <xsd:annotation>
+            <xsd:documentation>
+                Used in Appinfo elements to describe an example value for simple types.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="ContextualValue">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="context" type="xsd:string"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+</xsd:schema>
